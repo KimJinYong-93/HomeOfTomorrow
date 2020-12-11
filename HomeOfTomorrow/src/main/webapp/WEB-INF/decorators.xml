@@ -1,0 +1,17 @@
+<decorators defaultdir="/WEB-INF/views/decorators">	
+
+	<decorator name="main" page="main_decorator.jsp">
+		<pattern>/</pattern>				
+	</decorator>		
+	
+	
+	<decorator name="openWindow" page="open_decorator.jsp">
+		<pattern></pattern>				
+		<pattern></pattern>			
+	</decorator>
+	
+	<excludes>		
+		<pattern></pattern>					
+	</excludes>
+	
+</decorators>
