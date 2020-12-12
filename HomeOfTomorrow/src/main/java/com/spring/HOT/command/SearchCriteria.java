@@ -1,3 +1,4 @@
+
 package com.spring.HOT.command;
 
 public class SearchCriteria {

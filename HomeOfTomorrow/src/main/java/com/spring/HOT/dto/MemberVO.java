@@ -1,3 +1,4 @@
+
 package com.spring.HOT.dto;
 
 public class MemberVO {

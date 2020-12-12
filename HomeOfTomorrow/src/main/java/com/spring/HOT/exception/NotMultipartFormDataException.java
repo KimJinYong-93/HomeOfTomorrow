@@ -1,3 +1,4 @@
+
 package com.spring.HOT.exception;
 
 public class NotMultipartFormDataException extends Exception{
