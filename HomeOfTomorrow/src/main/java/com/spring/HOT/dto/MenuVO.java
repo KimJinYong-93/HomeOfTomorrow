@@ -45,6 +45,13 @@ public class MenuVO {
 	public void setDownlevel(int downlevel) {
 		this.downlevel = downlevel;
 	}
+	@Override
+	public String toString() {
+		return "MenuVO [mcode=" + mcode + ", mname=" + mname + ", url=" + url + ", icon=" + icon + ", upcode=" + upcode
+				+ ", downlevel=" + downlevel + "]";
+	}
+	
+	
 	
 	
 

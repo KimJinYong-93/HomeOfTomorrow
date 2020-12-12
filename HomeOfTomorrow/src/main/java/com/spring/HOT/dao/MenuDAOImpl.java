@@ -23,4 +23,11 @@ public class MenuDAOImpl implements MenuDAO{
 		
 	}
 
+	@Override
+	public List<MenuVO> subMenuList(String mCode) throws SQLException {
+		List<MenuVO> subMenu = null;
+		subMenu = sqlSession.selectList("Menu-Mapper.selectSubMenu", mCode);
+		return subMenu;
+	}
+
 }

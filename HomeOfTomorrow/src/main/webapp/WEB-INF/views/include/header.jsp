@@ -121,6 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 				<ul>
+
 					<c:if test="${loginUser eq null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
 							<a href="loginForm.do">LOGIN</a>
@@ -175,18 +176,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 ※ 관련 매뉴얼 http://d-j.co.kr/_dj/sub/manual/manual_view.html?no=22347&board_no=3
 
                 ---------------------------------------------------------------------->
-									<li class="list xans-record-"><a
-										style="font-weight: 700 !important;"
-										href="/product/list.html?cate_no=43">STORY</a></li>
-									<li class="list"><a style="font-weight: 700 !important;"
-										href="/board/gallery/list.html?board_no=8">GALLERY</a></li>
-									<li class="list"><a style="font-weight: 700 !important;"
-										href="/shopinfo/location.html">LOCATION</a></li>
-									<li class="list"><a style="font-weight: 700 !important;"
-										href="/board/p_review/list.html?board_no=4">REVIEW</a></li>
-									<li class="list xans-record-"><a
-										style="font-weight: 700 !important;"
-										href="/product/list.html?cate_no=23">SHOP</a></li>
+								<c:forEach items="${mainMenuList}" var="mainMenu">
+									<c:if test="${mainMenu.mcode ne 'M000000' }">
+										<c:if test="${mainMenu.mname eq 'QnA' }">
+										<li class="list xans-record-"><a
+											style="font-weight: 700 !important;"
+											href="/product/list.html?cate_no=43">Q&A</a></li>
+										</c:if>
+										<c:if test="${mainMenu.mname ne 'QnA' }">
+											<li class="list xans-record-"><a
+											style="font-weight: 700 !important;"
+											href="/product/list.html?cate_no=43">${mainMenu.mname }</a></li>
+										</c:if>
+									</c:if>
+								</c:forEach>
 
 									<!--------------------------------------------------------------------- 
 
