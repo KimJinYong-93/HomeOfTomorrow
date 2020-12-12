@@ -64,7 +64,7 @@
 					<span id="#" class="valchk" style="display: inline-block;" >유효성체크</span>
 					
 					<div class="wrap-inputJoin validate-input">
-							<input class="join100" type="text" style="width:30.5%;padding-left: 45px; margin-right: 5px;" placeholder="Phone" disabled="disabled"/>
+							<input class="join100" type="text" style="width:25%;padding-left: 45px; margin-right: 5px;" placeholder="Phone" disabled="disabled"/>
 							<select class="joinSelect" name="phone" style="text-align: center;">
 								<option value="010">010</option>
 								<option value="011">011</option>
@@ -72,11 +72,12 @@
 								<option value="018">018</option>
 							</select>
 							<label class="" style="text-align: center;">&nbsp;-&nbsp;</label>										
-							<input class="join100" style="width:20%;text-align: center;" name="phone" type="text" />
+							<input class="join100" style="width:23%;text-align: center;" name="phone" type="text" />
 							<label class="" style="text-align: center;">&nbsp;-</label>
-							<input class="join100" style="width:20%;text-align: center;" name="phone" type="text" />		
-						<span class="symbol-input100">
-							<i class="fa fa-phone" aria-hidden="true" style="z-index: 100"></i></span>
+							<input class="join100" style="width:23%;text-align: center;" name="phone" type="text" />		
+					<span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true" style="z-index: 100"></i>
+					</span>
 						
 					</div>
 					<span id="#" class="valchk" style="display: inline-block;" >유효성체크</span>
@@ -105,7 +106,7 @@
 							class="focus-input100"></span> <span class="symbol-input100">
 						</span>
 					</div>
-					<span id="#" class="valchk" style="display: inline-block;" ></span>
+					<span id="#마진때문에 넣어놈" class="valchk" style="display: inline-block;" ></span>
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
