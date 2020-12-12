@@ -93,9 +93,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 
  
-    <ul><li class="xans-element- xans-layout xans-layout-statelogoff "><a href="<%=request.getContextPath()%>/common/login.do">LOGIN</a>
+    <ul><li class="xans-element- xans-layout xans-layout-statelogoff "><a href="<%=request.getContextPath()%>/common/loginForm.do">LOGIN</a>
 </li>
-        <li class="xans-element- xans-layout xans-layout-statelogoff "><a href="<%=request.getContextPath()%>/common/join.do">JOIN</a>
+        <li class="xans-element- xans-layout xans-layout-statelogoff "><a href="<%=request.getContextPath()%>/common/joinForm.do">JOIN</a>
 </li>
                         <li class="cart"><a href="/order/basket.html">CART<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
 </a></li>
