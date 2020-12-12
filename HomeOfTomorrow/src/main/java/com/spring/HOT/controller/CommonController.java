@@ -64,6 +64,7 @@ public class CommonController {
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) throws SQLException {
+		
 		String url = "redirect:main";
 		
 		session.invalidate();
