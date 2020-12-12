@@ -10,5 +10,11 @@
 		where mCode like '%'||'0000'||'%'
 		order by mCode asc
 	</select>
+	
+	<select id="selectSubMenu" resultType="menu">
+		select *
+		from menu
+		where upCode = #{mCode}
+	</select>
 
 </mapper>

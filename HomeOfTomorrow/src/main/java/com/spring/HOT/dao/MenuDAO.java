@@ -8,5 +8,7 @@ import com.spring.HOT.dto.MenuVO;
 public interface MenuDAO {
 	
 	List<MenuVO> mainMenuList() throws SQLException;
+	List<MenuVO> subMenuList(String mCode) throws SQLException;
+	
 
 }

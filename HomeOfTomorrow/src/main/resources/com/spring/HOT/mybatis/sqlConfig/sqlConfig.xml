@@ -9,6 +9,7 @@
 		<typeAlias type="java.lang.Integer" alias="int"/>
 		<typeAlias type="com.spring.HOT.dto.MemberVO" alias="member"/>
 		<typeAlias type="com.spring.HOT.dto.MenuVO" alias="menu"/>
+		<typeAlias type="com.spring.HOT.dto.GoodsVO" alias="goods"/>
 		
 	</typeAliases>
 </configuration>

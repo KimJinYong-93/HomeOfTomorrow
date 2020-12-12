@@ -2,15 +2,22 @@
 package com.spring.HOT.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.HOT.dto.GoodsVO;
+import com.spring.HOT.dto.MenuVO;
+import com.spring.HOT.service.GoodsService;
 import com.spring.HOT.service.MemberService;
+import com.spring.HOT.service.MenuService;
 
 @Controller
 @RequestMapping("/common")
@@ -18,11 +25,26 @@ public class CommonController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private MenuService menuService;
+	@Autowired
+	private GoodsService goodsService;
 	
-	@RequestMapping("/main")
-	public String main() {
+	
+	
+	
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv) throws SQLException{
 		String url="/common/main";
-		return url;
+		List<MenuVO> mainMenu = menuService.mainMenu();
+		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
+		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
+		mnv.addObject("mainMenuList",mainMenu);
+		mnv.addObject("subMenuList",subMenu);
+		mnv.addObject("goodsTop12",goodsTop12);
+		mnv.setViewName(url);
+		
+		return mnv;
 	}
 
 	@RequestMapping("/loginForm")

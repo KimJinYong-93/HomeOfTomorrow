@@ -12,16 +12,31 @@
 	<bean id="picturePath" class="java.lang.String">
 		<constructor-arg value="${member.picture.upload}"></constructor-arg>
 	</bean>
+	
+	<bean id="goodsPicturePath" class="java.lang.String">
+		<constructor-arg value="${goods.picture.upload}"></constructor-arg>
+	</bean>
 
 	<!-- dao -->
 	<bean id="memberDAO"
 		class="com.spring.HOT.dao.MemberDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
+	<bean id="menuDAO"
+		class="com.spring.HOT.dao.MenuDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
+	<bean id="goodsDAO"
+		class="com.spring.HOT.dao.GoodsDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
 	
 	<!-- service -->
 	<bean id="memberService"
 		class="com.spring.HOT.service.MemberServiceImpl"
-		p:memberDAO-ref="memberDAO">
-	
-	</bean>	
+		p:memberDAO-ref="memberDAO"/>
+	<bean id="menuService"
+		class="com.spring.HOT.service.MenuServiceImpl"
+		p:menuDAO-ref="menuDAO"/>
+	<bean id="goodsService"
+		class="com.spring.HOT.service.GoodsServiceImpl"
+		p:goodsDAO-ref="goodsDAO"/>
+
 </beans>
