@@ -21,6 +21,8 @@ import com.spring.HOT.exception.invalidPasswordException;
 import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.MenuService;
 
+import lombok.extern.java.Log;
+
 @Controller
 @RequestMapping("/common")
 public class CommonController {
@@ -92,4 +94,5 @@ public class CommonController {
 		
 		return url;
 	}
+	
 }

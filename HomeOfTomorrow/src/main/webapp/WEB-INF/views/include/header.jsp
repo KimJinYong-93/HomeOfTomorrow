@@ -121,7 +121,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 				<ul>
-
+					<li class="xans-element- xans-layout xans-layout-statelogoff ">
+						<a href="kakaoPay">
+							<img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;">
+						</a>
+					</li>
 					<c:if test="${loginUser eq null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
 							<a href="loginForm.do">LOGIN</a>
