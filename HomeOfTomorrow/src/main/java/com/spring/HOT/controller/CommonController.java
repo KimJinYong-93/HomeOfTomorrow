@@ -34,7 +34,6 @@ public class CommonController {
 	
 	
 	
-	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv) throws SQLException{
 		String url="/common/main";
