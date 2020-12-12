@@ -263,7 +263,7 @@ iframe {
 	
   display: block;
   width: 100%;
-  background: #e6e6e6;
+  background: #f0f2f5;
   height: 50px;
   border-radius: 25px;
   padding: 0 30px 0 68px;
@@ -278,7 +278,7 @@ iframe {
   float: left;
   display: block;
   width: 80%;
-  background: #e6e6e6;
+  background: #f0f2f5;
   height: 50px;
   border-radius: 25px;
   padding: 0 30px 0 68px;
@@ -293,7 +293,7 @@ iframe {
 	
   display: inline;
   width: 20%;
-  background: #e6e6e6;
+  background: #f0f2f5;
   height: 50px;
   border-radius: 25px;
   padding: 0 30px 0 68px;
@@ -305,7 +305,7 @@ iframe {
   color: #666666;
   text-align-last:center;
   width:21%;	
-  background: #e6e6e6;
+  background: #f0f2f5;
   border-radius: 25px;
 }
 
@@ -439,7 +439,7 @@ iframe {
   transition: all 0.4s;
 }
 
-.idChkbtn {
+.chkBtn {
   font-family: Montserrat-Bold;
   font-size: 13px;
   line-height: 1.5;

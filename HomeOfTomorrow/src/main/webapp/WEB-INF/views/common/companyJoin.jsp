@@ -34,22 +34,21 @@
 					<span class="login100-form-title">
 						Company Member Join
 					</span>
-
 					<div class="wrap-inputJoin validate-input">
 						<input class="inputId" type="text" name="cname" id="id"
-							placeholder="Company Name" style="padding-left: 45px;"> <span
+							placeholder="Business Number" style="padding-left: 45px;"> <span
 							class="focus-inputId"></span> <span class="symbol-input100">
-							<i class="fa-Id fa-building" aria-hidden="true"></i>
+							<i class="fa-Id fa-bold" aria-hidden="true"></i>
 						</span>
 					</div>
-					<button type="button" class="idChkbtn" id="idChkbtn" onclick="idCheck_go();" >중복확인</button>
+					<button type="button" class="chkBtn" id="idChkbtn" onclick="idCheck_go();" >중복확인</button>
 					<span id="idChk" class="valchk" style="display: inline-block;"></span>
 					
 					<div class="wrap-inputJoin validate-input">
 						<input class="input100" type="text" name="cno"
-							placeholder="Business Number" style="padding-left: 45px;"> <span
+							placeholder="Company Name" style="padding-left: 45px;"> <span
 							class="focus-input100"></span> <span class="symbol-input100">
-							<i class="fa fa-bold" aria-hidden="true"></i>
+							<i class="fa fa-building" aria-hidden="true"></i>
 						</span>
 					</div>
 					<span id="#" class="valchk" style="display: inline-block;" >유효성체크</span>
@@ -91,14 +90,16 @@
 					</div>
 					<span id="#" class="valchk" style="display: inline-block;" >유효성체크</span>
 
+
 					<div class="wrap-inputJoin validate-input">
-						<input class="input100" type="text" name="address1" placeholder="address1" style="padding-left: 45px;"> 
-							<span class="focus-input100"></span>
-							<span class="symbol-input100">
-							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						<input class="inputId" type="text" name="cname" id="id"
+							placeholder="address1" style="padding-left: 45px;"> <span
+							class="focus-inputId"></span> <span class="symbol-input100">
+							<i class="fa-Id fa-map-marker" aria-hidden="true"></i>
 						</span>
 					</div>
-					<span id="#" class="valchk" style="display: inline-block;" >유효성체크</span>
+					<button type="button" class="chkBtn" id="addChkbtn" onclick="" >주소찾기</button>
+					<span id="addressChk" class="valchk" style="display: inline-block;"></span>
 					
 					<div class="wrap-inputJoin validate-input">
 						<input class="input100" type="text" name="address2"

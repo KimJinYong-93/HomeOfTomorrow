@@ -67,7 +67,10 @@ public class CommonController {
 	}
 	
 	@RequestMapping("/memberJoin")
-	public void memberJoin() {}
+	public String memberJoin() {
+		String url="/common/memberJoin";
+		return url;
+	}
 	
 	@RequestMapping("/login")
 	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{
