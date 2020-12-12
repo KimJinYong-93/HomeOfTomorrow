@@ -35,19 +35,63 @@
 						Company Member Join
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email" style="padding-left:45px;" >
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="cname"
+							placeholder="Company Name" style="padding-left: 45px;"> <span
+							class="focus-input100"></span> <span class="symbol-input100">
+							<i class="fa fa-id-card" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="cno"
+							placeholder="Business Number" style="padding-left: 45px;"> <span
+							class="focus-input100"></span> <span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Password is required">
+						<input class="input100" type="password" name="manager"
+							placeholder="Manager Name" style="padding-left: 45px;"> <span
+							class="focus-input100"></span> <span class="symbol-input100">
+							<i class="fa fa-smail" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="hp" placeholder="phone" style="padding-left: 45px; width: 100px;"> 
+							<span class="focus-input100"></span>
+							<span class="symbol-input100"><i class="fa fa-phone" aria-hidden="true"></i></span>
+					</div>
+
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email"
+							placeholder="Email" style="padding-left: 45px;"> <span
+							class="focus-input100"></span> <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password" style="padding-left:45px;">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="address1" placeholder="address1" style="padding-left: 45px;"> 
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							<i class="fa fa-address-card" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input"
+						data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="address2"
+							placeholder="address2" style="padding-left: 45px;"> <span
+							class="focus-input100"></span> <span class="symbol-input100">
 						</span>
 					</div>
 					

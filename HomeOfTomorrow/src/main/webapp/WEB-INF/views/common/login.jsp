@@ -103,7 +103,12 @@
 		function login(){
 			form.submit();
 		}
+		var message="${msg}";
+		if(message!=""){
+			alert(message);
+		}
 	</script>
+		<% session.removeAttribute("msg"); %>
 <!--===============================================================================================-->
 	<script src="<%=request.getContextPath()%>/resources/Login_v1/js/main.js"></script>
 
