@@ -34,7 +34,7 @@
 					<img src="<%=request.getContextPath()%>/resources/Login_v1/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" action="/common/login" role="loginForm">
+				<form class="login100-form validate-form" action="login" role="loginForm">
 					<span class="login100-form-title">
 						Login
 					</span>
@@ -103,7 +103,12 @@
 		function login(){
 			form.submit();
 		}
+		var message="${msg}";
+		if(message!=""){
+			alert(message);
+		}
 	</script>
+		<% session.removeAttribute("msg"); %>
 <!--===============================================================================================-->
 	<script src="<%=request.getContextPath()%>/resources/Login_v1/js/main.js"></script>
 

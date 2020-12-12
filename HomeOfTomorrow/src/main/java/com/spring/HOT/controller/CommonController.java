@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.MenuVO;
 import com.spring.HOT.service.GoodsService;
+import com.spring.HOT.exception.NotFoundIDException;
+import com.spring.HOT.exception.invalidPasswordException;
 import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.MenuService;
 
@@ -65,11 +67,28 @@ public class CommonController {
 		return url;
 	}
 	
+	@RequestMapping("/memberJoin")
+	public void memberJoin() {}
+	
 	@RequestMapping("/login")
 	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{
 		String url = "redirect:main";
 		
+		try {
+			memberService.login(id, pwd, session);
+		} catch (NotFoundIDException | invalidPasswordException e) {
+			url = "redirect:loginForm";
+			session.setAttribute("msg", e.getMessage());
+		}
 		
+		return url;
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) throws SQLException {
+		String url = "redirect:main";
+		
+		session.invalidate();
 		
 		return url;
 	}
