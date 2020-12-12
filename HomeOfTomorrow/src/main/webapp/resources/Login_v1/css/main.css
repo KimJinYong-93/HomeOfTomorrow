@@ -197,7 +197,7 @@ iframe {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  margin-left :35%;
+  margin-left :30%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -205,7 +205,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 5%;
 }
 
 /*------------------------------------------------------------------
@@ -223,6 +223,9 @@ iframe {
 [  ]*/
 .login100-form {
   width: 290px;
+}
+.Join-form {
+  width: 50%;
 }
 
 .login100-form-title {
@@ -246,6 +249,12 @@ iframe {
   margin-bottom: 10px;
 }
 
+.wrap-inputJoin {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
 .input100 {
   font-family: Poppins-Medium;
   font-size: 15px;
@@ -261,6 +270,49 @@ iframe {
  
 }
 
+.inputId {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  float: left;
+  display: block;
+  width: 80%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+ 
+}
+
+.join100 {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+	
+  display: inline;
+  width: 20%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
+
+.joinSelect {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  color: #666666;
+  text-align-last:center;
+  width:20%;	
+  background: #e6e6e6;
+  border-radius: 25px;
+}
+
+
+.valchk{
+	margin : 10px;
+}
 
 /*------------------------------------------------------------------
 [ Focus ]*/
@@ -277,7 +329,24 @@ iframe {
   color: rgba(93, 129, 207, 0.8);
 }
 
+.focus-inputId {
+  display: block;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 80%;
+  height: 100%;
+  box-shadow: 0px 15px 0px 0px;
+  color: rgba(93, 129, 207, 0.8);
+}
+
 .input100:focus + .focus-input100 {
+  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
+  animation: anim-shadow 0.5s ease-in-out forwards;
+}
+.inputId:focus + .focus-inputId {
   -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
   animation: anim-shadow 0.5s ease-in-out forwards;
 }
@@ -321,6 +390,10 @@ iframe {
   transition: all 0.4s;
 }
 
+.inputId:focus + .focus-inputId + .symbol-input100 {
+  color: #a0cee8;
+  padding-left: 28px;
+}
 .input100:focus + .focus-input100 + .symbol-input100 {
   color: #a0cee8;
   padding-left: 28px;
@@ -360,6 +433,33 @@ iframe {
   align-items: center;
   padding: 0 25px;
 
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.idChkbtn {
+  font-family: Montserrat-Bold;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  float:left;
+  margin-left:2%;
+  width: 18%;
+  height: 30px;
+  border-radius: 25px;
+  background: #a0cee8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2px;
+  z-index:100;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
