@@ -1,3 +1,4 @@
+
 package com.spring.HOT.exception;
 
 public class NotFoundIDException extends Exception {
