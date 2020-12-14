@@ -10,4 +10,16 @@
 		where id=#{id}
 	</select>
 	
+	<select id="selectMemberNByNickname" parameterType="str" resultType="memberN">
+		SELECT *
+		FROM member_n
+		WHERE nickname = #{nickname}
+	</select>
+	
+	<update id="insertMemberN" parameterType="memberN">
+		INSERT INTO
+		member_n(id, name, email, nickname, hp, address1, address2, zipcode)
+		VALUES(#{id}, #{name}, #{email}, #{nickname}, #{hp}, #{address1}, #{address2}, #{zipcode})
+	</update>
+	
 </mapper>

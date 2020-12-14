@@ -19,4 +19,16 @@ public class Member_NServiceImpl implements Member_NService{
 		return memberN;
 	}
 
+	@Override
+	public void regist(MemberNVO memberN) throws SQLException {
+		member_NDAO.regist(memberN);
+		
+	}
+
+	@Override
+	public MemberNVO getMemberNByNickname(String nickname) throws SQLException {
+		MemberNVO memberN = member_NDAO.getMemberNByNickname(nickname);
+		return memberN;
+	}
+
 }

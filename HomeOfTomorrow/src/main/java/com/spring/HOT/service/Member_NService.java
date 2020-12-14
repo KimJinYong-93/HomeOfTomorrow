@@ -8,4 +8,8 @@ public interface Member_NService {
 	
 	MemberNVO getMemberNById(String id)throws SQLException;
 
+	void regist(MemberNVO memberN) throws SQLException;
+
+	MemberNVO getMemberNByNickname(String nickname) throws SQLException;
+
 }

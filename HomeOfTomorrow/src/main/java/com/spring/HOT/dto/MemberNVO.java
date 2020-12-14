@@ -6,7 +6,7 @@ public class MemberNVO {
 	
 	private String id;
 	private String email;
-	private String nicname;
+	private String nickname;
 	private String picture;
 	private String hp;
 	private String gender;
@@ -14,6 +14,7 @@ public class MemberNVO {
 	private String address1;
 	private String address2;
 	private String name;
+	private String zipcode;
 	
 	public String getId() {
 		return id;
@@ -27,11 +28,11 @@ public class MemberNVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getNicname() {
-		return nicname;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNicname(String nicname) {
-		this.nicname = nicname;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getPicture() {
 		return picture;
@@ -75,9 +76,12 @@ public class MemberNVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-
-	
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 	
 	
 }

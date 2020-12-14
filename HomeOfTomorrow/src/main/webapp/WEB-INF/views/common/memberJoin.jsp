@@ -29,7 +29,7 @@
 	<div class="limiter">
 		<div class="container-login100" >
 			<div class="wrap-join100" >
-				<form class="Join-form validate-form">
+				<form class="Join-form validate-form" action="join" method="post" role="memberNform">
 					<span class="login100-form-title">
 						Member Join
 					</span>
@@ -71,17 +71,27 @@
 					<span id="nameChk" class="valchk" style="display: inline-block;" ></span>
 					
 					<div class="wrap-inputJoin validate-input">
+						<input class="inputId" type="text" name="nickname" id="nickname"
+							placeholder="Nickname" style="padding-left: 45px;"> <span
+							class="focus-inputId"></span> <span class="symbol-input100">
+							<i class="fa-Id fa-id-card" aria-hidden="true"></i>
+						</span>
+					</div>
+					<button type="button" class="chkBtn" id="nickChkbtn" onclick="nickCheck_go();" >중복확인</button>
+					<span id="nickChk" class="valchk" style="display: inline-block;"></span>
+					
+					<div class="wrap-inputJoin validate-input">
 							<input class="join100" type="text" style="width:25%;padding-left: 45px; margin-right: 5px;" placeholder="Phone" disabled="disabled"/>
-							<select class="joinSelect" name="phone" style="text-align: center;">
+							<select class="joinSelect" name="hp" style="text-align: center;">
 								<option value="010">010</option>
 								<option value="011">011</option>
 								<option value="017">017</option>
 								<option value="018">018</option>
 							</select>
 							<label class="" style="text-align: center;">&nbsp;-&nbsp;</label>										
-							<input class="join100" style="width:23%;text-align: center;" name="phone" type="text" id="phone1"/>
+							<input class="join100" style="width:23%;text-align: center;" name="hp" type="text" id="phone1" maxlength="4"/>
 							<label class="" style="text-align: center;">&nbsp;-</label>
-							<input class="join100" style="width:23%;text-align: center;" name="phone" type="text" id="phone2"/>		
+							<input class="join100" style="width:23%;text-align: center;" name="hp" type="text" id="phone2" maxlength="4"/>		
 					<span class="symbol-input100">
 							<i class="fa fa-phone" aria-hidden="true" style="z-index: 100"></i>
 					</span>
@@ -110,7 +120,7 @@
 
 					
 					<div class="wrap-inputJoin validate-input">
-						<input class="input100" type="text" name="address1"
+						<input class="input100" type="text" name="address1" id="address1"
 							placeholder="address1" style="padding-left: 45px;" readonly> <span
 							class="focus-input100"></span> <span class="symbol-input100">
 						</span>
@@ -118,7 +128,7 @@
 					<span id="#마진때문에 넣어놈" class="valchk" style="display: inline-block;"></span>
 					
 					<div class="wrap-inputJoin validate-input">
-						<input class="input100" type="text" name="address2"
+						<input class="input100" type="text" name="address2" id="address2"
 							placeholder="address2" style="padding-left: 45px;"> <span
 							class="focus-input100"></span> <span class="symbol-input100">
 						</span>
@@ -126,7 +136,7 @@
 					<span id="#마진때문에 넣어놈" class="valchk" style="display: inline-block;"></span>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="button"  onclick="submit_go();">
 							Join
 						</button>
 					</div>
@@ -135,7 +145,7 @@
 						<span class="txt1">
 							이미 내일의집 회원이신가요?
 						</span>
-						<a class="txt2" href="#">
+						<a class="txt2" href="loginForm">
 							로그인
 						</a>
 					</div>
@@ -146,6 +156,7 @@
 							Back
 						</a>
 					</div>
+					<input type="hidden" name="authority" value="ROLE_USER">
 					<input type="hidden" name="gb" value="${gb }">
 				</form>
 			</div>
@@ -187,10 +198,12 @@
 			}	
 		});
 		
-		var checkedID="";
+		var checkedID = "";
+		var checkedNICK = "";
 		var input_ID = $('#id');
+		var input_NICK = $('#nickname');
 		
-		function idCheck_go(){
+		function idCheck_go(){	// 아이디 중복체크
 			
 			if(input_ID.val() == ""){
 				alert("아이디를 입력하세요.");
@@ -220,6 +233,37 @@
 			})
 		}
 		
+		function nickCheck_go(){	// 닉네임 중복체크
+			
+			if(input_NICK.val() == ""){
+				alert("닉네임을 입력하세요.");
+				input_NICK.focus();
+				return;
+			}
+			
+			var data = {nickname : input_NICK.val().trim()};
+			
+			$.ajax({
+				url : "<%=request.getContextPath()%>/common/nickCheck",
+				data : data,
+				type : 'post',
+				success : function(result){
+					if(result){
+						alert("사용 가능한 닉네임입니다.");
+						checkedNICK = result;
+						$('#nickname').val(checkedNICK);
+					}else{
+						alert("중복된 닉네임 입니다.");
+						$('#nickname').focus();
+					}
+				},
+				error : function(error){
+					alert("시스템 장애로 중복확인이 거부되었습니다.\n관리자에게 문의해주세요.");
+				}
+			})
+		}
+		
+		
 		
 		// 비밀번호 정규식 체크
 		$('#pwd').on('keyup',function(){
@@ -243,6 +287,25 @@
 			}
 		});
 		
+		// 닉네임 정규식 체크
+		$('#nickname').on('keyup',function(){
+			nickval = $('#nickname').val().trim();
+			nickreg = /^[a-zA-Z가-힣0-9]{3,10}/;
+			if(nickreg.test(nickval)){
+				$('#nickChk').text('사용가능한 닉네임입니다.').css({'color':'#6072f2','font-size':'13px'});
+			}else{
+				$('#nickChk').text('영소문자, 숫자, 한글을 포함한 3~10자 사이로 입력해주세요.').css({'color':'#fb7d7a','font-size':'13px'});
+			}	
+		});
+		
+		// 전화번호 4자리씩 체크
+		$('#phone1').on('keyup', function(){
+			phone1val = $('#phone1').val().trim();
+			if(phone1val.length == 4){
+				$('#phone2').focus();
+			}
+		})
+		
 		// 이메일 정규식 체크
 		$('#email').on('keyup',function(){
 			emailval = $('#email').val().trim();
@@ -253,6 +316,47 @@
 				$('#emailChk').text('올바르지 않은 이메일 형식입니다. 다시 확인해주세요.').css({'color':'#fb7d7a','font-size':'13px'});
 			}	
 		});
+		
+		function submit_go(){
+			 /* var uploadCheck = $('input[name="checkUpload"]').val();
+			 if(!(uploadCheck > 0)){
+				 alert("이미지 업로드는 필수입니다.")
+				 //$('input[name="pictureFile"]').click();
+				 return;
+			 } */
+			 
+			 if($('input[name ="id"]').val() == ""){
+				 alert("아이디는 필수 입니다.");
+				 return;
+			 }
+			 if($('input[name ="id"]').val() != checkedID){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+				 alert("아이디 중복확인이 필요합니다.");
+				 return;
+			 }
+			 if($('input[name ="nickname"]').val() != checkedID){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+				 alert("닉네임 중복확인이 필요합니다.");
+				 return;
+			 }
+			 if($('input[name ="pwd"]').val() == ""){
+				 alert("패스워드는 필수입니다.");
+				 return;
+			 }
+			 if($('input[name ="name"]').val() == ""){
+				 alert("이름은 필수입니다.");
+				 return;
+			 }
+			 if($('input[name ="zipcode"]').val() == ""){
+				 alert("우편번호는 필수입니다.");
+				 return;
+			 }
+			 if($('input[name ="address1"]').val() == ""){
+				 alert("주소는 필수입니다.");
+				 return;
+			 }
+			 
+			 var form = $('form[role="memberNform"]');
+			 form.submit();
+		}
 		
 	</script>
 	<%@ include file="/WEB-INF/views/common/common_js.jsp" %>
