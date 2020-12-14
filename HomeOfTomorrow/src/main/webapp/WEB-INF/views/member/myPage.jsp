@@ -38,11 +38,11 @@
 									</div>
 									<div class="user-profile__container">
 										<div class="user-profile__profile-image">
-											<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/158810413921399326.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c" />
+											<img src="<%=request.getContextPath()%>/resources/Login_v1/images/icons/profile4.png" />
 										</div>
 										<div class="profile-info">
 											<div class="profile-info__name">
-												<span>더힐202</span>
+												<span>회원닉네임</span>
 											</div>
 											<div class="profile-info__follow-state">
 												<div class="profile-info__follow-state__text">
@@ -66,13 +66,13 @@
 									<div class="user-profile__links">
 										<div class="short-cut">
 											<div class="short-cut__item">
-												<a href="/users/8176942/collections">
+												<a href="<%=request.getContextPath() %>/member/orderList">
 													<div class="short-cut__icon">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
 															<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
 														</svg>
 													</div>
-													<div class="short-cut__text">스크랩북</div>
+													<div class="short-cut__text">주문내역</div>
 													<div class="short-cut__text">
 														<b class="highlight">0</b>
 													</div></a>
@@ -118,26 +118,26 @@
 					<div class="col-12 offset-lg-1 col-lg-8 wrap--contents">
 						<div class="contents">
 							<section class="post post--cards">
-								<h5 class="post__title">사진 <strong>0</strong></h5>
+								<h5 class="post__title"> 내가 쓴 글 <strong>0</strong></h5>
 								<a class="post__upload post--cards__upload"
 									href="/contents/card_collections/new"><span
 									class="icon--page-mypage"
 									style="margin-right: 5px; background-position-x: -0px; background-position-y: -200px; width: 12px; height: 12px"></span>첫
-									번째 사진을 올려보세요</a>
+									번째 글을 올려보세요</a>
 							</section>
 							<section class="post post--projects">
-								<h5 class="post__title">집들이 <strong>0</strong></h5>
+								<h5 class="post__title"> 집들이 <strong>0</strong></h5>
 								<a class="post--projects__upload post__upload"
 									href="/projects/write"><span class="icon--page-mypage"
 									style="margin-right: 5px; background-position-x: -0px; background-position-y: -200px; width: 12px; height: 12px"></span>첫
 									번째 집들이를 올려보세요</a>
 							</section>
 							<section class="post post--projects">
-								<h5 class="post__title">질문과 답변 <strong>0</strong></h5>
+								<h5 class="post__title"> 질문과 답변 <strong>0</strong></h5>
 								<a class="post--projects__upload post__upload"
 									href="/projects/write"><span class="icon--page-mypage"
 									style="margin-right: 5px; background-position-x: -0px; background-position-y: -200px; width: 12px; height: 12px"></span>첫
-									번째 집들이를 올려보세요</a>
+									번째 질문을 올려보세요</a>
 							</section>
 						</div>
 					</div>

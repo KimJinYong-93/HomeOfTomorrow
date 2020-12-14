@@ -27,5 +27,10 @@ public class MemberController {
 		String url="member/myPage";
 		return url;
 	}
-	
+	@RequestMapping("/member/orderList")
+	public String orderList() {
+		String url="member/orderList";
+		return url;
+	}
+
 }

@@ -7,10 +7,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -38,39 +34,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<div id="header" class="">
 		<div class="inner first_in">
 
-			<!------------------------------------------------------------------------------------------------------------------     
-
-    ※ 로고 좌측 로그인, 로그아웃 등 메뉴
- 
-------------------------------------------------------------------------------------------------------------------->
-
 			<div class="top_menu">
-
 
 				<div class="xans-layout-category right_cate">
 					<div class="position">
 						<ul>
-							<!------------------------------------------------------------------------------------------------------------------     
-
-                ※ 커뮤니티
- 
-                ------------------------------------------------------------------------------------------------------------------->
 							<li class="tel nor">ddit 403호 <span>042-1234-4567</span></li>
-
-
-
 						</ul>
 					</div>
 				</div>
-
-
-
-
-				<!------------------------------------------------------------------------------------------------------------------     
-
-    ※ 검색창 
- 
-------------------------------------------------------------------------------------------------------------------->
 				<div class="right_area">
 					<div class="right_icon">
 						<li class="search all_list">
@@ -87,10 +59,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 										type="hidden">
 									<div
 										class="xans-element- xans-layout xans-layout-searchheader ">
-										<!--
-                    $product_page=/product/detail.html
-                    $category_page=/product/list.html
-                    -->
 										<fieldset>
 											<span>검색</span> <input id="keyword" name="keyword"
 												fw-filter="" fw-label="검색어" fw-msg="" class="inputTypeText"
@@ -136,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</c:if>
 					<c:if test="${loginUser ne null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
-							<a href="logout">LOGOUT</a>
+							<a href="<%=request.getContextPath()%>/common/logout">LOGOUT</a>
 						</li>
 						<li class="cart">
 							<a href="/order/basket.html">CART
@@ -159,8 +127,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 			<div class="logo">
 				<a href="/index.html"><img
-					src="<%=request.getContextPath()%>/resources/_dj/img/logo.jpg"
-					style="width: 200px; height: 40px" alt="로고"></a>
+					src="<%=request.getContextPath()%>/resources/_dj/img/logo1.png"
+					style="width: 125px; height: auto;" alt="로고"></a>
 			</div>
 			<!------------------------------------------------------------------------------------------------------------------     
 
