@@ -176,7 +176,7 @@
 
 		
 	</script>
-<!--===============================================================================================-->
+
 	<script src="<%=request.getContextPath()%>/resources/Login_v1/js/main.js"></script>
 
 </body>

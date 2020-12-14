@@ -25,7 +25,7 @@ import lombok.extern.java.Log;
 
 @Controller
 @RequestMapping("/common")
-public class CommonController {
+public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
@@ -50,27 +50,9 @@ public class CommonController {
 		return mnv;
 	}
 
-	@RequestMapping("/loginForm")
-	public String loginForm() {
-		String url="/common/login";
-		return url;
-	}
-	
-	@RequestMapping("/joinForm")
-	public String joinForm() {
-		String url="/common/join";
-		return url;
-	}
-	
-	@RequestMapping("/companyJoin")
-	public String companyJoin() {
-		String url="/common/companyJoin";
-		return url;
-	}
-	
-	@RequestMapping("/memberJoin")
-	public String memberJoin() {
-		String url="/common/memberJoin";
+	@RequestMapping("/member/myPage")
+	public String myPage() {
+		String url="member/myPage";
 		return url;
 	}
 	
