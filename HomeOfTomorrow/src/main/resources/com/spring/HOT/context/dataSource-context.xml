@@ -25,7 +25,6 @@
 		  </property>
 	</bean>
 	
-	
 	<bean id="transactionManager"
 		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		  p:dataSource-ref="dataSourceSpied"/>

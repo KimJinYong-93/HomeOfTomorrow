@@ -21,18 +21,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MenuVO;
 import com.spring.HOT.service.GoodsService;
-import com.spring.HOT.exception.NotFoundIDException;
-import com.spring.HOT.exception.invalidPasswordException;
 import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.Member_NService;
 import com.spring.HOT.service.MenuService;
 
-import lombok.extern.java.Log;
 
 @Controller
 @RequestMapping("/member")
@@ -50,7 +46,6 @@ public class MemberController {
 		String url="member/myPage";
 		return url;
 	}
-	
 	
 	@Resource(name="memberPicturePath")
 	private String memberPicturePath;
@@ -81,4 +76,10 @@ public class MemberController {
 		return entity;
 		
 	}
+	@RequestMapping("/member/orderList")
+	public String orderList() {
+		String url="member/orderList";
+		return url;
+	}
+
 }
