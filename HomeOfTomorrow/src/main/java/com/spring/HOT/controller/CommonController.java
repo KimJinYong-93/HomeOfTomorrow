@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.dto.GoodsVO;
+import com.spring.HOT.dto.HomeBoardVO;
 import com.spring.HOT.dto.MenuVO;
 import com.spring.HOT.service.GoodsService;
+import com.spring.HOT.service.HomeBoardService;
 import com.spring.HOT.exception.NotFoundIDException;
 import com.spring.HOT.exception.invalidPasswordException;
 import com.spring.HOT.service.MemberService;
@@ -31,18 +33,21 @@ public class CommonController {
 	private MenuService menuService;
 	@Autowired
 	private GoodsService goodsService;
-	
+	@Autowired
+	private HomeBoardService homeBoardService;
 	
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv) throws SQLException{
+	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv, HttpSession session) throws SQLException{
 		String url="/common/main";
-		List<MenuVO> mainMenu = menuService.mainMenu();
+		List<MenuVO> mainMenu = menuService.mainMenu(session);
 		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
 		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
-		mnv.addObject("mainMenuList",mainMenu);
+		List<HomeBoardVO> homeBoardTop3 = homeBoardService.homeBoardTop3();
+		//mnv.addObject("mainMenuList",mainMenu); service에서 session에 넣어놓음
 		mnv.addObject("subMenuList",subMenu);
 		mnv.addObject("goodsTop12",goodsTop12);
+		mnv.addObject("homeBoardTop3",homeBoardTop3);
 		mnv.setViewName(url);
 		
 		return mnv;

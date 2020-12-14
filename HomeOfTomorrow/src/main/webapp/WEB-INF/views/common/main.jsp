@@ -121,6 +121,7 @@
 
 
 <div class="off" id="section_on_off">
+
     <!--★ 시그니처 텍스트 ★-->
     <div id="main_section_ment">
     <ul><li>
@@ -142,24 +143,31 @@
 
 
 <div class="on" id="section_on_off">
+    <div id="main_section_2" class="xans-element- xans-product xans-product-listmain-1 xans-product-listmain xans-product-1 main_section"><div class="title scroll-fade motion1">
+        <!--------------------------------------------------------------------------------------------------
+            ※ 타이틀 수정 - 텍스트만 변경바랍니다.
+        --------------------------------------------------------------------------------------------------->
+        <h2>BEST &nbsp;HOUSE </h2>
+<p class="bar"></p>
+    </div>
     <!--★ 배너 3개 ★-->
     <div id="main_section_banner">
-    <ul><li class="scroll-fade motion4">
+    <ul>
+    <c:forEach items="${homeBoardTop3 }" var="homeBoard">
+    <li class="scroll-fade motion4">
             <!-------------------------------------------
             ※  <a href="링크주소">
             --------------------------------------------->
-                <a href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img src="<%=request.getContextPath()%>/resources/_dj/img/main_ban/signature-01.jpg" alt="배너이미지1"></a>
-                <span>TIRED SKULL</span>
+                <a href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${homeBoard.picture}" alt="집들이베스트"></a>
+                <span>${homeBoard.title }</span>
+		         	<strong class="name"><a
+					href="/product/killer-cat-black-diamond/30/category/1/display/2/"
+					class=""><img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid black; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
+					<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block; position: relative; top: -10px;">${homeBoard.writer }</span></a></strong>
+        			
         </li>
-        <li class="scroll-fade motion4">
-                <a href="/product/lonely-lion-silver-lining/22/category/23/display/1/"><img src="<%=request.getContextPath()%>/resources/_dj/img/main_ban/signature-02.jpg" alt="배너이미지2"></a>
-                <span>LONELY LION</span>
-        </li>
-        <li class="scroll-fade motion2">
-                <a href="/product/killer-cat-knight-gray/32/category/1/display/2/"><img src="<%=request.getContextPath()%>/resources/_dj/img/main_ban/signature-03.png" alt="배너이미지3"></a>
-                <span>KILLER CAT</span>
-        </li>        
-    </ul></div>
+   		</c:forEach>
+    </ul></div></div>
 </div>
 
 <div class="on" id="section_on_off">
@@ -197,7 +205,7 @@
         <!--------------------------------------------------------------------------------------------------
             ※ 타이틀 수정 - 텍스트만 변경바랍니다.
         --------------------------------------------------------------------------------------------------->
-        <h2>FAVORITE &nbsp;PRODUCT </h2>
+        <h2>BEST &nbsp;PRODUCT </h2>
 <p class="bar"></p>
     </div>
 <div class="dj-product dj-main-product">
@@ -262,7 +270,7 @@
 									<a
 										href="/product/killer-cat-black-diamond/30/category/1/display/2/"
 										name="anchorBoxName_30"> <img
-										src="//scentmonster.co.kr/web/product/medium/202009/77f3efe298f9c837b1335bfb929fd3f9.png"
+										src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}"
 										id="eListPrdImage30_2" class="thumb_Img"
 										alt="Killer Cat – Black Diamond">
 									</a>

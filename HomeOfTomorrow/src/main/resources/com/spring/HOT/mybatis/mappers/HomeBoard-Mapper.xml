@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Goods-Mapper">
+<mapper namespace="HomeBoard-Mapper">
 
-	<select id="selectTop12" resultType="goods">
+	<select id="selectTop3" resultType="homeBoard">
 		select *
-		from goods
-		where rownum between 0 and 12
+		from home_board
+		where rownum between 0 and 3
 		order by viewcnt desc
 	</select>
 
