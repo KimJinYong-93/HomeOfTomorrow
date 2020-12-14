@@ -23,8 +23,9 @@ import com.spring.HOT.exception.invalidPasswordException;
 import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.MenuService;
 
+import lombok.extern.java.Log;
+
 @Controller
-@RequestMapping("/common")
 public class CommonController {
 	
 	@Autowired
@@ -37,7 +38,7 @@ public class CommonController {
 	private HomeBoardService homeBoardService;
 	
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/common/main", method = RequestMethod.GET)
 	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv, HttpSession session) throws SQLException{
 		String url="/common/main";
 		List<MenuVO> mainMenu = menuService.mainMenu(session);
@@ -53,28 +54,31 @@ public class CommonController {
 		return mnv;
 	}
 
-	@RequestMapping("/loginForm")
+	@RequestMapping("/common/loginForm")
 	public String loginForm() {
 		String url="/common/login";
 		return url;
 	}
 	
-	@RequestMapping("/joinForm")
+	@RequestMapping("/common/joinForm")
 	public String joinForm() {
 		String url="/common/join";
 		return url;
 	}
 	
-	@RequestMapping("/companyJoin")
+	@RequestMapping("/common/companyJoin")
 	public String companyJoin() {
 		String url="/common/companyJoin";
 		return url;
 	}
 	
-	@RequestMapping("/memberJoin")
-	public void memberJoin() {}
+	@RequestMapping("/common/memberJoin")
+	public String memberJoin() {
+		String url="/common/memberJoin";
+		return url;
+	}
 	
-	@RequestMapping("/login")
+	@RequestMapping("/common/login")
 	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{
 		String url = "redirect:main";
 		
@@ -88,12 +92,14 @@ public class CommonController {
 		return url;
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/common/logout")
 	public String logout(HttpSession session) throws SQLException {
+		
 		String url = "redirect:main";
 		
 		session.invalidate();
 		
 		return url;
 	}
+	
 }

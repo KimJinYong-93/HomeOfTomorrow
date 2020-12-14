@@ -11,6 +11,7 @@
 		<typeAlias type="com.spring.HOT.dto.MenuVO" alias="menu"/>
 		<typeAlias type="com.spring.HOT.dto.GoodsVO" alias="goods"/>
 		<typeAlias type="com.spring.HOT.dto.HomeBoardVO" alias="homeBoard"/>
+		<typeAlias type="com.spring.HOT.dto.MemberNVO" alias="memberN"/>
 		
 	</typeAliases>
 </configuration>

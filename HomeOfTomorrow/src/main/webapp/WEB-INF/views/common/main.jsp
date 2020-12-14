@@ -162,8 +162,8 @@
                 <span>${homeBoard.title }</span>
 		         	<strong class="name"><a
 					href="/product/killer-cat-black-diamond/30/category/1/display/2/"
-					class=""><img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid black; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
-					<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block; position: relative; top: -10px;">${homeBoard.writer }</span></a></strong>
+					class=""><img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
+					<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block;">${homeBoard.writer }</span></a></strong>
         			
         </li>
    		</c:forEach>
@@ -356,8 +356,4 @@
 </div>
 </div>
     
-
-
-
-
     </div>

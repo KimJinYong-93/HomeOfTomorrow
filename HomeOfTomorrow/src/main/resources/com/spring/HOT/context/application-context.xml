@@ -9,7 +9,7 @@
 		<constructor-arg value="${summernote.img}"></constructor-arg>
 	</bean>
 
-	<bean id="picturePath" class="java.lang.String">
+	<bean id="memberPicturePath" class="java.lang.String">
 		<constructor-arg value="${member.picture.upload}"></constructor-arg>
 	</bean>
 	
@@ -33,6 +33,9 @@
 	<bean id="homeBoardDAO"
 		class="com.spring.HOT.dao.HomeBoardDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
+	<bean id="member_NDAO"
+		class="com.spring.HOT.dao.Member_NDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
 	
 	<!-- service -->
 	<bean id="memberService"
@@ -47,5 +50,8 @@
 	<bean id="homeBoardService"
 		class="com.spring.HOT.service.HomeBoardServiceImpl"
 		p:homeBoardDAO-ref="homeBoardDAO"/>
+	<bean id="member_NService"
+		class="com.spring.HOT.service.Member_NServiceImpl"
+		p:member_NDAO-ref="member_NDAO"/>
 
 </beans>

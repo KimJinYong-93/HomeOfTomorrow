@@ -121,7 +121,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 				<ul>
-
+					<li class="xans-element- xans-layout xans-layout-statelogoff ">
+						<a href="kakaoPay">
+							<img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;">
+						</a>
+					</li>
 					<c:if test="${loginUser eq null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
 							<a href="loginForm.do">LOGIN</a>
@@ -132,14 +136,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</c:if>
 					<c:if test="${loginUser ne null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
-							<a href="logout">LOGOUT</a>
+							<a href="<%=request.getContextPath()%>/common/logout">LOGOUT</a>
 						</li>
 						<li class="cart">
 							<a href="/order/basket.html">CART
 								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
 							</a>
 						</li>
-						<li><a href="/myshop/index.html">MY PAGE</a></li>
+						<li><a href="<%=request.getContextPath()%>/member/myPage">MY PAGE</a></li>
 					</c:if>
 				</ul>
 			</div>

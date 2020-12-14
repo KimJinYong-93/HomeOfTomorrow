@@ -32,13 +32,13 @@
 			<div class="wrap-join100" >
 				<form class="Join-form validate-form">
 					<span class="login100-form-title">
-						Company Member Join
+						Member Join
 					</span>
 					<div class="wrap-inputJoin validate-input">
 						<input class="inputId" type="text" name="cname" id="id"
-							placeholder="Business Number" style="padding-left: 45px;"> <span
+							placeholder="Id" style="padding-left: 45px;"> <span
 							class="focus-inputId"></span> <span class="symbol-input100">
-							<i class="fa-Id fa-bold" aria-hidden="true"></i>
+							<i class="fa-Id fa-id-card" aria-hidden="true"></i>
 						</span>
 					</div>
 					<button type="button" class="chkBtn" id="idChkbtn" onclick="idCheck_go();" >중복확인</button>
@@ -176,7 +176,7 @@
 
 		
 	</script>
-<!--===============================================================================================-->
+
 	<script src="<%=request.getContextPath()%>/resources/Login_v1/js/main.js"></script>
 
 </body>
