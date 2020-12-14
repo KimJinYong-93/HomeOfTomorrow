@@ -136,14 +136,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</c:if>
 					<c:if test="${loginUser ne null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
-							<a href="logout">LOGOUT</a>
+							<a href="<%=request.getContextPath()%>/common/logout">LOGOUT</a>
 						</li>
 						<li class="cart">
 							<a href="/order/basket.html">CART
 								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
 							</a>
 						</li>
-						<li><a href="/myshop/index.html">MY PAGE</a></li>
+						<li><a href="<%=request.getContextPath()%>/member/myPage">MY PAGE</a></li>
 					</c:if>
 				</ul>
 			</div>

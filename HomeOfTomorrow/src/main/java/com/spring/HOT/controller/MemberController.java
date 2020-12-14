@@ -24,7 +24,6 @@ import com.spring.HOT.service.MenuService;
 import lombok.extern.java.Log;
 
 @Controller
-@RequestMapping("/common")
 public class MemberController {
 	
 	@Autowired
@@ -35,49 +34,9 @@ public class MemberController {
 	private GoodsService goodsService;
 	
 	
-	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv) throws SQLException{
-		String url="/common/main";
-		List<MenuVO> mainMenu = menuService.mainMenu();
-		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
-		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
-		mnv.addObject("mainMenuList",mainMenu);
-		mnv.addObject("subMenuList",subMenu);
-		mnv.addObject("goodsTop12",goodsTop12);
-		mnv.setViewName(url);
-		
-		return mnv;
-	}
-
 	@RequestMapping("/member/myPage")
 	public String myPage() {
 		String url="member/myPage";
 		return url;
 	}
-	
-	@RequestMapping("/login")
-	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{
-		String url = "redirect:main";
-		
-		try {
-			memberService.login(id, pwd, session);
-		} catch (NotFoundIDException | invalidPasswordException e) {
-			url = "redirect:loginForm";
-			session.setAttribute("msg", e.getMessage());
-		}
-		
-		return url;
-	}
-	
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) throws SQLException {
-		
-		String url = "redirect:main";
-		
-		session.invalidate();
-		
-		return url;
-	}
-	
 }
