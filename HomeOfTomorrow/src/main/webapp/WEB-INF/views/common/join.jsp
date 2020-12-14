@@ -31,14 +31,13 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<a href="memberJoin.do"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/memberJoin.jpg" alt="IMG"></a>
+					<a href="join.do?gb=n"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/memberJoin.jpg" alt="IMG"></a>
 					<br><span class="login100-form-title">General Member</span>
 				</div>
 				<div class="login100-pic js-tilt" data-tilt>
-					<a href="companyJoin.do"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/companyJoin.jpg" alt="IMG"></a>
+					<a href="join.do?gb=c"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/companyJoin.jpg" alt="IMG"></a>
 					<span class="login100-form-title">Company Member</span>
 				</div>
-			
 			</div>
 		</div>
 	</div>
