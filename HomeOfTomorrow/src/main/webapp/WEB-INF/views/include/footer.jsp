@@ -57,7 +57,7 @@
             </ul>
 <div class="inner2">
                 <li class="info">
-                    <span>상호  <span>(주)내일의집</span></span>  <span>대표  <span class="han">403호</span></span>  <span>사업자등록번호  <span>689-86-01602</span></span> <br/><span>통신판매업 신고   <span>제2020-대전중구-1586호</span></span><span> <span><a href="#none">[사업자정보확인]</a></span></span> <br/><span>전화  <span>04212345678</span></span> <span>주소  <span> 대전광역시 중구 대흥동 영민빌딩 4층 403호</span></span> <br/><span>개인정보관리책임자  <span>내일의집(HomeOfTomorrow@gmail.com)</span></span><br/>
+                    <span>상호  <span>(주)내일의집</span></span>  <span>대표  <span class="han">403호</span></span>  <span>사업자등록번호  <span>689-86-01602</span></span> <br/><span>통신판매업 신고   <span>제2020-대전중구-1586호</span></span><span> <span><a href="#none">[사업자정보확인]</a></span></span> <br/><span>전화  <span>04212345678</span></span> <span>주소  <span> 대전광역시 중구 대흥동 영민빌딩 4층 403호</span></span> <br/><span id="admin">개인정보관리책임자  <span>내일의집(HomeOfTomorrow@gmail.com)</span></span><br/>
 </li>
             </div>
         </div>
@@ -101,7 +101,14 @@
 </div>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/_dj/js/scroll-transition-fade.js"></script>
-
+<script>
+	var cnt = 0;
+	$('#admin').on('click', function(){
+		cnt += 1;
+		alert(cnt);
+		
+	})
+</script>
 <!-- CMC script --> <!-- CMC script -->
 <div id="tgg_common_bottom_script" style="display:none;">
   <!-- WIDERPLANET HOME SCRIPT START 2016.8.24 -->

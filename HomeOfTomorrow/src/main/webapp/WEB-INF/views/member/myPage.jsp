@@ -42,7 +42,7 @@
 										</div>
 										<div class="profile-info">
 											<div class="profile-info__name">
-												<span>회원닉네임</span>
+												<span>${loginUserDetail.nickname }</span>
 											</div>
 											<div class="profile-info__follow-state">
 												<div class="profile-info__follow-state__text">

@@ -38,7 +38,7 @@
                     //document.getElementById("address2").value = extraAddr;
                 
                 } else {
-                    document.getElementById("address2").value = '';
+                    $('#address2').val('');
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -47,7 +47,7 @@
                 //document.getElementById("address1").value = addr;
                 $('#address1').val(addr);
                 // 커서를 상세주소 필드로 이동한다.
-                $('#address1').focus();
+                $('#address2').focus();
             }
         }).open();
     }

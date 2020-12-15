@@ -23,7 +23,46 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Login_v1/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Login_v1/css/main.css">
 <!--===============================================================================================-->
+<style type="text/css">
+	#genderSpan { 
+		font-family: 'Nanum Gothic';
+	    font-size: 12px;
+	    font-weight: 500;
+	    line-height: 1.5;
+	    color: #111111;
+	    display: inline;
+	    width: 20%;
+	    background: #f0f2f5;
+	    height: 28px;
+	    border-radius: 25px;
+	    border: 1px solid #d5d5d5;
+	    padding: 3px 15px 7px 10px;
+	} 
+	#birth { 
+		font-family: 'Nanum Gothic';
+	    font-size: 12px;
+	    font-weight: 500;
+	    line-height: 1.5;
+	    color: #666666;
+	    display: inline;
+	    width: 30%;
+	    background: #f0f2f5;
+	    height: 28px;
+	    border-radius: 25px;
+	    border: 1px solid #d5d5d5;
+	    padding: 10px 15px 10px 17px;
+	    margin-left: 5px;
+	    margin-right: 5px;
+	    text-align: center;
+	} 
+	
+	
+</style>
+
+
 </head>
+
+
 
 <body>
 	<div class="limiter">
@@ -47,7 +86,7 @@
 						<input class="input100" type="password" name="pwd" id="pwd"
 							placeholder="Password" style="padding-left: 45px;"> <span
 							class="focus-input100"></span> <span class="symbol-input100">
-							<i class="fa fa-building" aria-hidden="true"></i>
+							<i class="fa fa-key" aria-hidden="true"></i>
 						</span>
 					</div>
 					<span id="pwdChk" class="valchk" style="display: inline-block;" ></span>
@@ -56,7 +95,7 @@
 						<input class="input100" type="password" name="pwd2" id="pwd2"
 							placeholder="Invalidate Password" style="padding-left: 45px;"> <span
 							class="focus-input100"></span> <span class="symbol-input100">
-							<i class="fa fa-building" aria-hidden="true"></i>
+							<i class="fa fa-check-square" aria-hidden="true"></i>
 						</span>
 					</div>
 					<span id="pwdChk2" class="valchk" style="display: inline-block;" ></span>
@@ -69,6 +108,26 @@
 						</span>
 					</div>
 					<span id="nameChk" class="valchk" style="display: inline-block;" ></span>
+					
+					<div class="wrap-inputJoin validate-input">
+						<input class="join100" type="text" style="width:18%;padding-left: 45px; margin-right: 5px;" placeholder="Birth" disabled="disabled"/>
+						<span class="symbol-input100">
+								<i class="fa fa-calendar-check-o" aria-hidden="true" style="z-index: 100"></i>
+						</span>
+						<!-- 생년월일 -->
+						<input type="date" name="birth" id="birth" />
+						<input class="join100" type="text" style="width:18%;padding-left: 30px; margin-right: 5px;" placeholder="Gender" disabled="disabled"/>
+						<span class="symbol-input100">
+								<i class="fa fa-mars" aria-hidden="true" style="z-index: 100;margin-left:51%; margin-bottom: 2px;" ></i>
+						</span>
+						<span id="genderSpan">
+							<input type="radio" name="gender" value="male" style="margin-left: 1%;"> 남성
+							<input type="radio" name="gender" value="female" style="margin-left: 3%;"> 여성
+						</span>
+                    </div>
+                    	
+					<span id="#" class="valchk" style="display: inline-block;" ></span>
+					
 					
 					<div class="wrap-inputJoin validate-input">
 							<input class="join100" type="text" style="width:25%;padding-left: 45px; margin-right: 5px;" placeholder="Phone" disabled="disabled"/>

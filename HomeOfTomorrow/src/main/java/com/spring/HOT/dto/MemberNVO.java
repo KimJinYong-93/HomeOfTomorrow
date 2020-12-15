@@ -15,6 +15,7 @@ public class MemberNVO {
 	private String zipcode;
 	private String address1;
 	private String address2;
+
 	public String getId() {
 		return id;
 	}
@@ -81,9 +82,13 @@ public class MemberNVO {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	
-	
-	
+	@Override
+	public String toString() {
+		return "MemberNVO [id=" + id + ", name=" + name + ", email=" + email + ", nickname=" + nickname + ", picture="
+				+ picture + ", hp=" + hp + ", gender=" + gender + ", birthday=" + birthday + ", zipcode=" + zipcode
+				+ ", address1=" + address1 + ", address2=" + address2 + "]";
+	}
+
 	
 	
 	

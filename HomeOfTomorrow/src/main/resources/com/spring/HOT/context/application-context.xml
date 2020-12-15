@@ -36,6 +36,12 @@
 	<bean id="member_NDAO"
 		class="com.spring.HOT.dao.Member_NDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
+	<bean id="member_CDAO"
+		class="com.spring.HOT.dao.Member_CDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
+	<bean id="member_ADAO"
+		class="com.spring.HOT.dao.Member_ADAOImpl"
+		p:sqlSession-ref="sqlSession"/>
 	
 	<!-- service -->
 	<bean id="memberService"
@@ -53,5 +59,11 @@
 	<bean id="member_NService"
 		class="com.spring.HOT.service.Member_NServiceImpl"
 		p:member_NDAO-ref="member_NDAO"/>
+	<bean id="member_CService"
+		class="com.spring.HOT.service.Member_CServiceImpl"
+		p:member_CDAO-ref="member_CDAO"/>
+	<bean id="member_AService"
+		class="com.spring.HOT.service.Member_AServiceImpl"
+		p:member_ADAO-ref="member_ADAO"/>
 
 </beans>

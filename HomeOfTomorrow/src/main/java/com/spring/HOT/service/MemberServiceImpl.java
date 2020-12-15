@@ -12,7 +12,12 @@ import javax.servlet.http.HttpSession;
 import com.spring.HOT.command.PageMaker;
 import com.spring.HOT.command.SearchCriteria;
 import com.spring.HOT.dao.MemberDAO;
+import com.spring.HOT.dao.Member_ADAO;
+import com.spring.HOT.dao.Member_CDAO;
 import com.spring.HOT.dao.Member_NDAO;
+import com.spring.HOT.dto.MemberAVO;
+import com.spring.HOT.dto.MemberCVO;
+import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.exception.NotFoundIDException;
 import com.spring.HOT.exception.invalidPasswordException;
@@ -30,6 +35,16 @@ public class MemberServiceImpl implements MemberService{
 		this.memberNDAO = memberNDAO;
 	}
 	
+	private Member_CDAO memberCDAO;
+	public void setMemberCDAO(Member_CDAO memberCDAO) {
+		this.memberCDAO = memberCDAO;
+	}
+	
+	private Member_ADAO memberADAO;
+	public void setMemberADAO(Member_ADAO memberADAO) {
+		this.memberADAO = memberADAO;
+	}
+	
 	
 	
 	
@@ -39,8 +54,15 @@ public class MemberServiceImpl implements MemberService{
 		if(member == null) throw new NotFoundIDException();
 		if(!pwd.equals(member.getPwd())) throw new invalidPasswordException();
 		
-		if(member.getAuthority().equals("N")) {
-			
+		if(member.getAuthority().equals("ROLE_USER")) {
+			MemberNVO memberN = memberNDAO.selectMemberNById(member.getId());
+			session.setAttribute("loginUserDetail", memberN);
+		}else if(member.getAuthority().equals("ROLE_COMPANY")) {
+			MemberCVO memberC = memberCDAO.selectMemberCById(id);
+			session.setAttribute("loginUserDetail", memberC);
+		}else {
+			MemberAVO memberA = memberADAO.selectMemberAById(id);
+			session.setAttribute("loginUserDetail", memberA);
 		}
 		
 		session.setAttribute("loginUser", member);

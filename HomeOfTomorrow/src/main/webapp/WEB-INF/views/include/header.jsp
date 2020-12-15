@@ -128,7 +128,7 @@
 			<div class="logo">
 				<a href="/index.html"><img
 					src="<%=request.getContextPath()%>/resources/_dj/img/logo1.png"
-					style="width: 125px; height: auto;" alt="로고"></a>
+					style="width: 170px; height: auto;" alt="로고"></a>
 			</div>
 			<!------------------------------------------------------------------------------------------------------------------     
 

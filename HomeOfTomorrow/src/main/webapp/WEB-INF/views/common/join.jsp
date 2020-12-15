@@ -31,19 +31,17 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<a href="join.do?gb=n"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/memberJoin.jpg" alt="IMG"></a>
-					<br><span class="login100-form-title">General Member</span>
+					<a href="join.do?gb=n"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/memberJoin.jpg" alt="IMG"></a><br>
+					<!-- <span class="login100-form-title">일반 회원가입</span> -->
 				</div>
 				<div class="login100-pic js-tilt" data-tilt>
 					<a href="join.do?gb=c"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/companyJoin.jpg" alt="IMG"></a>
-					<span class="login100-form-title">Company Member</span>
+					<!-- <span class="login100-form-title">기업 회원가입</span> -->
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	
-
 	
 <!--===============================================================================================-->	
 	<script src="<%=request.getContextPath()%>/resources/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>

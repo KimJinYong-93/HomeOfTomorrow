@@ -21,4 +21,18 @@ public class Member_NDAOImpl implements Member_NDAO {
 		return memberN;
 	}
 
+
+	@Override
+	public void regist(MemberNVO memberN) throws SQLException {
+		sqlSession.update("MemberN-Mapper.insertMemberN", memberN);
+		
+	}
+
+
+	@Override
+	public MemberNVO getMemberNByNickname(String nickname) throws SQLException {
+		MemberNVO memberN = sqlSession.selectOne("MemberN-Mapper.selectMemberNByNickname", nickname);
+		return memberN;
+	}
+
 }
