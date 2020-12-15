@@ -333,7 +333,7 @@
 				 alert("아이디 중복확인이 필요합니다.");
 				 return;
 			 }
-			 if($('input[name ="nickname"]').val() != checkedID){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+			 if($('input[name ="nickname"]').val() != checkedNICK){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
 				 alert("닉네임 중복확인이 필요합니다.");
 				 return;
 			 }
