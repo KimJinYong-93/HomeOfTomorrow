@@ -57,7 +57,7 @@
 						<input class="input100" type="password" name="pwd" id="pwd"
 							placeholder="Password" style="padding-left: 45px;"> <span
 							class="focus-input100"></span> <span class="symbol-input100">
-							<i class="fa fa-building" aria-hidden="true"></i>
+							<i class="fa fa-key" aria-hidden="true"></i>
 						</span>
 					</div>
 					<span id="pwdChk" class="valchk" style="display: inline-block;" ></span>
@@ -66,7 +66,7 @@
 						<input class="input100" type="password" name="pwd2" id="pwd2"
 							placeholder="Invalidate Password" style="padding-left: 45px;"> <span
 							class="focus-input100"></span> <span class="symbol-input100">
-							<i class="fa fa-building" aria-hidden="true"></i>
+							<i class="fa fa-check-square" aria-hidden="true"></i>
 						</span>
 					</div>
 					<span id="pwdChk2" class="valchk" style="display: inline-block;" ></span>
