@@ -90,9 +90,14 @@
 
 				<ul>
 					<li class="xans-element- xans-layout xans-layout-statelogoff ">
-						<a href="kakaoPay">
-							<img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;">
-						</a>
+						<form action="<%=request.getContextPath() %>/payment/kakaoPay" method="post" role="form">
+							<button type="submit" onclick="payment()"><img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;"></button>
+						</form>
+						<script>
+							function payment(){
+								$('form[role="form"]').submit();
+							}
+						</script>
 					</li>
 					<c:if test="${loginUser eq null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
@@ -126,7 +131,7 @@
 ------------------------------------------------------------------------------------------------------------------->
 
 			<div class="logo">
-				<a href="/index.html"><img
+				<a href="<%=request.getContextPath() %>/common/main"><img
 					src="<%=request.getContextPath()%>/resources/_dj/img/logo1.png"
 					style="width: 170px; height: auto; margin-top: -5%; margin-left: 5%;" alt="로고"></a>
 			</div>

@@ -313,6 +313,47 @@
 			}	
 		});
 		
+		function submit_go(){
+			 /* var uploadCheck = $('input[name="checkUpload"]').val();
+			 if(!(uploadCheck > 0)){
+				 alert("이미지 업로드는 필수입니다.")
+				 //$('input[name="pictureFile"]').click();
+				 return;
+			 } */
+			 
+			 if($('input[name ="id"]').val() == ""){
+				 alert("아이디는 필수 입니다.");
+				 return;
+			 }
+			 if($('input[name ="id"]').val() != checkedID){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+				 alert("아이디 중복확인이 필요합니다.");
+				 return;
+			 }
+			 if($('input[name ="nickname"]').val() != checkedNICK){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+				 alert("닉네임 중복확인이 필요합니다.");
+				 return;
+			 }
+			 if($('input[name ="pwd"]').val() == ""){
+				 alert("패스워드는 필수입니다.");
+				 return;
+			 }
+			 if($('input[name ="name"]').val() == ""){
+				 alert("이름은 필수입니다.");
+				 return;
+			 }
+			 if($('input[name ="zipcode"]').val() == ""){
+				 alert("우편번호는 필수입니다.");
+				 return;
+			 }
+			 if($('input[name ="address1"]').val() == ""){
+				 alert("주소는 필수입니다.");
+				 return;
+			 }
+			 
+			 var form = $('form[role="memberNform"]');
+			 form.submit();
+		}
+		
 	</script>
 	<%@ include file="/WEB-INF/views/common/common_js.jsp" %>
 	<script src="<%=request.getContextPath()%>/resources/Login_v1/js/main.js"></script>
