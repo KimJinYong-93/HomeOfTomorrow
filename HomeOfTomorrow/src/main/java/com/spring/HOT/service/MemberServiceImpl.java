@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.spring.HOT.command.PageMaker;
 import com.spring.HOT.command.SearchCriteria;
 import com.spring.HOT.dao.MemberDAO;
+import com.spring.HOT.dao.Member_NDAO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.exception.NotFoundIDException;
 import com.spring.HOT.exception.invalidPasswordException;
@@ -24,12 +25,23 @@ public class MemberServiceImpl implements MemberService{
 		this.memberDAO = memberDAO;
 	}
 	
+	private Member_NDAO memberNDAO;
+	public void setMemberNDAO(Member_NDAO memberNDAO) {
+		this.memberNDAO = memberNDAO;
+	}
+	
+	
+	
 	
 	@Override
 	public void login(String id, String pwd, HttpSession session) throws SQLException, NotFoundIDException, invalidPasswordException {
 		MemberVO member = memberDAO.selectMemberById(id);
 		if(member == null) throw new NotFoundIDException();
 		if(!pwd.equals(member.getPwd())) throw new invalidPasswordException();
+		
+		if(member.getAuthority().equals("N")) {
+			
+		}
 		
 		session.setAttribute("loginUser", member);
 		session.setMaxInactiveInterval(6*60);

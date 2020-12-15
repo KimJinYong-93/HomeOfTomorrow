@@ -5,21 +5,27 @@ import java.util.Date;
 public class MemberNVO {
 	
 	private String id;
+	private String name;
 	private String email;
-	private String nicname;
+	private String nickname;
 	private String picture;
 	private String hp;
 	private String gender;
 	private Date birthday;
+	private String zipcode;
 	private String address1;
 	private String address2;
-	private String name;
-	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -27,11 +33,11 @@ public class MemberNVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getNicname() {
-		return nicname;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNicname(String nicname) {
-		this.nicname = nicname;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getPicture() {
 		return picture;
@@ -57,6 +63,12 @@ public class MemberNVO {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 	public String getAddress1() {
 		return address1;
 	}
@@ -69,14 +81,10 @@ public class MemberNVO {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
-
+	
+	
+	
 	
 	
 	

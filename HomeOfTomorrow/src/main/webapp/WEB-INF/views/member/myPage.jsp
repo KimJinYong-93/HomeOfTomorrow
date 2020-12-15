@@ -126,7 +126,7 @@
 									번째 글을 올려보세요</a>
 							</section>
 							<section class="post post--projects">
-								<h5 class="post__title"> 집들이 <strong>0</strong></h5>
+								<h5 class="post__title"> 좋아요 <strong>0</strong></h5>
 								<a class="post--projects__upload post__upload"
 									href="/projects/write"><span class="icon--page-mypage"
 									style="margin-right: 5px; background-position-x: -0px; background-position-y: -200px; width: 12px; height: 12px"></span>첫
