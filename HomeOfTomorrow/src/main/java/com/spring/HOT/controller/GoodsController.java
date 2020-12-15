@@ -46,6 +46,10 @@ public class GoodsController {
 		
 	}
 	
-	
+	@RequestMapping("/upload")
+	public String upload() {
+		String url="goods/upload";
+		return url;
+	}
 
 }

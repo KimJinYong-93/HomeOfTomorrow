@@ -192,6 +192,22 @@ iframe {
   padding: 177px 130px 33px 95px;
 }
 
+.wrap-Join {
+  width: 80%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 177px 110px 33px 140px;
+}
+
 .wrap-join100 {
   width: 100%;
   background: #fff;
@@ -211,10 +227,20 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 .login100-pic {
-  width: 316px;
+  width: 342px;
+}
+
+.join-pic {
+  margin-top : -10%;
+  width: 450px;
+  height: auto;
 }
 
 .login100-pic img {
+  max-width: 100%;
+}
+
+.join-pic img {
   max-width: 100%;
 }
 

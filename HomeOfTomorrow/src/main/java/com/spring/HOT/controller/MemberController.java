@@ -76,7 +76,7 @@ public class MemberController {
 		return entity;
 		
 	}
-	@RequestMapping("/member/orderList")
+	@RequestMapping("/orderList")
 	public String orderList() {
 		String url="member/orderList";
 		return url;

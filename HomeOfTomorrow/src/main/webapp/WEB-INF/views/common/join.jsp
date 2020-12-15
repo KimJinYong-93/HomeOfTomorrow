@@ -7,8 +7,6 @@
 	<title>내일의집</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/resources/Login_v1/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -29,13 +27,13 @@
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<a href="join.do?gb=n"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/memberJoin.jpg" alt="IMG"></a><br>
+			<div class="wrap-Join">
+				<div class="join-pic js-tilt" data-tilt>
+					<a href="join.do?gb=n"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/memberJoin.jpg" alt="일반회원가입"></a><br>
 					<!-- <span class="login100-form-title">일반 회원가입</span> -->
 				</div>
-				<div class="login100-pic js-tilt" data-tilt>
-					<a href="join.do?gb=c"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/companyJoin.jpg" alt="IMG"></a>
+				<div class="join-pic js-tilt" data-tilt>
+					<a href="join.do?gb=c"><img src="<%=request.getContextPath()%>/resources/Login_v1/images/companyJoin.jpg" alt="기업회원가입"></a>
 					<!-- <span class="login100-form-title">기업 회원가입</span> -->
 				</div>
 			</div>
