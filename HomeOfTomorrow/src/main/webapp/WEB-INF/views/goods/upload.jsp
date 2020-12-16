@@ -61,9 +61,8 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="sales_application__company"
-									name="sales_application[company]" class="form-control"
-									placeholder="내일의집" value="" />
+								<input type="text" id="cname" name="cname" class="form-control"
+									placeholder="내일의집" value="${loginUserDetail.name }" />
 							</div>
 						</div>
 					</div>
@@ -75,9 +74,8 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="sales_application__license1"
-									name="sales_application[license1]" class="form-control"
-									 value="" />
+								<input type="text" id="cno" name="cno" class="form-control"
+									 value="${loginUserDetail.cno }" />
 									 <!-- <span class="sales-form__divider">-</span><input
 									type="tel" id="sales_application__license2"
 									name="sales_application[license2]" class="form-control"
@@ -98,6 +96,7 @@
 							<p class="sales-form__section__title">상품 정보</p>
 						</div>
 					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__brand"
@@ -106,12 +105,26 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="sales_application__brand"
-									name="cname" class="form-control" id="cname"
+								<input type="text" name="cname" class="form-control" id="cname"
 									placeholder="내일의집 가구" value="" />
 							</div>
 						</div>
 					</div>
+					
+					<div class="row sales-form__form-group">
+						<div class="offset-1 col-2">
+							<label for="sales_application__brand"
+								class="form-label sales-form__form-label">상품명<span
+								class="sales-form__form-group__required">*</span></label>
+						</div>
+						<div class="col-8">
+							<div class="sales-form__form-control-wrap">
+								<input type="text" id="gname" name="gname" class="form-control"
+									placeholder="내일의집 최고 브랜드!! 미미컴퍼니 미미베드" value="" />
+							</div>
+						</div>
+					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__product_categories"

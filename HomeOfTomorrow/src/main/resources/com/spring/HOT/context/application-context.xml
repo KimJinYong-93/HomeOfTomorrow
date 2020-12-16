@@ -16,6 +16,7 @@
 	<bean id="goodsPicturePath" class="java.lang.String">
 		<constructor-arg value="${goods.picture.upload}"></constructor-arg>
 	</bean>
+	
 	<bean id="homeBoardPicturePath" class="java.lang.String">
 		<constructor-arg value="${homeBoard.picture.upload}"></constructor-arg>
 	</bean>

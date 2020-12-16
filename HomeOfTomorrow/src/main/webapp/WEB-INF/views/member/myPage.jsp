@@ -62,7 +62,14 @@
 										</div>
 										<div class="profile-info">
 											<div class="profile-info__name">
-												<span>${loginUserDetail.nickname }</span>
+												<span>
+													<c:if test="${loginUser.authority eq 'ROLE_USER' }">
+														${loginUserDetail.nickname }
+													</c:if>
+													<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
+														${loginUserDetail.name }
+													</c:if>
+												</span>
 											</div>
 											<div class="profile-info__follow-state">
 												<div class="profile-info__follow-state__text">
