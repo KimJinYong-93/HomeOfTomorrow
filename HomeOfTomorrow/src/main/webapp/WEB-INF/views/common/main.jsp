@@ -2,108 +2,143 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
-<div id="container">     
-    
-<style> 
-    .dj_slider .slider_1 { min-height:600px; }
-    .dj_slider .slider_1.slick-initialized { height:600px; } 
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap&subset=korean" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/layout/application_react-1e92c7147066d0282bd14c1c54ad6f4eda35ac557fc7d3743f26f3ce17a3802d.css" />
+<script src="https://static.ohou.se/assets/v3/layouts/navigation_stub-2afc6570f26c12358127eb3d1d8b54fc3aa1df1f1a041c239fcf21d9abcade4a.js"></script>
+  
+<link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/18-edc534e5.chunk.css" />
+<link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/App-3e49e6d3.css" />
+<link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/7-7f96bff5.chunk.css" />
+<link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/13-69bdf3b3.chunk.css" />
+<link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/templates-Home-HomePage-e9223171.chunk.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.js">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick-theme.css">
+<style>
+ #container{
+ 	overflow-x:hidden; overflow-y:auto;
+ }
+
 </style>
 
 
-<div class="on" id="section_on_off">  
-    <!--★ 메인 롤링이미지 ★-->
-    <div id="main_section_1">    
-<div class="section left"> 
-<div class="dj_slider slider_1_top action_block">  
-                 <div class="foot_btn">              
-                     <ul class="inner"><li class="btn_prev slick-arrow" style="display: list-item;">
-                     	<img src="<%=request.getContextPath() %>/resources/_dj/img/slider_2_prev_btn.png"></li>
-                        <li class="btn_next slick-arrow" style="display: list-item;">
-                        <img src="<%=request.getContextPath() %>/resources/_dj/img/slider_2_next_btn.png"></li>
-                     </ul></div>
-                 <!------------------------------------------------
+<div id="container">
+<div class="container home-header">
+					<div class="row">
+						<div class="col-12 col-md-9 home-header__story">
+							<article class="story-entry home-header__story__image">
+								<a class="story-entry-link"
+									href="/projects/38991?affect_type=Home&amp;affect_id=0"><div
+										class="story-entry__image-wrap">
+										<div class="story-entry__image"></div>
+									</div>
+									<div class="story-entry__content-wrap">
+										<div class="story-entry__content">
+											<div class="story-entry__content__title">
+												마음이 편안해지는 베이지&amp;우드, 그리고 초록 식물<br />
+											</div>
+											<div class="story-entry__content__profile">
+												<div class="story-entry__content__profile__image"></div>
+												<span class="story-entry__content__profile__name">영e홈</span>
+											</div>
+										</div>
+										<div class="home-header__story__more">보러가기</div>
+									</div></a>
+							</article>
+						</div>
+						<div class="col-12 col-md-3 home-header__banner-col">
+							<div class="home-header__banner-wrap">
+								<div class="carousel home-header__banner-container"
+									role="region" aria-roledescription="carousel">
+									<div class="carousel__list-wrap home-header__banner">
+										<div class="carousel__list home-header__banner__list"
+											aria-live="off"
+											style="transform: translateX(0%); transition:">
+											<div class="carousel__list__entry home-header__banner__item"
+												style="width: 100%" role="group"
+												aria-roledescription="slide" aria-label="1 of 12">
+												<div class="home-header__banner__item__container">
+													<a class="home-header__banner__item__link"
+														href="/exhibitions/1501?affect_type=Home&amp;affect_id=0"
+														target=""><div class="pc-banner"></div>
+														<div class="mobile-banner"></div></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="home-header__banner-control">
+										<div class="home-header__banner-control__icon">
+											<svg
+												class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--left"
+												width="10" height="18" viewBox="0 0 10 18"
+												preserveAspectRatio="xMidYMid meet">
+												<path fill="#FFF" fill-rule="evenodd"
+													d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path></svg>
+										</div>
+										<ul class="home-header__banner-control__page">
+											<li
+												class="home-header__banner-control__page__item home-header__banner-control__page__item--select"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+											<li class="home-header__banner-control__page__item"><button
+													type="button"
+													class="home-header__banner-control__page__item__button"></button></li>
+										</ul>
+										<div class="home-header__banner-control__icon">
+											<svg
+												class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--right"
+												width="10" height="18" viewBox="0 0 10 18"
+												preserveAspectRatio="xMidYMid meet">
+												<path fill="#FFF" fill-rule="evenodd"
+													d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path></svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+</div>    
 
-                    ※ 숫자 3를 이미지 개수만큼 변경하시면 됩니다.
-
-                 ------------------------------------------------->
-                 <div class="slider_tag"><span>1 / 4</span></div>
-                 <div class="slider_1 slick-initialized slick-slider" style="height: 600px;">  
-                     
-                 <!------------------------------------------------------------------------
-.
-                    ※ onclick="window.location.href='링크주소';"
-                    ※ <div> ~ </div> 까지 복사해 원하시는 개수로 사용 가능합니다.
-
-                  ------------------------------------------------------------------------>     
-                  <!--★ 0번 이미지 ★-->
-                  <div aria-live="polite" class="slick-list draggable">
-                  	<div class="slick-track" style="opacity: 1; width: 100%">
-	                  <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 100%; position: relative;left: 0; top: 0px; z-index: 999; opacity: 1;">
-	                      <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/00.jpg" id="slider_0_img" alt="영번째이미지">&nbsp;</div>
-	                  <div class="slick-slide" data-slick-index="1" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 100%; position: relative; left: -1300px; top: 0px; z-index: 998; opacity: 0;">
-	                      <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/01.jpg" id="slider_1_img" alt="첫번째이미지">&nbsp;</div>
-	                  <div class="slick-slide" data-slick-index="2" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 100%; position: relative; left: -2600px; top: 0px; z-index: 998; opacity: 0;">
-	                       <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/02.jpg" id="slider_1_img" alt="두번째이미지">&nbsp;</div>
-	                  <div class="slick-slide" data-slick-index="3" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 100%; position: relative; left: -3900px; top: 0px; z-index: 998; opacity: 0;">
-	                       <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/03.png" id="slider_1_img" alt="세번째이미지">&nbsp;</div>
-	                  </div>
-                  </div>  
-                     
-                  <!--★ 1번 이미지 ★-->
-                    
-
-                  <!--★ 2번 이미지 ★-->
-                     
-                     
-                  <!--★ 3번 이미지 ★-->
-                  
-                                       
-	                  <ul class="slick-dots" style="display: block;">
-	                  <li class="slick-active" aria-hidden="false">
-	                  	<button type="button" data-role="none" role="button" aria-required="false" tabindex="0">1</button></li>
-	                  <li aria-hidden="true" class="">
-	                  	<button type="button" data-role="none" role="button" aria-required="false" tabindex="0">2</button></li>
-	                  <li aria-hidden="true" class="">
-	                  	<button type="button" data-role="none" role="button" aria-required="false" tabindex="0">3</button></li>
-	                  <li aria-hidden="true" class="">
-	                  <button type="button" data-role="none" role="button" aria-required="false" tabindex="0">4</button></li>
-	                  </ul>
-                  </div>
-       
-                 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/_dj/js/jquery-1.11.0.min.js"></script>
-				 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/_dj/js/slick/slick.min.js"></script>
-                 <!------------------------------------------------------------------------ 
-
-                    ※ autoplaySpeed: 7000 에서 속도를 조절하시면 됩니다. 1000 = 1초
-
-                 --------------------------------------------------------=---------------->
-                 <script type="text/javascript">      
-                 $('.slider_1').slick({  
-                 prevArrow: $('.btn_prev'),
-                 nextArrow: $('.btn_next'),
-                 autoplay: true,
-                 autoplaySpeed: 5000,
-                 dots: true,
-                 arrow: true,
-                 infinite: true,
-                 fade: true,
-                 speed: 400,               
-                 cssEase: 'linear',
-                 accessibility: false,
-                 pauseOnHover: false,                
-                 });
-                 </script> 
-                 <script type="text/javascript">
-                 var $status = $('.slider_tag span');
-                 var $slickElement = $('.slider_1_top');
-                 $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-                 var i = (currentSlide ? currentSlide : 0) + 1;
-                 $status.text(i + ' / ' + slick.slideCount);});   
-                 </script> 
-</div>  
-</div>  
-</div>
-</div>
 
 
 <div class="off" id="section_on_off">
@@ -156,27 +191,6 @@
     </ul></div></div>
 </div>
 
-<div class="on" id="section_on_off">
-    <!--★ 배너 3개 2 ★-->
-    <div id="main_section_banner2">
-    <ul><li class="scroll-fade motion4">
-            <!-------------------------------------------
-            ※  <a href="링크주소">
-            --------------------------------------------->
-               
-            <span style="padding-top:100px; font-size:40px;font-weight:600;">향기가 머무는 공간</span><p class="bar"></p>
-<div style="line-height:12px;"><span>첫 번째 시그니처인 ‘SCENT MONSTER’는<br>
-프리미엄 차량용 디퓨저 라인입니다.<br>
-향기가 지속되도록 정기배송해드립니다.</span></div>
-
-        </li>
-        <li class="scroll-fade motion3">
-            <a href="/shopinfo/subscription.html">
-                <img src="<%=request.getContextPath()%>/resources/_dj/img/main_ban/coscent.png" alt="배너이미지2">
-            &nbsp;</a>
-        </li>
-    </ul></div>
-</div>
 
 <div class="off" id="section_on_off">
     <!--★ 배너 포인트적립 ★-->
@@ -195,26 +209,6 @@
 <p class="bar"></p>
     </div>
 <div class="dj-product dj-main-product">
-    <!--
-
-        $count = 20
-
-        -------------------------------------------------------------------------------------------------------------------
-            ※ 상품진열개수를 설정하는 변수입니다. 설정하지 않을 경우, 최대 200개의 상품이 진열 됩니다.
-            ※ 진열된 상품이 많으면, 쇼핑몰에 부하가 발생할 수 있습니다.
-        -------------------------------------------------------------------------------------------------------------------
-
-        $basket_result = /product/add_basket.html
-        $basket_option = /product/basket_option.html
-    -->   
-    <!----------------------------------------------------------------------------------
-
-            ※ grid5 의 숫자를 원하는 가로 상품갯수로 변경하시면 자동적용됩니다.
-            ※ grid5 = 한줄에 5개 / grid4 = 한줄에 4개 
-            ※ 설정후 @import(/_dj/page/item_list.html) 갯수를 맞춰 주시면 됩니다.
-
-    ----------------------------------------------------------------------------------->
-
 				<ul class="prdList grid4">
 					<c:forEach items="${goodsTop12 }" var="goods">
 					<li id="anchorBoxId_30" class="item_list xans-record-">
@@ -342,4 +336,83 @@
 </div>
 </div>
     
-    </div>
+</div>
+
+
+
+<script src="https://static.ohou.se/assets/v3/application_react-39c024d42df4dc70afcdc802be03a3c9af0e4e38c629c9255ff5b66c1abd9aa0.js"></script>
+<script src="https://static.ohou.se/dist/js/vendor-9bc9135a2316948b78ce.js"></script>
+
+<script src="https://static.ohou.se/dist/js/0-8701b5d5811d4b2c36d8.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/7-45da8a99e495dcda9029.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/13-5a926ce250f8bda5bcd9.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/templates-Home-HomePage-5d4e5fdcf89918bd1f96.chunk.js"></script>  <script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/5-929b9fffe7ae5368ab47.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/6-f9a7aa948033fe2a7698.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/8-d265326c5db90f2ab65d.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/11-9849b06d57186c4133de.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/18-a2c672c31d65f840159c.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/App-cf611cec6ec3494b7a1e.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".vertical-center-4").slick({
+      dots: true,
+      vertical: true,
+      centerMode: true,
+      slidesToShow: 4,
+      slidesToScroll: 2
+    });
+    $(".vertical-center-3").slick({
+      dots: true,
+      vertical: true,
+      centerMode: true,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
+    $(".vertical-center-2").slick({
+      dots: true,
+      vertical: true,
+      centerMode: true,
+      slidesToShow: 2,
+      slidesToScroll: 2
+    });
+    $(".vertical-center").slick({
+      dots: true,
+      vertical: true,
+      centerMode: true,
+    });
+    $(".vertical").slick({
+      dots: true,
+      vertical: true,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
+    $(".regular").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
+    $(".center").slick({
+      dots: true,
+      infinite: true,
+      centerMode: true,
+      slidesToShow: 5,
+      slidesToScroll: 3
+    });
+    $(".variable").slick({
+      dots: true,
+      infinite: true,
+      variableWidth: true
+    });
+    $(".lazy").slick({
+      lazyLoad: 'ondemand', // ondemand progressive anticipated
+      infinite: true
+    });
+  });
+</script>
+
