@@ -85,18 +85,25 @@
 									</div>
 									<div class="user-profile__links">
 										<div class="short-cut">
-											<div class="short-cut__item" style="margin: 0px 25px;">
-												<a href="<%=request.getContextPath() %>/member/orderList">
-													<div class="short-cut__icon">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-															<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
-														</svg>
-													</div>
-													<div class="short-cut__text">주문내역</div>
-													<div class="short-cut__text">
-														<b class="highlight">0</b>
-													</div></a>
-											</div>
+										<c:set value="/member/orderList" var="url" />
+											<c:set value="주문내역" var="buttonName" />
+											<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
+												<c:set value="/goods/upload" var="url"/>
+												<c:set value="상품등록" var="buttonName"/>
+											</c:if>
+												<div class="short-cut__item" style="margin: 0px 25px;">
+													<a href="<%=request.getContextPath() %>${url }">
+														<div class="short-cut__icon">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+																<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
+															</svg>
+														</div>
+														<div class="short-cut__text">${buttonName }</div>
+														<div class="short-cut__text">
+															<b class="highlight">0</b>
+														</div>
+													</a>
+												</div>
 											<div class="short-cut__item" style="margin: 0px 25px;">
 												<a href="/users/8176942/praises">
 													<div class="short-cut__icon">
@@ -126,12 +133,32 @@
 					<div class="col-12 offset-lg-1 col-lg-8 wrap--contents">
 						<div class="contents">
 							<section class="post post--cards">
-								<h5 class="post__title"> 내가 쓴 글 <strong>0</strong></h5>
+								<h5 class="post__title"> 내가 쓴 글 <strong>${homeCount }</strong></h5>
+								<c:if test="${myhomeBoardList eq null }">
 								<a class="post__upload post--cards__upload"
 									href="/contents/card_collections/new"><span
 									class="icon--page-mypage"
 									style="margin-right: 5px; background-position-x: -0px; background-position-y: -200px; width: 12px; height: 12px"></span>첫
 									번째 글을 올려보세요</a>
+								</c:if>
+								<c:if test="${myhomeBoardList ne null }">
+									<c:forEach begin="0" end="3" varStatus="status">
+											<div class="row post--cards__list">
+												<c:if test="${myhomeBoardList[status.index] ne null }">
+												  <div class="col-4 col-md-3">
+												    <div class="post--cards__item">
+												      <a href="" src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${myhomeBoardList[status.index].picture}"></a>
+												    </div>
+												  </div>
+												 </c:if>
+												 <c:if test="${myhomeBoardList[status.index] eq null }">
+												  <div class="col-4 col-md-3 post--cards__empty">
+												    <div></div>
+												  </div>
+												</c:if>
+											</div>
+									</c:forEach>
+								</c:if>
 							</section>
 							<section class="post post--projects">
 								<h5 class="post__title"> 질문과 답변 <strong>0</strong></h5>

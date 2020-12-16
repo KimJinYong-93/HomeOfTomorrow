@@ -21,6 +21,13 @@ public class HomeBoardDAOImpl implements HomeBoardDAO{
 		selectTop3 = sqlSession.selectList("HomeBoard-Mapper.selectTop3");
 		return selectTop3;
 	}
+
+	@Override
+	public List<HomeBoardVO> selectMyhomeBoard(String id) throws SQLException {
+		List<HomeBoardVO> selectMyhome = null;
+		selectMyhome = sqlSession.selectList("HomeBoard-Mapper.selectMyhomeBoard", id);
+		return selectMyhome;
+	}
 	
 	
 

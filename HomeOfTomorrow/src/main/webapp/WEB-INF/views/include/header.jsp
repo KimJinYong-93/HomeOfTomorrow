@@ -12,8 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-<title><decorator:title default="sitemesh test" /></title>
+<title><decorator:title default="내일의 집" /></title>
 
 
 <!-- Font Awesome Icons -->
@@ -23,6 +22,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
+<link href="https://static.ohou.se/assets/favicon-186ac0d991a44c522f984d86e6a50d24c65b7b3a02a004ba7e13f5722aabd952.png" rel="shortcut icon"/>
 
 
 <decorator:head />
@@ -90,9 +90,14 @@
 
 				<ul>
 					<li class="xans-element- xans-layout xans-layout-statelogoff ">
-						<a href="kakaoPay">
-							<img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;">
-						</a>
+						<form action="<%=request.getContextPath() %>/payment/kakaoPay" method="post" role="form">
+							<button type="submit" onclick="payment()"><img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;"></button>
+						</form>
+						<script>
+							function payment(){
+								$('form[role="form"]').submit();
+							}
+						</script>
 					</li>
 					<c:if test="${loginUser eq null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
@@ -111,7 +116,7 @@
 								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
 							</a>
 						</li>
-						<li><a href="<%=request.getContextPath() %>/member/myPage">MY PAGE</a></li>
+						<li><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUserDetail.id}">MY PAGE</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -126,9 +131,9 @@
 ------------------------------------------------------------------------------------------------------------------->
 
 			<div class="logo">
-				<a href="/index.html"><img
+				<a href="<%=request.getContextPath() %>/common/main"><img
 					src="<%=request.getContextPath()%>/resources/_dj/img/logo1.png"
-					style="width: 170px; height: auto;" alt="로고"></a>
+					style="width: 170px; height: auto; margin-top: -5%; margin-left: 5%;" alt="로고"></a>
 			</div>
 			<!------------------------------------------------------------------------------------------------------------------     
 

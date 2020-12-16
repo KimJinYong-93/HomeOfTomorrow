@@ -23,8 +23,8 @@ public class MemberJoinCommand {
 	private String address2;
 	private String name;
 	private String authority;
-	private int enabled;
-	private int cno;
+	private String enabled;
+	private String cno;
 	private String zipcode;
 	
 	public String getId() {
@@ -131,19 +131,19 @@ public class MemberJoinCommand {
 		this.authority = authority;
 	}
 
-	public int getEnabled() {
+	public String getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(int enabled) {
+	public void setEnabled(String enabled) {
 		this.enabled = enabled;
 	}
 
-	public int getCno() {
+	public String getCno() {
 		return cno;
 	}
 
-	public void setCno(int cno) {
+	public void setCno(String cno) {
 		this.cno = cno;
 	}
 
@@ -173,8 +173,8 @@ public class MemberJoinCommand {
 		memberN.setEmail(email);
 		memberN.setNickname(nickname);
 		memberN.setHp(hp);
-		//memberN.setGender(gender);
-		//memberN.setBirthday(birthday);
+		memberN.setGender(gender);
+		memberN.setBirthday(birthday);
 		memberN.setAddress1(address1);
 		memberN.setAddress2(address2);
 		memberN.setZipcode(zipcode);

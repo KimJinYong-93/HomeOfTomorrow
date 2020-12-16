@@ -7,8 +7,6 @@
 	<title>내일의집</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/resources/Login_v1/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -159,7 +157,7 @@
 					</div>
 
 					<div class="text-right p-t-30">
-						<a class="txt2" href="#" id="cancelBtn">
+						<a class="txt2" href=joinForm" id="cancelBtn">
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 							Back
 						</a>

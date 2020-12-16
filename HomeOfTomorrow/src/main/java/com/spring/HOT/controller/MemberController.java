@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -22,9 +23,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.spring.HOT.dto.GoodsVO;
+import com.spring.HOT.dto.HomeBoardVO;
 import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MenuVO;
 import com.spring.HOT.service.GoodsService;
+import com.spring.HOT.service.HomeBoardService;
 import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.Member_NService;
 import com.spring.HOT.service.MenuService;
@@ -38,11 +41,32 @@ public class MemberController {
 	@Autowired
 	private Member_NService member_NService;
 	
+	@Autowired
+	private HomeBoardService homeBoardService;
+	
+	
 	
 	@RequestMapping("/myPage")
-	public String myPage() {
+	public ModelAndView myPage(String id, ModelAndView mnv) {
 		String url="member/myPage";
-		return url;
+		try {
+			List<HomeBoardVO> myhomeBoardList = homeBoardService.getMyhomeBoard(id);
+			int homeCount = 0;
+			if(myhomeBoardList != null) {
+				for(int i = 0; i < myhomeBoardList.size(); i++) {
+					homeCount++;
+				}
+			}
+			
+			mnv.addObject("myhomeBoardList", myhomeBoardList);
+			mnv.addObject("homeCount", homeCount);
+			mnv.setViewName(url);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return mnv;
 	}
 	
 	@Resource(name="memberPicturePath")
@@ -74,7 +98,7 @@ public class MemberController {
 		return entity;
 		
 	}
-	@RequestMapping("/member/orderList")
+	@RequestMapping("/orderList")
 	public String orderList() {
 		String url="member/orderList";
 		return url;

@@ -21,4 +21,12 @@ public class HomeBoardServiceImpl  implements HomeBoardService{
 		return homeBoardTop3;
 	}
 
+	@Override
+	public List<HomeBoardVO> getMyhomeBoard(String id) throws SQLException {
+		List<HomeBoardVO> getMyhomeBoard = null;
+		getMyhomeBoard = homeBoardDAO.selectMyhomeBoard(id);
+		
+		return getMyhomeBoard;
+	}
+
 }

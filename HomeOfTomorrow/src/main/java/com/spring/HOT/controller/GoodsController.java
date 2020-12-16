@@ -46,6 +46,7 @@ public class GoodsController {
 		
 	}
 	
+
 	@RequestMapping("/list")
 	public String list() {
 		String url = "goods/list";
@@ -54,4 +55,23 @@ public class GoodsController {
 	
 	
 
+	@RequestMapping("/upload")
+	public String upload() {
+		String url="goods/upload";
+		return url;
+	}
+
+
+	@RequestMapping("/loginForm")
+	public String loginForm() {
+		String url="/common/login";
+		return url;
+	}
+	
+	@RequestMapping("/joinForm")
+	public String joinForm() {
+		String url="/common/join";
+		return url;
+	}
+	
 }
