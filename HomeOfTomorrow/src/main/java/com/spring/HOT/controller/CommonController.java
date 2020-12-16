@@ -103,7 +103,7 @@ public class CommonController {
 	@RequestMapping(value = "/common/join", method=RequestMethod.POST)
 	public void join(MemberJoinCommand memberReq, String gb, String[] hp, HttpServletResponse response) throws SQLException, IOException {
 		String datas = "";
-		for(int i = 0; i < hp.length; i++) {
+		for(int i = 0; i < hp.length; i++) {	// hp 에 '-' 넣기
 			if(i == 0) {
 				datas += hp[i];
 			}else {
@@ -111,7 +111,7 @@ public class CommonController {
 			}
 		}
 		memberReq.setHp(datas);
-
+		
 		MemberVO member = memberReq.toMemberParse();
 		memberService.regist(member);	// 회원테이블에 insert
 		

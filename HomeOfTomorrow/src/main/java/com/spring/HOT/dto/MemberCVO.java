@@ -4,7 +4,7 @@ public class MemberCVO {
 	
 	private String id;
 	private String name;
-	private int cno;
+	private String cno;
 	private String manager;
 	private String hp;
 	private String email;
@@ -24,10 +24,10 @@ public class MemberCVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getCno() {
+	public String getCno() {
 		return cno;
 	}
-	public void setCno(int cno) {
+	public void setCno(String cno) {
 		this.cno = cno;
 	}
 	public String getManager() {
