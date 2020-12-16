@@ -15,6 +15,9 @@
   <script src="https://static.ohou.se/assets/v3/components-8812e17a5506f01585b2ab780e7b6d07def9edb402adb359366a61807e15f164.js"></script>
   <link rel="stylesheet" media="screen" href="<%=request.getContextPath()%>/resources/css/upload.css" />
   <link rel="stylesheet" media="screen" href="<%=request.getContextPath()%>/resources/css/upload2.css" />
+  
+  
+  
 
   <script src="https://unpkg.com/react@15/dist/react.min.js"></script> <!--react -->
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script> <!-- react-dom -->
@@ -72,15 +75,16 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="tel" id="sales_application__license1"
+								<input type="text" id="sales_application__license1"
 									name="sales_application[license1]" class="form-control"
-									 value="" /><span class="sales-form__divider">-</span><input
+									 value="" />
+									 <!-- <span class="sales-form__divider">-</span><input
 									type="tel" id="sales_application__license2"
 									name="sales_application[license2]" class="form-control"
 									 value="" /><span class="sales-form__divider">-</span><input
 									type="tel" id="sales_application__license3"
 									name="sales_application[license3]" class="form-control"
-									 value="" />
+									 value="" /> -->
 							</div>
 						</div>
 					</div>
@@ -103,7 +107,7 @@
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
 								<input type="text" id="sales_application__brand"
-									name="sales_application[brand]" class="form-control"
+									name="cname" class="form-control" id="cname"
 									placeholder="내일의집 가구" value="" />
 							</div>
 						</div>
@@ -116,7 +120,7 @@
 						</div>
 						<div class="col-8">
 							<div class="form__form-control-wrap" >
-								<select class="goodsform-control"> 
+								<select class="goodsform-control" name="cg_code"> 
 <%-- 									<% 
 										for(int i = 0 ; i < categories.size(); i++){
 											String category = categories.get(i);
@@ -137,11 +141,26 @@
 								class="sales-form__form-group__required">*</span></label>
 						</div>
 						<div class="col-8">
-							<textarea id="sales_application__about_product"
-								name="sales_application[about_product]" class="form-control"
+							<textarea name="content" class="form-control" id="content"
 								placeholder="판매하시는 상품에 대한 설명을 입력해주세요."></textarea>
 						</div>
 					</div>
+					
+					<div class="row sales-form__form-group">
+						<div class="offset-1 col-2">
+							<label for="sales_application__brand"
+								class="form-label sales-form__form-label">가격<span
+								class="sales-form__form-group__required">*</span></label>
+						</div>
+						<div class="col-8">
+							<div class="sales-form__form-control-wrap">
+								<input type="text" id="sales_application__brand"
+									name="cname" class="form-control" id="cname"
+									placeholder="20000" value="" />&nbsp;원
+							</div>
+						</div>
+					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__sale_file"
@@ -151,15 +170,11 @@
 							<input type="hidden" id="sales_application__sale_file_url"
 								name="sales_application[sale_file_url]" /><label
 								class="btn btn-sm btn-priority sales-form__file__btn">파일
-								업로드<input type="file" id="sales-form__file__uploader" 
-								class="sales-form__file--uploader" data-max-size="1048"
-								accept=".png,.jpg,.jpeg" 
-								onchange="javascript:document.getElementById('fileName').innerHTML= this.value.substring(12, 100)"
-								/>
+								업로드
 							</label>
 							<p class="sales-form__file__name" id="fileName" >선택된 파일이 없습니다.</p>
 							<p class="sales-form__file__caption">
-								※ 상품 상세 이미지를 10MB 용량 이하의 JPG,PNG 파일 형태로 첨부해주세요.
+								※ 상품 대표 이미지를 10MB 용량 이하의 JPG,JEPG 파일 형태로 첨부해주세요.
 							</p>
 						</div>
 					</div>
@@ -177,3 +192,19 @@
 <script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/SalesApplication-7bd86ec6ca41aa0a5f90.js"></script>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<%-- <%@ include file="/WEB-INF/views/common/summernote.jsp" %> --%>
+<script>
+	console.log("${loginUserDetail}")
+	$('#content').summernote({
+		placeholder: '상품 상세설명을 입력해주세요.',
+        tabsize: 1,
+        height: 100
+	});
+</script>
