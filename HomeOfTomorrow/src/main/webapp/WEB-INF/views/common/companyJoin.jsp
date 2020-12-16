@@ -157,7 +157,7 @@
 					</div>
 
 					<div class="text-right p-t-30">
-						<a class="txt2" href="#" id="cancelBtn">
+						<a class="txt2" href=joinForm" id="cancelBtn">
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 							Back
 						</a>
