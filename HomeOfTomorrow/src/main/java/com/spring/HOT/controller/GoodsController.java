@@ -52,4 +52,16 @@ public class GoodsController {
 		return url;
 	}
 
+	@RequestMapping("/loginForm")
+	public String loginForm() {
+		String url="/common/login";
+		return url;
+	}
+	
+	@RequestMapping("/joinForm")
+	public String joinForm() {
+		String url="/common/join";
+		return url;
+	}
+	
 }
