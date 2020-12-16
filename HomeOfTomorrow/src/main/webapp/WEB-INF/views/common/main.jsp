@@ -15,189 +15,49 @@
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/13-69bdf3b3.chunk.css" />
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/templates-Home-HomePage-e9223171.chunk.css" />
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.js">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick-theme.css">
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+
 <style>
  #container{
  	overflow-x:hidden; overflow-y:auto;
  }
-
+ .slick-items{
+ 	width : 50%;
+ 	margin-left: 20%;
+ 	margin-top: 5%;
+ }
+ .slick-dots{
+ 	width : 77%;
+ }
 </style>
 
 
 <div id="container">
-<div class="container home-header">
-					<div class="row">
-						<div class="col-12 col-md-9 home-header__story">
-							<article class="story-entry home-header__story__image">
-								<a class="story-entry-link"
-									href="/projects/38991?affect_type=Home&amp;affect_id=0"><div
-										class="story-entry__image-wrap">
-										<div class="story-entry__image"></div>
-									</div>
-									<div class="story-entry__content-wrap">
-										<div class="story-entry__content">
-											<div class="story-entry__content__title">
-												마음이 편안해지는 베이지&amp;우드, 그리고 초록 식물<br />
-											</div>
-											<div class="story-entry__content__profile">
-												<div class="story-entry__content__profile__image"></div>
-												<span class="story-entry__content__profile__name">영e홈</span>
-											</div>
-										</div>
-										<div class="home-header__story__more">보러가기</div>
-									</div></a>
-							</article>
-						</div>
-						<div class="col-12 col-md-3 home-header__banner-col">
-							<div class="home-header__banner-wrap">
-								<div class="carousel home-header__banner-container"
-									role="region" aria-roledescription="carousel">
-									<div class="carousel__list-wrap home-header__banner">
-										<div class="carousel__list home-header__banner__list"
-											aria-live="off"
-											style="transform: translateX(0%); transition:">
-											<div class="carousel__list__entry home-header__banner__item"
-												style="width: 100%" role="group"
-												aria-roledescription="slide" aria-label="1 of 12">
-												<div class="home-header__banner__item__container">
-													<a class="home-header__banner__item__link"
-														href="/exhibitions/1501?affect_type=Home&amp;affect_id=0"
-														target=""><div class="pc-banner"></div>
-														<div class="mobile-banner"></div></a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="home-header__banner-control">
-										<div class="home-header__banner-control__icon">
-											<svg
-												class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--left"
-												width="10" height="18" viewBox="0 0 10 18"
-												preserveAspectRatio="xMidYMid meet">
-												<path fill="#FFF" fill-rule="evenodd"
-													d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path></svg>
-										</div>
-										<ul class="home-header__banner-control__page">
-											<li
-												class="home-header__banner-control__page__item home-header__banner-control__page__item--select"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-											<li class="home-header__banner-control__page__item"><button
-													type="button"
-													class="home-header__banner-control__page__item__button"></button></li>
-										</ul>
-										<div class="home-header__banner-control__icon">
-											<svg
-												class="home-header__banner-control__icon__arrow home-header__banner-control__icon__arrow--right"
-												width="10" height="18" viewBox="0 0 10 18"
-												preserveAspectRatio="xMidYMid meet">
-												<path fill="#FFF" fill-rule="evenodd"
-													d="M9.89 9l.137-.137L1.343.18l-1.37 1.37L7.424 9l-7.451 7.451 1.37 1.37 8.684-8.684L9.89 9z"></path></svg>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
-				
-				
-</div>    
 
-
-
-<div class="off" id="section_on_off">
-
-    <!--★ 시그니처 텍스트 ★-->
-    <div id="main_section_ment">
-    <ul><li>
-            <p class="eng scroll-fade dj-viewport motion2">MUMU 19 WINTER COLLECTION</p>
-            
-            <h2 class="scroll-fade  motion1">
-                더 좋은 내일을<br>
-                꿈꾸게 하는<br>
-                무무 드림 컬렉션
-            </h2>
-           
-            <p class="scroll-fade dj-viewport motion5">
-                무무의 이번 컬렉션은 각기 다른 소재와 색감의 옷들이 여러 형식으로 레이어드되고 결국에는 조화로운 한 톤을 이루는데 집중한 시즌입니다.<br>
-                겨울에 어울리는 부드럽고 차분한 색채와 소재로 완성한 무무의 윈터 컬렉션을 만나보세요.
-            </p>
-        </li>
-    </ul></div>
-</div>
-
-
-<div class="on" id="section_on_off">
-    <div id="main_section_2" class="xans-element- xans-product xans-product-listmain-1 xans-product-listmain xans-product-1 main_section"><div class="title scroll-fade motion1">
-        <!--------------------------------------------------------------------------------------------------
-            ※ 타이틀 수정 - 텍스트만 변경바랍니다.
-        --------------------------------------------------------------------------------------------------->
-        <h2>BEST &nbsp;HOUSE </h2>
-<p class="bar"></p>
-    </div>
-    <!--★ 배너 3개 ★-->
-    <div id="main_section_banner">
-    <ul>
+    <div class="slick-items">
     <c:forEach items="${homeBoardTop3 }" var="homeBoard">
-    <li class="scroll-fade motion4">
-            <!-------------------------------------------
-            ※  <a href="링크주소">
-            --------------------------------------------->
-                <a href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${homeBoard.picture}" alt="집들이베스트"></a>
-                <span>${homeBoard.title }</span>
-		         	<strong class="name"><a
-					href="/product/killer-cat-black-diamond/30/category/1/display/2/"
-					class=""><img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
-					<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block;">${homeBoard.writer }</span></a></strong>
-        			
-        </li>
-   		</c:forEach>
-    </ul></div></div>
-</div>
+	    <li class="scroll-fade motion4" >
+	                <a href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${homeBoard.picture}" alt="집들이베스트"></a>
+	                
+	                <div style="z-index: 100;">
+	                <span>${homeBoard.title }</span>
+		         	<strong class="name">
+		         		<a href="#"></a>
+		         		<img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
+						<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block;">${homeBoard.writer }</span>
+		            </strong>
+		            </div>
+	     </li>
+   	</c:forEach>
 
-
-<div class="off" id="section_on_off">
-    <!--★ 배너 포인트적립 ★-->
-    <div id="main_section_banner3">
-<ul></ul></div>
-</div>
-
+    </div>
 
 <div class="on" id="section_on_off">
     <!--★ P R O C U T ★-->
@@ -356,63 +216,51 @@
 <script src="https://static.ohou.se/dist/js/App-cf611cec6ec3494b7a1e.js"></script>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-<script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script src="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-  $(document).on('ready', function() {
-    $(".vertical-center-4").slick({
-      dots: true,
-      vertical: true,
-      centerMode: true,
-      slidesToShow: 4,
-      slidesToScroll: 2
-    });
-    $(".vertical-center-3").slick({
-      dots: true,
-      vertical: true,
-      centerMode: true,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    });
-    $(".vertical-center-2").slick({
-      dots: true,
-      vertical: true,
-      centerMode: true,
-      slidesToShow: 2,
-      slidesToScroll: 2
-    });
-    $(".vertical-center").slick({
-      dots: true,
-      vertical: true,
-      centerMode: true,
-    });
-    $(".vertical").slick({
-      dots: true,
-      vertical: true,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    });
-    $(".regular").slick({
-      dots: true,
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    });
-    $(".center").slick({
-      dots: true,
-      infinite: true,
-      centerMode: true,
-      slidesToShow: 5,
-      slidesToScroll: 3
-    });
-    $(".variable").slick({
-      dots: true,
-      infinite: true,
-      variableWidth: true
-    });
-    $(".lazy").slick({
-      lazyLoad: 'ondemand', // ondemand progressive anticipated
-      infinite: true
-    });
-  });
+$('.autoplay').slick({
+	  slidesToShow: 3,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	});
 </script>
 
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function () {
+
+
+	$('.slick-items').slick({
+		slidesToShow: 3,
+		
+		slidesToScroll: 1,
+		
+		autoplay : true,
+
+		dots: true,
+
+		speed : 1000 /* 이미지가 슬라이딩시 걸리는 시간 */,
+
+		infinite: true,
+
+		autoplaySpeed: 3000 /* 이미지가 다른 이미지로 넘어 갈때의 텀 */,
+
+		arrows: true,
+
+		slidesToShow: 1,
+
+		slidesToScroll: 1,
+
+		fade: false
+
+	});
+
+});
+
+
+
+</script>
