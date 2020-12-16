@@ -46,6 +46,12 @@ public class GoodsController {
 		
 	}
 	
+	@RequestMapping("/list")
+	public String list() {
+		String url = "goods/list";
+		return url;
+	}
+	
 	
 
 }

@@ -55,7 +55,7 @@ public class MemberServiceImpl implements MemberService{
 		if(!pwd.equals(member.getPwd())) throw new invalidPasswordException();
 		
 		if(member.getAuthority().equals("ROLE_USER")) {
-			MemberNVO memberN = memberNDAO.selectMemberNById(member.getId());
+			MemberNVO memberN = memberNDAO.selectMemberNById(id);
 			session.setAttribute("loginUserDetail", memberN);
 		}else if(member.getAuthority().equals("ROLE_COMPANY")) {
 			MemberCVO memberC = memberCDAO.selectMemberCById(id);
@@ -67,6 +67,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		session.setAttribute("loginUser", member);
 		session.setMaxInactiveInterval(6*60);
+
 		
 	}
 

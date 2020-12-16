@@ -34,8 +34,6 @@ import com.spring.HOT.service.MenuService;
 @RequestMapping("/member")
 public class MemberController {
 	
-	@Autowired
-	private MemberService memberService;
 	
 	@Autowired
 	private Member_NService member_NService;
@@ -52,10 +50,10 @@ public class MemberController {
 	
 	@RequestMapping("/getPicture")
 	@ResponseBody
-	public ResponseEntity<byte[]> getPicture(String writer) throws Exception{
+	public ResponseEntity<byte[]> getPicture(String id) throws Exception{
 		
 		
-		MemberNVO memberN = member_NService.getMemberNById(writer);
+		MemberNVO memberN = member_NService.getMemberNById(id);
 		
 		InputStream in =null;
 		ResponseEntity<byte[]> entity = null;

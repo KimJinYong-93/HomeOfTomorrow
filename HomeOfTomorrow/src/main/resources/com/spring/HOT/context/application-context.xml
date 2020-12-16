@@ -46,7 +46,10 @@
 	<!-- service -->
 	<bean id="memberService"
 		class="com.spring.HOT.service.MemberServiceImpl"
-		p:memberDAO-ref="memberDAO"/>
+		p:memberDAO-ref="memberDAO"
+		p:memberADAO-ref="member_ADAO"
+		p:memberNDAO-ref="member_NDAO"
+		p:memberCDAO-ref="member_CDAO"/>
 	<bean id="menuService"
 		class="com.spring.HOT.service.MenuServiceImpl"
 		p:menuDAO-ref="menuDAO"/>
