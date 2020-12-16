@@ -4,10 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberN-Mapper">
 	<select id="selectMemberNById" parameterType="str" resultType="memberN">
-		select 
-		* 
+		select * 
 		from member_n
-		where id=#{id}
+		where id = #{id}
 	</select>
 	
 	<select id="selectMemberNByNickname" parameterType="str" resultType="memberN">

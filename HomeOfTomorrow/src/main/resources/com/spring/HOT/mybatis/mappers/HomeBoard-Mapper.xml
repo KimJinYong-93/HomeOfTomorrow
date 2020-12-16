@@ -10,5 +10,11 @@
 		where rownum between 0 and 3
 		order by viewcnt desc
 	</select>
+	
+	<select id="selectMyhomeBoard" resultType="homeBoard">
+	SELECT *
+	FROM home_board
+	WHERE id = #{id}
+	</select>
 
 </mapper>

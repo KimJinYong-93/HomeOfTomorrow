@@ -8,5 +8,7 @@ import com.spring.HOT.dto.HomeBoardVO;
 public interface HomeBoardService {
 	
 	List<HomeBoardVO> homeBoardTop3()throws SQLException;
+	
+	List<HomeBoardVO> getMyhomeBoard(String id)throws SQLException;
 
 }

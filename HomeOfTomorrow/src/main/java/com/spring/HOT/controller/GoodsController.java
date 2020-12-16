@@ -46,11 +46,21 @@ public class GoodsController {
 		
 	}
 	
+
+	@RequestMapping("/list")
+	public String list() {
+		String url = "goods/list";
+		return url;
+	}
+	
+	
+
 	@RequestMapping("/upload")
 	public String upload() {
 		String url="goods/upload";
 		return url;
 	}
+
 
 	@RequestMapping("/loginForm")
 	public String loginForm() {

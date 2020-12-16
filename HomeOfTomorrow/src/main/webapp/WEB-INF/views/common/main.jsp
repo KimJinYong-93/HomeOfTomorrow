@@ -4,6 +4,25 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <div id="container">     
     
+
+<!-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+   ◀◀◀◀◀ 좌측 자주쓰는화면의 "dj_map.html" 를 클릭하시면 수정위치를 보다 쉽게 찾으실 수 있습니다. ◀◀◀◀◀
+
+   ※ 각 섹션 별로 사용 원하지 않으실 경우 class="on"을 class="off"로 변경하시면 숨김 처리가 됩니다.
+      다시 class="on"으로 설정시 보여지게 됩니다. 
+
+   ※ 직접 수정 시 오류가 발생할 수 있으므로, 꼭 수정전 파일을 백업하시길 권합니다. (오류 발생 후 복구 요청시 비용 발생)
+
+   ※ 모든 이미지는 편집창이나 사이트상이 아닌 FTP를 이용해 수정하셔야 합니다. 
+      관련 매뉴얼은 http://d-j.co.kr/_dj/sub/manual/list.html?board_no=3 (FTP 사용법 이미지 변경)을 참고 바랍니다.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------->
+
 <style> 
     .dj_slider .slider_1 { min-height:600px; }
     .dj_slider .slider_1.slick-initialized { height:600px; } 
@@ -16,10 +35,8 @@
 <div class="section left"> 
 <div class="dj_slider slider_1_top action_block">  
                  <div class="foot_btn">              
-                     <ul class="inner"><li class="btn_prev slick-arrow" style="display: list-item;">
-                     	<img src="<%=request.getContextPath() %>/resources/_dj/img/slider_2_prev_btn.png"></li>
-                        <li class="btn_next slick-arrow" style="display: list-item;">
-                        <img src="<%=request.getContextPath() %>/resources/_dj/img/slider_2_next_btn.png"></li>
+                     <ul class="inner"><li class="btn_prev slick-arrow" style="display: list-item;"><img src="<%=request.getContextPath() %>/resources/_dj/img/slider_2_prev_btn.png"></li>
+                         <li class="btn_next slick-arrow" style="display: list-item;"><img src="<%=request.getContextPath() %>/resources/_dj/img/slider_2_next_btn.png"></li>
                      </ul></div>
                  <!------------------------------------------------
 
@@ -36,18 +53,15 @@
 
                   ------------------------------------------------------------------------>     
                   <!--★ 0번 이미지 ★-->
-                  <div aria-live="polite" class="slick-list draggable">
-                  	<div class="slick-track" style="opacity: 1; width: 100%">
-	                  <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 100%; position: relative;left: 0; top: 0px; z-index: 999; opacity: 1;">
-	                      <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/00.jpg" id="slider_0_img" alt="영번째이미지">&nbsp;</div>
-	                  <div class="slick-slide" data-slick-index="1" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 100%; position: relative; left: -1300px; top: 0px; z-index: 998; opacity: 0;">
-	                      <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/01.jpg" id="slider_1_img" alt="첫번째이미지">&nbsp;</div>
-	                  <div class="slick-slide" data-slick-index="2" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 100%; position: relative; left: -2600px; top: 0px; z-index: 998; opacity: 0;">
-	                       <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/02.jpg" id="slider_1_img" alt="두번째이미지">&nbsp;</div>
-	                  <div class="slick-slide" data-slick-index="3" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 100%; position: relative; left: -3900px; top: 0px; z-index: 998; opacity: 0;">
-	                       <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/03.png" id="slider_1_img" alt="세번째이미지">&nbsp;</div>
-	                  </div>
-                  </div>  
+                  <div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 5200px;"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 1300px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                      <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/00.jpg" id="slider_0_img" alt="영번째이미지">
+                  &nbsp;</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 1300px; position: relative; left: -1300px; top: 0px; z-index: 998; opacity: 0;">
+                      <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/01.jpg" id="slider_1_img" alt="첫번째이미지">
+                  &nbsp;</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 1300px; position: relative; left: -2600px; top: 0px; z-index: 998; opacity: 0;">
+                       <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/02.jpg" id="slider_1_img" alt="두번째이미지">                     
+                  &nbsp;</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="transition: opacity 400ms linear 0s; width: 1300px; position: relative; left: -3900px; top: 0px; z-index: 998; opacity: 0;">
+                       <img src="<%=request.getContextPath() %>/resources/_dj/img/main_ban/03.png" id="slider_1_img" alt="세번째이미지">                     
+                  &nbsp;</div></div></div>  
                      
                   <!--★ 1번 이미지 ★-->
                     
@@ -148,7 +162,7 @@
                 <span>${homeBoard.title }</span>
 		         	<strong class="name"><a
 					href="/product/killer-cat-black-diamond/30/category/1/display/2/"
-					class=""><img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
+					class=""><img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?id=${homeBoard.id}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
 					<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block;">${homeBoard.writer }</span></a></strong>
         			
         </li>
@@ -341,5 +355,4 @@
         </ul><!-- 매거진 끝 --></div>
 </div>
 </div>
-    
-    </div>
+</div>

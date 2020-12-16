@@ -19,4 +19,10 @@ public class Member_CDAOImpl implements Member_CDAO {
 		sqlSession.update("MemberC-Mapper.insertMemberC", memberC);
 	}
 
+	@Override
+	public MemberCVO selectMemberCById(String id) throws SQLException {
+		MemberCVO memberC = sqlSession.selectOne("MemberC-Maper.selectMemberCById", id);
+		return memberC;
+	}
+
 }

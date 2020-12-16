@@ -5,6 +5,7 @@ import java.util.Date;
 public class HomeBoardVO {
 	
 	private int hno          ;
+	private String id ;
 	private String writer       ;
 	private String picture      ;
 	private String title        ;
@@ -18,6 +19,12 @@ public class HomeBoardVO {
 	}
 	public void setHno(int hno) {
 		this.hno = hno;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getWriter() {
 		return writer;
@@ -68,13 +75,8 @@ public class HomeBoardVO {
 		this.dist = dist;
 	}
 	
-	@Override
-	public String toString() {
-		return "HomeBoardVO [hno=" + hno + ", writer=" + writer + ", picture=" + picture + ", title=" + title
-				+ ", content=" + content + ", reg_dt=" + reg_dt + ", viewcnt=" + viewcnt + ", budget=" + budget
-				+ ", dist=" + dist + "]";
-	}
 	
+
 	
 
 }
