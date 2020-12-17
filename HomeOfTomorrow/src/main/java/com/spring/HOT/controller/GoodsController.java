@@ -60,6 +60,12 @@ public class GoodsController {
 		String url="goods/upload";
 		return url;
 	}
+	
+	@RequestMapping("/jip")
+	public String jip() {
+		String url="goods/jip";
+		return url;
+	}
 
 
 	@RequestMapping("/loginForm")

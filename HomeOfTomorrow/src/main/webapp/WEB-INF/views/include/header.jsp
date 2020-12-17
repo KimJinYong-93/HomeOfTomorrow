@@ -163,7 +163,7 @@
 										<c:if test="${mainMenu.mname ne 'QnA' }">
 											<li class="list xans-record-"><a
 											style="font-weight: 700 !important;"
-											href="/product/list.html?cate_no=43">${mainMenu.mname }</a></li>
+											href="<%=request.getContextPath() %>/goods/list">${mainMenu.mname }</a></li>
 										</c:if>
 									</c:if>
 								</c:forEach>
