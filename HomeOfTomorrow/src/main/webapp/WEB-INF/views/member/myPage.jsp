@@ -12,7 +12,6 @@
 
 
 
-
 	<div data-react-class="UserShow" class="page">
 		<div class="user-show-layout">
 			<div class="container">
@@ -65,25 +64,16 @@
 									</div>
 									<div class="user-profile__links">
 										<div class="short-cut">
-											<c:set value="/member/orderList" var="url" />
-											<c:set value="주문내역" var="buttonName" />
-											<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
-												<c:set value="/goods/upload" var="url"/>
-												<c:set value="상품등록" var="buttonName"/>
-											</c:if>
-												<div class="short-cut__item">
-													<a href="<%=request.getContextPath() %>${url }">
-														<div class="short-cut__icon">
-															<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-																<path fill-rule="evenodd" transform="matrix(1 0 0 -1 0 23.033)" d="M12.943 6.342a2 2 0 0 1-1.886 0L3 2.032V20.5a.5.5 0 0 0 .5.5h17a.5.5 0 0 0 .5-.5V2.033l-8.057 4.309zm-.471-.882l8.056-4.31A1 1 0 0 1 22 2.034V20.5a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 20.5V2.033a1 1 0 0 1 1.472-.882l8.056 4.31a1 1 0 0 0 .944 0z"></path>
-															</svg>
-														</div>
-														<div class="short-cut__text">${buttonName }</div>
-														<div class="short-cut__text">
-															<b class="highlight">0</b>
-														</div>
-													</a>
-												</div>
+											<div class="short-cut__item">
+												<a href="<%=request.getContextPath() %>/member/orderList">
+													<div class="short-cut__icon">
+<svg id="Layer_3" enable-background="new 0 0 64 64" height="512" viewBox="0 0 64 64" width="512" xmlns="http://www.w3.org/2000/svg"><g><path d="m6 27h8c.552 0 1-.448 1-1v-8c0-.552-.448-1-1-1h-8c-.552 0-1 .448-1 1v8c0 .552.448 1 1 1zm1-8h6v6h-6z"/><path d="m14 41h-8c-.552 0-1 .447-1 1v8c0 .553.448 1 1 1h8c.552 0 1-.447 1-1v-8c0-.553-.448-1-1-1zm-1 8h-6v-6h6z"/><path d="m17 7h22v2h-22z"/><path d="m17 11h22v2h-22z"/><path d="m17 19h22v2h-22z"/><path d="m17 23h22v2h-22z"/><path d="m13.586 5h-7.586c-.552 0-1 .448-1 1v8c0 .552.448 1 1 1h8c.552 0 1-.448 1-1v-7.586l1.707-1.707-1.414-1.414zm-2 2-4.586 4.586v-4.586zm1.414 6h-4.586l4.586-4.586z"/><path d="m15.293 27.293-1.707 1.707h-7.586c-.552 0-1 .448-1 1v8c0 .553.448 1 1 1h8c.552 0 1-.447 1-1v-7.586l1.707-1.707zm-3.707 3.707-4.586 4.586v-4.586zm1.414 6h-4.586l4.586-4.586z"/><path d="m62 63c.552 0 1-.447 1-1v-18c0-.553-.448-1-1-1h-5v-15c0-.552-.448-1-1-1h-13v-25c0-.552-.448-1-1-1h-40c-.552 0-1 .448-1 1v52c0 .553.448 1 1 1h15v7c0 .553.448 1 1 1zm-13-18h4v4h-4zm-12-2v-14h6v5c0 .553.448 1 1 1h4c.552 0 1-.447 1-1v-5h6v14zm8-14h2v4h-2zm-28 15v9h-14v-50h38v24h-5c-.552 0-1 .448-1 1v3h-18v2h18v2h-18v2h18v6h-17c-.552 0-1 .447-1 1zm10 1h4v4h-4zm-8 0h6v5c0 .553.448 1 1 1h6c.552 0 1-.447 1-1v-5h6v16h-20zm42 16h-20v-16h6v5c0 .553.448 1 1 1h6c.552 0 1-.447 1-1v-5h6z"/><path d="m55 57h4v2h-4z"/><path d="m49 39h4v2h-4z"/><path d="m55 53h4v2h-4z"/><path d="m33 57h4v2h-4z"/><path d="m33 53h4v2h-4z"/></g></svg>
+													</div>
+													<div class="short-cut__text">주문내역</div>
+													<div class="short-cut__text">
+														<b class="highlight">0</b>
+													</div></a>
+											</div>
 											<div class="short-cut__item">
 												<a href="/users/8176942/praises">
 													<div class="short-cut__icon">
@@ -98,9 +88,43 @@
 											<div class="short-cut__item">
 												<a href="/user_shopping_pages/coupons">
 													<div class="short-cut__icon">
-														<svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-															<path fill="#424242" fill-rule="nonzero" d="M22.588 3H1.413C.633 3 0 3.638 0 4.426L0 9.53l.605-.088c.12-.017.243-.026.367-.026 1.413 0 2.558 1.157 2.558 2.584S2.385 14.584.972 14.584c-.124 0-.247-.009-.367-.026L0 14.47l.001 5.104C.001 20.362.633 21 1.413 21h21.175c.78 0 1.412-.638 1.412-1.426V4.426C24 3.638 23.368 3 22.588 3zM1.413 4.07h21.175c.195 0 .353.159.353.356v15.148c0 .197-.158.357-.353.357H1.413l-.071-.008c-.161-.033-.282-.176-.282-.349l-.002-3.923-.086.002c1.997 0 3.617-1.635 3.617-3.653l-.004-.182C4.493 9.945 3.006 8.443 1.152 8.35l-.094-.003.002-3.922c0-.197.158-.357.353-.357zm14.646 2.138c.293 0 .53.237.53.53v1.614c0 .292-.237.53-.53.53-.292 0-.53-.238-.53-.53V6.737c0-.292.238-.53.53-.53zm0 4.455c.293 0 .53.237.53.53v1.614c0 .293-.237.53-.53.53-.292 0-.53-.237-.53-.53v-1.614c0-.293.238-.53.53-.53zm0 4.456c.293 0 .53.237.53.53v1.614c0 .292-.237.53-.53.53-.292 0-.53-.238-.53-.53v-1.615c0-.292.238-.53.53-.53z"></path>
-														</svg>
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M492,236H144.262c-11.046,0-20,8.954-20,20s8.954,20,20,20H492c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z
+			"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path d="M492,86H144.262c-11.046,0-20,8.954-20,20s8.954,20,20,20H492c11.046,0,20-8.954,20-20S503.046,86,492,86z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path d="M492,386H144.262c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20H492c11.046,0,20-8.954,20-20
+			C512,394.954,503.046,386,492,386z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<circle cx="27" cy="106" r="27"/>
+	</g>
+</g>
+<g>
+	<g>
+		<circle cx="27" cy="256" r="27"/>
+	</g>
+</g>
+<g>
+	<g>
+		<circle cx="27" cy="406" r="27"/>
+	</g>
+</g>
+
+</svg>
+
 													</div>
 													<div class="short-cut__text">글목록</div>
 													<div class="short-cut__text">
