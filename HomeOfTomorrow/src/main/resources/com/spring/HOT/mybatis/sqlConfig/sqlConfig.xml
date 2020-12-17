@@ -13,6 +13,7 @@
 		<typeAlias type="com.spring.HOT.dto.HomeBoardVO" alias="homeBoard"/>
 		<typeAlias type="com.spring.HOT.dto.MemberNVO" alias="memberN"/>
 		<typeAlias type="com.spring.HOT.dto.MemberCVO" alias="memberC"/>
+		<typeAlias type="com.spring.HOT.dto.MemberAVO" alias="memberA"/>
 		
 	</typeAliases>
 </configuration>

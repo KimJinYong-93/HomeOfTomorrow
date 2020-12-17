@@ -116,7 +116,7 @@
 								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
 							</a>
 						</li>
-						<li><a href="<%=request.getContextPath() %>/member/myPage">MY PAGE</a></li>
+						<li><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUserDetail.id}">MY PAGE</a></li>
 					</c:if>
 				</ul>
 			</div>

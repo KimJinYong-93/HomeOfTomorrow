@@ -100,7 +100,7 @@
 										</li>
 										<li class="pop"><a
 											href="/product/killer-cat-black-diamond/30/category/1/display/2/"
-											target="blank"><img src="<%=request.getContextPath()%>/resources/_dj/img/button_other_04.png"></a><span>새창보기</span>
+											target="blank"><img src="<%=request.getContextPath()%>/resources/_dj/img/main_ban/event1.jpg"></a><span>새창보기</span>
 										</li>
 									</ul>
 								</div>

@@ -8,4 +8,7 @@ public interface Member_CDAO {
 	
 	void regist(MemberCVO memberC) throws SQLException;
 	
+	MemberCVO selectMemberCById(String id)throws SQLException;
+	
 }
+
