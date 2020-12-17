@@ -142,6 +142,7 @@
 									번째 글을 올려보세요</a>
 								</c:if>
 								<c:if test="${myhomeBoardList ne null }">
+											<div class="row post--cards__list">
 									<c:forEach begin="0" end="3" varStatus="status">
 											<div class="row post--cards__list">
 												<c:if test="${myhomeBoardList[status.index] ne null }">
