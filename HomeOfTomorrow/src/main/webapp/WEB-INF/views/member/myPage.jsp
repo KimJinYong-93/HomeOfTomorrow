@@ -142,13 +142,14 @@
 									번째 글을 올려보세요</a>
 								</c:if>
 								<c:if test="${myhomeBoardList ne null }">
-									<c:forEach begin="0" end="3" varStatus="status">
 											<div class="row post--cards__list">
+									<c:forEach begin="0" end="3" varStatus="status">
 												<c:if test="${myhomeBoardList[status.index] ne null }">
 												  <div class="col-4 col-md-3">
-												    <div class="post--cards__item">
-												      <a href="" src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${myhomeBoardList[status.index].picture}"></a>
+												  	<a href="">
+												    <div class="post--cards__item" style="background-image: url('<%=request.getContextPath()%>/homeBoard/getPicture?picture=${myhomeBoardList[status.index].picture}'); background-position:center; background-size : cover;" >
 												    </div>
+												    </a>
 												  </div>
 												 </c:if>
 												 <c:if test="${myhomeBoardList[status.index] eq null }">
@@ -156,8 +157,9 @@
 												    <div></div>
 												  </div>
 												</c:if>
-											</div>
 									</c:forEach>
+											</div>
+											<a class="btn btn-simple btn-sm btn-md-md post__btn-new" href="/contents/card_collections/new"><span class="icon--page-mypage" style="margin-right:5px;background-position-x:-0px;background-position-y:-200px;width:12px;height:12px"></span>집들이 올리기</a>
 								</c:if>
 							</section>
 							<section class="post post--projects">
