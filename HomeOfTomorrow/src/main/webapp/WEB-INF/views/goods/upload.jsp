@@ -6,13 +6,13 @@
 <%	List<String> categories = (List<String>)request.getAttribute("category"); %> --%>	
 
   <meta name="csrf-param" content="authenticity_token" />
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
   <script src="https://static.ohou.se/dist/js/vendor-9bc9135a2316948b78ce.js"></script>
   <script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
   <script src="https://static.ohou.se/dist/js/utils-9c0aa47b7fb8865bdda8.js"></script>
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/layout/application_simplified-292aaabc44d7729c34b0c1af5b3aa9b030c551b99804d8f9ee75b0a53eaf76a2.css" />
-  <script src="https://static.ohou.se/assets/v3/application_simplified-7c49b9558856963801e50da5cfe6272c49dbc59dd45eef774b17918cf85db7ef.js"></script>
+<!--   <script src="https://static.ohou.se/assets/v3/application_simplified-7c49b9558856963801e50da5cfe6272c49dbc59dd45eef774b17918cf85db7ef.js"></script> -->
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/bucket_ui/components-e514064ef8cbfb4f627c4195455941a571fa4531e81bc40ff8fe62f4e2f13703.css" />
-  <script src="https://static.ohou.se/assets/v3/components-8812e17a5506f01585b2ab780e7b6d07def9edb402adb359366a61807e15f164.js"></script>
   <link rel="stylesheet" media="screen" href="<%=request.getContextPath()%>/resources/css/upload.css" />
   <link rel="stylesheet" media="screen" href="<%=request.getContextPath()%>/resources/css/upload2.css" />
   
@@ -232,12 +232,15 @@
 <script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/SalesApplication-7bd86ec6ca41aa0a5f90.js"></script>
+ 
 
-<%-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="<%=request.getContextPath() %>/resources/plugins/summernote/summernote.css" rel="stylesheet" />
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<%-- <link href="<%=request.getContextPath() %>/resources/plugins/summernote/summernote.css" rel="stylesheet" />
 <script src="<%=request.getContextPath() %>/resources/plugins/summernote/summernote.js"></script> --%>
 
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="<%=request.getContextPath() %>/resources/plugins/summernote/summernote-lite.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/plugins/summernote/lang/summernote-ko-KR.js"></script>
 
@@ -247,7 +250,6 @@
 <%@ include file="picture_js.jsp" %>
 <%@ include file="/WEB-INF/views/common/summernote.jsp" %>
 <script>
-	
 	function goodsSubmit_go(){
 		
 	}

@@ -2,18 +2,13 @@
     pageEncoding="UTF-8"%>
     
 <%@ page trimDirectiveWhitespaces="true" %>
-<style>
-	p img{
-		display: visible !important;
-	}
-</style>
 <script>
 
 window.addEventListener('load', function() {
 	$("#content").summernote({
 		placeholder:"여기에 내용을 적으세요.",
 		height:250,
-		disableResizeEditor:true,
+		disableResizeEditor:false,
 		callbacks:{
 			onImageUpload : function(files, editor, welEditable){
 				// file size validation
@@ -49,9 +44,7 @@ window.addEventListener('load', function() {
 			contentType : false,
 			processData : false,
 			success : function(img_url) {
-				alert(img_url)
-				$(el).summernote("editor.insertImage", img_url)
-				//$('#content').append('<img class="test" src="'+img_url+'" width="480" height="auto"/>');
+				$(el).summernote("insertImage", img_url);
 			}
 		})
 	}
