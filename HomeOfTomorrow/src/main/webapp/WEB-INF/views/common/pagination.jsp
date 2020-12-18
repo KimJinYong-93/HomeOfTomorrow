@@ -59,11 +59,10 @@
 		jobForm.find("[name='keyword']").val($('div.input-group>input[name="keyword"]').val());
 		jobForm.attr("method", "post");
 
-		
 		if(url){
 			jobForm.attr("action", url)
 		}else{
-			jobForm.attr("action", "list.do")
+			jobForm.attr("action", "list.do?cg_code=${cg_code}")
 		}
 		
 		jobForm.submit();

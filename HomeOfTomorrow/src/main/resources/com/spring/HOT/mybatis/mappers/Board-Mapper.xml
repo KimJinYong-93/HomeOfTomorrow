@@ -21,7 +21,7 @@
 			and title like '%'||#{keyword}||'%'			
 		</if>
 		<if test="searchType == 'w'.toString()">
-			and writer like '%'||#{keyword}||'%'			
+			and id like '%'||#{keyword}||'%'			
 		</if>
 		<if test="searchType == 'c'.toString()">
 			and content like '%'||#{keyword}||'%'			
@@ -35,7 +35,7 @@
 		</if>
 		<if test="searchType == 'cw'.toString()">
 			and (
-			writer like '%'||#{keyword}||'%'
+			id like '%'||#{keyword}||'%'
 			or
 			content like '%'||#{keyword}||'%'						
 			)			
@@ -44,7 +44,7 @@
 			and (
 			title like '%'||#{keyword}||'%'
 			or
-			writer like '%'||#{keyword}||'%'
+			id like '%'||#{keyword}||'%'
 			or
 			content like '%'||#{keyword}||'%'						
 			)			
@@ -72,5 +72,19 @@
 		<include refid="search" />
 		order by reg_dt desc
 	</select>
+	
+	<select id="selectBoardByBno"  resultType="board">
+		select * 
+		from board 
+		where bno=#{bno}
+	</select>
+	
+	<update id="increaseViewCnt" parameterType="int">
+		update 
+		board 
+		set 
+		viewcnt=viewcnt+1 
+		where bno=#{bno}
+	</update>
 
 </mapper>

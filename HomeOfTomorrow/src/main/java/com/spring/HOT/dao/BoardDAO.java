@@ -15,5 +15,12 @@ public interface BoardDAO {
 	List<BoardVO> selectBoardCriteria(SearchCriteria cri, String cg_code) throws SQLException;
 
 	int selectBoardCriteriaTotalCount(SearchCriteria cri, String cg_code) throws SQLException;
+	
+	BoardVO getBoardForModify(int bno) throws SQLException;
+	
+	BoardVO getBoard(int bno) throws SQLException;
 
+	BoardVO selectBoardByBno(int bno) throws SQLException;
+
+	void increaseViewCnt(int bno) throws SQLException;
 }

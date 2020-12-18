@@ -41,15 +41,11 @@ public class BoardDAOImpl implements BoardDAO {
 		int limit = cri.getPerPageNum();
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
-		System.out.println("offset : " + offset);
-		System.out.println("limit : " + limit);
-		System.out.println("rowBounds.getLimit() : " + rowBounds.getLimit());
-		System.out.println("rowBounds.getOffset() : " + rowBounds.getOffset());
+		Map<String, String> datas = new HashMap<String, String>();
 		
-		Map<String, Object> datas = new HashMap<String, Object>();
-		datas.put("cri", cri);
+		datas.put("searchType", cri.getSearchType()); 
+		datas.put("keyword", cri.getKeyword());
 		datas.put("cg_code", cg_code);
-		
 		List<BoardVO> boardList = sqlSession.selectList("Board-Mapper.selectSearchBoardList", datas, rowBounds);
 		return boardList;
 	}
@@ -64,6 +60,30 @@ public class BoardDAOImpl implements BoardDAO {
 		int count = sqlSession.selectOne("Board-Mapper.selectSearchBoardListCount", datas);
 		
 		return count;
+	}
+
+	@Override
+	public BoardVO getBoardForModify(int bno) throws SQLException {
+		BoardVO board = sqlSession.selectOne("Board-Mapper.selectBoardByBno", bno);
+		return board;
+	}
+
+	@Override
+	public BoardVO getBoard(int bno) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardVO selectBoardByBno(int bno) throws SQLException {
+		BoardVO board = sqlSession.selectOne("Board-Mapper.selectBoardByBno", bno);
+		return board;
+	}
+
+	@Override
+	public void increaseViewCnt(int bno) throws SQLException {
+		sqlSession.update("Board-Mapper.increaseViewCnt",bno);
+		
 	}
 	
 	

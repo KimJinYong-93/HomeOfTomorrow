@@ -22,7 +22,7 @@
 </style>
 <c:set var="pageMaker" value="${dataMap.pageMaker }"/>
 <c:set var="boardList" value="${dataMap.boardList }"/>
-<c:set var="listSize" value="${dataMap.listSize }"/>
+<c:set var="cri" value="${pageMaker.cri }" />
 <div class="wrap">
 	<div class="title">
         <h1><font color="#555555">NOTICE</font></h1>
@@ -47,26 +47,32 @@
                 </tr>
             </thead>
 			<tbody class="xans-element- xans-board xans-board-notice-1002 xans-board-notice xans-board-1002 center">
-				<c:set value="${listSize }" var="size"/>
+				<c:set value="" var="cg_code"/>
 				<c:forEach items="${boardList }" var="board" varStatus="status">
 					<tr style="background-color:#FFFFFF; color:#555555;" class="xans-record-">
-						<td>${size }</td>
+						<td>${board.bno }</td>
 	                    <td class="subject center txtBreak">
 		                    <strong>
-		                    	<a href="/article/notice/1/986/page/1/" style="color:#555555;">${board.title }</a> 
+		                    	<a href="detail?bno=${board.bno }&cg_code=${board.cg_code}" style="color:#555555;">${board.title }</a> 
 		                    	<span class="txtEm"></span>
 		                    </strong>
 	                    </td>
-	                    <td>센트몬스터</td>
+	                    <td>${board.id }</td>
 	                    <td class=""><span class="txtNum"><fmt:formatDate value="${board.reg_dt }" pattern="yyyy-MM-dd"/></span></td>
 	                    <td class=""><span class="txtNum">${board.viewcnt }</span></td>
 	                </tr>
-	            <c:set value="${size - 1}" var="size"/>
+	            <c:set value="${board.cg_code }" var="cg_code"/>
 				</c:forEach>	
 			</tbody>
 		</table><p class="xans-element- xans-board xans-board-empty-1002 xans-board-empty xans-board-1002 message  ">검색결과가 없습니다.</p>
 		<div id="keyword" class="row" style="width:350px;">
-			<div class="input-group">						
+			<div class="input-group">	
+				<select class="form-control col-md-3" name="perPageNum" id="perPageNum">
+			 		<option value="10">정렬개수</option>
+			 		<option value="2" ${cri.perPageNum == 2 ? 'selected' : '' }>2개씩</option>
+			 		<option value="3" ${cri.perPageNum == 3 ? 'selected' : '' }>3개씩</option>
+			 		<option value="5" ${cri.perPageNum == 5 ? 'selected' : '' }>5개씩</option>
+				</select>
 				<select class="form-control col-md-4" name="searchType" id="searchType">
 					<option value="tcw"  ${pageMaker.cri.searchType eq 'tcw' ? 'selected':'' }>전 체</option>
 					<option value="t" ${pageMaker.cri.searchType eq 't' ? 'selected':'' }>제 목</option>
@@ -75,7 +81,7 @@
 					<option value="tc" ${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }>제목+내용</option>
 					<option value="cw" ${pageMaker.cri.searchType eq 'cw' ? 'selected':'' }>작성자+내용</option>							
 				</select>					
-				<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${param.keyword }"/>
+				<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/>
 				<span class="input-group-append">
 					<button class="btn btn-primary" type="button" onclick="searchList_go(1);" 
 					data-card-widget="search">

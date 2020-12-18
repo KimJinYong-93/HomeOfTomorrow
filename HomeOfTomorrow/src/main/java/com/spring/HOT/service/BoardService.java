@@ -13,4 +13,8 @@ public interface BoardService {
 
 	Map<String, Object> getBoardList(SearchCriteria cri, String cg_code) throws SQLException;
 
+	BoardVO getBoardForModify(int bno) throws SQLException;
+
+	BoardVO getBoard(int bno) throws SQLException;
+
 }

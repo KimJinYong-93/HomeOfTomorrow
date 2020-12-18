@@ -61,6 +61,12 @@ public class SearchCriteria {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+
+	@Override
+	public String toString() {
+		return "SearchCriteria [page=" + page + ", perPageNum=" + perPageNum + ", searchType=" + searchType
+				+ ", keyword=" + keyword + "]";
+	}
 	
 	
 }

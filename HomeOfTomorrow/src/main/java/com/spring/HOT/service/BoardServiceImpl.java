@@ -38,13 +38,23 @@ public class BoardServiceImpl implements BoardService {
 		
 		dataMap.put("boardList", boardList);
 		dataMap.put("pageMaker", pageMaker);
-		dataMap.put("listSize", boardList.size());
+		dataMap.put("listSize", totalCount);
 		
 		return dataMap;
 	}
-	
-	
-	
+
+	@Override
+	public BoardVO getBoardForModify(int bno) throws SQLException {
+		BoardVO board = boardDAO.getBoardForModify(bno);
+		return board;
+	}
+
+	@Override
+	public BoardVO getBoard(int bno) throws SQLException {
+		BoardVO board = boardDAO.selectBoardByBno(bno);
+		boardDAO.increaseViewCnt(bno);
+		return board;
+	}
 	
 
 }
