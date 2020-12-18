@@ -11,8 +11,13 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.HOT.command.SearchCriteria;
 
 @Controller
 @RequestMapping("/board")
@@ -43,6 +48,23 @@ public class BoardController {
 		}
 		
 		return entity;
+	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list(ModelAndView mnv, SearchCriteria cri, String cg_code) {
+		String url = "";
+		
+		if(cg_code.equals("HOTB00Q")) {
+			url = "/board/QnA/list";
+		}else if(cg_code.equals("HOTB00E")) {
+			url = "/board/event/list";
+		}else {
+			url = "/board/notice/list";
+		}
+		
+		mnv.setViewName(url);
+		
+		return mnv;
 	}
 
 }
