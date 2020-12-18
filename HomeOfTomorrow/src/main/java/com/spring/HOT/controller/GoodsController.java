@@ -120,4 +120,10 @@ public class GoodsController {
 		return mnv;
 	}
 	
+	@RequestMapping("/detail")
+	public String detail() {
+		String url = "goods/detail";
+		return url;
+	}
+	
 }
