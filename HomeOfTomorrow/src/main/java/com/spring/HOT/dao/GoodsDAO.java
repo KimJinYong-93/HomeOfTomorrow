@@ -10,5 +10,7 @@ public interface GoodsDAO {
 	List<GoodsVO> selectTop12()throws SQLException;
 	
 	GoodsVO selectGoods(String gcode)throws SQLException;
+	
+	void regist(GoodsVO goods) throws SQLException;
 
 }

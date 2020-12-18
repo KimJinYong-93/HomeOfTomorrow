@@ -16,4 +16,9 @@
 	FROM goods
 	WHERE gcode = #{gcode}
 	</select>
+	
+	<update id="registGoods" parameterType="goods">
+		INSERT INTO goods (gcode, cid, cname, gname, picture, op_name, op_val, content, cg_code, bname)
+		VALUES(#{gcode}, #{cid}, #{cname}, #{gname}, #{picture}, #{op_name}, #{op_val}, #{content}, #{cg_code}, #{bname})
+	</update>
 </mapper>

@@ -10,5 +10,67 @@
 		WHERE cg_code LIKE 'HOTB00Q' AND id LIKE #{id}
 	</select>
 	
+	<select id="selectBoardListByCgcode" parameterType="str" resultType="board">
+		SELECT *
+		FROM board
+		WHERE cg_code = #{cg_code}
+	</select>
+	
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'w'.toString()">
+			and writer like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'c'.toString()">
+			and content like '%'||#{keyword}||'%'			
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'						
+			)			
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			and (
+			writer like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'						
+			)			
+		</if>
+		<if test="searchType == 'tcw'.toString()">
+			and (
+			title like '%'||#{keyword}||'%'
+			or
+			writer like '%'||#{keyword}||'%'
+			or
+			content like '%'||#{keyword}||'%'						
+			)			
+		</if>
+	</sql>
+	
+	<select id="selectSearchBoardList" 
+			resultType="board">
+		select
+		*
+		from
+		board
+		where bno is not null  			  	
+		<include refid="search" />
+		order by reg_dt desc
+	</select>
+	
+	<select id="selectSearchBoardListCount" 
+			resultType="int">
+		select
+		count(*)
+		from
+		board
+		where bno is not null and cg_code = #{cg_code}  			  	
+		<include refid="search" />
+		order by reg_dt desc
+	</select>
 
 </mapper>

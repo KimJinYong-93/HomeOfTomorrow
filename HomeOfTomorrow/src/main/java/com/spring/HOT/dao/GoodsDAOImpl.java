@@ -32,8 +32,12 @@ public class GoodsDAOImpl implements GoodsDAO{
 		GoodsVO goods = sqlSession.selectOne("Goods-Mapper.selectGoods", gcode);
 		return goods;
 	}
-	
-	
+
+
+	@Override
+	public void regist(GoodsVO goods) throws SQLException {
+		sqlSession.update("Goods-Mapper.registGoods", goods);
+	}
 	
 
 }

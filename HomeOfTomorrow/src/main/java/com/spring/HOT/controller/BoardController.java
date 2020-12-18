@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.command.SearchCriteria;
+import com.spring.HOT.dto.BoardVO;
+import com.spring.HOT.service.BoardService;
 
 @Controller
 @RequestMapping("/board")
@@ -27,6 +32,8 @@ public class BoardController {
 	@Resource(name="boardPicturePath")
 	private String picturePath; 
 	
+	@Autowired
+	private BoardService boardService;
 	
 	@RequestMapping("/getPicture")
 	@ResponseBody
@@ -51,7 +58,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list(ModelAndView mnv, SearchCriteria cri, String cg_code) {
+	public ModelAndView list(ModelAndView mnv, SearchCriteria cri, String cg_code) throws Exception {
 		String url = "";
 		
 		if(cg_code.equals("HOTB00Q")) {
@@ -62,6 +69,10 @@ public class BoardController {
 			url = "/board/notice/list";
 		}
 		
+		Map<String, Object> dataMap = boardService.getBoardList(cri, cg_code);
+		System.out.println(dataMap.get("pageMaker"));
+		System.out.println(dataMap.get("listSize"));
+		mnv.addObject("dataMap", dataMap);
 		mnv.setViewName(url);
 		
 		return mnv;
