@@ -101,10 +101,10 @@
 					</li>
 					<c:if test="${loginUser eq null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
-							<a href="loginForm.do">LOGIN</a>
+							<a href="<%=request.getContextPath() %>/common/loginForm.do">LOGIN</a>
 						</li>
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
-							<a href="joinForm.do">JOIN</a>
+							<a href="<%=request.getContextPath() %>/common/joinForm.do">JOIN</a>
 						</li>
 					</c:if>
 					<c:if test="${loginUser ne null }">
@@ -158,12 +158,12 @@
 										<c:if test="${mainMenu.mname eq 'QnA' }">
 										<li class="list xans-record-"><a
 											style="font-weight: 700 !important;"
-											href="/product/list.html?cate_no=43">Q&A</a></li>
+											href="<%=request.getContextPath() %>${mainMenu.url}">Q&A</a></li>
 										</c:if>
 										<c:if test="${mainMenu.mname ne 'QnA' }">
 											<li class="list xans-record-"><a
 											style="font-weight: 700 !important;"
-											href="<%=request.getContextPath() %>/goods/list">${mainMenu.mname }</a></li>
+											href="<%=request.getContextPath() %>${mainMenu.url}">${mainMenu.mname }</a></li>
 										</c:if>
 									</c:if>
 								</c:forEach>
