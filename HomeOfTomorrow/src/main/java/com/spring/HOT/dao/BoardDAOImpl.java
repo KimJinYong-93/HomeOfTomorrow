@@ -41,6 +41,11 @@ public class BoardDAOImpl implements BoardDAO {
 		int limit = cri.getPerPageNum();
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		
+		System.out.println("offset : " + offset);
+		System.out.println("limit : " + limit);
+		System.out.println("rowBounds.getLimit() : " + rowBounds.getLimit());
+		System.out.println("rowBounds.getOffset() : " + rowBounds.getOffset());
+		
 		Map<String, Object> datas = new HashMap<String, Object>();
 		datas.put("cri", cri);
 		datas.put("cg_code", cg_code);
