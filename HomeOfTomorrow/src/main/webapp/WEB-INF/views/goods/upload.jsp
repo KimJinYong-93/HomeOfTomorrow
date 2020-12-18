@@ -249,6 +249,6 @@
 <script>
 	
 	function goodsSubmit_go(){
-		
+		var form = $('form[role="goodsRegistForm"]');
 	}
 </script>
