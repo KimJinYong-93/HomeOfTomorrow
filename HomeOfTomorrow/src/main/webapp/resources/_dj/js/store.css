@@ -1,0 +1,126 @@
+.carousel__list__entry {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+.carousel {
+	position: relative
+}
+
+.carousel__list-wrap {
+	overflow: hidden
+}
+
+.carousel__list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: nowrap;
+	-moz-flex-wrap: nowrap;
+	-ms-flex-wrap: none;
+	flex-wrap: nowrap;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	-webkit-align-items: stretch;
+	-moz-align-items: stretch;
+	align-items: stretch;
+	min-height: 100%
+}
+
+.carousel__list__entry {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	-moz-box-flex: 0;
+	-moz-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	box-sizing: border-box
+}
+
+.carousel__ui {
+	display: none
+}
+
+.carousel__ui__left, .carousel__ui__right {
+	position: absolute;
+	top: 50%;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+	transition: opacity .1s;
+	cursor: pointer;
+	z-index: 10
+}
+
+.carousel__ui__left>.active, .carousel__ui__left>.inactive,
+	.carousel__ui__right>.active, .carousel__ui__right>.inactive {
+	position: absolute;
+	transition: opacity .1s
+}
+
+.carousel__ui__left.scroller-hide, .carousel__ui__left>.active,
+	.carousel__ui__right.scroller-hide, .carousel__ui__right>.active {
+	opacity: 0
+}
+
+.carousel__ui__left:active>.active, .carousel__ui__left:focus>.active,
+	.carousel__ui__left:hover>.active, .carousel__ui__right:active>.active,
+	.carousel__ui__right:focus>.active, .carousel__ui__right:hover>.active
+	{
+	opacity: 1
+}
+
+.carousel__ui__left {
+	left: 0;
+	transform: translate(-50%, -50%)
+}
+
+.carousel__ui__right {
+	right: 0;
+	transform: translate(50%, -50%)
+}
+
+.main{
+		position: relative;
+	}
+.main button{
+	position: absolute;
+	z-index: 10;
+	top : 50%;
+	transform:translateY(-50%);
+	width: 71px;
+	height: 71px;
+	border:none;
+	border-radius: 100%;
+	background-color: rgba(255,255,255,.4);
+}
+.main button:before{
+	font-family : 'xeicon';
+	color: #fff;
+	font-size: 40px;
+}
+.main button.slick-prev{
+	left: 50px;
+	font-size: 0;
+	color: transparent;
+}
+.main button.slick-prev:before{
+	content: "\e93d";
+}
+.main button.slick-next{
+	right: 50px;
+	font-size: 0;
+	color: transparent;
+}
+.main button.slick-next:before{
+	content: "\e940";
+}
+.img{
+	width :100px	
+}
