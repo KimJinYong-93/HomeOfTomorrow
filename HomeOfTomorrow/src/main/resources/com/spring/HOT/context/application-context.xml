@@ -19,6 +19,9 @@
 	<bean id="homeBoardPicturePath" class="java.lang.String">
 		<constructor-arg value="${homeBoard.picture.upload}"></constructor-arg>
 	</bean>
+	<bean id="boardPicturePath" class="java.lang.String">
+		<constructor-arg value="${board.picture.upload}"></constructor-arg>
+	</bean>
 
 	<!-- dao -->
 	<bean id="memberDAO"
@@ -41,6 +44,15 @@
 		p:sqlSession-ref="sqlSession"/>
 	<bean id="member_ADAO"
 		class="com.spring.HOT.dao.Member_ADAOImpl"
+		p:sqlSession-ref="sqlSession"/>
+	<bean id="boardDAO"
+		class="com.spring.HOT.dao.BoardDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
+	<bean id="ordersDAO"
+		class="com.spring.HOT.dao.OrdersDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
+	<bean id="order_bdDAO"
+		class="com.spring.HOT.dao.Order_bdDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
 	
 	<!-- service -->
@@ -68,5 +80,13 @@
 	<bean id="member_AService"
 		class="com.spring.HOT.service.Member_AServiceImpl"
 		p:member_ADAO-ref="member_ADAO"/>
+	<bean id="boardService"
+		class="com.spring.HOT.service.BoardServiceImpl"
+		p:boardDAO-ref="boardDAO"/>
+	<bean id="ordersService"
+		class="com.spring.HOT.service.OrdersServiceImpl"
+		p:ordersDAO-ref="ordersDAO"
+		p:order_dbDAO-ref="order_bdDAO"
+		p:goodsDAO-ref="goodsDAO"/>
 
 </beans>

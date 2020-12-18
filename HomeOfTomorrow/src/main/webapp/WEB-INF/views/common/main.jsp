@@ -20,10 +20,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick-theme.css">
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-
 <style>
  #container{
  	overflow-x:hidden; overflow-y:auto;
@@ -49,7 +45,7 @@
                 <span>${homeBoard.title }</span>
 	         	<strong class="name">
 	         		<a href="#"></a>
-	         		<img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?writer=${homeBoard.writer}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
+	         		<img alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?id=${homeBoard.id}" style="border: 1px solid gray; width: 20px; height: 20px;width: 30px;height: 30px; display: inline-block; border-radius: 50%;">
 					<span style="font-size: 12px; color: #555555; padding-top: 0px;display: inline-block;">${homeBoard.writer }</span>
 	            </strong>
 	            </div>

@@ -15,6 +15,7 @@
 	SELECT *
 	FROM home_board
 	WHERE id = #{id}
+	ORDER BY reg_dt DESC
 	</select>
 
 </mapper>

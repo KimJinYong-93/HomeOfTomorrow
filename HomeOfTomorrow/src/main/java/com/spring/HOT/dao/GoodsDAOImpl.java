@@ -25,6 +25,13 @@ public class GoodsDAOImpl implements GoodsDAO{
 		
 		
 	}
+
+
+	@Override
+	public GoodsVO selectGoods(String gcode) throws SQLException {
+		GoodsVO goods = sqlSession.selectOne("Goods-Mapper.selectGoods", gcode);
+		return goods;
+	}
 	
 	
 	

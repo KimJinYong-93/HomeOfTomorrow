@@ -22,15 +22,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.HOT.dto.BoardVO;
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.HomeBoardVO;
 import com.spring.HOT.dto.MemberNVO;
+import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.dto.MenuVO;
+import com.spring.HOT.request.OrdersRequest;
+import com.spring.HOT.service.BoardService;
 import com.spring.HOT.service.GoodsService;
 import com.spring.HOT.service.HomeBoardService;
 import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.Member_NService;
 import com.spring.HOT.service.MenuService;
+import com.spring.HOT.service.OrdersService;
 
 
 @Controller
@@ -44,6 +50,11 @@ public class MemberController {
 	@Autowired
 	private HomeBoardService homeBoardService;
 	
+	@Autowired
+	private BoardService boardService;
+	
+	@Autowired
+	private OrdersService ordersService;
 	
 	
 	@RequestMapping("/myPage")
@@ -51,15 +62,25 @@ public class MemberController {
 		String url="member/myPage";
 		try {
 			List<HomeBoardVO> myhomeBoardList = homeBoardService.getMyhomeBoard(id);
+			List<BoardVO> myQnAList = boardService.getMyQnAList(id);
 			int homeCount = 0;
+			int QnACount = 0;
 			if(myhomeBoardList != null) {
 				for(int i = 0; i < myhomeBoardList.size(); i++) {
 					homeCount++;
 				}
 			}
+			if(myQnAList != null) {
+				for(int i = 0; i < myQnAList.size(); i++) {
+					QnACount++;
+				}
+			}
+			
 			
 			mnv.addObject("myhomeBoardList", myhomeBoardList);
 			mnv.addObject("homeCount", homeCount);
+			mnv.addObject("myQnAList", myQnAList);
+			mnv.addObject("QnACount", QnACount);
 			mnv.setViewName(url);
 			
 		} catch (SQLException e) {
@@ -99,9 +120,23 @@ public class MemberController {
 		
 	}
 	@RequestMapping("/orderList")
-	public String orderList() {
+	public ModelAndView orderList(HttpSession session, ModelAndView mnv) {
 		String url="member/orderList";
-		return url;
+		
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		String userId = loginUser.getId();
+		
+		try {
+			List<OrdersRequest> myOrders = ordersService.getMyOrders(userId);
+
+			mnv.addObject("myOrders" , myOrders);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		mnv.setViewName(url);
+		
+		return mnv;
 	}
 
 }
