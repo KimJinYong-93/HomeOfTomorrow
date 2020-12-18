@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.spring.HOT.dao.MenuDAO;
+import com.spring.HOT.dto.CategoryVO;
 import com.spring.HOT.dto.MenuVO;
 
 public class MenuServiceImpl implements MenuService {

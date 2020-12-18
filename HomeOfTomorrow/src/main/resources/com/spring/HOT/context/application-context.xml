@@ -16,6 +16,7 @@
 	<bean id="goodsPicturePath" class="java.lang.String">
 		<constructor-arg value="${goods.picture.upload}"></constructor-arg>
 	</bean>
+	
 	<bean id="homeBoardPicturePath" class="java.lang.String">
 		<constructor-arg value="${homeBoard.picture.upload}"></constructor-arg>
 	</bean>
@@ -41,6 +42,9 @@
 		p:sqlSession-ref="sqlSession"/>
 	<bean id="member_ADAO"
 		class="com.spring.HOT.dao.Member_ADAOImpl"
+		p:sqlSession-ref="sqlSession"/>
+	<bean id="categoryDAO"
+		class="com.spring.HOT.dao.CategoryDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
 	
 	<!-- service -->
@@ -68,5 +72,8 @@
 	<bean id="member_AService"
 		class="com.spring.HOT.service.Member_AServiceImpl"
 		p:member_ADAO-ref="member_ADAO"/>
+	<bean id="categoryService"
+		class="com.spring.HOT.service.CategoryServiceImpl"
+		p:categoryDAO-ref="categoryDAO"/>
 
 </beans>

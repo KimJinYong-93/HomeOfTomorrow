@@ -6,15 +6,18 @@
 <%	List<String> categories = (List<String>)request.getAttribute("category"); %> --%>	
 
   <meta name="csrf-param" content="authenticity_token" />
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
   <script src="https://static.ohou.se/dist/js/vendor-9bc9135a2316948b78ce.js"></script>
   <script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
   <script src="https://static.ohou.se/dist/js/utils-9c0aa47b7fb8865bdda8.js"></script>
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/layout/application_simplified-292aaabc44d7729c34b0c1af5b3aa9b030c551b99804d8f9ee75b0a53eaf76a2.css" />
-  <script src="https://static.ohou.se/assets/v3/application_simplified-7c49b9558856963801e50da5cfe6272c49dbc59dd45eef774b17918cf85db7ef.js"></script>
+<!--   <script src="https://static.ohou.se/assets/v3/application_simplified-7c49b9558856963801e50da5cfe6272c49dbc59dd45eef774b17918cf85db7ef.js"></script> -->
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/bucket_ui/components-e514064ef8cbfb4f627c4195455941a571fa4531e81bc40ff8fe62f4e2f13703.css" />
-  <script src="https://static.ohou.se/assets/v3/components-8812e17a5506f01585b2ab780e7b6d07def9edb402adb359366a61807e15f164.js"></script>
   <link rel="stylesheet" media="screen" href="<%=request.getContextPath()%>/resources/css/upload.css" />
   <link rel="stylesheet" media="screen" href="<%=request.getContextPath()%>/resources/css/upload2.css" />
+  
+  
+  
 
   <script src="https://unpkg.com/react@15/dist/react.min.js"></script> <!--react -->
   <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script> <!-- react-dom -->
@@ -41,7 +44,7 @@
 		<div class="container seller-layout__body">
 			<form id="sales-form--application"
 				class="sales-form sales-form--application"
-				action="/partner/applications" method="post" accept-charset="UTF-8">
+				action="regist" method="post" accept-charset="UTF-8" role="goodsRegistForm">
 				<input type="hidden" name="authenticity_token"
 					value="MmsuVeAekNbl7xd7j8Bjv+Y0b/FlzZPM/CxswIE7t4WBKCNcCFjlqCG54llzGARFJTF6jUmqjQsYye+Nq2ljKQ==" />
 				<div class="sales-form__section">
@@ -58,9 +61,8 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="sales_application__company"
-									name="sales_application[company]" class="form-control"
-									placeholder="내일의집" value="" />
+								<input type="text" id="cname" name="cname" class="form-control"
+									placeholder="내일의집" value="${loginUserDetail.name }" />
 							</div>
 						</div>
 					</div>
@@ -72,15 +74,15 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="tel" id="sales_application__license1"
-									name="sales_application[license1]" class="form-control"
-									 value="" /><span class="sales-form__divider">-</span><input
+								<input type="text" id="cno" name="cno" class="form-control"
+									 value="${loginUserDetail.cno }" />
+									 <!-- <span class="sales-form__divider">-</span><input
 									type="tel" id="sales_application__license2"
 									name="sales_application[license2]" class="form-control"
 									 value="" /><span class="sales-form__divider">-</span><input
 									type="tel" id="sales_application__license3"
 									name="sales_application[license3]" class="form-control"
-									 value="" />
+									 value="" /> -->
 							</div>
 						</div>
 					</div>
@@ -94,20 +96,35 @@
 							<p class="sales-form__section__title">상품 정보</p>
 						</div>
 					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__brand"
-								class="form-label sales-form__form-label">대표브랜드 이름<span
+								class="form-label sales-form__form-label">브랜드명<span
 								class="sales-form__form-group__required">*</span></label>
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="sales_application__brand"
-									name="sales_application[brand]" class="form-control"
-									placeholder="내일의집 가구" value="" />
+								<input type="text" id="bname" name="bname" class="form-control"
+									placeholder="미미컴퍼니 최고의 브랜드! 라꾸라꾸!" value="" />
 							</div>
 						</div>
 					</div>
+					
+					<div class="row sales-form__form-group">
+						<div class="offset-1 col-2">
+							<label for="sales_application__brand"
+								class="form-label sales-form__form-label">상품명<span
+								class="sales-form__form-group__required">*</span></label>
+						</div>
+						<div class="col-8">
+							<div class="sales-form__form-control-wrap">
+								<input type="text" id="gname" name="gname" class="form-control"
+									placeholder="라꾸라꾸의 최고 침대!! 미미컴퍼니 미미베드" value="" />
+							</div>
+						</div>
+					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__product_categories"
@@ -116,20 +133,43 @@
 						</div>
 						<div class="col-8">
 							<div class="form__form-control-wrap" >
-								<select class="goodsform-control"> 
-<%-- 									<% 
-										for(int i = 0 ; i < categories.size(); i++){
-											String category = categories.get(i);
-										%>
-											<option><%= category %></option>
-										<%							
-										}
-									%> --%>
-									<option>가구</option>
+								<select class="goodsform-control" name="cg_code" id="cg_code">
+									<c:forEach items="${categoryList }" var="category">
+										<option value="${category.cg_code }">${category.name }</option>
+									</c:forEach>	
 								</select>
 							</div>
 						</div>
 					</div>
+					
+					<div class="row sales-form__form-group">
+						<div class="offset-1 col-2">
+							<label for="sales_application__brand"
+								class="form-label sales-form__form-label">옵션<span
+								class="sales-form__form-group__required">*</span></label>
+						</div>
+						<div class="col-8">
+							<div class="sales-form__form-control-wrap">
+								<input type="text" id="op_name" name="op_name" class="form-control"
+									placeholder="ex) 색상/사이즈" value="" style="width: 300px;"/><span class="">※ "/" 로 구분해서 작성해 주세요.</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row sales-form__form-group">
+						<div class="offset-1 col-2">
+							<label for="sales_application__brand"
+								class="form-label sales-form__form-label">옵션값<span
+								class="sales-form__form-group__required">*</span></label>
+						</div>
+						<div class="col-8">
+							<div class="sales-form__form-control-wrap">
+								<input type="text" id="op_val" name="op_val" class="form-control"
+									placeholder="ex) 블루,레드/M,L,XL" value="" style="width: 300px;"/><span class="">※ 위에서 작성한 옵션을 "," 로 구분해서 작성해 주세요.</span>
+							</div>
+						</div>
+					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__about_product"
@@ -137,11 +177,26 @@
 								class="sales-form__form-group__required">*</span></label>
 						</div>
 						<div class="col-8">
-							<textarea id="sales_application__about_product"
-								name="sales_application[about_product]" class="form-control"
+							<textarea name="content" class="form-control" id="content"
 								placeholder="판매하시는 상품에 대한 설명을 입력해주세요."></textarea>
 						</div>
 					</div>
+					
+					<div class="row sales-form__form-group">
+						<div class="offset-1 col-2">
+							<label for="sales_application__brand"
+								class="form-label sales-form__form-label">가격<span
+								class="sales-form__form-group__required">*</span></label>
+						</div>
+						<div class="col-8">
+							<div class="sales-form__form-control-wrap">
+								<input type="text" id="sales_application__brand"
+									name="cname" class="form-control" id="cname"
+									placeholder="20000" value="" />&nbsp;원
+							</div>
+						</div>
+					</div>
+					
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__sale_file"
@@ -150,26 +205,26 @@
 						<div class="col-8">
 							<input type="hidden" id="sales_application__sale_file_url"
 								name="sales_application[sale_file_url]" /><label
-								class="btn btn-sm btn-priority sales-form__file__btn">파일
-								업로드<input type="file" id="sales-form__file__uploader" 
-								class="sales-form__file--uploader" data-max-size="1048"
-								accept=".png,.jpg,.jpeg" 
-								onchange="javascript:document.getElementById('fileName').innerHTML= this.value.substring(12, 100)"
-								/>
-							</label>
-							<p class="sales-form__file__name" id="fileName" >선택된 파일이 없습니다.</p>
+								class="btn btn-sm btn-priority sales-form__file__btn" for="inputFile">파일
+								업로드</label>&nbsp;&nbsp;
+							<span id="inputFileName">선택된 파일이 없습니다.</span>
 							<p class="sales-form__file__caption">
-								※ 상품 상세 이미지를 10MB 용량 이하의 JPG,PNG 파일 형태로 첨부해주세요.
+								※ 상품 대표 이미지를 10MB 용량 이하의 JPG,JEPG 파일 형태로 첨부해주세요.
 							</p>
+							
+							<div id="pictureView" style="height: 200px; width: 140px; margin: 0 auto; float:left;"></div>
 						</div>
+						<br><br>
+						<button type="button" onclick="upload_go()">업로드</button>
 					</div>
 				</div>
 				<div class="row justify-center seller-layout__divider">
 					<hr class="col-10 seller-layout__hr" />
 				</div>
 				<div class="sales-form__btn-apply">
-					<button class="btn btn-lg btn-priority" type="submit">상품등록</button>
+					<button class="btn btn-lg btn-priority" type="button" onclick="goodsSubmit_go()">상품등록</button>
 				</div>
+				<input type="hidden" name="picture">
 			</form>
 		</div>
 	</div>
@@ -177,3 +232,25 @@
 <script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/SalesApplication-7bd86ec6ca41aa0a5f90.js"></script>
+ 
+
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<%-- <link href="<%=request.getContextPath() %>/resources/plugins/summernote/summernote.css" rel="stylesheet" />
+<script src="<%=request.getContextPath() %>/resources/plugins/summernote/summernote.js"></script> --%>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="<%=request.getContextPath() %>/resources/plugins/summernote/summernote-lite.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/plugins/summernote/lang/summernote-ko-KR.js"></script>
+
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/plugins/summernote/summernote-lite.min.css"/>
+
+<%@ include file="/WEB-INF/views/common/common_js.jsp" %>
+<%@ include file="picture_js.jsp" %>
+<%@ include file="/WEB-INF/views/common/summernote.jsp" %>
+<script>
+	function goodsSubmit_go(){
+		
+	}
+</script>

@@ -102,20 +102,20 @@ public class CommonController {
 	@RequestMapping(value = "/common/join", method=RequestMethod.POST)
 	public void join(MemberJoinCommand memberReq, String gb, String[] hp, HttpServletResponse response) throws SQLException, IOException {
 		String datas = "";
-		for(int i = 0; i < hp.length; i++) {	// hp 에 '-' 넣기
-			if(i == 0) {
+		for (int i = 0; i < hp.length; i++) { // hp 에 '-' 넣기
+			if (i == 0) {
 				datas += hp[i];
-			}else {
+			} else {
 				datas += "-" + hp[i];
 			}
 		}
 		memberReq.setHp(datas);
-		
+
 		MemberVO member = memberReq.toMemberParse();
-		memberService.regist(member);	// 회원테이블에 insert
-		
+		memberService.regist(member); // 회원테이블에 insert
+
 		System.out.println(memberReq);
-		
+
 		if(gb.equals("n")) {
 			MemberNVO memberN = memberReq.toMember_NParse();	// memberN 으로 변환
 			member_nService.regist(memberN);	// memberN 테이블에 insert

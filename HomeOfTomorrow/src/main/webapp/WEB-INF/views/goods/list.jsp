@@ -23,81 +23,65 @@
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/2-efe4945d.chunk.css" />
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/7-7f96bff5.chunk.css" />
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/9-d91eb381.chunk.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/store.css">
-
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/39-462c795f.chunk.css" />
 <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/templates-Commerce-StoreIndex-StoreIndex-350ef40f.chunk.css" />	
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/store.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.css">
+<script src="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.js"></script>
+
 
 <div id="wrap">
 		<div class="layout">
 			<div id="store-index">
-				<div class="carousel featured-carousel" role="slider" aria-roledescription="carousel">
+				<section class="main">
+						<div class="img">
+							<img src="<%=request.getContextPath() %>/resources/image/event1.jpg">
+						</div>
+						<div class="img">
+							<img src="<%=request.getContextPath() %>/resources/image/event2.jpg">
+						</div>
+						<div class="img">
+							<img src="<%=request.getContextPath() %>/resources/image/event3.png">
+						</div>
+				</section>
 					<div class="carousel__list-wrap">
-						<div class="carousel__list" aria-live="ff" style="transform: translateX(0%); transition: 0.35 ;  tabindex="0">
-							  <div class="carousel__list__entry" role="group" aria-roledescription="slide" aria-label="1 of 6" style="width: 100%;">
-							  		<a href="#">
-								  		<div class="carousel-banner">
-								  			<div class="carousel-banner__content container">
-								  				<div class="featured-content__cover-image">
-								  					<img src="<%=request.getContextPath()%>/resources/image/event1.jpg">
-								  					<img src="<%=request.getContextPath()%>/resources/image/event2.jpg">
-								  				<div class="featured-content__text-wrap featured-content__text-wrap--left">
-								  				</div>
-								  				</div>
-								  			</div>
-								  		</div>	
-								  	</a>
-							  </div>
-					</div>
-					<div class="featured-carousel__indicators__wrap">
-						<div class="featured-carousel__indicators__centering-container">
-							<ul class="featured-carousel__indicators__list">
-								<li class="featured-carousel__indicators__item active"><button type="button"></button></li>
-								<li class="featured-carousel__indicators__item"><button type="button"></button></li>
-								<li class="featured-carousel__indicators__item"><button type="button"></button></li>
-								<li class="featured-carousel__indicators__item"><button type="button"></button></li>
-								<li class="featured-carousel__indicators__item"><button type="button"></button></li>
-								<li class="featured-carousel__indicators__item"><button type="button"></button></li>
+						<div class="featured-quick-navigation container">
+							<ul class="featured-quick-navigation__list">
+								<li class="featured-quick-navigation__item featured-quick-navigation__item--selected" role="button">
+									<div class="featured-quick-navigation__item__content">
+										<span>2020 베스트 브랜드</span>
+									</div>
+								</li>
+								<li class="featured-quick-navigation__item" role="button">
+									<div class="featured-quick-navigation__item__content">
+										<span>내일의집 리퍼마켓</span>
+									</div>
+								</li>
+								<li class="featured-quick-navigation__item" role="button">
+									<div class="featured-quick-navigation__item__content">
+										<span>방한용품 초특가</span>
+									</div>
+								</li>
+								<li class="featured-quick-navigation__item" role="button">
+									<div class="featured-quick-navigation__item__content">
+										<span>메리 홈크리스마스</span>
+									</div></li>
+								<li class="featured-quick-navigation__item" role="button">
+									<div class="featured-quick-navigation__item__content">
+										<span>인기가전 가볍게 빌리자</span>
+									</div>
+								</li>
+								<li class="featured-quick-navigation__item" role="button">
+									<div class="featured-quick-navigation__item__content">
+										<span>신상 브랜드 특가</span>
+									</div>
+								</li>
 							</ul>
 						</div>
-					</div>
-					
-					
-					<div class="featured-quick-navigation container">
-						<ul class="featured-quick-navigation__list">
-							<li class="featured-quick-navigation__item featured-quick-navigation__item--selected" role="button">
-								<div class="featured-quick-navigation__item__content">
-									<span>2020 베스트 브랜드</span>
-								</div>
-							</li>
-							<li class="featured-quick-navigation__item" role="button">
-								<div class="featured-quick-navigation__item__content">
-									<span>내일의집 리퍼마켓</span>
-								</div>
-							</li>
-							<li class="featured-quick-navigation__item" role="button">
-								<div class="featured-quick-navigation__item__content">
-									<span>방한용품 초특가</span>
-								</div>
-							</li>
-							<li class="featured-quick-navigation__item" role="button">
-								<div class="featured-quick-navigation__item__content">
-									<span>메리 홈크리스마스</span>
-								</div></li>
-							<li class="featured-quick-navigation__item" role="button">
-								<div class="featured-quick-navigation__item__content">
-									<span>인기가전 가볍게 빌리자</span>
-								</div>
-							</li>
-							<li class="featured-quick-navigation__item" role="button">
-								<div class="featured-quick-navigation__item__content">
-									<span>신상 브랜드 특가</span>
-								</div>
-							</li>
-						</ul>
-					</div>
 				</div>
-			</div>
 				
 				<section class="container store-index-section">
 					<h1>인기 키워드</h1>
@@ -1053,7 +1037,14 @@
 			<div class="toast-message-root"></div>
 		</div>
 	</div>
+
+
+<script>
+	$('.main').slick();
+</script>
+
 </div>
+
 
 
 <script src="https://static.ohou.se/assets/v3/application_react-39c024d42df4dc70afcdc802be03a3c9af0e4e38c629c9255ff5b66c1abd9aa0.js"></script>
