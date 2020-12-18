@@ -174,12 +174,9 @@
 										</li>
 									</ul>
 								</div>
-								<div class="prdImg  scroll-fade">
-									<a
-										href="/product/killer-cat-black-diamond/30/category/1/display/2/"
-										name="anchorBoxName_30"> <img
-										src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}"
-										id="eListPrdImage30_2" class="thumb_Img"
+								<div class="prdImg scroll-fade">
+									<a href="/product/killer-cat-black-diamond/30/category/1/display/2/" name="anchorBoxName_30">
+										<img src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}" id="eListPrdImage30_2" class="thumb_Img"
 										alt="Killer Cat – Black Diamond">
 									</a>
 								</div>
@@ -189,9 +186,8 @@
 								<div class="inner">
 									<div class="displaynone"></div>
 									<div class="brand displaynone"></div>
-									<strong class="name"><a
-										href="/product/killer-cat-black-diamond/30/category/1/display/2/"
-										class=""><span style="font-size: 12px; color: #555555;">${goods.gname }</span></a></strong>
+									<strong class="name"><a href="/product/killer-cat-black-diamond/30/category/1/display/2/" class="">
+									<span style="font-size: 12px; color: #555555;">${goods.gname }</span></a></strong>
 									<ul class="spec">
 										<li class="summary_line "></li>
 										<li class="summary ">${goods.cname }</li>
