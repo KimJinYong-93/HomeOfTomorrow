@@ -7,6 +7,7 @@ public class GoodsVO {
 	private String gcode            ;
 	private String cid              ;
 	private String cname            ;
+	private String bname;
 	private String gname            ;
 	private String picture          ;
 	private int price            ;
@@ -33,6 +34,12 @@ public class GoodsVO {
 	}
 	public void setCname(String cname) {
 		this.cname = cname;
+	}
+	public String getBname() {
+		return bname;
+	}
+	public void setBname(String bname) {
+		this.bname = bname;
 	}
 	public String getGname() {
 		return gname;
@@ -88,14 +95,14 @@ public class GoodsVO {
 	public void setCg_code(String cg_code) {
 		this.cg_code = cg_code;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "GoodsVO [gcode=" + gcode + ", cid=" + cid + ", cname=" + cname + ", gname=" + gname + ", picture="
-				+ picture + ", price=" + price + ", op_name=" + op_name + ", op_val=" + op_val + ", content=" + content
-				+ ", viewcnt=" + viewcnt + ", reg_dt=" + reg_dt + ", cg_code=" + cg_code + "]";
+		return "GoodsVO [gcode=" + gcode + ", cid=" + cid + ", cname=" + cname + ", bname=" + bname + ", gname=" + gname
+				+ ", picture=" + picture + ", price=" + price + ", op_name=" + op_name + ", op_val=" + op_val
+				+ ", content=" + content + ", viewcnt=" + viewcnt + ", reg_dt=" + reg_dt + ", cg_code=" + cg_code + "]";
 	}
+
+
 	
 	
 	

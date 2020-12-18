@@ -10,5 +10,10 @@
 		where rownum between 0 and 12
 		order by viewcnt desc
 	</select>
-
+	
+	<select id="selectGoods" resultType="goods">
+	SELECT *
+	FROM goods
+	WHERE gcode = #{gcode}
+	</select>
 </mapper>

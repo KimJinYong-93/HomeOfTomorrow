@@ -1,26 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover"/>
-  <title>내일의집</title>
-
-  <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
-  <script src="https://static.ohou.se/assets/v3/logging-69d1a145b1872071cd6479677379b6bbe429e845a932730a150eab3576275e7f.js" async="async"></script>
-  <script src="https://static.ohou.se/assets/v3/amplitude_bridge-16d2ae2fff38dc913ff70e367d7c1906d2a29b9304bc08b92cf695e8ca5f13ec.js" async="async"></script>
-
-  <!-- adinsight 공통스크립트 start -->
-  <script type="text/javascript">
-    var TRS_AIDX = /iPhone|iPad|iPod|Android/.test(navigator.userAgent) ? 11603 : 11598;
-  </script>
-  <script type="text/javascript" src="https://analysis.adinsight.co.kr/emnet/trs_esc.js" defer></script>
-  <!-- adinsight 공통스크립트 end -->
-
+<div id="container"> 
+	<div class="xans-element- xans-product xans-product-menupackage" style="margin: 0px;"><div style="margin: 0px;" class="xans-element- xans-product xans-product-headcategory title "><p class="title_img "></p>
+    <div id="main_section_2" style="margin: 0px;" class="xans-element- xans-product xans-product-listmain-1 xans-product-listmain xans-product-1 main_section"><div style="margin: 0px;" class="title scroll-fade motion1">
+        <!--------------------------------------------------------------------------------------------------
+            ※ 타이틀 수정 - 텍스트만 변경바랍니다.
+        --------------------------------------------------------------------------------------------------->
+        <h2>MY PAGE </h2>
+    </div>
+    </div>
+	</div>
+	<ul class="menuCategory" style="margin: 0px;">
+	<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. --><li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUser.id}" class="sub_name">프로필 <span class="count displaynone">()</span></a>
+	</li>
+	<c:if test="${loginUser.authority eq 'ROLE_USER' }">
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/orderList" class="sub_name">나의 쇼핑 <span class="count displaynone">()</span></a>
+	</li>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
+	</li>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">설정 <span class="count displaynone">()</span></a>
+	</li>
+	</c:if>
+	<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 상품 <span class="count displaynone">()</span></a>
+	</li>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">설정 <span class="count displaynone">()</span></a>
+	</li>
+	</c:if>
+	
+	<!-- //참고 -->
+	    </ul>
+	</div>
   <!-- phone 즐겨찾기 아이콘 설정 -->
   <link rel="alternate" href="android-app://net.bucketplace/http/ohou.se/deep"/>
   <link href="https://static.ohou.se/assets/favicon-186ac0d991a44c522f984d86e6a50d24c65b7b3a02a004ba7e13f5722aabd952.png" rel="shortcut icon"/>
@@ -34,8 +50,7 @@
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/2-efe4945d.chunk.css" />
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/9-d91eb381.chunk.css" />
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/templates-Order-OrderList-OrderList-0bcaebcd.chunk.css" />
-</head>
-<body>
+
 		<div class="layout">
 			<div class="order-list container">
 				<div class="order-list__info">
@@ -86,33 +101,33 @@
 				</div>
 				<div class="order-list__menu">
 					<a class="order-list__menu__list"
-						href="/user_shopping_pages/order_list?before=12&amp;status=0"><div
-							class="order-list__menu__list__wrap">
+						href="/user_shopping_pages/order_list?before=12&amp;status=0">
+						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">입금대기</div>
 							<div class="order-list__menu__list__value">0</div>
 						</div></a><a class="order-list__menu__list"
-						href="/user_shopping_pages/order_list?before=12&amp;status=1"><div
-							class="order-list__menu__list__wrap">
+						href="/user_shopping_pages/order_list?before=12&amp;status=1">
+						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">결제완료</div>
 							<div class="order-list__menu__list__value">0</div>
 						</div></a><a class="order-list__menu__list"
-						href="/user_shopping_pages/order_list?before=12&amp;status=2"><div
-							class="order-list__menu__list__wrap">
+						href="/user_shopping_pages/order_list?before=12&amp;status=2">
+						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">배송준비</div>
 							<div class="order-list__menu__list__value">0</div>
 						</div></a><a class="order-list__menu__list"
-						href="/user_shopping_pages/order_list?before=12&amp;status=3"><div
-							class="order-list__menu__list__wrap">
+						href="/user_shopping_pages/order_list?before=12&amp;status=3">
+						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">배송중</div>
 							<div class="order-list__menu__list__value">0</div>
 						</div></a><a class="order-list__menu__list"
-						href="/user_shopping_pages/order_list?before=12&amp;status=4"><div
-							class="order-list__menu__list__wrap">
+						href="/user_shopping_pages/order_list?before=12&amp;status=4">
+						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">배송완료</div>
 							<div class="order-list__menu__list__value">0</div>
 						</div></a><a class="order-list__menu__list"
-						href="/user_shopping_pages/order_list?before=12&amp;status=5"><div
-							class="order-list__menu__list__wrap">
+						href="/user_shopping_pages/order_list?before=12&amp;status=5">
+						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">구매확정</div>
 							<div class="order-list__menu__list__value">0</div>
 						</div></a>
@@ -164,9 +179,11 @@
 								</ul>
 							</div>
 						</div>
+						<c:if test="${fn:length(myOrders) > 0 }">
+						<c:forEach items="${myOrders }" var="myOrder">
 						<div class="order-list__item">
 							<div class="order-list__item__title">
-								<div class="order-list__item__title__order">(주문번호) 123423 | (주문날짜)	2020.05.06</div>
+								<div class="order-list__item__title__order">${myOrder.orders.ocode } | <fmt:formatDate value="${myOrder.orders.reg_dt }" pattern="yyyy.MM.dd"/> </div>
 								<a class="order-list__item__title__link" href="#">상세보기</a>
 							</div>
 							<div class="order-list__item__production">
@@ -207,7 +224,8 @@
 								</div>
 							</div>
 						</div>
-					
+						</c:forEach>
+					</c:if>
 						</div>
 					</div>
 				</div>
@@ -231,5 +249,4 @@
   
 <script type="text/javascript" async="async" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
 
-</body>
-</html>
+</div>

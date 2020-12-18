@@ -18,7 +18,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.js">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick-theme.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
 <style>
 @font-face {
     font-family: 'Nanum Gothic';
