@@ -13,7 +13,8 @@ public class HomeBoardVO {
 	private Date reg_dt       ;
 	private int viewcnt      ;
 	private int budget       ;
-	private String dist         ;
+	private String cg_code         ;
+	
 	public int getHno() {
 		return hno;
 	}
@@ -68,13 +69,12 @@ public class HomeBoardVO {
 	public void setBudget(int budget) {
 		this.budget = budget;
 	}
-	public String getDist() {
-		return dist;
+	public String getCg_code() {
+		return cg_code;
 	}
-	public void setDist(String dist) {
-		this.dist = dist;
+	public void setCg_code(String cg_code) {
+		this.cg_code = cg_code;
 	}
-	
 	
 
 	

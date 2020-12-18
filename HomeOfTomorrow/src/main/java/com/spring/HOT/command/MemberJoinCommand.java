@@ -2,6 +2,7 @@ package com.spring.HOT.command;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.HOT.dto.MemberCVO;
@@ -17,6 +18,7 @@ public class MemberJoinCommand {
 	private MultipartFile picture;
 	private String hp;
 	private String gender;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private String manager;
 	private String address1;
@@ -168,16 +170,16 @@ public class MemberJoinCommand {
 	public MemberNVO toMember_NParse() {
 		MemberNVO memberN = new MemberNVO();
 		
-		memberN.setId(id);
-		memberN.setName(name);
-		memberN.setEmail(email);
-		memberN.setNickname(nickname);
-		memberN.setHp(hp);
-		memberN.setGender(gender);
-		memberN.setBirthday(birthday);
-		memberN.setAddress1(address1);
-		memberN.setAddress2(address2);
-		memberN.setZipcode(zipcode);
+		memberN.setId(this.id);
+		memberN.setName(this.name);
+		memberN.setEmail(this.email);
+		memberN.setNickname(this.nickname);
+		memberN.setHp(this.hp);
+		memberN.setGender(this.gender);
+		//memberN.setBirthday(this.birthday);
+		memberN.setAddress1(this.address1);
+		memberN.setAddress2(this.address2);
+		memberN.setZipcode(this.zipcode);
 		
 		return memberN;
 	}
@@ -185,15 +187,15 @@ public class MemberJoinCommand {
 	public MemberCVO toMember_CParse() {
 		MemberCVO memberC = new MemberCVO();
 		
-		memberC.setId(id);
-		memberC.setName(name);
-		memberC.setCno(cno);
-		memberC.setManager(manager);
-		memberC.setHp(hp);
-		memberC.setEmail(email);
-		memberC.setAddress1(address1);
-		memberC.setAddress2(address2);
-		memberC.setZipcode(zipcode);
+		memberC.setId(this.id);
+		memberC.setName(this.name);
+		memberC.setCno(this.cno);
+		memberC.setManager(this.manager);
+		memberC.setHp(this.hp);
+		memberC.setEmail(this.email);
+		memberC.setAddress1(this.address1);
+		memberC.setAddress2(this.address2);
+		memberC.setZipcode(this.zipcode);
 		
 		return memberC;
 	}

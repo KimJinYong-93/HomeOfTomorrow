@@ -17,6 +17,7 @@
 		<typeAlias type="com.spring.HOT.dto.BoardVO" alias="board"/>
 		<typeAlias type="com.spring.HOT.dto.OrdersVO" alias="orders"/>
 		<typeAlias type="com.spring.HOT.dto.Order_bdVO" alias="order_bd"/>
+		<typeAlias type="com.spring.HOT.dto.CategoryVO" alias="category"/>
 		
 	</typeAliases>
 </configuration>

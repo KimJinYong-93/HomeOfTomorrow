@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.spring.HOT.dto.CategoryVO;
 import com.spring.HOT.dto.MenuVO;
 
 public class MenuDAOImpl implements MenuDAO{
