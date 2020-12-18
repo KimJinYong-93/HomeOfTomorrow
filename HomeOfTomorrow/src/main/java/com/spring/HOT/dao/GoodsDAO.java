@@ -8,5 +8,7 @@ import com.spring.HOT.dto.GoodsVO;
 public interface GoodsDAO {
 	
 	List<GoodsVO> selectTop12()throws SQLException;
+	
+	GoodsVO selectGoods(String gcode)throws SQLException;
 
 }
