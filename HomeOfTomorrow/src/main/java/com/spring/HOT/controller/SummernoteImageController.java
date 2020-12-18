@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,7 +32,7 @@ public class SummernoteImageController {
 		int fileSize = 5*1024*1024;
 		
 		if(file.getSize() > fileSize) {
-			return new ResponseEntity<String>("용량 초과입니다", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("�슜�웾 珥덇낵�엯�땲�떎", HttpStatus.BAD_REQUEST);
 		}
 		
 		String savePath = this.goodsPicturePath.replace("/", File.separator);
@@ -56,6 +57,7 @@ public class SummernoteImageController {
 	}
 	
 	@RequestMapping("/getImg")
+	@ResponseBody
 	public ResponseEntity<byte[]> getImg(String fileName)throws IOException {
 		System.out.println(fileName);
 		ResponseEntity<byte[]> entity = null;
@@ -63,7 +65,6 @@ public class SummernoteImageController {
 		String savePath = this.goodsPicturePath.replace("/", File.separator);
 		File sendFile = new File(savePath, fileName);
 		FileInputStream in = null;
-		System.out.println(sendFile);
 		try {
 			in = new FileInputStream(sendFile);
 			
