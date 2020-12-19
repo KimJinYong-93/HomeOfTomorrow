@@ -80,7 +80,7 @@
     right:12%;
  	width : 400px;
  	height: 567px; 
- 	margin-top: 3%;	
+ 	margin-top: 3.2%;	
  	background-image: url('<%=request.getContextPath()%>/resources/_dj/img/main_ban/event1.jpg');
  	background-position: center;
  	background-size: contain;
