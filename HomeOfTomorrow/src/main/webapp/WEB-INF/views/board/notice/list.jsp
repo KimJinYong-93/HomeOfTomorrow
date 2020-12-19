@@ -19,14 +19,65 @@
 	th, td{
 		text-align: center;
 	}
+	.perPage{
+		width: 70px;
+	}
+	.searchBtn{
+		margin-left: 2px;
+	}
+	.btn-primary{
+		color: #fff;
+    	background-color: #7399c9;
+    	border-color: #7399c9;
+	}
+	.btn-primary:hover{
+		color: #fff;
+    	background-color: #638cbf;
+    	border-color: #638cbf;
+	}
+	.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+	    z-index: 3;
+	    color: #fff;
+	    cursor: default;
+	    background-color: #7399c9;
+	    border-color: #7399c9;
+	}
+	td{
+		font-size: 13px;
+	}
+	.pagination>li>a, .pagination>li>span{
+		position: relative;
+	    float: left;
+	    padding: 6px 12px;
+	    margin-left: -1px;
+	    line-height: 1.42857143;
+	    color: #337ab7;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+	    font-size: 15px;
+	}
+	.title{
+		margin-bottom: 2%;
+	}
+	.input-group{
+		margin-top: 15px; 
+		float: right;
+		height: 38px;
+		font-size: 14px;
+	}
+	nav{
+		margin-top: 3%
+	}
 </style>
 <c:set var="pageMaker" value="${dataMap.pageMaker }"/>
 <c:set var="boardList" value="${dataMap.boardList }"/>
 <c:set var="cri" value="${pageMaker.cri }" />
 <div class="wrap">
-	<div class="title">
-        <h1><font color="#555555">NOTICE</font></h1>
+	<div class="title" >
+        <h1><font color="#7399c9">NOTICE</font></h1>
     </div>
+	
 	
 	<div class="row">
         <c:if test="${loginUser.authority eq 'ROLE_ADMIN' }">
@@ -37,7 +88,7 @@
 	<div class="ec-base-table typeList gBorder">
 		<table border="1" summary="">
 			<caption>게시판 목록</caption>
-			<thead style="text-align: center;">
+			<thead style="text-align: center; ">
 				<tr>
 					<th style="width: 10%;">NO</th>
                     <th style="width: 40%;">TITLE</th>
@@ -63,16 +114,18 @@
 	            <input type="hidden" name=cg_code id="cg_code" value="${board.cg_code }">
 				</c:forEach>	
 			</tbody>
-		</table><p class="xans-element- xans-board xans-board-empty-1002 xans-board-empty xans-board-1002 message  ">검색결과가 없습니다.</p>
-		<div id="keyword" class="row" style="width:350px;">
-			<div class="input-group">	
-				<select class="form-control col-md-3" name="perPageNum" id="perPageNum">
+		</table>
+		
+		
+		<div id="keyword" class="row" style="margin-right: 1%">
+			<div class="input-group" >	
+				<select class="perPage" name="perPageNum" id="perPageNum" style="margin-right: 4px"  >
 			 		<option value="10">정렬개수</option>
-			 		<option value="2" ${cri.perPageNum == 2 ? 'selected' : '' }>2개씩</option>
-			 		<option value="3" ${cri.perPageNum == 3 ? 'selected' : '' }>3개씩</option>
 			 		<option value="5" ${cri.perPageNum == 5 ? 'selected' : '' }>5개씩</option>
+			 		<option value="10" ${cri.perPageNum == 10 ? 'selected' : '' }>10개씩</option>
+			 		<option value="20" ${cri.perPageNum == 20 ? 'selected' : '' }>20개씩</option>
 				</select>
-				<select class="form-control col-md-4" name="searchType" id="searchType">
+				<select class="" name="searchType" id="searchType" style="margin-right: 4px">
 					<option value="tcw"  ${pageMaker.cri.searchType eq 'tcw' ? 'selected':'' }>전 체</option>
 					<option value="t" ${pageMaker.cri.searchType eq 't' ? 'selected':'' }>제 목</option>
 					<option value="w" ${pageMaker.cri.searchType eq 'w' ? 'selected':'' }>작성자</option>
@@ -80,16 +133,16 @@
 					<option value="tc" ${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }>제목+내용</option>
 					<option value="cw" ${pageMaker.cri.searchType eq 'cw' ? 'selected':'' }>작성자+내용</option>							
 				</select>					
-				<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/>
-				<span class="input-group-append">
+			<input  type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }" style="width:350px;"/>
+				<span class="searchBtn">
 					<button class="btn btn-primary" type="button" onclick="searchList_go(1);" data-card-widget="search">
 						<i class="fa fa-fw fa-search"></i>
 					</button>
 				</span>
 			</div>
 		</div>
-		<div><%@ include file="/WEB-INF/views/common/pagination.jsp" %></div>
-    </div>
+ 	   </div>
+		<div style="text-align: center;"><%@ include file="/WEB-INF/views/common/pagination.jsp" %></div>
 </div>
 <script>
 	function registBtn(){
