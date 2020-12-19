@@ -1,6 +1,7 @@
 package com.spring.HOT.service;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
 import com.spring.HOT.dao.GoodsDAO;
@@ -22,6 +23,16 @@ public class GoodsServiceImpl implements GoodsService {
 	public void regist(GoodsVO goods) throws SQLException {
 		goodsDAO.regist(goods);
 		
+	}
+	@Override
+	public List<GoodsVO> getGoodsAllList() throws SQLException {
+		List<GoodsVO> goodsList = goodsDAO.getGoodsAllList();
+		return goodsList;
+	}
+	@Override
+	public List<GoodsVO> getGoodsListByCategory(String cg_code) throws SQLException {
+		List<GoodsVO> goodsList = goodsDAO.getGoodsListByCategory(cg_code);
+		return goodsList;
 	}
 	
 	

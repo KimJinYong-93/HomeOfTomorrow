@@ -1,6 +1,7 @@
 package com.spring.HOT.controller;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +29,6 @@ import com.spring.HOT.dto.CategoryVO;
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.service.CategoryService;
 import com.spring.HOT.service.GoodsService;
-import com.spring.HOT.service.MenuService;
 
 
 @Controller
@@ -110,9 +109,17 @@ public class GoodsController {
 	}
 
 	@RequestMapping("/list")
-	public String list() {
+	public ModelAndView list(ModelAndView mnv) throws Exception {
 		String url = "goods/list";
-		return url;
+		
+		List<CategoryVO> categoryList = categoryService.getCategoryList("HOTG");
+		List<GoodsVO> goodsList = goodsService.getGoodsAllList();
+		
+		mnv.addObject("categoryList", categoryList);
+		mnv.addObject("goodsList", goodsList);
+		mnv.setViewName(url);
+		
+		return mnv;
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
@@ -149,6 +156,17 @@ public class GoodsController {
 		
 		if (out != null)
 			out.close();
+	}
+	
+	@RequestMapping("/goodsListByCategory")
+	@ResponseBody
+	public ResponseEntity<List<GoodsVO>> goodsListByCategory(String cg_code) throws Exception {
+		ResponseEntity<List<GoodsVO>> entity = null;
+		
+		List<GoodsVO> goodsList = goodsService.getGoodsListByCategory(cg_code);
+		entity = new ResponseEntity<List<GoodsVO>>(goodsList, HttpStatus.OK);
+		
+		return entity;
 	}
 	
 }
