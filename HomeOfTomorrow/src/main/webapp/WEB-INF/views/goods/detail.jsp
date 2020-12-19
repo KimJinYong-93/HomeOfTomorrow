@@ -17,16 +17,16 @@
  <link href="https://static.ohou.se/assets/favicon-186ac0d991a44c522f984d86e6a50d24c65b7b3a02a004ba7e13f5722aabd952.png" rel="shortcut icon"/>
 
  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap&subset=korean" rel="stylesheet">
- <link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/layout/application_react-1e92c7147066d0282bd14c1c54ad6f4eda35ac557fc7d3743f26f3ce17a3802d.css" />
  <script src="https://static.ohou.se/assets/v3/layouts/navigation_stub-2afc6570f26c12358127eb3d1d8b54fc3aa1df1f1a041c239fcf21d9abcade4a.js"></script>
   
  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/18-edc534e5.chunk.css" />
- <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/App-3e49e6d3.css" />
  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/2-efe4945d.chunk.css" />
  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/7-7f96bff5.chunk.css" />
  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/9-d91eb381.chunk.css" />
  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/13-69bdf3b3.chunk.css" />
  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/detail.css">
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/detail2.css">
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/detail3.css">
 
 		<div class="production-selling">
 			<div class="production-selling-overview container">
@@ -34,100 +34,45 @@
 					<div
 						class="production-selling-overview__cover-image-wrap col-12 col-md-6 col-lg-7">
 						<div class="production-selling-cover-image-container">
-							<div
-								class="carousel production-selling-cover-image production-selling-overview__cover-image"
-								role="region" aria-roledescription="carousel">
-								<div
-									class="carousel__list-wrap production-selling-cover-image__carousel-wrap">
-									<div class="carousel__list" aria-live="polite"
-										style="transform: translateX(0%); transition:">
-										<div
-											class="carousel__list__entry production-selling-cover-image__entry"
-											style="width: 100%" role="group" aria-roledescription="slide"
-											aria-label="1 of 8">
-											<img class="production-selling-cover-image__entry__image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=960&amp;h=960&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=1440&amp;h=1440&amp;c=c 3x"
-												tabindex="0" />
-											<div class="production-selling-cover-image__timer--pc"></div>
-										</div>
-									</div>
-								</div>
-								<ul class="production-selling-cover-image__list">
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn production-selling-cover-image__list__btn--selected"
-											type="button" aria-label="8개 중 1번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1527137912985_ugq8BBzY.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 2번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137917185_X94fPOZClA.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137917185_X94fPOZClA.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137917185_X94fPOZClA.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137917185_X94fPOZClA.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 3번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137920281_Hx.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137920281_Hx.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137920281_Hx.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/sub_images/1527137920281_Hx.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 4번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468388097477.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468388097477.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468388097477.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468388097477.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 5번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468903281843.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468903281843.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468903281843.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641468903281843.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 6번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641469810093629.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641469810093629.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641469810093629.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/158641469810093629.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 7번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105631675549708.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105631675549708.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105631675549708.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105631675549708.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-									<li class="production-selling-cover-image__list__item"><button
-											class="production-selling-cover-image__list__btn"
-											type="button" aria-label="8개 중 8번째 항목">
-											<img class="image"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105632282339607.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105632282339607.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105632282339607.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/images/159105632282339607.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 3x" />
-										</button></li>
-								</ul>
-								<div class="production-selling-cover-image__paginator">
-									<ul class="carousel-paginator">
-										<li><span class="carousel-paginator__page selected"
-											data-key="1"></span></li>
-										<li><span class="carousel-paginator__page" data-key="2"></span></li>
-										<li><span class="carousel-paginator__page" data-key="3"></span></li>
-										<li><span class="carousel-paginator__page" data-key="4"></span></li>
-										<li><span class="carousel-paginator__page" data-key="5"></span></li>
-										<li><span class="carousel-paginator__page small"
-											data-key="6"></span></li>
-										<li><span class="carousel-paginator__page tiny"
-											data-key="7"></span></li>
-									</ul>
+					<div
+						class="carousel production-selling-cover-image production-selling-overview__cover-image"
+						role="region" aria-roledescription="carousel">
+						<div
+							class="carousel__list-wrap production-selling-cover-image__carousel-wrap">
+							<div class="carousel__list" aria-live="polite"
+								style="transform: translateX(0%); transition: transform 0s ease 0s;">
+								<div class="carousel__list__entry production-selling-cover-image__entry"
+									role="group" aria-roledescription="slide" aria-label="2 of 6" style="width: 100%;">
+									<img class="production-selling-cover-image__entry__image" tabindex="0"
+										src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;webp=1"
+										srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=850&amp;h=850&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=1280&amp;h=1280&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=1700&amp;h=1700&amp;c=c&amp;webp=1 3x">
 								</div>
 							</div>
-							<div class="production-selling-cover-image__timer--mobile"></div>
 						</div>
+						<!-- ///////////마진때문에 넣어놈////////////// -->
+						<ul class="production-selling-cover-image__list">
+							<li class="production-selling-cover-image__list__item">
+								<button class="production-selling-cover-image__list__btn production-selling-cover-image__list__btn" type="button" 
+										aria-label="6개 중 1번째 항목">
+									<img class="image">
+								</button></li>
+							</li>
+						</ul>
+						<!-- ///////////마진때문에 넣어놈////////////// -->
+						<div class="production-selling-cover-image__paginator">
+							<ul class="carousel-paginator">
+								<li><span class="carousel-paginator__page selected"
+									data-key="1"></span></li>
+								<li><span class="carousel-paginator__page" data-key="2"></span></li>
+								<li><span class="carousel-paginator__page" data-key="3"></span></li>
+								<li><span class="carousel-paginator__page" data-key="4"></span></li>
+								<li><span class="carousel-paginator__page" data-key="5"></span></li>
+								<li><span class="carousel-paginator__page small"
+									data-key="6"></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 					</div>
 					<div
 						class="production-selling-overview__content col-12 col-md-6 col-lg-5">
@@ -142,37 +87,11 @@
 									단스탠드(전구 증정 이벤트)</span>
 							</h1>
 							<div class="production-selling-header__content">
-								<div class="production-selling-header__action">
-									<button
-										class="production-selling-header__action__button production-selling-header__action__button-scrap"
-										type="button">
-										<svg class="icon--stroke" aria-label="스크랩" width="24"
-											height="24" fill="currentColor" stroke="currentColor"
-											stroke-width="0.5" viewBox="0 0 24 24"
-											preserveAspectRatio="xMidYMid meet">
-											<path
-												d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path></svg>
-										<span class="count">144,330</span>
-									</button>
-									<div class="drop-down">
-										<button class="production-selling-header__action__button"
-											type="button">
-											<svg class="icon" aria-label="공유하기" width="24" height="24"
-												viewBox="0 0 24 24" fill="currentColor"
-												preserveAspectRatio="xMidYMid meet">
-												<path
-													d="M9.64 14.646a4.5 4.5 0 1 1 0-5.292l4.54-2.476a4.5 4.5 0 1 1 .63.795l-4.675 2.55c.235.545.365 1.146.365 1.777s-.13 1.232-.365 1.777l4.675 2.55a4.5 4.5 0 1 1-.63.795l-4.54-2.476zM18 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM6 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18 23a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path></svg>
-											<span class="count">13,065</span>
-										</button>
-									</div>
-								</div>
 								<p class="production-selling-header__review-wrap">
 									<a class="production-selling-header__review"
 										href="#production-selling-review"><span
 										class="production-selling-header__review__icon"
-										aria-label="별점 4.7점"><svg fill="#35C5F0" width="1em"
-												height="1em" preserveAspectRatio="xMidYMid meet"
-												viewBox="0 0 16 16">
+										aria-label="별점 4.7점"><svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
 												<defs>
 												<path id="star-path-1.000"
 													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
@@ -181,8 +100,16 @@
 												<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
 												<use clip-path="url(#star-clip-1.000)"
 													xlink:href="#star-path-1.000"></use></svg>
-											<svg fill="#35C5F0" width="1em" height="1em"
+											<svg fill="#87aede" width="1em" height="1em"
 												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+												<defs>
+												<path id="star-path-1.000" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<clipPath id="star-clip-1.000">
+												<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
+												<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
+												<use clip-path="url(#star-clip-1.000)"
+													xlink:href="#star-path-1.000"></use></svg>
+											<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
 												<defs>
 												<path id="star-path-1.000"
 													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
@@ -191,45 +118,31 @@
 												<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
 												<use clip-path="url(#star-clip-1.000)"
 													xlink:href="#star-path-1.000"></use></svg>
-											<svg fill="#35C5F0" width="1em" height="1em"
+											<svg fill="#87aede" width="1em" height="1em"
 												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
 												<defs>
-												<path id="star-path-1.000"
-													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<path id="star-path-1.000" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
 												<clipPath id="star-clip-1.000">
 												<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
 												<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
-												<use clip-path="url(#star-clip-1.000)"
-													xlink:href="#star-path-1.000"></use></svg>
-											<svg fill="#35C5F0" width="1em" height="1em"
-												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+												<use clip-path="url(#star-clip-1.000)" xlink:href="#star-path-1.000"></use></svg>
+											<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
 												<defs>
-												<path id="star-path-1.000"
-													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
-												<clipPath id="star-clip-1.000">
-												<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
-												<use xlink:href="#star-path-1.000" fill="#DBDBDB"></use>
-												<use clip-path="url(#star-clip-1.000)"
-													xlink:href="#star-path-1.000"></use></svg>
-											<svg fill="#35C5F0" width="1em" height="1em"
-												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
-												<defs>
-												<path id="star-path-0.710"
-													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<path id="star-path-0.710" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
 												<clipPath id="star-clip-0.710">
 												<rect x="0" y="0" width="11.36" height="16"></rect></clipPath></defs>
 												<use xlink:href="#star-path-0.710" fill="#DBDBDB"></use>
-												<use clip-path="url(#star-clip-0.710)"
-													xlink:href="#star-path-0.710"></use></svg></span><span
-										class="production-selling-header__review__text"><span
-											class="number">18,473</span><span class="postfix">개 리뷰</span></span></a>
+												<use clip-path="url(#star-clip-0.710)" xlink:href="#star-path-0.710"></use></svg></span>
+										<span class="production-selling-header__review__text">
+										<!-- ///////////////////////해당 게시물의 리뷰 총 개수//////////////////////// -->
+										<span class="number">18,473</span><span class="postfix">개 리뷰</span></span></a>
 								</p>
 								<p class="production-selling-header__price">
 									<span class="production-selling-header__price__row"><span
 										class="production-selling-header__price__discount"><span
-											class="number">60</span><span class="percent">%</span> </span><span
-										class="production-selling-header__price__price-wrap"><del
-												class="production-selling-header__price__original">
+											class="number">60</span><span class="percent">%</span> </span>
+											<span class="production-selling-header__price__price-wrap">
+											<del class="production-selling-header__price__original">
 												<span class="number">55,000</span><span class="won">원</span>
 											</del><span class="production-selling-header__price__separator"></span><span
 											class="production-selling-header__price__price"><span
@@ -250,40 +163,30 @@
 								class="selling-option-form-content production-selling-option-form__form">
 								<div class="selling-option-form-content__form">
 									<div class="selling-option-select-input">
-										<div
-											class="input-group select-input selling-option-select-input__option selling-option-select-input__option-1 focused">
-											<select class="form-control empty"><option
-													selected="" value="" disabled="">색상</option>
+										<div class="input-group select-input selling-option-select-input__option selling-option-select-input__option-1 focused">
+											<select class="form-control empty">
+												<!-- OP_NAME 연결   -->
+												<option selected="" value="" disabled="">OP_NAME</option>
+												<!-- OP_VAL 연결   -->
 												<option value="0">블랙(22,000원)</option>
 												<option value="1">샤이닝실버(22,000원)</option>
 												<option value="2" disabled="">화이트(22,000원) / 품절</option>
 												<option value="3" disabled="">무광 로즈골드(26,900원) / 품절</option>
-												<option value="4">블랙펄(26,900원)</option></select><span
-												class="select-input__icon"><svg class="icon"
-													width="10" height="10" style="fill: currentColor"
-													preserveAspectRatio="xMidYMid meet">
-													<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg></span>
-										</div>
-										<div
-											class="input-group select-input selling-option-select-input__option selling-option-select-input__option-extra">
-											<select class="form-control empty"><option
-													selected="" value="" disabled="">추가상품 (선택)</option>
-												<option value="0">다용도 레이스천 (7,000원)</option>
-												<option value="1">LED 전구색 노란빛 (1,500원)</option>
-												<option value="2">LED 주광색 하얀빛 (1,500원)</option>
-												<option value="3">LED 필립스 HUE 전구색 (23,700원)</option></select><span
-												class="select-input__icon"><svg class="icon"
-													width="10" height="10" style="fill: currentColor"
-													preserveAspectRatio="xMidYMid meet">
-													<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg></span>
+												<option value="4">블랙펄(26,900원)</option></select>
+												<span class="select-input__icon">
+													<svg class="icon" width="10" height="10" style="fill: currentColor" preserveAspectRatio="xMidYMid meet">
+														<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
+													</svg>
+												</span>
 										</div>
 									</div>
 								</div>
 								<ul class="selling-option-form-content__list"></ul>
 								<p class="selling-option-form-content__price">
-									<span class="selling-option-form-content__price__left">주문금액</span><span
-										class="selling-option-form-content__price__right"><span
-										class="selling-option-form-content__price__number">0</span>원</span>
+									<span class="selling-option-form-content__price__left">주문금액</span>
+									<span class="selling-option-form-content__price__right">
+									<!-- ///////////////////상품가격연결////////////////////// -->	
+									<span class="selling-option-form-content__price__number">0</span>원</span>
 								</p>
 							</section>
 							<div class="production-selling-option-form__footer">
@@ -297,7 +200,9 @@
 						</div>
 						<div class="production-selling-overview__promotion-banner">
 							<a class="production-selling-promotion-banner" 	href="#">
-								<img src="<%=request.getContextPath()%>/resources/image/detail_ban.jpg" alt="디테일페이지 광고배너이미지" />
+								<img class="production-selling-promotion-banner__image production-selling-promotion-banner__image--pc" 
+									   src="<%=request.getContextPath()%>/resources/image/detail_ban.jpg" alt="디테일페이지 광고배너이미지"/> 
+							</a>	
 						</div>
 					</div>
 				</div>
@@ -314,4 +219,297 @@
 			</div>
 			<div class="production-selling-navigation-border"></div>
 		</div>
-	
+		<!--///////////////////////////////////////////////////////  -->
+		<div data-sticky-enabled="false" data-sticky-disabled="true"
+			data-sticky-always="false" data-sticky-ignore="false"
+			data-direction="top" data-offset="0"
+			class="sticky-container production-selling-navigation-wrap">
+			<div class="sticky-child production-selling-navigation"
+				style="position: relative">
+				<nav class="production-selling-navigation__content">
+					<ol class="production-selling-navigation__list">
+						<li><a
+							class="production-selling-navigation__item production-selling-navigation__item--active"
+							href="#production-selling-information">상품정보</a></li>
+						<li><a class="production-selling-navigation__item"
+							href="#production-selling-review">리뷰<span
+								class="production-selling-navigation__item__count">1,362</span></a></li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<!--///////////////////////////////////////////////////////  -->
+<div class="production-selling__detail__content col-12 col-lg-12">
+	<div class="production-selling-content">
+		<a id="production-selling-information"></a>
+		<section class="production-selling-section">
+			<header
+				class="production-selling-section__header production-selling-section__header__hidden">
+				<h1 class="production-selling-section__title">상품정보</h1>
+			</header>
+			<div
+				class="production-selling-description production-selling-description--notice">
+				<div class="production-selling-description__expand-wrap">
+					<button
+						class="button button--color-blue button--size-60 button--shape-4 production-selling-description__expand"
+						type="button">
+						펼치기
+						<svg class="icon" width="1em" height="1em" viewBox="0 0 16 16"
+							preserveAspectRatio="xMidYMid meet">
+							<path fill="currentColor" fill-rule="evenodd"
+								d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path></svg>
+					</button>
+				</div>
+				<div class="production-selling-description__content">
+					<p style="text-align: center;">
+						<!-- ///////////////////////작성자가 등록한 사진 가져오는곳////////////////////////////// -->
+						<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/160816888268211124.jpg" width="860" height="1200">
+						<img src="https://exit.ohou.se/a181bd825258b6abc17746945670379873b68731/gi.esmplus.com/yolonix/1031X20/0000.jpg">
+						<img src="https://exit.ohou.se/78d38256dd02a451ff3d90dd509b48be72944827/gi.esmplus.com/yolonix/1031X20/0.gif">
+						<img src="https://exit.ohou.se/27b265bdd38e2aa4ebb997cb5a0c40e4917ac9d2/gi.esmplus.com/yolonix/1031X20/1.jpg">
+					</p>
+				</div>
+				<table
+					class="production-selling-table production-selling-description__information-noti">
+					<!-- ///////////////////////작성자 정보 text 나타내기////////////////////////////// -->
+					<tbody>
+						<tr>
+							<th>품명</th>
+							<td>차이슨 무선청소기 디베아 X20</td>
+						</tr>
+						<tr>
+							<th>회사명</th>
+							<td>내일의집</td>
+						</tr>
+						<tr>
+							<th>회사주소</th>
+							<td>대전 중구 대흥동 영민빌딩</td>
+						</tr>
+						<tr>
+							<th>문의 이메일</th>
+							<td>내일의집@jip.com</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<a id="production-selling-review"></a>
+		<section class="production-selling-section">
+			<header class="production-selling-section__header">
+				<h1 class="production-selling-section__title">
+				<!-- ///////////////////////해당 게시글의 리뷰 총 개수//////////////////// -->
+					리뷰 <span class="count">210</span>
+				</h1>
+				<div class="production-selling-section__right">
+					<a href="#">리뷰쓰기</a>
+				</div>
+			</header>
+			<div class="production-review-feed">
+				<div class="production-review-feed__header-v2">
+					<div class="production-review-feed__header-v2__stars">
+						<div class="production-review-feed__header-v2__stars__badge">
+							<span class="badge__mobile">4.8</span>
+								<span class="icon" aria-label="별점 4.8점">
+								<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+									<defs> <path id="star-path-275" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+									<clipPath id="star-clip-275"> <rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
+									<use xlink:href="#star-path-275" fill="#DBDBDB"></use>
+									<use clip-path="url(#star-clip-275)" xlink:href="#star-path-275"></use>
+								</svg>
+								<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+									<defs> <path id="star-path-276" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+									<clipPath id="star-clip-276">
+									<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
+									<use xlink:href="#star-path-276" fill="#DBDBDB"></use>
+									<use clip-path="url(#star-clip-276)" xlink:href="#star-path-276"></use>
+								</svg>
+								<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+									<defs> 
+									<path id="star-path-277" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+									<clipPath id="star-clip-277">
+									<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
+									<use xlink:href="#star-path-277" fill="#DBDBDB"></use>
+									<use clip-path="url(#star-clip-277)" xlink:href="#star-path-277"></use>
+								</svg>
+								<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+									<defs>
+									<path id="star-path-278" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+									<clipPath id="star-clip-278">
+									<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
+									<use xlink:href="#star-path-278" fill="#DBDBDB"></use>
+									<use clip-path="url(#star-clip-278)" xlink:href="#star-path-278"></use>
+								</svg>
+								<svg fill="#87aede" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+									<defs>
+									<path id="star-path-279" d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+									<clipPath id="star-clip-279">
+									<rect x="0" y="0" width="12.952380952380949" height="16"></rect></clipPath></defs>
+									<use xlink:href="#star-path-279" fill="#DBDBDB"></use>
+									<use clip-path="url(#star-clip-279)" xlink:href="#star-path-279"></use>
+								</svg>
+								</span><span class="badge__pc">4.8</span>
+						</div>
+						<div class="production-review-feed__header-v2__stars__avg">
+							<div class="production-review-feed__header-v2__stars__avg-warp">
+								<div class="production-review-feed__header-v2__stars__avg__container">
+									<div class="production-review-feed__header-v2__stars__avg__label label_selected">5점</div>
+									<div class="production-review-feed__header-v2__stars__avg__bar">
+										<div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
+										<div class="production-review-feed__header-v2__stars__avg__bar__color"
+											style="width: 82.8571%;"></div>
+									</div>
+									<div class="production-review-feed__header-v2__stars__avg__number label_selected">174</div>
+								</div>
+								<div class="production-review-feed__header-v2__stars__avg__container">
+									<div class="production-review-feed__header-v2__stars__avg__label">4점</div>
+									<div class="production-review-feed__header-v2__stars__avg__bar">
+										<div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
+										<div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 16.1905%;"></div>
+									</div>
+									<div class="production-review-feed__header-v2__stars__avg__number">34</div>
+								</div>
+								<div class="production-review-feed__header-v2__stars__avg__container">
+									<div class="production-review-feed__header-v2__stars__avg__label">3점</div>
+									<div class="production-review-feed__header-v2__stars__avg__bar">
+										<div class="production-review-feed__header-v2__stars__avg__bar__bg"></div> 
+										<div class="production-review-feed__header-v2__stars__avg__bar__color" 	style="width: 0.47619%;"></div>
+									</div>
+									<div class="production-review-feed__header-v2__stars__avg__number">1</div>
+								</div>
+								<div class="production-review-feed__header-v2__stars__avg__container">
+									<div class="production-review-feed__header-v2__stars__avg__label">2점</div>
+									<div class="production-review-feed__header-v2__stars__avg__bar">
+										<div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
+										<div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 0%;"></div>
+									</div>
+									<div class="production-review-feed__header-v2__stars__avg__number">0</div>
+								</div>
+								<div class="production-review-feed__header-v2__stars__avg__container">
+									<div class="production-review-feed__header-v2__stars__avg__label">1점</div>
+									<div class="production-review-feed__header-v2__stars__avg__bar">
+										<div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
+										<div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 0.47619%;"></div>
+									</div>
+									<div class="production-review-feed__header-v2__stars__avg__number">1</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="production-review-feed__list">
+					<div class="production-review-item__container">
+						<article class="production-review-item">
+							<div class="production-review-item__writer">
+								<!-- ///////////////////////작성자 프로필이미지 연결 현재들어간 값은 이미지없을때 뜨는 기본값//////////////////// -->
+								<a href="/users/8593472"><img src="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-default_images-avatar.png/80/80"
+									class="production-review-item__writer__img" alt=""></a>
+								<div class="production-review-item__writer__info">
+									<!-- ///////////////////////작성자 아이디 연결 //////////////////// -->
+									<span class="production-review-item__writer__info__name">리뷰작성자 아이디</span>
+									<!-- ///////////////////////결제일 연결//////////////////// -->
+									<span class="production-review-item__writer__info__upDate">2020.11.18</span>
+									
+								</div>
+							</div>
+
+							<!-- ///////////////////////옵션연결클래스//////////////////// -->
+							<span class="production-review-item__name">
+								<p></p>
+								화이트
+							</span>
+							
+							<button class="production-review-item__writer__info__total-star-wrap" type="button">
+										<span class="production-review-item__writer__info__total-star"
+											aria-label="별점 1.0점"><svg fill="#87aede" width="1em"
+												height="1em" preserveAspectRatio="xMidYMid meet"
+												viewBox="0 0 16 16">
+												<defs>
+												<path id="star-path-280"
+													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<clipPath id="star-clip-280">
+												<rect x="0" y="0" width="16" height="16"></rect></clipPath></defs>
+												<use xlink:href="#star-path-280" fill="#DBDBDB"></use>
+												<use clip-path="url(#star-clip-280)"
+													xlink:href="#star-path-280"></use></svg>
+											<svg fill="#87aede" width="1em" height="1em"
+												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+												<defs>
+												<path id="star-path-281"
+													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<clipPath id="star-clip-281">
+												<rect x="0" y="0" width="0" height="16"></rect></clipPath></defs>
+												<use xlink:href="#star-path-281" fill="#DBDBDB"></use>
+												<use clip-path="url(#star-clip-281)"
+													xlink:href="#star-path-281"></use></svg>
+											<svg fill="#87aede" width="1em" height="1em"
+												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+												<defs>
+												<path id="star-path-282"
+													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<clipPath id="star-clip-282">
+												<rect x="0" y="0" width="0" height="16"></rect></clipPath></defs>
+												<use xlink:href="#star-path-282" fill="#DBDBDB"></use>
+												<use clip-path="url(#star-clip-282)"
+													xlink:href="#star-path-282"></use></svg>
+											<svg fill="#87aede" width="1em" height="1em"
+												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+												<defs>
+												<path id="star-path-283"
+													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<clipPath id="star-clip-283">
+												<rect x="0" y="0" width="0" height="16"></rect></clipPath></defs>
+												<use xlink:href="#star-path-283" fill="#DBDBDB"></use>
+												<use clip-path="url(#star-clip-283)"
+													xlink:href="#star-path-283"></use></svg>
+											<svg fill="#87aede" width="1em" height="1em"
+												preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+												<defs>
+												<path id="star-path-284"
+													d="M8 13.54l-4.37 1.85c-.5.22-.88-.06-.83-.6l.4-4.73L.1 6.47c-.37-.41-.22-.85.32-.98l4.62-1.07L7.48.36c.29-.48.75-.47 1.04 0l2.44 4.06 4.62 1.07c.54.13.68.57.32.98l-3.1 3.59.4 4.72c.05.55-.33.83-.83.61L8 13.54z"></path>
+												<clipPath id="star-clip-284">
+												<rect x="0" y="0" width="0" height="16"></rect></clipPath></defs>
+												<use xlink:href="#star-path-284" fill="#DBDBDB"></use>
+												<use clip-path="url(#star-clip-284)"
+													xlink:href="#star-path-284"></use></svg></span>
+										<svg
+											class="production-review-item__writer__info__total-star__down-icon"
+											width="10" height="10" viewBox="0 0 10 10"
+											fill="currentColor" preserveAspectRatio="xMidYMid meet">
+											<path d="M1.8 2.5l-.97.94L5 7.5l4.17-4.06-.97-.94L5 5.63z"></path></svg>
+									</button>
+							
+							
+							<!-- ///////////////////////리뷰연결클래스//////////////////// -->
+							<p class="production-review-item__description"> 오늘 의집에서 삭제가 안되더라구요
+								리뷰가 수정은 되는데 그래서 내용 다 지우고 좋아요 까지 적고 반품을 해달라고 했는데 답변이 없더라구요 그런데 끝내
+								삭제를 하려고 오늘의집으로 삭제요청을 하셨더라구요 그런데 제가 전화 통화를 못해서 삭제가 안되었고 결국에는 반품이
+								되었더라구요.. 차라리 처음에 전화해서 확실하게 반품은 불가하다 아니면 5점 리뷰 아니면 삭제해달라 말씀하셨으면 더
+								나았겠어요..정말 힘들었어요 정말..</p>
+						</article>
+					</div>
+					
+				
+				<!-- /////////////////////페이지네이션//////////////////////////// -->	
+				</div>
+				<ul class="_2BEHX production-review__paginator">
+					<li><button class="_3b4ci R16_p" type="button">1</button></li>
+					<li><button class="_3b4ci" type="button">2</button></li>
+					<li><button class="_3b4ci" type="button">3</button></li>
+					<li><button class="_3b4ci" type="button">4</button></li>
+					<li><button class="_3b4ci" type="button">5</button></li>
+					<li><button class="_3b4ci" type="button">6</button></li>
+					<li><button class="_3b4ci" type="button">7</button></li>
+					<li><button class="_3b4ci" type="button">8</button></li>
+					<li><button class="_3b4ci" type="button">9</button></li>
+					<li><button class="_2XI47 _3I7ex" type="button">
+							<svg width="1em" height="1em" viewBox="0 0 24 24">
+								<path fill="currentColor"
+									d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path></svg>
+						</button></li>
+				</ul>
+			</div>
+		</section>
+		<div></div>
+	</div>
+</div>
+
