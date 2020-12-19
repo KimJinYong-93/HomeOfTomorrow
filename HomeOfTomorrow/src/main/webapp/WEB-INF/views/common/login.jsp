@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Login_v1/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/Login_v1/css/main.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
 </head>
 
 <body>
@@ -29,16 +30,16 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="<%=request.getContextPath()%>/resources/Login_v1/images/img-01.png" alt="IMG">
+					<img src="<%=request.getContextPath()%>/resources/Login_v1/images/loginForm.png" alt="IMG">
 				</div>
 
 				<form class="login100-form validate-form" action="login" role="loginForm">
-					<span class="login100-form-title">
-						Login
+					<span class="login100-form-title"  style="color: #a5c2e6">
+						<span>&nbsp;</span>
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="id" placeholder="Email" style="padding-left:45px;" >
+						<input class="input100" type="text" name="id" placeholder="Id" style="padding-left:45px;" >
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -68,7 +69,7 @@
 						</a>
 					</div>
 
-					<div class="text-center p-t-136">
+					<div class="text-center p-t-100">
 						<a class="txt2" href="#">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>

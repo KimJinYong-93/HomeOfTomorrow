@@ -47,9 +47,8 @@
 					<div class="right_icon">
 						<li class="search all_list">
 							<div id="find_btn" class="find_btn">
-								<a href="#none"><img
-									src="<%=request.getContextPath()%>/resources/_dj/img/top_r_menu_icon_03_b.png"
-									alt="검색버튼" class="btn_b"></a>
+								<a href="#none"><img src="<%=request.getContextPath()%>/resources/_dj/img/top_r_menu_icon_03_b.png"
+									alt="검색버튼" class="btn_b" style=" width:14px; height:auto;"></a>
 							</div>
 
 							<div id="find_view">
