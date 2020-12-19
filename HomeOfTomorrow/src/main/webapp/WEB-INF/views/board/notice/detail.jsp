@@ -34,10 +34,10 @@
 	</div>        
 	<hr>
 	<div class="title">
-        <h1><font color="#555555">${board.title }</font></h1>
+        <h1>${board.title }</h1>
     </div>
     <div class="title" style="margin-top: 1%;">
-        <h3>By. ${board.id }</h3>
+        <h3><font color = "#555555">BY. ${board.id }</font></h3>
     </div>
     <div class="content">
     	${board.content }
