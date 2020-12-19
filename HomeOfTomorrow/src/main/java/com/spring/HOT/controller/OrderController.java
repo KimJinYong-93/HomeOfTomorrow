@@ -99,4 +99,11 @@ public class OrderController {
 		return mnv;
 	}
 
+	
+	@RequestMapping("/basket")
+	public String basket() {
+		String url="/order/basket";
+		return url;
+	}
+	
 }
