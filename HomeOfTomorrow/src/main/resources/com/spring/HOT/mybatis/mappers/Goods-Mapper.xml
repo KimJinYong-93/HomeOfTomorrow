@@ -21,4 +21,15 @@
 		INSERT INTO goods (gcode, cid, cname, gname, picture, op_name, op_val, content, cg_code, bname)
 		VALUES(#{gcode}, #{cid}, #{cname}, #{gname}, #{picture}, #{op_name}, #{op_val}, #{content}, #{cg_code}, #{bname})
 	</update>
+	
+	<select id="getGoodsAllList" resultType="goods">
+		SELECT *
+		FROM goods
+	</select>
+	
+	<select id="getGoodsListByCategory" parameterType="str" resultType="goods">
+		SELECT *
+		FROM goods
+		WHERE cg_code = #{cg_code}
+	</select>
 </mapper>
