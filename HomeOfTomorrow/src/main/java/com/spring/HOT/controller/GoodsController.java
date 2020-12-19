@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.dto.CategoryVO;
+import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.service.CategoryService;
 import com.spring.HOT.service.GoodsService;
 import com.spring.HOT.service.MenuService;
@@ -37,6 +41,9 @@ public class GoodsController {
 	
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private GoodsService goodsService;
 	
 	@RequestMapping(value = "/picture", method = RequestMethod.POST)
 	@ResponseBody
@@ -108,16 +115,40 @@ public class GoodsController {
 		return url;
 	}
 
-	@RequestMapping("/upload")
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public ModelAndView upload(ModelAndView mnv) throws Exception {
 		String url="goods/upload";
 		
 		List<CategoryVO> categoryList = categoryService.getCategoryList("HOTG");
-		System.out.println(categoryList);
 		mnv.addObject("categoryList", categoryList);
 		mnv.setViewName(url);
 		
 		return mnv;
+	}
+	
+	@RequestMapping("/detail")
+	public String detail() {
+		String url = "goods/detail";
+		return url;
+	}
+	
+	@RequestMapping(value = "/regist", method = RequestMethod.POST)
+	public void upload(GoodsVO goods, String id, HttpServletRequest request, 
+							HttpServletResponse response) throws Exception {
+		
+		goods.setGcode(goods.getCname() + goods.getBname() + goods.getGname());
+		goodsService.regist(goods);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("alert('상품등록을 완료했습니다.')");
+		out.println("location.href='" + request.getContextPath() + "/member/myPage.do?id=" + id + "';");
+		out.println("</script>");
+		
+		if (out != null)
+			out.close();
 	}
 	
 }

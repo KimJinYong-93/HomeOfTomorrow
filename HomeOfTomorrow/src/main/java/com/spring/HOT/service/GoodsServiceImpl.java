@@ -18,6 +18,11 @@ public class GoodsServiceImpl implements GoodsService {
 		List<GoodsVO> goodsListTop12 =  goodsDAO.selectTop12();
 		return goodsListTop12;
 	}
+	@Override
+	public void regist(GoodsVO goods) throws SQLException {
+		goodsDAO.regist(goods);
+		
+	}
 	
 	
 

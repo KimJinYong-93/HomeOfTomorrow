@@ -9,4 +9,6 @@ public interface GoodsService {
 	
 	List<GoodsVO> goodsListTop12()throws SQLException;
 
+	void regist(GoodsVO goods) throws SQLException;
+
 }

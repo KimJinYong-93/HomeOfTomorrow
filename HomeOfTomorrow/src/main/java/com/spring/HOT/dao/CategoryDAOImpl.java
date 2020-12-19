@@ -17,7 +17,6 @@ public class CategoryDAOImpl implements CategoryDAO{
 	@Override
 	public List<CategoryVO> getCategoryList(String keyword) throws SQLException {
 		List<CategoryVO> categoryList = null;
-		System.out.println(keyword);
 		categoryList = sqlSession.selectList("Category-Mapper.selectCategoryList", keyword);
 		return categoryList;
 	}

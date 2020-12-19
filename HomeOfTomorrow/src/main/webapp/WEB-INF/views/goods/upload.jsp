@@ -69,13 +69,13 @@
 					<div class="row sales-form__form-group">
 						<div class="offset-1 col-2">
 							<label for="sales_application__license1"
-								class="form-label sales-form__form-label">사업자 등록번호<span
+								class="form-label sales-form__form-label">기업아이디<span
 								class="sales-form__form-group__required">*</span></label>
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="cno" name="cno" class="form-control"
-									 value="${loginUserDetail.cno }" />
+								<input type="text" id="cid" name="cid" class="form-control"
+									 value="${loginUser.id }" />
 									 <!-- <span class="sales-form__divider">-</span><input
 									type="tel" id="sales_application__license2"
 									name="sales_application[license2]" class="form-control"
@@ -191,7 +191,7 @@
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
 								<input type="text" id="sales_application__brand"
-									name="cname" class="form-control" id="cname"
+									name="price" class="form-control" id="price"
 									placeholder="20000" value="" />&nbsp;원
 							</div>
 						</div>
@@ -225,6 +225,7 @@
 					<button class="btn btn-lg btn-priority" type="button" onclick="goodsSubmit_go()">상품등록</button>
 				</div>
 				<input type="hidden" name="picture">
+				<input type="hidden" name="id" value="${loginUser.id }">
 			</form>
 		</div>
 	</div>
@@ -252,5 +253,30 @@
 <script>
 	function goodsSubmit_go(){
 		var form = $('form[role="goodsRegistForm"]');
+		var uploadCheck = $('input[name="checkUpload"]').val();
+		 if(!(uploadCheck > 0)){
+			 alert("이미지 업로드는 필수입니다.")
+			 //$('input[name="pictureFile"]').click();
+			 return;
+		 }
+		
+		if($('input[name ="cname"]').val() == ""){
+			 alert("회사이름은 필수 입니다.");
+			 return;
+		 }
+		 if($('input[name ="cid"]').val() != checkedID){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+			 alert("기업아이디는 필수입니다.");
+			 return;
+		 }
+		 if($('input[name ="gname"]').val() == ""){
+			 alert("상품명은 필수입니다.");
+			 return;
+		 }
+		 if($('input[name ="price"]').val() == ""){
+			 alert("가격은 필수입니다.");
+			 return;
+		 }
+		
+		form.submit();
 	}
 </script>
