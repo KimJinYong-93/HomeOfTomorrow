@@ -47,7 +47,7 @@
  	margin-left: 10px;
  }
  .slider_back{
- 	width : 835px;
+ 	width : 850px;
  	position:absolute; 
  	top:367px;
  	z-index: 1; 
@@ -77,8 +77,8 @@
  }
  .event_ban{
     position: absolute;
-    right:12%;
- 	width : 400px;
+    right:15%;
+ 	width :100%;
  	height: 567px; 
  	margin-top: 3.2%;	
  	background-image: url('<%=request.getContextPath()%>/resources/_dj/img/main_ban/event1.jpg');
@@ -90,21 +90,21 @@
 
 <div id="container">
 	<div class="best-item">
-    <div class="slick-items">
-    <c:forEach items="${homeBoardTop3 }" var="homeBoard">
-	    <li class="scroll-fade motion4" >
-	                <a href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${homeBoard.picture}" alt="집들이베스트"></a>
-	                <div class="slider_back"></div>
-	                <div class="slider_info">
-	                	<span id="slide_title">${homeBoard.title }</span><br>
-		         		<a href="#"></a>
-		         		<img id="slider_profile" alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?id=${homeBoard.id}">
-						<span style="font-size: 15px; font-weight:700; color: #fff; padding-top: 0px; display: inline-block;">${homeBoard.writer }</span>
-		            </div>
-	     </li>
-   	</c:forEach>
-   	</div>
-   		 <div class="event_ban"></div>
+	    <div class="slick-items" style="width : 75%">
+	    <c:forEach items="${homeBoardTop3 }" var="homeBoard">
+		    <li class="scroll-fade motion4" >
+		                <a href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${homeBoard.picture}" alt="집들이베스트"></a>
+		                <div class="slider_back"></div>
+		                <div class="slider_info">
+		                	<span id="slide_title">${homeBoard.title }</span><br>
+			         		<a href="#"></a>
+			         		<img id="slider_profile" alt="프로필이미지" src="<%=request.getContextPath()%>/member/getPicture?id=${homeBoard.id}">
+							<span style="font-size: 15px; font-weight:700; color: #fff; padding-top: 0px; display: inline-block;">${homeBoard.writer }</span>
+			            </div>
+		     </li>
+	   	</c:forEach>
+	   	</div>
+   		 <div class="event_ban" style="width : 20%"></div>
 	</div>
 <div class="on" id="section_on_off">
     <!--★ P R O C U T ★-->
