@@ -211,7 +211,6 @@
 							<p class="sales-form__file__caption">
 								※ 상품 대표 이미지를 10MB 용량 이하의 JPG,JEPG 파일 형태로 첨부해주세요.
 							</p>
-							
 							<div id="pictureView" style="height: 200px; width: 140px; margin: 0 auto; float:left;"></div>
 						</div>
 						<br><br>

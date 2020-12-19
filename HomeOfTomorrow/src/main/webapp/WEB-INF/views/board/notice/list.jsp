@@ -30,7 +30,7 @@
 	
 	<div class="row">
         <c:if test="${loginUser.authority eq 'ROLE_ADMIN' }">
-	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;">글등록</button>
+	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="registBtn()">글등록</button>
         </c:if>
 	</div>        
 
@@ -47,7 +47,6 @@
                 </tr>
             </thead>
 			<tbody class="xans-element- xans-board xans-board-notice-1002 xans-board-notice xans-board-1002 center">
-				<c:set value="" var="cg_code"/>
 				<c:forEach items="${boardList }" var="board" varStatus="status">
 					<tr style="background-color:#FFFFFF; color:#555555;" class="xans-record-">
 						<td>${board.bno }</td>
@@ -61,7 +60,7 @@
 	                    <td class=""><span class="txtNum"><fmt:formatDate value="${board.reg_dt }" pattern="yyyy-MM-dd"/></span></td>
 	                    <td class=""><span class="txtNum">${board.viewcnt }</span></td>
 	                </tr>
-	            <c:set value="${board.cg_code }" var="cg_code"/>
+	            <input type="hidden" name=cg_code id="cg_code" value="${board.cg_code }">
 				</c:forEach>	
 			</tbody>
 		</table><p class="xans-element- xans-board xans-board-empty-1002 xans-board-empty xans-board-1002 message  ">검색결과가 없습니다.</p>
@@ -83,8 +82,7 @@
 				</select>					
 				<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }"/>
 				<span class="input-group-append">
-					<button class="btn btn-primary" type="button" onclick="searchList_go(1);" 
-					data-card-widget="search">
+					<button class="btn btn-primary" type="button" onclick="searchList_go(1);" data-card-widget="search">
 						<i class="fa fa-fw fa-search"></i>
 					</button>
 				</span>
@@ -93,3 +91,8 @@
 		<div><%@ include file="/WEB-INF/views/common/pagination.jsp" %></div>
     </div>
 </div>
+<script>
+	function registBtn(){
+		location.href="registForm?cg_code=${cg_code}";
+	}
+</script>

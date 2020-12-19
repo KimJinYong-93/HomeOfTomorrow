@@ -28,8 +28,8 @@
 	<div class="row">
 	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="list_go()">목록</button>
         <c:if test="${loginUser.authority eq 'ROLE_ADMIN' }">
-	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;">수정</button>
-	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;">삭제</button>
+	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="modify_go()">수정</button>
+	        <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="remove_go()">삭제</button>
         </c:if>
 	</div>        
 	<hr>
@@ -46,5 +46,13 @@
 <script>
 	function list_go(){
 		history.go(-1);
+	}
+	
+	function modify_go(){
+		location.href="modifyForm?bno=${board.bno}&cg_code=${cg_code}";
+	}
+	
+	function remove_go(){
+		location.href="remove?bno=${board.bno}&cg_code=${cg_code}";
 	}
 </script>
