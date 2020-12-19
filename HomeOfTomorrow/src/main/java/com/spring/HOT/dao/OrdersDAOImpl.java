@@ -22,6 +22,20 @@ public class OrdersDAOImpl implements OrdersDAO{
 		
 		return orders;
 	}
+	@Override
+	public OrdersVO selectOrdersByOcode(String ocode) throws SQLException {
+		
+		OrdersVO order = sqlSession.selectOne("Orders-Mapper.selectOrdersByOcode", ocode);
+		
+		return order;
+	}
+	@Override
+	public int selectOrdersCount(String id) throws SQLException {
+		
+		int count = sqlSession.selectOne("Orders-Mapper.selectOrdersCount", id);
+		
+		return count;
+	}
 	
 	
 

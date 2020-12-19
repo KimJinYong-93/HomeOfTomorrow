@@ -20,7 +20,7 @@
 	<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. --><li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUser.id}" class="sub_name">프로필 <span class="count displaynone">()</span></a>
 	</li>
 	<c:if test="${loginUser.authority eq 'ROLE_USER' }">
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/orderList" class="sub_name">나의 쇼핑 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/order/list" class="sub_name">주문 내역 <span class="count displaynone">()</span></a>
 	</li>
 	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
 	</li>
@@ -104,32 +104,32 @@
 						href="/user_shopping_pages/order_list?before=12&amp;status=0">
 						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">입금대기</div>
-							<div class="order-list__menu__list__value">0</div>
+							<div class="order-list__menu__list__value">${step1 }</div>
 						</div></a><a class="order-list__menu__list"
 						href="/user_shopping_pages/order_list?before=12&amp;status=1">
 						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">결제완료</div>
-							<div class="order-list__menu__list__value">0</div>
+							<div class="order-list__menu__list__value">${step2 }</div>
 						</div></a><a class="order-list__menu__list"
 						href="/user_shopping_pages/order_list?before=12&amp;status=2">
 						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">배송준비</div>
-							<div class="order-list__menu__list__value">0</div>
+							<div class="order-list__menu__list__value">${step3 }</div>
 						</div></a><a class="order-list__menu__list"
 						href="/user_shopping_pages/order_list?before=12&amp;status=3">
 						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">배송중</div>
-							<div class="order-list__menu__list__value">0</div>
+							<div class="order-list__menu__list__value">${step4 }</div>
 						</div></a><a class="order-list__menu__list"
 						href="/user_shopping_pages/order_list?before=12&amp;status=4">
 						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">배송완료</div>
-							<div class="order-list__menu__list__value">0</div>
+							<div class="order-list__menu__list__value">${step5 }</div>
 						</div></a><a class="order-list__menu__list"
 						href="/user_shopping_pages/order_list?before=12&amp;status=5">
 						<div class="order-list__menu__list__wrap">
 							<div class="order-list__menu__list__title">구매확정</div>
-							<div class="order-list__menu__list__value">0</div>
+							<div class="order-list__menu__list__value">${step6 }</div>
 						</div></a>
 				</div>
 				<div>
@@ -181,49 +181,51 @@
 						</div>
 						<c:if test="${fn:length(myOrders) > 0 }">
 						<c:forEach items="${myOrders }" var="myOrder">
-						<div class="order-list__item">
+						<div class="order-list__item" style="clear: both;">
 							<div class="order-list__item__title">
-								<div class="order-list__item__title__order">${myOrder.orders.ocode } | <fmt:formatDate value="${myOrder.orders.reg_dt }" pattern="yyyy.MM.dd"/> </div>
-								<a class="order-list__item__title__link" href="#">상세보기</a>
+								<div class="order-list__item__title__order">${myOrder.orders.ocode } | <fmt:formatDate value="${myOrder.orders.reg_dt }" pattern="yyyy.MM.dd"/> 
+								</div>
+								<div class="order-list__item__production__item__info__status" style="position: relative;left: 30%;font-size: 20px;font-weight: bold;">
+									<span>${myOrder.orders.ostatus }</span></div>
+								<a class="order-list__item__title__link" href="<%=request.getContextPath()%>/order/detail?ocode=${myOrder.orders.ocode}">상세보기</a>
 							</div>
+							<c:forEach items="${myOrder.orderdetail }" var="orderdetail">
 							<div class="order-list__item__production">
 								<div class="order-list__item__production__wrap">
 									<div class="order-list__item__production__item">
 										<div class="order-list__item__production__item__wrap">
 											<img class="order-list__item__production__item__img"
-												src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157966092380961868.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c"
-												srcSet="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157966092380961868.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157966092380961868.jpg?gif=1&amp;w=320&amp;h=320&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157966092380961868.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c 3x" />
+												src="<%=request.getContextPath()%>/goods/getPicture?picture=${orderdetail.goods.picture}"/>
 											<div class="order-list__item__production__item__info">
 												<div class="order-list__item__production__item__info__wrap">
 													<a class="order-list__item__production__item__info__brand"
-														href="/brands/home?query=%EB%A7%88%ED%8B%B8%EB%9D%BC">마틸라</a><a
+														href="/brands/home?query=%EB%A7%88%ED%8B%B8%EB%9D%BC">${orderdetail.goods.bname }</a><a
 														class="order-list__item__production__item__info__name"
-														href="/productions/162919/selling">밸런스 M2 알러지케어
-														차렵이불(단품/세트) 9종</a>
+														href="/productions/162919/selling">${orderdetail.goods.cname }</a>
 												</div>
 												<div class="order-list__item__production__item__info__wrap">
+													<div class="order-list__item__production__item__info__option">${orderdetail.order_bd.op_choose }</div>
 													<div
-														class="order-list__item__production__item__info__option">컬러:
-														02. 오트밀 / 구성: SS이불패드세트</div>
+														class="order-list__item__production__item__info__price"><fmt:formatNumber type="number">${orderdetail.goods.price }</fmt:formatNumber>원
+														| ${orderdetail.order_bd.vol}개</div>
 													<div
-														class="order-list__item__production__item__info__price">78,800원
-														| 1개</div>
-													<div
-														class="order-list__item__production__item__info__status">구매확정
-														| 일반택배배송</div>
+														class="order-list__item__production__item__info__status">일반택배배송</div>
 												</div>
 											</div>
 										</div>
 										<div class="order-list__item__production__item__delivery">
-											<button
-												class="button button--color-blue-inverted button--size-50 button--shape-4 order-list__item__production__item__delivery__btn">배송추적</button>
+											
 											<button
 												class="button button--color-blue button--size-50 button--shape-4 order-list__item__production__item__delivery__btn">리뷰작성</button>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+							</c:forEach>
+							<button style="float: right; margin-right: 20px; margin-bottom: 50px;" class="button button--color-blue-inverted button--size-50 button--shape-4 order-list__item__production__item__delivery__btn">배송추적</button>
+							</div>
+							<br>
+							<br>
 						</c:forEach>
 					</c:if>
 						</div>
@@ -238,7 +240,8 @@
 
 <script src="https://static.ohou.se/dist/js/2-7e950e574f58b096f0e9.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/9-951da074d502cd3e22c2.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/templates-Order-OrderList-OrderList-d2df50fd5c490592d2a8.chunk.js"></script>  <script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
+<script src="https://static.ohou.se/dist/js/templates-Order-OrderList-OrderList-d2df50fd5c490592d2a8.chunk.js"></script>  
+<script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/5-929b9fffe7ae5368ab47.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/6-f9a7aa948033fe2a7698.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/8-d265326c5db90f2ab65d.chunk.js"></script>
@@ -247,6 +250,6 @@
 <script src="https://static.ohou.se/dist/js/18-a2c672c31d65f840159c.chunk.js"></script>
 <script src="https://static.ohou.se/dist/js/App-cf611cec6ec3494b7a1e.js"></script>
   
-<script type="text/javascript" async="async" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+<script type="text/javascript" async="async" src="https://cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
 
 </div>

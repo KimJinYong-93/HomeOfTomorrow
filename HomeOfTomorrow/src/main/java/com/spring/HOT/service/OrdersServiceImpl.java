@@ -49,12 +49,60 @@ public class OrdersServiceImpl implements OrdersService {
 				
 				orderDetailList.add(orderDetail);
 			}
+			
+			if(orders.getOstatus().equals("1")) {
+				orders.setOstatus("입금대기");
+			}else if(orders.getOstatus().equals("2")) {
+				orders.setOstatus("결제완료");
+			}else if(orders.getOstatus().equals("3")) {
+				orders.setOstatus("배송준비");
+			}else if(orders.getOstatus().equals("4")) {
+				orders.setOstatus("배송중");
+			}else if(orders.getOstatus().equals("5")) {
+				orders.setOstatus("배송완료");
+			}else {
+				orders.setOstatus("구매확정");
+			}
+			
 			ordersRequest.setOrders(orders);
 			ordersRequest.setOrderdetail(orderDetailList);
 			myOrders.add(ordersRequest);
 		}
 		
 		return myOrders;
+	}
+
+
+
+	@Override
+	public OrdersRequest getOrderDetail(String ocode) throws SQLException {
+		
+		OrdersRequest ordersRequest = new OrdersRequest();
+		OrdersVO order = ordersDAO.selectOrdersByOcode(ocode);
+		List<OrderDetailRequest> orderDetailList = new ArrayList<>(); 
+		List<Order_bdVO> order_bdList = order_bdDAO.selectOrder_bd(ocode);
+		for(Order_bdVO order_bd : order_bdList) {
+			OrderDetailRequest orderDetail = new OrderDetailRequest();//order_bd, goods
+			orderDetail.setOrder_bd(order_bd);
+			GoodsVO goods = goodsDAO.selectGoods(order_bd.getGcode());
+			orderDetail.setGoods(goods);
+			
+			orderDetailList.add(orderDetail);
+		}
+		
+		ordersRequest.setOrders(order);
+		ordersRequest.setOrderdetail(orderDetailList);
+		
+		return ordersRequest;
+	}
+
+
+
+	@Override
+	public int getOrdersCount(String id) throws SQLException {
+		int count = ordersDAO.selectOrdersCount(id);
+		
+		return count;
 	}
 	 
 	
