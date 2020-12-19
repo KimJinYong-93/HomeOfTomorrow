@@ -34,10 +34,10 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public void regist(GoodsVO goods) throws SQLException {
 		sqlSession.update("Goods-Mapper.registGoods", goods);
 	}
-
+	
 	@Override
-	public List<GoodsVO> getGoodsAllList() throws SQLException {
-		List<GoodsVO> goodsList = sqlSession.selectList("Goods-Mapper.getGoodsAllList");
+	public List<GoodsVO> getGoodsAllList(String cg_code) throws SQLException {
+		List<GoodsVO> goodsList = sqlSession.selectList("Goods-Mapper.getGoodsAllList", cg_code);
 		return goodsList;
 	}
 

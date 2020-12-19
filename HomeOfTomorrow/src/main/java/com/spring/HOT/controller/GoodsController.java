@@ -52,7 +52,7 @@ public class GoodsController {
 		HttpStatus status = null;
 		
 		if((result = savePicture(oldPicture, multi)) == null) {
-			result = "업로드를 실패했습니다!";
+			result = "�뾽濡쒕뱶瑜� �떎�뙣�뻽�뒿�땲�떎!";
 			status = HttpStatus.BAD_REQUEST;
 		} else {
 			status = HttpStatus.OK;
@@ -113,10 +113,8 @@ public class GoodsController {
 		String url = "goods/list";
 		
 		List<CategoryVO> categoryList = categoryService.getCategoryList("HOTG");
-		List<GoodsVO> goodsList = goodsService.getGoodsAllList();
 		
 		mnv.addObject("categoryList", categoryList);
-		mnv.addObject("goodsList", goodsList);
 		mnv.setViewName(url);
 		
 		return mnv;
@@ -134,9 +132,15 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/detail")
-	public String detail() {
+	public ModelAndView detail(ModelAndView mnv, String gcode) throws Exception {
 		String url = "goods/detail";
-		return url;
+		
+		GoodsVO goods = goodsService.selectGoods(gcode);
+		
+		mnv.addObject("goods", goods);
+		mnv.setViewName(url);
+		
+		return mnv;
 	}
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
@@ -150,7 +154,7 @@ public class GoodsController {
 		PrintWriter out = response.getWriter();
 		
 		out.println("<script>");
-		out.println("alert('상품등록을 완료했습니다.')");
+		out.println("alert('�긽�뭹�벑濡앹쓣 �셿猷뚰뻽�뒿�땲�떎.')");
 		out.println("location.href='" + request.getContextPath() + "/member/myPage.do?id=" + id + "';");
 		out.println("</script>");
 		
@@ -160,10 +164,13 @@ public class GoodsController {
 	
 	@RequestMapping("/goodsListByCategory")
 	@ResponseBody
-	public ResponseEntity<List<GoodsVO>> goodsListByCategory(String cg_code) throws Exception {
+	public ResponseEntity<List<GoodsVO>> goodsListByCategory(@RequestParam(defaultValue = "") String cg_code) throws Exception {
 		ResponseEntity<List<GoodsVO>> entity = null;
 		
-		List<GoodsVO> goodsList = goodsService.getGoodsListByCategory(cg_code);
+		if(cg_code.equals("")) {
+			cg_code = "HOTG";
+		}
+		List<GoodsVO> goodsList = goodsService.getGoodsAllList(cg_code);
 		entity = new ResponseEntity<List<GoodsVO>>(goodsList, HttpStatus.OK);
 		
 		return entity;

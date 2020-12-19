@@ -14,7 +14,7 @@ public interface GoodsDAO {
 	
 	void regist(GoodsVO goods) throws SQLException;
 	
-	List<GoodsVO> getGoodsAllList() throws SQLException;
+	List<GoodsVO> getGoodsAllList(String cg_code) throws SQLException;
 	
 	List<GoodsVO> getGoodsListByCategory(String cg_code) throws SQLException;
 

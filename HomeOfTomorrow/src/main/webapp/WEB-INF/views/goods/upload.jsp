@@ -263,7 +263,7 @@
 			 alert("회사이름은 필수 입니다.");
 			 return;
 		 }
-		 if($('input[name ="cid"]').val() != checkedID){ //중복확인하고 다른아이디를 다시적을 경우가 있어서.
+		 if($('input[name ="cid"]').val() == ""){
 			 alert("기업아이디는 필수입니다.");
 			 return;
 		 }

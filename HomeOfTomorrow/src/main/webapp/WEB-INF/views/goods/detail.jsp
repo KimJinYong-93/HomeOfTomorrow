@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
  <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
  <script src="https://static.ohou.se/assets/v3/logging-69d1a145b1872071cd6479677379b6bbe429e845a932730a150eab3576275e7f.js" async="async"></script>
@@ -44,7 +45,7 @@
 								<div class="carousel__list__entry production-selling-cover-image__entry"
 									role="group" aria-roledescription="slide" aria-label="2 of 6" style="width: 100%;">
 									<img class="production-selling-cover-image__entry__image" tabindex="0"
-										src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;webp=1"
+										src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}"
 										srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=850&amp;h=850&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=1280&amp;h=1280&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=1700&amp;h=1700&amp;c=c&amp;webp=1 3x">
 								</div>
 							</div>
@@ -80,11 +81,10 @@
 							<h1 class="production-selling-header__title">
 								<p class="production-selling-header__title__brand-wrap">
 									<a class="production-selling-header__title__brand"
-										href="/brands/home?query=%EC%98%AC%EB%A3%A8%EB%AF%B8&amp;affect_type=ProductSaleDetail&amp;affect_id=48222">올루미
+										href="/brands/home?query=%EC%98%AC%EB%A3%A8%EB%AF%B8&amp;affect_type=ProductSaleDetail&amp;affect_id=48222">${goods.bname }
 									</a>
 								</p>
-								<span class="production-selling-header__title__name">오로라
-									단스탠드(전구 증정 이벤트)</span>
+								<span class="production-selling-header__title__name">${goods.gname }</span>
 							</h1>
 							<div class="production-selling-header__content">
 								<p class="production-selling-header__review-wrap">
@@ -143,10 +143,10 @@
 											class="number">60</span><span class="percent">%</span> </span>
 											<span class="production-selling-header__price__price-wrap">
 											<del class="production-selling-header__price__original">
-												<span class="number">55,000</span><span class="won">원</span>
+												<span class="number"><fmt:formatNumber type="number">${goods.price }</fmt:formatNumber></span><span class="won">원</span>
 											</del><span class="production-selling-header__price__separator"></span><span
 											class="production-selling-header__price__price"><span
-												class="number">22,000</span><span class="won">원</span><span
+												class="number"><fmt:formatNumber type="number">${goods.price }</fmt:formatNumber></span><span class="won">원</span><span
 												class="production-selling-header__price__badge">
 													<svg class="icon" aria-label="특가" width="30" height="20" viewBox="0 0 30 20" preserveAspectRatio="xMidYMid meet">
 														<rect width="30" height="20" fill="#F77" rx="4"></rect>
@@ -261,13 +261,14 @@
 					</button>
 				</div>
 				<div class="production-selling-description__content">
-					<p style="text-align: center;">
-						<!-- ///////////////////////작성자가 등록한 사진 가져오는곳////////////////////////////// -->
+					${goods.content }
+					<!-- <p style="text-align: center;">
+						///////////////////////작성자가 등록한 사진 가져오는곳//////////////////////////////
 						<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/160816888268211124.jpg" width="860" height="1200">
 						<img src="https://exit.ohou.se/a181bd825258b6abc17746945670379873b68731/gi.esmplus.com/yolonix/1031X20/0000.jpg">
 						<img src="https://exit.ohou.se/78d38256dd02a451ff3d90dd509b48be72944827/gi.esmplus.com/yolonix/1031X20/0.gif">
 						<img src="https://exit.ohou.se/27b265bdd38e2aa4ebb997cb5a0c40e4917ac9d2/gi.esmplus.com/yolonix/1031X20/1.jpg">
-					</p>
+					</p> -->
 				</div>
 				<table
 					class="production-selling-table production-selling-description__information-noti">
@@ -275,11 +276,11 @@
 					<tbody>
 						<tr>
 							<th>품명</th>
-							<td>차이슨 무선청소기 디베아 X20</td>
+							<td>${goods.gname }</td>
 						</tr>
 						<tr>
 							<th>회사명</th>
-							<td>내일의집</td>
+							<td>${goods.cname }</td>
 						</tr>
 						<tr>
 							<th>회사주소</th>

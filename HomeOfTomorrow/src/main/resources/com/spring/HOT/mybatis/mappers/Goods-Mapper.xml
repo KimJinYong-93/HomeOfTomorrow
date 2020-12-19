@@ -25,6 +25,7 @@
 	<select id="getGoodsAllList" resultType="goods">
 		SELECT *
 		FROM goods
+		WHERE cg_code LIKE '%'||#{cg_code}||'%'
 	</select>
 	
 	<select id="getGoodsListByCategory" parameterType="str" resultType="goods">
