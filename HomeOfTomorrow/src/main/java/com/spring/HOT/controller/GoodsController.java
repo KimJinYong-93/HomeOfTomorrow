@@ -6,7 +6,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -27,8 +31,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.dto.CategoryVO;
 import com.spring.HOT.dto.GoodsVO;
+import com.spring.HOT.dto.MemberCVO;
 import com.spring.HOT.service.CategoryService;
 import com.spring.HOT.service.GoodsService;
+import com.spring.HOT.service.Member_CService;
 
 
 @Controller
@@ -40,6 +46,9 @@ public class GoodsController {
 	
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private Member_CService member_CService;
 	
 	@Autowired
 	private GoodsService goodsService;
@@ -136,8 +145,22 @@ public class GoodsController {
 		String url = "goods/detail";
 		
 		GoodsVO goods = goodsService.selectGoods(gcode);
+		MemberCVO memberC = member_CService.getMemberCByCid(goods.getCid());
+		
+		String op_nameStr = goods.getOp_name();
+		String[] op_name = op_nameStr.split("/");
+		
+		String op_valStr = goods.getOp_val();
+		String[] op_val = op_valStr.split("/");
+		
+		Map<String, List<String>> option = new HashMap<String, List<String>>();
+		for(int i = 0; i < op_name.length; i++) {
+			option.put(op_name[i], Arrays.asList(op_val[i].split(",")));
+		}
 		
 		mnv.addObject("goods", goods);
+		mnv.addObject("memberC", memberC);
+		mnv.addObject("option", option);
 		mnv.setViewName(url);
 		
 		return mnv;

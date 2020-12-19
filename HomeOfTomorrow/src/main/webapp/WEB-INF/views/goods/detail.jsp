@@ -45,8 +45,7 @@
 								<div class="carousel__list__entry production-selling-cover-image__entry"
 									role="group" aria-roledescription="slide" aria-label="2 of 6" style="width: 100%;">
 									<img class="production-selling-cover-image__entry__image" tabindex="0"
-										src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}"
-										srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=850&amp;h=850&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=1280&amp;h=1280&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160432188282207351.jpeg?gif=1&amp;w=1700&amp;h=1700&amp;c=c&amp;webp=1 3x">
+										src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}">
 								</div>
 							</div>
 						</div>
@@ -164,20 +163,19 @@
 								<div class="selling-option-form-content__form">
 									<div class="selling-option-select-input">
 										<div class="input-group select-input selling-option-select-input__option selling-option-select-input__option-1 focused">
-											<select class="form-control empty">
-												<!-- OP_NAME 연결   -->
-												<option selected="" value="" disabled="">OP_NAME</option>
-												<!-- OP_VAL 연결   -->
-												<option value="0">블랙(22,000원)</option>
-												<option value="1">샤이닝실버(22,000원)</option>
-												<option value="2" disabled="">화이트(22,000원) / 품절</option>
-												<option value="3" disabled="">무광 로즈골드(26,900원) / 품절</option>
-												<option value="4">블랙펄(26,900원)</option></select>
+											<c:forEach items="${option }" var="optionMap" varStatus="status">
+												<select class="form-control empty option" id="option${status.index }">
+													<option selected="" disabled="disabled">${optionMap.key }</option>
+													<c:forEach items="${optionMap.value }" var="optionList" varStatus="status">
+														<option value="${optionList}">${optionList }</option>
+													</c:forEach>
+												</select>
 												<span class="select-input__icon">
 													<svg class="icon" width="10" height="10" style="fill: currentColor" preserveAspectRatio="xMidYMid meet">
 														<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
 													</svg>
 												</span>
+											</c:forEach>
 										</div>
 									</div>
 								</div>
@@ -284,11 +282,11 @@
 						</tr>
 						<tr>
 							<th>회사주소</th>
-							<td>대전 중구 대흥동 영민빌딩</td>
+							<td>${memberC.address1 } ${memberC.address2 }</td>
 						</tr>
 						<tr>
 							<th>문의 이메일</th>
-							<td>내일의집@jip.com</td>
+							<td>${memberC.email }</td>
 						</tr>
 					</tbody>
 				</table>
@@ -513,4 +511,15 @@
 		<div></div>
 	</div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+	var cnt = 0;
+	$('.option').on('change', function(){
+		cnt += 1;
+		alert(cnt)
+		if($('.option').length == $('.option option:selected').length){
+			alert("test")
+			return;
+		}
+	})	
+</script>

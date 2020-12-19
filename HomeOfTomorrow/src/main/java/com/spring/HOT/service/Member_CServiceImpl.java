@@ -17,4 +17,10 @@ public class Member_CServiceImpl implements Member_CService {
 		member_CDAO.regist(memberC);
 	}
 
+	@Override
+	public MemberCVO getMemberCByCid(String cid) throws SQLException {
+		MemberCVO memberC = member_CDAO.getMemberCByCid(cid);
+		return memberC;
+	}
+
 }
