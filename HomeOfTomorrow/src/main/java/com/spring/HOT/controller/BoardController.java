@@ -4,16 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,8 +68,8 @@ public class BoardController {
 		
 		Map<String, Object> dataMap = boardService.getBoardList(cri, cg_code);
 		mnv.addObject("dataMap", dataMap);
+		mnv.addObject("cg_code", cg_code);
 		mnv.setViewName(url);
-		
 		return mnv;
 	}
 	
@@ -88,6 +92,68 @@ public class BoardController {
 		return mnv;
 	}
 	
+	@RequestMapping("/registForm")
+	private ModelAndView registForm(String cg_code, ModelAndView mnv) {
+		String url = "board/" + sortBoardType(cg_code) + "/regist";
+		mnv.addObject("cg_code", cg_code);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/regist")
+	private void regist(BoardVO board, HttpServletResponse response) throws Exception {
+		boardService.regist(board);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("alert('공지사항 등록이 완료되었습니다.');");
+		out.println("location.href='list?cg_code="+ board.getCg_code() + "'");
+		out.println("</script>");
+	}
+	
+	@RequestMapping("/modifyForm")
+	private ModelAndView modifyForm(int bno, String cg_code, ModelAndView mnv) throws Exception {
+		String url = "board/" + sortBoardType(cg_code) + "/modify";
+		
+		BoardVO board = boardService.getBoard(bno);
+		
+		mnv.addObject("board", board);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/modify")
+	private void modify(BoardVO board, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		//board.setTitle((String)request.getParameter("XSStitle"));
+		
+		boardService.modify(board);
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out=response.getWriter();
+		out.println("<script>");
+		out.println("alert('수정을 완료했습니다.');");
+		out.println("location.href='detail?bno="+board.getBno()+"&cg_code=" + board.getCg_code() +"&from=modify';");
+		out.println("</script>");
+	}
+	
+	@RequestMapping("/remove")
+	private void remove(int bno, String cg_code, HttpServletResponse response) throws Exception {
+		
+		boardService.remove(bno);
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out=response.getWriter();
+		out.println("<script>");
+		out.println("alert('삭제를 완료했습니다.');");
+		out.println("location.href='list?cg_code="+ cg_code + "';");
+		out.println("</script>");
+	}
+	
 	private String sortBoardType(String cg_code) {
 		String boardType = "";
 		
@@ -101,5 +167,7 @@ public class BoardController {
 		
 		return boardType;
 	}
+	
+	
 
 }

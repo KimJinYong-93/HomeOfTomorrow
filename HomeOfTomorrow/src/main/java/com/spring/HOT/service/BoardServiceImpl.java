@@ -55,6 +55,21 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.increaseViewCnt(bno);
 		return board;
 	}
+
+	@Override
+	public void regist(BoardVO board) throws SQLException {
+		boardDAO.regist(board);
+	}
+
+	@Override
+	public void modify(BoardVO board) throws SQLException {
+		boardDAO.modify(board);
+	}
+
+	@Override
+	public void remove(int bno) throws SQLException {
+		boardDAO.remove(bno);
+	}
 	
 
 }
