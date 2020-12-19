@@ -126,6 +126,12 @@ public class GoodsController {
 		return mnv;
 	}
 	
+	@RequestMapping("/detail")
+	public String detail() {
+		String url = "goods/detail";
+		return url;
+	}
+	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
 	public void upload(GoodsVO goods, String id, HttpServletRequest request, 
 							HttpServletResponse response) throws Exception {

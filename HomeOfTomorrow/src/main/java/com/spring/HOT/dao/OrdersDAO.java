@@ -8,5 +8,10 @@ import com.spring.HOT.dto.OrdersVO;
 public interface OrdersDAO {
 	
 	List<OrdersVO> selectOrders(String id)throws SQLException;
+	
+	OrdersVO selectOrdersByOcode(String ocode)throws SQLException;
+	
+	int selectOrdersCount(String id)throws SQLException;
+	
 
 }

@@ -8,6 +8,19 @@
 		select *
 		from orders
 		where id = #{id}
+		order by reg_dt desc
+	</select>
+	
+	<select id="selectOrdersByOcode" resultType="orders">
+	SELECT *
+	FROM orders
+	WHERE ocode = #{ocode}
+	</select>
+	
+	<select id="selectOrdersCount" resultType="int">
+	SELECT count(*)
+	FROM orders
+	WHERE id = #{id}
 	</select>
 
 </mapper>

@@ -18,7 +18,7 @@
 	<!-- 참고 : 뉴상품관리 전용 모듈입니다. 뉴상품관리 이외의 곳에서 사용하면 정상동작하지 않습니다. --><li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUser.id}" class="sub_name">프로필 <span class="count displaynone">()</span></a>
 	</li>
 	<c:if test="${loginUser.authority eq 'ROLE_USER' }">
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/orderList" class="sub_name">나의 쇼핑 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/order/list" class="sub_name">주문 내역<span class="count displaynone">()</span></a>
 	</li>
 	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
 	</li>
@@ -103,11 +103,13 @@
 									</div>
 									<div class="user-profile__links">
 										<div class="short-cut">
-										<c:set value="/member/orderList" var="url" />
+											<c:set value="/order/list" var="url" />
 											<c:set value="주문내역" var="buttonName" />
+											<c:set value="${ordersCount }" var="buttonCount"/>
 											<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
 												<c:set value="/goods/upload" var="url"/>
 												<c:set value="상품등록" var="buttonName"/>
+												<c:set value="0" var="buttonCount"/>
 											</c:if>
 												<div class="short-cut__item" style="margin: 0px 25px;">
 													<a href="<%=request.getContextPath() %>${url }">
@@ -126,7 +128,7 @@
 														</div>
 														<div class="short-cut__text">${buttonName }</div>
 														<div class="short-cut__text">
-															<b class="highlight">0</b>
+															<b class="highlight">${buttonCount}</b>
 														</div>
 													</a>
 												</div>

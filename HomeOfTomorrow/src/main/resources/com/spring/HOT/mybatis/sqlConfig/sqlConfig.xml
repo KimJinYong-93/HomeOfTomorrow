@@ -18,6 +18,7 @@
 		<typeAlias type="com.spring.HOT.dto.OrdersVO" alias="orders"/>
 		<typeAlias type="com.spring.HOT.dto.Order_bdVO" alias="order_bd"/>
 		<typeAlias type="com.spring.HOT.dto.CategoryVO" alias="category"/>
+		<typeAlias type="com.spring.HOT.dto.PaymentVO" alias="payment"/>
 		
 	</typeAliases>
 </configuration>
