@@ -7,11 +7,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +17,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.dto.BoardVO;
-import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.HomeBoardVO;
 import com.spring.HOT.dto.MemberNVO;
-import com.spring.HOT.dto.MemberVO;
-import com.spring.HOT.dto.MenuVO;
-import com.spring.HOT.request.OrdersRequest;
 import com.spring.HOT.service.BoardService;
-import com.spring.HOT.service.GoodsService;
 import com.spring.HOT.service.HomeBoardService;
-import com.spring.HOT.service.MemberService;
 import com.spring.HOT.service.Member_NService;
-import com.spring.HOT.service.MenuService;
 import com.spring.HOT.service.OrdersService;
 
 
@@ -56,6 +45,8 @@ public class MemberController {
 	
 	@Autowired
 	private OrdersService ordersService;
+	
+
 	
 	
 	@RequestMapping("/myPage")
@@ -77,11 +68,13 @@ public class MemberController {
 				}
 			}
 			
+			int ordersCount = ordersService.getOrdersCount(id);
 			
 			mnv.addObject("myhomeBoardList", myhomeBoardList);
 			mnv.addObject("homeCount", homeCount);
 			mnv.addObject("myQnAList", myQnAList);
 			mnv.addObject("QnACount", QnACount);
+			mnv.addObject("ordersCount", ordersCount);
 			mnv.setViewName(url);
 			
 		} catch (SQLException e) {
@@ -120,24 +113,6 @@ public class MemberController {
 		return entity;
 		
 	}
-	@RequestMapping("/orderList")
-	public ModelAndView orderList(HttpSession session, ModelAndView mnv) {
-		String url="member/orderList";
-		
-		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
-		String userId = loginUser.getId();
-		
-		try {
-			List<OrdersRequest> myOrders = ordersService.getMyOrders(userId);
 
-			mnv.addObject("myOrders" , myOrders);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		mnv.setViewName(url);
-		
-		return mnv;
-	}
 
 }
