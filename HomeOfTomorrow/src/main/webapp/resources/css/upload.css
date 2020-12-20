@@ -410,3 +410,36 @@
 	width: 100%;
 	margin-top: 40px
 }
+
+#thumUpload{
+	width: 140px;
+	margin-left: 25%;
+	background:#fff;
+	font-size:13px;
+	color : #79a3e8;
+	border: 1px solid #a5c2e6;
+	padding:5px;
+	border-radius: 5px;
+}
+#thumUpload:hover{
+	width: 140px;
+	margin-left: 25%;
+	background: #a5c2e6;
+	color:#fff;
+	font-size:13px;
+	padding:5px;
+}
+
+.form__form-control-wrap:before{
+	content: ""; 
+	position: absolute; 
+	top: 50%; 
+	width: 0; 
+	height: 0; 
+	left:18%;
+	margin-top: -5px; 
+	border-left: 5px solid transparent; 
+	border-right: 5px solid transparent; 
+	border-top: 5px solid #333;
+}
+

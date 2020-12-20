@@ -132,7 +132,7 @@
 								class="sales-form__form-group__required">*</span></label>
 						</div>
 						<div class="col-8">
-							<div class="form__form-control-wrap" >
+							<div class="form__form-control-wrap"  style="width: 20%;">
 								<select class="goodsform-control" name="cg_code" id="cg_code">
 									<c:forEach items="${categoryList }" var="category">
 										<option value="${category.cg_code }">${category.name }</option>
@@ -203,18 +203,18 @@
 								class="form-label sales-form__form-label">판매 관련 파일 첨부</label>
 						</div>
 						<div class="col-8">
-							<input type="hidden" id="sales_application__sale_file_url"
-								name="sales_application[sale_file_url]" /><label
-								class="btn btn-sm btn-priority sales-form__file__btn" for="inputFile">파일
+							<input type="hidden" id="sales_application__sale_file_url" name="sales_application[sale_file_url]" />
+								<label class="btn btn-sm btn-priority sales-form__file__btn" for="inputFile">파일
 								업로드</label>&nbsp;&nbsp;
 							<span id="inputFileName">선택된 파일이 없습니다.</span>
 							<p class="sales-form__file__caption">
 								※ 상품 대표 이미지를 10MB 용량 이하의 JPG,JEPG 파일 형태로 첨부해주세요.
 							</p>
-							<div id="pictureView" style="height: 200px; width: 140px; margin: 0 auto; float:left;"></div>
+							<div id="pictureView" style="height: 200px; width: 140px; margin: 10px auto; float:left;"></div>
 						</div>
-						<br><br>
-						<button type="button" onclick="upload_go()">업로드</button>
+						<div class="col-12">
+							<button id="thumUpload" type="button" onclick="upload_go()">대표이미지 등록</button>
+						</div>
 					</div>
 				</div>
 				<div class="row justify-center seller-layout__divider">
