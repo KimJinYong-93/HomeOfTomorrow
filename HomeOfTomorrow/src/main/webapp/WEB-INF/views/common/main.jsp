@@ -59,7 +59,7 @@
  	
  }
  .slick-dots{
- 	width : 100%;
+ 	width :850px;
  }
  #slide_title{
  	font-family: 'Nanum Gothic';
@@ -79,16 +79,22 @@
     position: absolute;
     right:15%;
  	width :100%;
- 	height: 567px; 
- 	margin-top: 3.2%;	
+ 	height: 567px;
+ 	margin-top:2.6%; 
+ 	right:15%;
  	background-image: url('<%=request.getContextPath()%>/resources/_dj/img/main_ban/event1.jpg');
+ 	background-repeat : no-repeat;
  	background-position: center;
  	background-size: contain;
  }
+ .best-item{
+ 	width:80%;
+ 	margin-left: 10%;
+ }
+ 
 </style>
 
 
-<div id="container">
 	<div class="best-item">
 	    <div class="slick-items" style="width : 75%">
 	    <c:forEach items="${homeBoardTop3 }" var="homeBoard">

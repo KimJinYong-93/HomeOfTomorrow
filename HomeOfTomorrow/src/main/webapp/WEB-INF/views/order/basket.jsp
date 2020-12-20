@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
  <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
  <script src="https://static.ohou.se/assets/v3/logging-69d1a145b1872071cd6479677379b6bbe429e845a932730a150eab3576275e7f.js" async="async"></script>
  <script src="https://static.ohou.se/assets/v3/amplitude_bridge-16d2ae2fff38dc913ff70e367d7c1906d2a29b9304bc08b92cf695e8ca5f13ec.js" async="async"></script>
@@ -27,6 +26,9 @@
  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/basket.css">
  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/basket2.css">
  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/basket3.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
 
 <div class="commerce-cart-wrap">
 	<div class="container">
@@ -39,18 +41,20 @@
 						class="sticky-container commerce-cart__header-wrap">
 						<div class="sticky-child commerce-cart__header"
 							style="position: relative;">
-							<span class="commerce-cart__header__left"><label
-								class="_3xqzr _4VN_z"><div class="_3zqA8">
-										<input type="checkbox" class="_3UImz" value=""><span
-											class="_2mDYR"><svg width="1em" height="1em"
-												viewBox="0 0 16 16" class="_2UftR">
-												<path fill="currentColor"
-													d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path></svg></span>
+							<span class="commerce-cart__header__left">
+								<label class="_3xqzr _4VN_z"><div class="_3zqA8">
+										<input type="checkbox" class="_3UImz" value="" id="check_all">
+											<span class="_2mDYR">
+												<svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR">
+													<path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path>
+												</svg>
+											</span>
 									</div>
-									<span class="_1aN3J"><span
-										class="commerce-cart__header__caption">모두선택</span></span></label></span><span
-								class="commerce-cart__header__right"><button
-									class="commerce-cart__header__delete" type="button">선택삭제</button></span>
+									<span class="_1aN3J">
+									<span class="commerce-cart__header__caption">모두선택</span></span>
+								</label>
+							</span>
+							<span class="commerce-cart__header__right">
 						</div>
 					</div>
 					<ul class="commerce-cart__content__group-list">
@@ -62,29 +66,28 @@
 									<li class="commerce-cart__group__item"><article
 											class="commerce-cart__delivery-group">
 											<ul class="commerce-cart__delivery-group__product-list">
-												<li class="commerce-cart__delivery-group__product-item"><article
-														class="carted-product">
+												<li class="commerce-cart__delivery-group__product-item">
+													<article class="carted-product">
 														<div class="carted-product__select">
 															<div class="_3zqA8">
-																<input type="checkbox" class="_3UImz" value=""
-																	checked=""><span class="_2mDYR"><svg
-																		width="1em" height="1em" viewBox="0 0 16 16"
-																		class="_2UftR">
-																		<path fill="currentColor"
-																			d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path></svg></span>
+																<input type="checkbox" class="_3UImz" value="" checked="checked" style="margin: 14px 10px 0;">
+																	<span class="_2mDYR">
+																		<svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR">
+																			<path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path>
+																		</svg>
+																	</span>
 															</div>
 														</div>
-														<a
-															class="product-small-item product-small-item--clickable"
-															href="/productions/547973/selling"><div
-																class="product-small-item__image">
+														<a class="product-small-item product-small-item--clickable" href="#">
+															<div class="product-small-item__image">
 																<img alt=""
 																	src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c&amp;webp=1"
 																	srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;webp=1 3x">
 															</div>
 															<div class="product-small-item__content">
-																<h1 class="product-small-item__title">[르젠] [오늘의딜]
-																	플러스 가열식 3리터 대용량 가습기 LPL-HD200S</h1>
+																<!-- /////////////////////상품등록게시글 타이틀///////////////////// -->
+																<h1 class="product-small-item__title">플러스 가열식 3리터 대용량 가습기 LPL-HD200S</h1>
+																<!-- ////////////////////연결할지말지 물어보기///////////////////// -->
 																<p class="product-small-item__caption">무료배송 | 일반택배</p>
 															</div></a>
 														<button class="carted-product__delete" type="button"
@@ -97,56 +100,46 @@
 														<ul class="carted-product__option-list">
 															<li class="carted-product__option-list__item"><article
 																	class="selling-option-item">
-																	<h2 class="selling-option-item__name">르젠 플러스 가열식
-																		가습기</h2>
-																	<button class="selling-option-item__delete"
-																		type="button" aria-label="삭제">
-																		<svg width="12" height="12" viewBox="0 0 12 12"
-																			fill="currentColor"
-																			preserveAspectRatio="xMidYMid meet">
-																			<path fill-rule="nonzero"
-																				d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
+																	<!-- ////////////////////옵션벨류연결///////////////////// -->
+																	<h2 class="selling-option-item__name">르젠 플러스 가열식 	가습기</h2>
+																	<button class="selling-option-item__delete" type="button" aria-label="삭제">
+																		<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+																			<path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path>
+																		</svg>
 																	</button>
 																	<div class="selling-option-item__controls">
 																		<div class="selling-option-item__quantity">
-																			<div
-																				class="input-group select-input option-count-input">
-																				<select class="form-control"><option
-																						value="0">1</option>
-																					<option value="1">2</option>
-																					<option value="2">3</option>
-																					<option value="3">4</option>
-																					<option value="4">5</option>
-																					<option value="5">6</option>
-																					<option value="6">7</option>
-																					<option value="7">8</option>
-																					<option value="8">9</option>
-																					<option value="9">10+</option></select><span
-																					class="select-input__icon"><svg class="icon"
-																						width="10" height="10"
-																						preserveAspectRatio="xMidYMid meet"
-																						style="fill: currentcolor;">
-																						<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path></svg></span>
+																			<div class="input-group select-input option-count-input">
+																				<select class="form-control" id="option-count" >
+																					<option value="1">1</option>
+																					<option value="2">2</option>
+																					<option value="3">3</option>
+																					<option value="4">4</option>
+																					<option value="5">5</option>
+																					<option value="6">6</option>
+																					<option value="7">7</option>
+																					<option value="8">8</option>
+																					<option value="9">9</option>
+																					<option value="10">10</option>
+																				</select>
+																					<span class="select-input__icon">
+																						<svg class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet" style="fill: currentcolor;">
+																							<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
+																						</svg>
+																					</span>
 																			</div>
 																		</div>
 																		<p class="selling-option-item__price">
-																			<span class="selling-option-item__price__number">198,000</span>원
+																			<!-- ///////////////////////////상품갯수or(id="option-count)*상품가격///////////////////////// -->
+																			<span class="selling-option-item__price__number" id="option-price">198,000</span>원
 																		</p>
 																	</div>
 																</article></li>
 														</ul>
 														<div class="carted-product__footer">
-															<span class="carted-product__footer__left"><button
-																	class="carted-product__edit-btn" type="button">옵션변경</button>
-																<button class="carted-product__order-btn" type="button">바로구매</button></span><span
-																class="carted-product__subtotal"><span
-																class="carted-product__subtotal__number">198,000</span>원</span>
 														</div>
 													</article></li>
 											</ul>
-											<footer class="commerce-cart__delivery-group__footer">
-												<p class="commerce-cart__delivery-group__total">배송비 무료</p>
-											</footer>
 										</article></li>
 								</ul>
 							</article></li>
@@ -164,18 +157,9 @@
 								+ <span class="number">0</span>원
 							</dd>
 						</div>
-						<div class="commerce-cart__summary__row">
-							<dt>총 할인금액</dt>
-							<dd>
-								- <span class="number">121,000</span>원
-							</dd>
-						</div>
-						<div
-							class="commerce-cart__summary__row commerce-cart__summary__row--total">
+						<div class="commerce-cart__summary__row commerce-cart__summary__row--total">
 							<dt>결제금액</dt>
-							<dd>
-								<span class="number">198,000</span>원
-							</dd>
+							<dd><span class="number">198,000</span>원</dd>
 						</div>
 					</dl>
 				</div>
@@ -188,12 +172,11 @@
 					style="position: sticky; top: 81px;">
 					<div class="sticky-child commerce-cart__side-bar"
 						style="position: relative;">
-						<dl
-							class="commerce-cart__summary commerce-cart__side-bar__summary">
+						<dl class="commerce-cart__summary commerce-cart__side-bar__summary">
 							<div class="commerce-cart__summary__row">
 								<dt>총 상품금액</dt>
 								<dd>
-									<span class="number">319,000</span>원
+									<span class="number" id="totalPrice">198,000</span>원
 								</dd>
 							</div>
 							<div class="commerce-cart__summary__row">
@@ -202,17 +185,11 @@
 									+ <span class="number">0</span>원
 								</dd>
 							</div>
-							<div class="commerce-cart__summary__row">
-								<dt>총 할인금액</dt>
-								<dd>
-									- <span class="number">121,000</span>원
-								</dd>
-							</div>
 							<div
 								class="commerce-cart__summary__row commerce-cart__summary__row--total">
 								<dt>결제금액</dt>
 								<dd>
-									<span class="number">198,000</span>원
+									<span class="number" id="totalPrice">198,000</span>원
 								</dd>
 							</div>
 						</dl>
@@ -242,3 +219,39 @@
 		</div>
 	</div>
 </div>
+
+
+<script>
+$(function(){
+    //전체선택 체크박스 클릭
+    $("#check_all").click(function(){
+        //전체선택 체크박스가 체크된상태일경우
+        if($("#check_all").prop("checked")) {
+            //input type 이 checkbox인 경우 전부 선택
+            $("input[type=checkbox]").prop("checked",true);
+        } else {
+            //input type 이 checkbox인 경우 전부 해제
+            $("input[type=checkbox]").prop("checked",false);
+        }
+    });
+})
+
+
+
+
+
+	//수량*금액 
+$(function(){
+	$('#option-count').on('change',function(){
+		
+		 var count = $('#option-count').val();
+
+		 var price= parseInt(count) * 198000; /*198000이 들어간부분에 가격연결할 수 있나?*/
+				 
+		$('#option-price').html(price);  
+	});
+
+});
+
+</script>
+

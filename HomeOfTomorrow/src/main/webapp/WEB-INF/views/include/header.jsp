@@ -146,12 +146,6 @@
 						<ul class="category_img">
 							<div class="position">
 								<ul>
-									<!--------------------------------------------------------------------- 
-
-                ※ 상품관리 > 분류관리에서 설정한 카테고리 시작 (소스 수정 X)
-                ※ 관련 매뉴얼 http://d-j.co.kr/_dj/sub/manual/manual_view.html?no=22347&board_no=3
-
-                ---------------------------------------------------------------------->
 								<c:forEach items="${mainMenuList}" var="mainMenu">
 									<c:if test="${mainMenu.mcode ne 'M000000' }">
 										<c:if test="${mainMenu.mname eq 'QnA' }">
@@ -176,13 +170,6 @@
 								</ul>
 							</div>
 						</ul>
-						<!-----★ 카테고리 마우스 오버 시 이미지 출력 영역 ★-------------------------------------------------------------------------- 
-
-        ※ <div id="sub_img" class="sub_카테고리번호"><a href="링크원하는주소"><img src="/이미지경로/이미지파일명"/></a></div>
-        ※ 카테고리 번호 확인 : 상품관리 > 분류관리 > 카테고리 선택 후 우측 분류 URL 제일 끝 숫자를 적으시면 됩니다.
-        ※ 관련 매뉴얼 http://d-j.co.kr/_dj/sub/manual/manual_view.html?no=30766&board_no=3
-
-        ------------------------------------------------------------------------------------------------------------------------------>
 						<div id="sub_img" class="sub_24">
 							<a href="/product/list.html?cate_no=24"><img
 								src="<%=request.getContextPath()%>/resources/_dj/img/category_item_img_1.jpg"></a>
@@ -201,13 +188,8 @@
 			<div class="top_banner">
 				<ul>
 					<li>
-						<!---------------------------------------------------------------------------------------------------------
-
-              ※ 1. 프로모션 > 쿠폰관리 > 쿠폰 만들기 > 발급구분 "고객 다운로드 발급" 선택 후 원하는 조건으로 생성
-              ※ 2. 프로모션 > 쿠폰관리 > 쿠폰 발급/조회 > 경로 "복사" 후 링크로 사용
-           ----------------------------------------------------------------------------------------------------------->
 						<a href="<%=request.getContextPath()%>/common/regist.do">회원가입
-							1,000원 적립금 <img
+							하고 포인트 적립받기<img
 							src="<%=request.getContextPath()%>/resources/_dj/img/download_icon.png"
 							alt="다운로드아이콘">
 					</a>

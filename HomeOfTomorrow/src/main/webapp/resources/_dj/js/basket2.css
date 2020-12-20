@@ -2006,8 +2006,8 @@ html.js-focus-visible ._2mmfI:not (.focus-visible ):focus {
 }
 
 .button--color-blue {
-	background-color: #35c5f0;
-	border-color: #35c5f0;
+	background-color: #a5c2e6;
+	border-color: #a5c2e6;
 	color: #fff
 }
 
@@ -2017,8 +2017,8 @@ html.js-focus-visible ._2mmfI:not (.focus-visible ):focus {
 
 @media ( min-width :768px) {
 	.button--color-blue:active, .button--color-blue:hover {
-		border-color: #09addb;
-		background-color: #09addb
+		border-color: #8fb0da;
+		background-color: #8fb0da
 	}
 }
 
@@ -2030,8 +2030,8 @@ html.js-focus-visible ._2mmfI:not (.focus-visible ):focus {
 
 .button--color-blue-inverted {
 	background-color: #fff;
-	border-color: #35c5f0;
-	color: #35c5f0
+	border-color: #a5c2e6;
+	color: #a5c2e6
 }
 
 .button--color-blue-inverted.focus-visible:focus {
@@ -2055,7 +2055,7 @@ html.js-focus-visible ._2mmfI:not (.focus-visible ):focus {
 .button--color-blue-light-very-more {
 	background-color: #e8f4fb;
 	border-color: #e8f4fb;
-	color: #35c5f0
+	color: #a5c2e6
 }
 
 .button--color-blue-light-very-more.focus-visible:focus {
