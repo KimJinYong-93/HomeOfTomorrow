@@ -14,28 +14,20 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title><decorator:title default="내일의 집" /></title>
 
-
 <!-- Font Awesome Icons -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/main.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
 <!-- Google Font: Source Sans Pro -->
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <link href="https://static.ohou.se/assets/favicon-186ac0d991a44c522f984d86e6a50d24c65b7b3a02a004ba7e13f5722aabd952.png" rel="shortcut icon"/>
 
-
 <decorator:head />
+
 </head>
 
-
-
-<div id="header-h">
-	<div id="header" class="">
+<div id="header-h" style="position: sticky; top: 0; z-index: 10000; background: #fff;">
+	<div id="header">
 		<div class="inner first_in">
-
 			<div class="top_menu">
-
 				<div class="xans-layout-category right_cate">
 					<div class="position">
 						<ul>

@@ -206,5 +206,16 @@ public class GoodsController {
 		return url;
 	}
 	
+	@RequestMapping(value = "/jipupload", method = RequestMethod.GET)
+	public ModelAndView jipupload(ModelAndView mnv) throws Exception {
+		String url="goods/jipupload";
+		
+		List<CategoryVO> categoryList = categoryService.getCategoryList("HOTG");
+		mnv.addObject("categoryList", categoryList);
+		mnv.setViewName(url);
+		
+		return mnv;
+	}
+	
 	
 }
