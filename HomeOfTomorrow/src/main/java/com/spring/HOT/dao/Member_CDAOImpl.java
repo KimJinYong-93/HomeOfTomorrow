@@ -25,4 +25,10 @@ public class Member_CDAOImpl implements Member_CDAO {
 		return memberC;
 	}
 
+	@Override
+	public MemberCVO getMemberCByCid(String cid) throws SQLException {
+		MemberCVO memberC = sqlSession.selectOne("MemberC-Mapper.getMemberCByCid", cid);
+		return memberC;
+	}
+
 }

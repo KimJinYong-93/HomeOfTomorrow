@@ -10,5 +10,7 @@ public interface Member_CDAO {
 	
 	MemberCVO selectMemberCById(String id)throws SQLException;
 	
+	MemberCVO getMemberCByCid(String cid) throws SQLException;
+	
 }
 

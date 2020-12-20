@@ -7,5 +7,7 @@ import com.spring.HOT.dto.MemberCVO;
 public interface Member_CService {
 	
 	void regist(MemberCVO memberC) throws SQLException;
+
+	MemberCVO getMemberCByCid(String cid) throws SQLException;
 	
 }
