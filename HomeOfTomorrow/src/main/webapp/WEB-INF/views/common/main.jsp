@@ -175,14 +175,14 @@
 									</ul>
 								</div>
 								<div class="prdImg scroll-fade">
-									<a href="/product/killer-cat-black-diamond/30/category/1/display/2/" name="anchorBoxName_30">
+									<a href="<%=request.getContextPath() %>/goods/detail?gcode=${goods.gcode}" name="anchorBoxName_30">
 										<img src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}" id="eListPrdImage30_2" class="thumb_Img"
 										alt="Killer Cat – Black Diamond">
 									</a>
 								</div>
 							</div>
 							<div class="description"
-								onclick="window.location.href='/product/killer-cat-black-diamond/30/category/1/display/2/';">
+								onclick="window.location.href='<%=request.getContextPath() %>/goods/detail?gcode=${goods.gcode}';">
 								<div class="inner">
 									<div class="displaynone"></div>
 									<div class="brand displaynone"></div>

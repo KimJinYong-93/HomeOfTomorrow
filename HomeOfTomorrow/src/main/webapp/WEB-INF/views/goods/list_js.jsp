@@ -151,21 +151,7 @@ var printData=function(replyArr,target,templateObject){
 }
 
 Handlebars.registerHelper({
-	"prettifyDate":function(timeValue){
-		var dateObj=new Date(timeValue);
-		var year=dateObj.getFullYear();
-		var month=dateObj.getMonth()+1;
-		var date=dateObj.getDate();
-		return year+"/"+month+"/"+date;
-	},
-	"loginUserCheck":function(replyer){
-		var result="none";
-		if(replyer == "${loginUser.id}"){
-			result="visible";
-		}
-		return result;
-	},
-	"getPicture":function(replyer){
+	"getGoodsList":function(){
 		var data={id:replyer};
 		var src="<%=request.getContextPath() %>/member/getPicture.do?picture=";
 		var flag=false;

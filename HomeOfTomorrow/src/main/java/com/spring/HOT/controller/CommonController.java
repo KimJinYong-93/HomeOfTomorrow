@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -73,9 +74,49 @@ public class CommonController {
 	}
 
 	@RequestMapping("/common/loginForm")
-	public String loginForm() {
+	public String loginForm(@RequestParam(defaultValue = "0") String error, HttpServletResponse response) throws Exception {
 		String url="/common/login";
+		
+		if(error.equals("1")) {
+			response.setStatus(302);
+		}
+		
 		return url;
+	}
+	
+	@RequestMapping("/security/accessDenied")
+	public String accessDenied(HttpServletResponse response) throws Exception {
+		String url = "security/accessDenied.open";
+		
+		response.setStatus(302);
+		
+		return url;
+	}
+	
+	@RequestMapping("/common/loginTimeOut")
+	public void loginTimeOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("alert('세션이 만료되었습니다.\\n다시 로그인하세요.');");
+		out.println("location.href='" + request.getContextPath() + "';");
+		out.println("</script>");
+		out.close();
+	}
+	
+	@RequestMapping("/common/loginExpired")
+	public void loginExpired(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<script>");
+		out.println("alert('여기는 뭐지?');");
+		out.println("location.href='" + request.getContextPath() + "';");
+		out.println("</script>");
+		out.close();
 	}
 	
 	@RequestMapping("/common/joinForm")
@@ -142,30 +183,26 @@ public class CommonController {
 		}
 	}
 	
-	@RequestMapping("/common/login")
-	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{
-		String url = "redirect:main";
-		
-		try {
-			memberService.login(id, pwd, session);
-			
-		} catch (NotFoundIDException | invalidPasswordException e) {
-			url = "redirect:loginForm";
-			session.setAttribute("msg", e.getMessage());
-		}
-		
-		return url;
-	}
-	
-	@RequestMapping("/common/logout")
-	public String logout(HttpSession session) throws SQLException {
-		
-		String url = "redirect:main";
-		
-		session.invalidate();
-		
-		return url;
-	}
+	/*
+	 * @RequestMapping("/common/login") public String loginForm(String id, String
+	 * pwd, HttpSession session) throws SQLException{ String url = "redirect:main";
+	 * 
+	 * try { memberService.login(id, pwd, session);
+	 * 
+	 * } catch (NotFoundIDException | invalidPasswordException e) { url =
+	 * "redirect:loginForm"; session.setAttribute("msg", e.getMessage()); }
+	 * 
+	 * return url; }
+	 * 
+	 * @RequestMapping("/common/logout") public String logout(HttpSession session)
+	 * throws SQLException {
+	 * 
+	 * String url = "redirect:main";
+	 * 
+	 * session.invalidate();
+	 * 
+	 * return url; }
+	 */
 	
 	@RequestMapping("/common/idCheck")
 	@ResponseBody

@@ -33,7 +33,7 @@
 					<img src="<%=request.getContextPath()%>/resources/Login_v1/images/loginForm.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" action="login" role="loginForm">
+				<form class="login100-form validate-form" action="<%=request.getContextPath() %>/common/login.do" role="loginForm" method="post">
 					<span class="login100-form-title"  style="color: #a5c2e6">
 						<span>&nbsp;</span>
 					</span>

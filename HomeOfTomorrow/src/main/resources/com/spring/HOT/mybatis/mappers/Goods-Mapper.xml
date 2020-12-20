@@ -5,10 +5,11 @@
 <mapper namespace="Goods-Mapper">
 
 	<select id="selectTop12" resultType="goods">
-		select *
-		from goods
-		where rownum between 0 and 12
-		order by viewcnt desc
+		SELECT a.*
+		FROM(SELECT *
+		     FROM goods
+		     order by viewcnt desc) a
+		WHERE ROWNUM between 0 and 12
 	</select>
 	
 	<select id="selectGoods" resultType="goods">
@@ -33,4 +34,9 @@
 		FROM goods
 		WHERE cg_code = #{cg_code}
 	</select>
+	
+	<update id="increaseViewcnt" parameterType="str">
+		UPDATE goods SET viewcnt = viewcnt + 1
+		WHERE gcode = #{gcode}
+	</update>
 </mapper>

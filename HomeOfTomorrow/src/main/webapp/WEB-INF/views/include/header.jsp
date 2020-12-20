@@ -108,7 +108,7 @@
 					</c:if>
 					<c:if test="${loginUser ne null }">
 						<li class="xans-element- xans-layout xans-layout-statelogoff ">
-							<a href="<%=request.getContextPath()%>/common/logout">LOGOUT</a>
+							<a href="<%=request.getContextPath()%>/common/logout.do">LOGOUT</a>
 						</li>
 						<li class="cart">
 							<a href="/order/basket.html">CART

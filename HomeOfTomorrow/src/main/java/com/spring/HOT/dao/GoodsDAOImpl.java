@@ -46,6 +46,12 @@ public class GoodsDAOImpl implements GoodsDAO{
 		List<GoodsVO> goodsList = sqlSession.selectList("Goods-Mapper.getGoodsListByCategory", cg_code);
 		return goodsList;
 	}
+
+	@Override
+	public void increasViewcnt(String gcode) throws SQLException {
+		sqlSession.update("Goods-Mapper.increaseViewcnt", gcode);
+		
+	}
 	
 
 }

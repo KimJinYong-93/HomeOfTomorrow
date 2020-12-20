@@ -37,6 +37,7 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public GoodsVO selectGoods(String gcode) throws SQLException {
 		GoodsVO goods = goodsDAO.selectGoods(gcode);
+		goodsDAO.increasViewcnt(gcode);
 		return goods;
 	}
 	

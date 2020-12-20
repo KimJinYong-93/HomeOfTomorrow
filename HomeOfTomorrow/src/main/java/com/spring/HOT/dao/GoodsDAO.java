@@ -18,4 +18,6 @@ public interface GoodsDAO {
 	
 	List<GoodsVO> getGoodsListByCategory(String cg_code) throws SQLException;
 
+	void increasViewcnt(String gcode) throws SQLException;
+
 }
