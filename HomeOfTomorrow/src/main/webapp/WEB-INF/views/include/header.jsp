@@ -43,49 +43,6 @@
 						</ul>
 					</div>
 				</div>
-				<div class="right_area">
-					<div class="right_icon">
-						<li class="search all_list">
-							<div id="find_btn" class="find_btn">
-								<a href="#none"><img src="<%=request.getContextPath()%>/resources/_dj/img/top_r_menu_icon_03_b.png"
-									alt="검색버튼" class="btn_b" style=" width:14px; height:auto;"></a>
-							</div>
-
-							<div id="find_view">
-								<form id="searchBarForm" name="" action="/product/search.html"
-									method="get" target="_self" enctype="multipart/form-data">
-									<input id="banner_action" name="banner_action" value=""
-										type="hidden">
-									<div
-										class="xans-element- xans-layout xans-layout-searchheader ">
-										<fieldset>
-											<span>검색</span> <input id="keyword" name="keyword"
-												fw-filter="" fw-label="검색어" fw-msg="" class="inputTypeText"
-												placeholder=""
-												onmousedown="SEARCH_BANNER.clickSearchForm(this)" value=""
-												type="text"><input type="image"
-												src="<%=request.getContextPath()%>/resources/_dj/img/search_btn_img.png"
-												alt="검색"
-												onclick="SEARCH_BANNER.submitSearchBanner(this); return false;">
-											&nbsp;
-											<div id="find_btn2" class="find_btn">
-												<a href="#none">X</a>
-											</div>
-										</fieldset>
-									</div>
-								</form>
-								<div
-									class="xans-element- xans-search xans-search-hotkeyword bestKeyword">
-									<span>추천 검색어</span> <span> <a
-										href="/product/search.html?keyword=" class="xans-record-"></a>
-									</span>
-								</div>
-
-							</div>
-						</li>
-					</div>
-				</div>
-
 
 				<ul>
 					<li class="xans-element- xans-layout xans-layout-statelogoff ">
@@ -111,8 +68,9 @@
 							<a href="<%=request.getContextPath()%>/common/logout">LOGOUT</a>
 						</li>
 						<li class="cart">
-							<a href="/order/basket.html">CART
-								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
+							<a href="<%=request.getContextPath()%>/order/basket">CART 
+								<!-- /////////////////////////////////장바구니 담긴 물품갯수 연결//////////////////////////////////// -->
+								<!-- <span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span> -->
 							</a>
 						</li>
 						<li><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUserDetail.id}">MY PAGE</a></li>
@@ -123,7 +81,7 @@
 
 		<div class="header_inner">
 
-			<!------------------------------------------------------------------------------------------------------------------     
+<!------------------------------------------------------------------------------------------------------------------     
 
     ※ 로고 
  
@@ -134,15 +92,14 @@
 					src="<%=request.getContextPath()%>/resources/_dj/img/logo1.png"
 					style="width: 170px; height: auto; margin-top: -5%; margin-left: 5%;" alt="로고"></a>
 			</div>
-			<!------------------------------------------------------------------------------------------------------------------     
+<!------------------------------------------------------------------------------------------------------------------     
 
     ※ 상단 카테고리 & 우측 아이콘 영역 / 카테고리별 이미지 설정 아래 참조
  
 ------------------------------------------------------------------------------------------------------------------->
 			<div id="top_category">
 				<div class="inner">
-					<div
-						class="xans-element- xans-layout xans-layout-category left_cate c_position">
+					<div class="xans-element- xans-layout xans-layout-category left_cate c_position">
 						<ul class="category_img">
 							<div class="position">
 								<ul>
@@ -160,38 +117,19 @@
 										</c:if>
 									</c:if>
 								</c:forEach>
-
-									<!--------------------------------------------------------------------- 
-
-                ※ 일반 카테고리 리스트 
-
-                ---------------------------------------------------------------------->
-
 								</ul>
 							</div>
 						</ul>
-						<div id="sub_img" class="sub_24">
-							<a href="/product/list.html?cate_no=24"><img
-								src="<%=request.getContextPath()%>/resources/_dj/img/category_item_img_1.jpg"></a>
-						</div>
-						<div id="sub_img" class="sub_25">
-							<a href="/product/list.html?cate_no=25"> <img
-								src="<%=request.getContextPath()%>/resources/_dj/img/category_item_img_2.jpg"></a>
-						</div>
 					</div>
-
-
 				</div>
 			</div>
-
-
+			
+			
 			<div class="top_banner">
 				<ul>
 					<li>
-						<a href="<%=request.getContextPath()%>/common/regist.do">회원가입
-							하고 포인트 적립받기<img
-							src="<%=request.getContextPath()%>/resources/_dj/img/download_icon.png"
-							alt="다운로드아이콘">
+						<a href="<%=request.getContextPath() %>/common/joinForm.do">회원가입 하고 포인트 적립받기
+							<img src="<%=request.getContextPath()%>/resources/_dj/img/download_icon.png" alt="회원가입하고 포인트 적립받기">
 					</a>
 					</li>
 				</ul>

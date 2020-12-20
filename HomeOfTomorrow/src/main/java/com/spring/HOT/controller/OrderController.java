@@ -106,4 +106,10 @@ public class OrderController {
 		return url;
 	}
 	
+	@RequestMapping("/paySuccess")
+	public String paySuccess() {
+		String url="/order/paySuccess";
+		return url;
+	}
+	
 }
