@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
  <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
  <script src="https://static.ohou.se/assets/v3/logging-69d1a145b1872071cd6479677379b6bbe429e845a932730a150eab3576275e7f.js" async="async"></script>
@@ -66,79 +68,84 @@
 									<li class="commerce-cart__group__item"><article
 											class="commerce-cart__delivery-group">
 											<ul class="commerce-cart__delivery-group__product-list">
-												<li class="commerce-cart__delivery-group__product-item">
-													<article class="carted-product">
-														<div class="carted-product__select">
-															<div class="_3zqA8">
-																<input type="checkbox" class="_3UImz" value="" checked="checked" style="margin: 14px 10px 0;">
-																	<span class="_2mDYR">
-																		<svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR">
-																			<path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path>
-																		</svg>
-																	</span>
+												<c:forEach items="${cartList}" var="goods">
+													<li class="commerce-cart__delivery-group__product-item">
+														<article class="carted-product">
+															<div class="carted-product__select">
+																<div class="_3zqA8">
+																	<input type="checkbox" class="_3UImz" value="" checked="checked" style="margin: 14px 10px 0;">
+																		<span class="_2mDYR">
+																			<svg width="1em" height="1em" viewBox="0 0 16 16" class="_2UftR">
+																				<path fill="currentColor" d="M6.185 10.247l7.079-7.297 1.435 1.393-8.443 8.703L1.3 8.432l1.363-1.464z"></path>
+																			</svg>
+																		</span>
+																</div>
 															</div>
-														</div>
-														<a class="product-small-item product-small-item--clickable" href="#">
-															<div class="product-small-item__image">
-																<img alt=""
-																	src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c&amp;webp=1"
-																	srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;webp=1 3x">
-															</div>
-															<div class="product-small-item__content">
-																<!-- /////////////////////상품등록게시글 타이틀///////////////////// -->
-																<h1 class="product-small-item__title">플러스 가열식 3리터 대용량 가습기 LPL-HD200S</h1>
-																<!-- ////////////////////연결할지말지 물어보기///////////////////// -->
-																<p class="product-small-item__caption">무료배송 | 일반택배</p>
-															</div></a>
-														<button class="carted-product__delete" type="button"
-															aria-label="삭제">
-															<svg width="12" height="12" viewBox="0 0 12 12"
-																fill="currentColor" preserveAspectRatio="xMidYMid meet">
-																<path fill-rule="nonzero"
-																	d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
-														</button>
-														<ul class="carted-product__option-list">
-															<li class="carted-product__option-list__item"><article
-																	class="selling-option-item">
-																	<!-- ////////////////////옵션벨류연결///////////////////// -->
-																	<h2 class="selling-option-item__name">르젠 플러스 가열식 	가습기</h2>
-																	<button class="selling-option-item__delete" type="button" aria-label="삭제">
-																		<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
-																			<path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path>
-																		</svg>
-																	</button>
-																	<div class="selling-option-item__controls">
-																		<div class="selling-option-item__quantity">
-																			<div class="input-group select-input option-count-input">
-																				<select class="form-control" id="option-count" >
-																					<option value="1">1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																					<option value="7">7</option>
-																					<option value="8">8</option>
-																					<option value="9">9</option>
-																					<option value="10">10</option>
-																				</select>
-																					<span class="select-input__icon">
-																						<svg class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet" style="fill: currentcolor;">
-																							<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-																						</svg>
-																					</span>
+															<a class="product-small-item product-small-item--clickable" href="#">
+																<div class="product-small-item__image">
+																	<img alt="${goods.price }"
+																		src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}"
+																		srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;webp=1 3x">
+																</div>
+																<div class="product-small-item__content">
+																	<!-- /////////////////////상품등록게시글 타이틀///////////////////// -->
+																	<h1 class="product-small-item__title">${goods.gname }</h1>
+																	<!-- ////////////////////연결할지말지 물어보기///////////////////// -->
+																	<p class="product-small-item__caption">무료배송 | 일반택배</p>
+																</div></a>
+															<button class="carted-product__delete" type="button"
+																aria-label="삭제">
+																<svg width="12" height="12" viewBox="0 0 12 12"
+																	fill="currentColor" preserveAspectRatio="xMidYMid meet">
+																	<path fill-rule="nonzero"
+																		d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
+															</button>
+															<ul class="carted-product__option-list">
+																<li class="carted-product__option-list__item"><article
+																		class="selling-option-item">
+																		<!-- ////////////////////옵션벨류연결///////////////////// -->
+																		<h2 class="selling-option-item__name">${goods.op_choose }</h2>
+																		<button class="selling-option-item__delete" type="button" aria-label="삭제">
+																			<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
+																				<path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path>
+																			</svg>
+																		</button>
+																		<div class="selling-option-item__controls">
+																			<div class="selling-option-item__quantity">
+																				<div class="input-group select-input option-count-input">
+																					<select class="form-control optionCount" id="option-count" >
+																						<option value="1">1</option>
+																						<option value="2">2</option>
+																						<option value="3">3</option>
+																						<option value="4">4</option>
+																						<option value="5">5</option>
+																						<option value="6">6</option>
+																						<option value="7">7</option>
+																						<option value="8">8</option>
+																						<option value="9">9</option>
+																						<option value="10">10</option>
+																					</select>
+																					<input type="hidden" value="${goods.price }">
+																						<span class="select-input__icon">
+																							<svg class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet" style="fill: currentcolor;">
+																								<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
+																							</svg>
+																						</span>
+																				</div>
 																			</div>
+																			<p class="selling-option-item__price">
+																				<!-- ///////////////////////////상품갯수or(id="option-count)*상품가격///////////////////////// -->
+																				<span class="selling-option-item__price__number goodsPrice" id="option-price">${goods.price }</span>원
+																				<input type="hidden" value="${goods.price }" class="">
+																			</p>
 																		</div>
-																		<p class="selling-option-item__price">
-																			<!-- ///////////////////////////상품갯수or(id="option-count)*상품가격///////////////////////// -->
-																			<span class="selling-option-item__price__number" id="option-price">198,000</span>원
-																		</p>
-																	</div>
-																</article></li>
-														</ul>
-														<div class="carted-product__footer">
-														</div>
-													</article></li>
+																	</article></li>
+															</ul>
+															<div class="carted-product__footer">
+															</div>
+														</article></li>
+												</c:forEach>
+												
 											</ul>
 										</article></li>
 								</ul>
@@ -180,9 +187,9 @@
 								</dd>
 							</div>
 							<div class="commerce-cart__summary__row">
-								<dt>총 배송비</dt>
+								<dt>배송비</dt>
 								<dd>
-									+ <span class="number">0</span>원
+									+<span class="number" id="totalPrice">0</span>원
 								</dd>
 							</div>
 							<div
@@ -236,19 +243,19 @@ $(function(){
     });
 })
 
-
-
-
-
 	//수량*금액 
 $(function(){
-	$('#option-count').on('change',function(){
+	$('.optionCount').on('change',function(){
+		 
+		var count = $(this).val();	// 선택된 수량
+		var parentLi = $(this).closest("li"); // 선택된거의 부모 li 찾기
+		var parentImg = $(this).parents("img");
+		console.log(parentImg.attr('src'));
+		var child = parentLi.find('#option-price');	// 선택된거 부모에서 가격 들어가는 태그(자식)찾기
 		
-		 var count = $('#option-count').val();
-
-		 var price= parseInt(count) * 198000; /*198000이 들어간부분에 가격연결할 수 있나?*/
+		var price = parseInt(count) * 1; /*198000이 들어간부분에 가격연결할 수 있나?*/
 				 
-		$('#option-price').html(price);  
+		child.html(price);  
 	});
 
 });

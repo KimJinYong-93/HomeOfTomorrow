@@ -111,8 +111,8 @@
 							<a href="<%=request.getContextPath()%>/common/logout.do">LOGOUT</a>
 						</li>
 						<li class="cart">
-							<a href="/order/basket.html">CART
-								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">0</span>
+							<a href="<%=request.getContextPath()%>/order/cartList?id=${loginUser.id}">CART
+								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">${cartSize }</span>
 							</a>
 						</li>
 						<li><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUserDetail.id}">MY PAGE</a></li>

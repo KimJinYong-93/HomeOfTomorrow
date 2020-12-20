@@ -162,21 +162,27 @@
 								class="selling-option-form-content production-selling-option-form__form">
 								<div class="selling-option-form-content__form">
 									<div class="selling-option-select-input">
-										<div class="input-group select-input selling-option-select-input__option selling-option-select-input__option-1 focused">
-											<c:forEach items="${option }" var="optionMap" varStatus="status">
-												<select class="form-control empty option" id="option${status.index }">
-													<option selected="" disabled="disabled">${optionMap.key }</option>
-													<c:forEach items="${optionMap.value }" var="optionList" varStatus="status">
-														<option value="${optionList}">${optionList }</option>
-													</c:forEach>
-												</select>
-												<span class="select-input__icon">
-													<svg class="icon" width="10" height="10" style="fill: currentColor" preserveAspectRatio="xMidYMid meet">
-														<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
-													</svg>
-												</span>
-											</c:forEach>
-										</div>
+										<form action="<%=request.getContextPath()%>/order/basketRegist" role="basketForm" method="post">
+											<div class="input-group select-input selling-option-select-input__option selling-option-select-input__option-1 focused">
+												<c:forEach items="${option }" var="optionMap" varStatus="status">
+													<input type="hidden" name="optionName" value="${optionMap.key }">
+													<select class="form-control empty" id="option${status.index }" name="op_list">
+														<option selected="" disabled="disabled">${optionMap.key }</option>
+														<c:forEach items="${optionMap.value }" var="optionList" varStatus="status">
+															<option value="${optionList}">${optionList }</option>
+														</c:forEach>
+													</select>
+													<span class="select-input__icon">
+														<svg class="icon" width="10" height="10" style="fill: currentColor" preserveAspectRatio="xMidYMid meet">
+															<path fill-rule="evenodd" d="M0 3l5 5 5-5z"></path>
+														</svg>
+													</span>
+												</c:forEach>
+												<input type="hidden" name="id" value="${loginUser.id }">
+												<input type="hidden" name="gcode" value="${goods.gcode }">
+												<input type="hidden" name="vol" value="1">
+											</div>
+										</form>
 									</div>
 								</div>
 								<ul class="selling-option-form-content__list"></ul>
@@ -190,10 +196,10 @@
 							<div class="production-selling-option-form__footer">
 								<button
 									class="button button--color-blue-inverted button--size-55 button--shape-4"
-									type="button">장바구니</button>
+									type="button" onclick="basket_go()">장바구니</button>
 								<button
 									class="button button--color-blue button--size-55 button--shape-4"
-									type="button">바로구매</button>
+									type="button" onclick="">바로구매</button>
 							</div>
 						</div>
 						<div class="production-selling-overview__promotion-banner">
@@ -513,13 +519,17 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script>
+	function basket_go(){
+		var form = $('form[role="basketForm"]');
+		form.submit();
+	}
 	var cnt = 0;
 	$('.option').on('change', function(){
 		cnt += 1;
-		alert(cnt)
+		alert($(this).val())
 		if($('.option').length == $('.option option:selected').length){
 			alert("test")
 			return;
 		}
-	})	
+	})
 </script>

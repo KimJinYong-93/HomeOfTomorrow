@@ -26,7 +26,7 @@
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'KH Books 도서 결제',
+            name : '1',
             amount : '20000원',
             buyer_email : 'kjy0912@icloud.com',
             buyer_name : '김진용',
@@ -35,10 +35,11 @@
             buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
+        	console.log(rsp)
             if ( rsp.success ) {
                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
                 jQuery.ajax({
-                    url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
+                    url: "<%=request.getContextPath()%>/payment/complete", //cross-domain error가 발생하지 않도록 주의해주세요
                     type: 'POST',
                     dataType: 'json',
                     data: {
@@ -61,12 +62,13 @@
                     }
                 });
                 //성공시 이동할 페이지
-                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+                <%-- location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
+                location.href='<%=request.getContextPath()%>/common/main';
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/common/main";
                 alert(msg);
             }
         });

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.command.MemberJoinCommand;
+import com.spring.HOT.dto.CartVO;
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.HomeBoardVO;
 import com.spring.HOT.dto.MemberAVO;
@@ -30,6 +32,7 @@ import com.spring.HOT.dto.MemberCVO;
 import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.dto.MenuVO;
+import com.spring.HOT.service.CartService;
 import com.spring.HOT.service.GoodsService;
 import com.spring.HOT.service.HomeBoardService;
 import com.spring.HOT.exception.NotFoundIDException;
@@ -55,19 +58,25 @@ public class CommonController {
 	private GoodsService goodsService;
 	@Autowired
 	private HomeBoardService homeBoardService;
+	@Autowired
+	private CartService cartService;
 	
 	
 	@RequestMapping(value = "/common/main", method = RequestMethod.GET)
 	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv, HttpSession session) throws SQLException{
 		String url="/common/main";
-		List<MenuVO> mainMenu = menuService.mainMenu(session);
+		//List<MenuVO> mainMenu = menuService.mainMenu(session);
 		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
 		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
 		List<HomeBoardVO> homeBoardTop3 = homeBoardService.homeBoardTop3();
+		
+		MemberVO member = (MemberVO) session.getAttribute("loginUser");
+		int cartSize = cartService.getCartSizeById(member.getId());
 		//mnv.addObject("mainMenuList",mainMenu); service�뿉�꽌 session�뿉 �꽔�뼱�넃�쓬
 		mnv.addObject("subMenuList",subMenu);
 		mnv.addObject("goodsTop12",goodsTop12);
 		mnv.addObject("homeBoardTop3",homeBoardTop3);
+		session.setAttribute("cartSize", cartSize);
 		mnv.setViewName(url);
 		
 		return mnv;
