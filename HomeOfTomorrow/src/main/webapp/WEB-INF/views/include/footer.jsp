@@ -14,9 +14,8 @@
   ※ 위/아래 스크롤 아이콘
 
 ------------------------------------------------------------------------------------------------------------------------>
-
-<div id="top_top"><img src="<%=request.getContextPath()%>/resources/_dj/img/scroll_icon_01.png" alt="스크롤-업!"/></div>
-<div id="bottom_bottom"><img src="<%=request.getContextPath()%>/resources/_dj/img/scroll_icon_02.png" alt="스크롤-다운!"/></div>
+<div id="top_top" onclick="goTop()"><img src="<%=request.getContextPath()%>/resources/_dj/img/scroll_icon_01.png" alt="스크롤-업!"/></div>
+<div id="bottom_bottom" onclick="goDown()"><img src="<%=request.getContextPath()%>/resources/_dj/img/scroll_icon_02.png" alt="스크롤-다운!"/></div>
 
 
 
@@ -46,12 +45,6 @@
                 </li>
             </ul>
 </div>
-        
-        <!----------------------------------------------------------------------------------------------------------------------
-
-           ※ 상점관리 > 기본정보관리 > 내 쇼핑몰 정보에 입력한 내용이 노출됩니다.
-
-        ------------------------------------------------------------------------------------------------------------------------>
         <div class="company_pg">
              <ul>
 <li class="title">COMPANY</li>
@@ -63,11 +56,6 @@
             </div>
         </div>
         
-        <!----------------------------------------------------------------------------------------------------------------------
-
-          ※ 하단 은행정보
-
-        ------------------------------------------------------------------------------------------------------------------------>
         <div class="cs_right"> 
             <ul>
 <li class="title">BANK</li>
@@ -109,9 +97,27 @@
 		alert(cnt);
 		
 	})
+	
 </script>
 <script>
-	
+$(document).ready(function(){
+	$(function () {
+		$('#top_top').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+var scrollHeight = $(document).height();
+		$('#bottom_bottom').click(function () {
+			$('body,html').animate({
+				scrollTop: scrollHeight
+			}, 800);
+			return false;
+		});
+	});
+
+});
 </script>
 <!-- CMC script --> <!-- CMC script -->
 <div id="tgg_common_bottom_script" style="display:none;">

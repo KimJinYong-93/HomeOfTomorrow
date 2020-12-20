@@ -176,4 +176,12 @@ public class GoodsController {
 		return entity;
 	}
 	
+	
+	@RequestMapping("/jip")
+	public String jip() {
+		String url="/goods/jip";
+		return url;
+	}
+	
+	
 }
