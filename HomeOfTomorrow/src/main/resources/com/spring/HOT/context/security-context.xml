@@ -26,13 +26,10 @@
 		<intercept-url pattern="/**/remove*" access="hasRole('ROLE_ADMIN')"/>
 		
 		<intercept-url pattern="/common/main*" access="isAuthenticated()"/>
-		<intercept-url pattern="/payment/**" access="isAuthenticated()"/>
-		<intercept-url pattern="/goods/**" access="isAuthenticated()"/>
-		<intercept-url pattern="/order/**" access="isAuthenticated()"/>
 		<intercept-url pattern="/member/**" access="isAuthenticated()"/>
-		<intercept-url pattern="/board/**" access="isAuthenticated()"/>
-		<intercept-url pattern="/pds/**" access="isAuthenticated()"/>
-		<intercept-url pattern="/replies/**" access="isAuthenticated()"/>
+		<intercept-url pattern="/payment/**" access="isAuthenticated()"/>
+		<intercept-url pattern="/review/**" access="isAuthenticated()"/>
+		<intercept-url pattern="/order/**" access="isAuthenticated()"/>
 		
 		<intercept-url pattern="/**" access="permitAll"/>
 		

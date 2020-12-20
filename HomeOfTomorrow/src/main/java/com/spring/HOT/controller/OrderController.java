@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.command.CartResponseCommand;
 import com.spring.HOT.dto.CartVO;
+import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.dto.PaymentVO;
 import com.spring.HOT.request.OrdersRequest;
@@ -123,12 +124,16 @@ public class OrderController {
 		
 		CartResponseCommand cartResponseCommand = new CartResponseCommand();
 		List<CartResponseCommand> cartList = new ArrayList<CartResponseCommand>();
+		int totalPrice = 0;
 		for(CartVO cart : cartDatas) {
-			System.out.println(cart.getGcode());
-			cartResponseCommand = cartResponseCommand.toParseCartObject(goodsService.selectGoods(cart.getGcode()), cart);
+			GoodsVO goods = new GoodsVO();
+			goods = goodsService.selectGoods(cart.getGcode());
+			totalPrice += goods.getPrice();
+			cartResponseCommand = cartResponseCommand.toParseCartObject(goods, cart);
 			cartList.add(cartResponseCommand);
 		}
 		
+		mnv.addObject("totalPrice", totalPrice);
 		mnv.addObject("cartList", cartList);
 		mnv.setViewName(url);
 		
@@ -165,6 +170,13 @@ public class OrderController {
 		out.println("</script>");
 		
 		out.close();
+	}
+	
+	@RequestMapping("/paySuccess")
+	public String paySuccess(String msg) {
+		System.out.println(msg);
+		String url="/order/paySuccess";
+		return url;
 	}
 	
 }

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
@@ -28,16 +29,16 @@
         <button class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="list_go()">목록</button>
 	</div>
 	<hr>
-	<form action="regist" role="noticeRegistForm" method="post">
+	<form action="modify" role="noticeModifyForm" method="post">
 		<input type="hidden" name="cg_code" value="${cg_code }">
+		<input type="hidden" name="bno" value="${board.bno }">
 		<input class="form-control" type="hidden" name="id" value="${loginUser.id }">
-		제목 <input type="text" name="title" id="title">
-		<textarea name="content" class="form-control" id="content"></textarea>
+		제목 <input type="text" name="title" id="title" value="${board.title }">
+		<textarea name="content" class="form-control" id="content">${fn:escapeXml(board.content) }</textarea>
 		<div class="row" style="margin-top: 5%;">
 		</div>
 	</form>
-	<button type="button" class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="noticeSubmit_go()">등록</button>
-	
+	<button type="button" class="btn" style="color: white; font-size: 18px; float: right; background: #a5c1e6; margin-right: 1%;" onclick="noticeModifySubmit_go()">수정</button>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="<%=request.getContextPath() %>/resources/plugins/summernote/summernote-lite.min.js"></script>
@@ -51,8 +52,9 @@
 	function list_go(){
 		history.go(-1);
 	}
-	function noticeSubmit_go(){
-		var form = $('form[role="noticeRegistForm"]');
+	
+	function noticeModifySubmit_go(){
+		var form = $('form[role="noticeModifyForm"]');
 		
 		if($('input[name ="title"]').val() == ""){
 			 alert("제목은 필수 입니다.");

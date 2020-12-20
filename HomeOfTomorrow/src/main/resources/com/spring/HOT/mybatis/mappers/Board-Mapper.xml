@@ -57,7 +57,7 @@
 		*
 		from
 		board
-		where bno is not null  			  	
+		where bno is not null and cg_code = #{cg_code} 			  	
 		<include refid="search" />
 		order by reg_dt desc
 	</select>

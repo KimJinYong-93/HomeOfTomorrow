@@ -65,18 +65,20 @@ public class CommonController {
 	@RequestMapping(value = "/common/main", method = RequestMethod.GET)
 	public ModelAndView main(@RequestParam(defaultValue="M000000")String mCode, ModelAndView mnv, HttpSession session) throws SQLException{
 		String url="/common/main";
-		//List<MenuVO> mainMenu = menuService.mainMenu(session);
+		List<MenuVO> mainMenu = menuService.mainMenu(session);
 		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
 		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
 		List<HomeBoardVO> homeBoardTop3 = homeBoardService.homeBoardTop3();
-		
+		System.out.println(goodsTop12);
 		MemberVO member = (MemberVO) session.getAttribute("loginUser");
-		int cartSize = cartService.getCartSizeById(member.getId());
-		//mnv.addObject("mainMenuList",mainMenu); service�뿉�꽌 session�뿉 �꽔�뼱�넃�쓬
+		if(member != null) {
+			int cartSize = cartService.getCartSizeById(member.getId());
+			session.setAttribute("cartSize", cartSize);
+		}
+		mnv.addObject("mainMenuList",mainMenu);
 		mnv.addObject("subMenuList",subMenu);
 		mnv.addObject("goodsTop12",goodsTop12);
 		mnv.addObject("homeBoardTop3",homeBoardTop3);
-		session.setAttribute("cartSize", cartSize);
 		mnv.setViewName(url);
 		
 		return mnv;
@@ -102,31 +104,28 @@ public class CommonController {
 		return url;
 	}
 	
-	@RequestMapping("/common/loginTimeOut")
-	public void loginTimeOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		
-		out.println("<script>");
-		out.println("alert('세션이 만료되었습니다.\\n다시 로그인하세요.');");
-		out.println("location.href='" + request.getContextPath() + "';");
-		out.println("</script>");
-		out.close();
-	}
-	
-	@RequestMapping("/common/loginExpired")
-	public void loginExpired(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		
-		out.println("<script>");
-		out.println("alert('여기는 뭐지?');");
-		out.println("location.href='" + request.getContextPath() + "';");
-		out.println("</script>");
-		out.close();
-	}
+	 @RequestMapping("/common/loginTimeOut") 
+	 public void loginTimeOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		 
+		 response.setContentType("text/html;charset=utf-8"); 
+		 PrintWriter out = response.getWriter();
+	  
+		 out.println("<script>"); out.println("alert('세션이 만료되었습니다.\\n다시 로그인하세요.');");
+		 out.println("location.href='" + request.getContextPath() + "';");
+		 out.println("</script>"); out.close(); 
+	 }
+	  
+	 @RequestMapping("/common/loginExpired") 
+	 public void loginExpired(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		 
+		 response.setContentType("text/html;charset=utf-8"); 
+		 PrintWriter out = response.getWriter();
+	  
+		 out.println("<script>"); out.println("alert('여기는 뭐지?');");
+		 out.println("location.href='" + request.getContextPath() + "';");
+		 out.println("</script>"); out.close(); 
+	 }
+		 
 	
 	@RequestMapping("/common/joinForm")
 	public String joinForm() {
@@ -192,16 +191,14 @@ public class CommonController {
 		}
 	}
 	
+	
 	/*
 	 * @RequestMapping("/common/login") public String loginForm(String id, String
 	 * pwd, HttpSession session) throws SQLException{ String url = "redirect:main";
 	 * 
-	 * try { memberService.login(id, pwd, session);
-	 * 
-	 * } catch (NotFoundIDException | invalidPasswordException e) { url =
-	 * "redirect:loginForm"; session.setAttribute("msg", e.getMessage()); }
-	 * 
-	 * return url; }
+	 * try { memberService.login(id, pwd, session); } catch (NotFoundIDException |
+	 * invalidPasswordException e) { url = "redirect:loginForm";
+	 * session.setAttribute("msg", e.getMessage()); } return url; }
 	 * 
 	 * @RequestMapping("/common/logout") public String logout(HttpSession session)
 	 * throws SQLException {
