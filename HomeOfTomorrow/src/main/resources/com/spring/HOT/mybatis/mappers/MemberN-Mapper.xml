@@ -21,4 +21,9 @@
 		VALUES(#{id}, #{name}, #{email}, #{nickname}, #{hp}, #{address1}, #{address2}, #{zipcode})
 	</update>
 	
+	<update id="updateMemberN" parameterType="memberN">
+	UPDATE member_n SET name=#{name} , email=#{email}, nickname=#{nickname}, picture=#{picture}, hp=#{hp}, gender=#{gender},
+	birthday=#{birthday}, zipcode=#{zipcode}, address1=#{address1}, address2=#{address2} WHERE id =#{id}
+	</update>
+	
 </mapper>

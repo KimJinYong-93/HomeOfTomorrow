@@ -63,7 +63,7 @@ public class CommonController {
 		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
 		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
 		List<HomeBoardVO> homeBoardTop3 = homeBoardService.homeBoardTop3();
-		//mnv.addObject("mainMenuList",mainMenu); service�뿉�꽌 session�뿉 �꽔�뼱�넃�쓬
+		mnv.addObject("mainMenuList",mainMenu);
 		mnv.addObject("subMenuList",subMenu);
 		mnv.addObject("goodsTop12",goodsTop12);
 		mnv.addObject("homeBoardTop3",homeBoardTop3);

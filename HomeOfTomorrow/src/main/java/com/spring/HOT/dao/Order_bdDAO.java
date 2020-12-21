@@ -8,5 +8,7 @@ import com.spring.HOT.dto.Order_bdVO;
 public interface Order_bdDAO {
 	
 	List<Order_bdVO> selectOrder_bd(String ocode)throws SQLException;
+	
+	Order_bdVO selectOrder_bdByRV(String ocode, String gcode)throws SQLException;
 
 }

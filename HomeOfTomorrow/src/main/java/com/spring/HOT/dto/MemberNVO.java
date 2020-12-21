@@ -2,6 +2,8 @@ package com.spring.HOT.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class MemberNVO {
 	
 	private String id;
@@ -11,6 +13,7 @@ public class MemberNVO {
 	private String picture;
 	private String hp;
 	private String gender;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	private String zipcode;
 	private String address1;

@@ -3,6 +3,7 @@ package com.spring.HOT.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.spring.HOT.request.OrderDetailRequest;
 import com.spring.HOT.request.OrdersRequest;
 
 public interface OrdersService {
@@ -12,5 +13,7 @@ public interface OrdersService {
 	OrdersRequest getOrderDetail(String ocode)throws SQLException;
 	
 	int getOrdersCount(String id)throws SQLException;
+	
+	OrderDetailRequest getOrderDetailByReview(String ocode, String gcode)throws SQLException;
 
 }

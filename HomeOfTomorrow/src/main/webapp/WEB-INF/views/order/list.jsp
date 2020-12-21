@@ -22,9 +22,9 @@
 	<c:if test="${loginUser.authority eq 'ROLE_USER' }">
 	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/order/list" class="sub_name">주문 내역 <span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/review/list" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">설정 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/userModifyForm" class="sub_name">설정 <span class="count displaynone">()</span></a>
 	</li>
 	</c:if>
 	<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
@@ -214,9 +214,10 @@
 											</div>
 										</div>
 										<div class="order-list__item__production__item__delivery">
-											
+											<c:if test="${orderdetail.order_bd.rv_check eq 'N' }">
 											<button
-												class="button button--color-blue button--size-50 button--shape-4 order-list__item__production__item__delivery__btn">리뷰작성</button>
+												class="button button--color-blue button--size-50 button--shape-4 order-list__item__production__item__delivery__btn" onclick="reviewModalOpen(${myOrder.orders.ocode},${orderdetail.goods.gcode });">리뷰작성</button>
+											</c:if>
 										</div>
 									</div>
 								</div>
@@ -233,23 +234,7 @@
 				</div>
 			</div>
 			<div class="toast-message-root"></div>
-
-
-<script src="https://static.ohou.se/assets/v3/application_react-39c024d42df4dc70afcdc802be03a3c9af0e4e38c629c9255ff5b66c1abd9aa0.js"></script>
-<script src="https://static.ohou.se/dist/js/vendor-9bc9135a2316948b78ce.js"></script>
-
-<script src="https://static.ohou.se/dist/js/2-7e950e574f58b096f0e9.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/9-951da074d502cd3e22c2.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/templates-Order-OrderList-OrderList-d2df50fd5c490592d2a8.chunk.js"></script>  
-<script src="https://static.ohou.se/dist/js/4-17bf1875b96b532caa79.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/5-929b9fffe7ae5368ab47.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/6-f9a7aa948033fe2a7698.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/8-d265326c5db90f2ab65d.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/10-b59309a75c6f37163459.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/11-9849b06d57186c4133de.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/18-a2c672c31d65f840159c.chunk.js"></script>
-<script src="https://static.ohou.se/dist/js/App-cf611cec6ec3494b7a1e.js"></script>
-  
-<script type="text/javascript" async="async" src="https://cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+			<%@ include file="reviewModal.jsp"%>
 
 </div>

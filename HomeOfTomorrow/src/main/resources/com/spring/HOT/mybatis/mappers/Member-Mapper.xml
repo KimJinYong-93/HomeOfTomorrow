@@ -7,7 +7,7 @@
 		select 
 		* 
 		from member 
-		where id=#{id}
+		where id=#{id} AND enabled = 0
 	</select>
 	
 	<sql id="search">	

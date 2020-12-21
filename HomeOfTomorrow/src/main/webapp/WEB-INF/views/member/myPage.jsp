@@ -20,15 +20,15 @@
 	<c:if test="${loginUser.authority eq 'ROLE_USER' }">
 	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/order/list" class="sub_name">주문 내역<span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/review/list" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">설정 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/userModifyForm" class="sub_name">설정 <span class="count displaynone">()</span></a>
 	</li>
 	</c:if>
 	<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
 	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 상품 <span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">설정 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/companyModifyForm" class="sub_name">설정 <span class="count displaynone">()</span></a>
 	</li>
 	</c:if>
 	
@@ -94,7 +94,7 @@
 												</div>
 											</div>
 											<div class="profile-info__actions">
-												<a class="profile-info__btn" href="/users/8176942/edit">설정</a><a
+												<a class="profile-info__btn" href="<%=request.getContextPath() %>/member/userModifyForm">설정</a><a
 													class="profile-info__btn profile-info__btn--primary profile-info--hide-on-pc"
 													href="/invite_codes/recommend_code">친구 초대 <span
 													class="highlight">+5,000P</span></a>
@@ -176,7 +176,7 @@
 									<c:forEach begin="0" end="3" varStatus="status">
 												<c:if test="${myhomeBoardList[status.index] ne null }">
 												  <div class="col-4 col-md-3">
-												  	<a href="">
+												  	<a href="<%=request.getContextPath()%>/homeBoard/detail?hno=${myhomeBoardList[status.index].hno}">
 												    <div class="post--cards__item" style="border-radius: 10px; background-image: url('<%=request.getContextPath()%>/homeBoard/getPicture?picture=${myhomeBoardList[status.index].picture}'); background-size:cover; background-position:center;">
 												    </div>
 												      </a>

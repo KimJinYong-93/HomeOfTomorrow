@@ -105,4 +105,74 @@
 	        reader.readAsDataURL(inputImage.files[0]);
 		}
 	}
+	function reviewPicture(inputImage,target){
+
+		var fileFormat=inputImage.value.substr(inputImage.value.lastIndexOf(".")+1).toUpperCase();
+		//이미지 확장자 jpg 확인
+		if(fileFormat!="JPG" && fileFormat != "JEPG"){
+			alert("이미지는 jpg,jepg 형식만 가능합니다.");
+			$("#uploadFile").val("");
+			return;
+		} 
+		//이미지 파일 용량 체크
+		if(inputImage.files[0].size>1024*1024*5){
+			alert("사진 용량은 5MB 이하만 가능합니다.");
+			$("#uploadFile").val("");
+			return;
+		};
+		
+		//미리보기
+		//document.getElementById('inputFileName').value=inputImage.files[0].name;
+		$('#inputFileName').text(inputImage.files[0].name);
+		if (inputImage.files && inputImage.files[0]) {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	        	//이미지 미리보기
+	        	target.css({'background-image':'url('+e.target.result+')',
+					  'background-position':'center',
+					  'background-size':'contain',
+					  'background-repeat':'no-repeat'
+	        		});
+	        	
+	        }
+	        
+	        reader.readAsDataURL(inputImage.files[0]);
+	        $('.select-picture').css('display','block');
+		}
+	}
+	function memberModifyPicture(inputImage,target){
+
+		var fileFormat=inputImage.value.substr(inputImage.value.lastIndexOf(".")+1).toUpperCase();
+		//이미지 확장자 jpg 확인
+		if(fileFormat!="JPG" && fileFormat != "JEPG"){
+			alert("이미지는 jpg,jepg 형식만 가능합니다.");
+			$("#uploadFile").val("");
+			return;
+		} 
+		//이미지 파일 용량 체크
+		if(inputImage.files[0].size>1024*1024*5){
+			alert("사진 용량은 5MB 이하만 가능합니다.");
+			$("#uploadFile").val("");
+			return;
+		};
+		
+		//미리보기
+		//document.getElementById('inputFileName').value=inputImage.files[0].name;
+		$('#inputFileName').text(inputImage.files[0].name);
+		if (inputImage.files && inputImage.files[0]) {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	        	//이미지 미리보기
+	        	target.css({'background-image':'url('+e.target.result+')',
+					  'background-position':'center',
+					  'background-size':'contain',
+					  'background-repeat':'no-repeat'
+	        		});
+	        	
+	        }
+	        
+	        reader.readAsDataURL(inputImage.files[0]);
+	        $('#pictureDelete').css('display','block');
+		}
+	}
 </script>

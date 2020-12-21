@@ -9,5 +9,20 @@
 		from order_bd
 		where ocode = #{ocode}
 	</select>
-
+	
+	<select id="selectOrder_bdByRV" resultType="order_bd">
+		SELECT *
+		FROM order_bd
+		WHERE ocode =#{ocode} AND gcode=#{gcode}
+	</select>
+	
+	<update id="updateRv_Check">
+		UPDATE order_bd SET rv_check = 'Y' WHERE ocode=#{ocode} AND gcode = #{gcode}
+	</update>
+	
+	<update id="deleteRv_Check">
+		UPDATE order_bd SET rv_check = 'N' WHERE ocode=#{ocode} AND gcode = #{gcode} AND id=#{id}
+	</update>
+	
+	
 </mapper>

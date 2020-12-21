@@ -11,5 +11,7 @@ public interface Member_NService {
 	void regist(MemberNVO memberN) throws SQLException;
 
 	MemberNVO getMemberNByNickname(String nickname) throws SQLException;
+	
+	void modify(MemberNVO memberN) throws SQLException;
 
 }

@@ -20,7 +20,7 @@
 					<div class="react-modal__content review-modal__modal">
 						<div class="review-modal" style="width: auto;">
 							<div class="review-modal__title">
-								리뷰 쓰기
+								리뷰 수정
 								<button type="button" class="review-modal__close" onclick="reviewModalClose()">
 									<svg class="review-modal__close__icon" width="20" height="20"
 										viewBox="0 0 20 20" fill="currentColor"
@@ -40,6 +40,13 @@
 							</div>
 							<div class="review-modal__form">
 								<div class="review-modal__form__product">
+									<img class='review-modal__form__product__image'>
+										<div class='review-modal__form__product__contents'>
+										<input type='hidden' id='gcode'>
+										<input type='hidden' id='ocode'>
+										  <div class='review-modal__form__product__contents__brand'></div>
+										  <div class='review-modal__form__product__contents__name'></div>
+										  <div class='review-modal__form__product__contents__options'></div></div>
 								</div>
 								<div class="review-modal__section">
 									<div class="review-modal__section__title">별점 평가</div>
@@ -91,8 +98,7 @@
 								<div class="review-modal__section">
 									<div class="review-modal__section__title">
 										사진 첨부 (선택) <img class="review-modal__form__photo-point"
-											src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/157654714042406347.png?gif=1&amp;w=240&amp;webp=1"
-											srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/157654714042406347.png?gif=1&amp;w=360&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/157654714042406347.png?gif=1&amp;w=480&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/157654714042406347.png?gif=1&amp;w=720&amp;webp=1 3x">
+											src="">
 									</div>
 									<div class="review-modal__section__explain">사진을 첨부해주세요.
 										(최대 1장)</div>
@@ -135,6 +141,7 @@
 										<form role="imageForm">
 										<input type="file" style="display: none;" id="uploadFile" name="uploadFile">
 										</form>
+										<input type="file" style="display: none;" id="realFile">
 								</div>
 								<div class="review-modal__section">
 									<div class="review-modal__section__title">리뷰 작성</div>
@@ -170,26 +177,24 @@
 	</form>
 
 <script>
-	function reviewModalOpen(ocode, gcode){
-		var review = document.getElementById("reviewModal");
-		review.style.display = "block";
+	function reviewModifyModalOpen(review, orderDetail){
+		var modify = document.getElementById("reviewModal");
+		modify.style.display = "block";
 		
-		$.ajax({
-			url:"<%=request.getContextPath()%>/review/"+ocode+"/"+gcode,
-			type:"get",
-			success:function(result){
-				var str = "";
-				str += "<img class='review-modal__form__product__image' src='/HOT/goods/getPicture?picture="+result.goods.picture+"'>";
-				str += "<div class='review-modal__form__product__contents'>";
-				str += "<input type='hidden' id='gcode' value='"+result.goods.gcode+"'>";
-				str += "<input type='hidden' id='ocode' value='"+result.order_bd.ocode+"'>";
-				str += "<div class='review-modal__form__product__contents__brand'>"+result.goods.bname+"</div>";
-				str	+= "<div class='review-modal__form__product__contents__name'>"+result.goods.cname+"</div>";
-				str += "<div class='review-modal__form__product__contents__options'>"+result.order_bd.op_choose+"</div></div>";
-				
-				$('.review-modal__form__product').html(str);
-			}
-		});
+		console.log(review[2]);
+		console.log(orderDetail);
+ 		/* $('#gcode').val(review.gcode);
+		$('#ocode').val(review.ocode);
+		$('.review-modal__form__product__contents__brand').text(orderDetail.goods.bname);
+		$('.review-modal__form__product__contents__name').text(orderDetail.goods.gname);
+		$('.review-modal__form__product__contents__options').text(orderDetail.order_bd.op_choose);
+ 		$('.review-modal__form__product__image').attr('src','/HOT/goods/getPicture?picture='+orderDetail.goods.picture)
+ 		if(review.picture != null){
+			$("div#pictureView").attr('background-image','url("/HOT/review/getPicture?picture='+review.picture+'")'); 
+			$('.select-picture').css('display','block');
+		}
+		
+		$('textarea').val(review.content); */
 		
 		
 		

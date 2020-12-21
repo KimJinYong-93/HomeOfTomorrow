@@ -31,4 +31,9 @@ public class Member_NServiceImpl implements Member_NService{
 		return memberN;
 	}
 
+	@Override
+	public void modify(MemberNVO memberN) throws SQLException {
+		member_NDAO.update(memberN);
+	}
+
 }

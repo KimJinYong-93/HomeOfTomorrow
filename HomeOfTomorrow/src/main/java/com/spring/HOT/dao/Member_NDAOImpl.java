@@ -35,4 +35,10 @@ public class Member_NDAOImpl implements Member_NDAO {
 		return memberN;
 	}
 
+
+	@Override
+	public void update(MemberNVO memberN) throws SQLException {
+		sqlSession.update("MemberN-Mapper.updateMemberN", memberN);
+	}
+
 }

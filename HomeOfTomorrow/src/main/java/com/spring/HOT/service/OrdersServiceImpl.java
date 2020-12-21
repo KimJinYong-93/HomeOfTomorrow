@@ -21,7 +21,7 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 	
 	private Order_bdDAO order_bdDAO;
-	public void setOrder_dbDAO(Order_bdDAO order_bdDAO) {
+	public void setOrder_bdDAO(Order_bdDAO order_bdDAO) {
 		this.order_bdDAO = order_bdDAO;
 	}
 	
@@ -103,6 +103,20 @@ public class OrdersServiceImpl implements OrdersService {
 		int count = ordersDAO.selectOrdersCount(id);
 		
 		return count;
+	}
+
+
+
+	@Override
+	public OrderDetailRequest getOrderDetailByReview(String ocode, String gcode) throws SQLException {
+		OrderDetailRequest orderDetail = new OrderDetailRequest();//order_bd, goods
+		
+		Order_bdVO order_bd = order_bdDAO.selectOrder_bdByRV(ocode, gcode);
+		orderDetail.setOrder_bd(order_bd);
+		GoodsVO goods = goodsDAO.selectGoods(order_bd.getGcode());
+		orderDetail.setGoods(goods);
+		
+		return orderDetail;
 	}
 	 
 	

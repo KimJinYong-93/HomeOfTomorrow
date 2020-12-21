@@ -23,9 +23,9 @@
 	<c:if test="${loginUser.authority eq 'ROLE_USER' }">
 	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/order/list" class="sub_name">주문 내역 <span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/review/list" class="sub_name">나의 리뷰 <span class="count displaynone">()</span></a>
 	</li>
-	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="/category/subscription/54/" class="sub_name">설정 <span class="count displaynone">()</span></a>
+	<li style="display:; margin: 0px 5px;" class="xans-element- xans-product xans-product-displaycategory  dj-mov-left-right2 xans-record-"><a href="<%=request.getContextPath() %>/member/userModifyForm" class="sub_name">설정 <span class="count displaynone">()</span></a>
 	</li>
 	</c:if>
 	<c:if test="${loginUser.authority eq 'ROLE_COMPANY' }">
@@ -42,23 +42,19 @@
   
   <!-- webpack vendor module -->
 
+  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v2/orders/show-4a12fcbefcf50eb9bfa416c1d51c4b25e1c449859c4dd562a6d936b6aa191293.css" /> 
+  <link rel="alternate" href="android-app://net.bucketplace/http/ohou.se/deep"/>
+  <link href="https://static.ohou.se/assets/favicon-186ac0d991a44c522f984d86e6a50d24c65b7b3a02a004ba7e13f5722aabd952.png" rel="shortcut icon"/>
+
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap&subset=korean" rel="stylesheet">
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v3/components/modal-f0d0d6d3de7c6af277cedf14e63e81f35de21fddb39c29158ee5240d6ef4698a.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v3/components/modal/unsigned_expert_promotion-0e6dfcdbd7a2aff40984568868c2cfb0ac42b6461cb9441fd461b6aaa7738a89.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v3/components/autocomplete-b90e5093fd6272bf968b24073411e196f032d826a99ce7c79f61f975b6cfef98.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v3/bucket_ui/_form-c79020f23c73f20e31215835e55fadfe4ac96dd0627a1200348beaff9ce8da25.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v2/application-eeca9ce7d84cca2484d2e19c85185836da4bc1ae6a1079b717951a546b356bf3.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v3/bucket_ui/bucket-icons-666f525bc684b3218656f27b690456c21b5f2dead1e01573259a2a5dd0614170.css" />
-
+  <script src="https://static.ohou.se/assets/v3/layouts/navigation_stub-2afc6570f26c12358127eb3d1d8b54fc3aa1df1f1a041c239fcf21d9abcade4a.js"></script>
+  <link rel="stylesheet" media="screen" href="https://static.ohou.se/assets/v3/layout/application_react-1e92c7147066d0282bd14c1c54ad6f4eda35ac557fc7d3743f26f3ce17a3802d.css" />
+  
   <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/18-edc534e5.chunk.css" />
-  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/LayoutNavigation-bce2cf3e.css" />
-  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/LayoutFooter-48994b9b.css" />
-
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v2/orders/show-4a12fcbefcf50eb9bfa416c1d51c4b25e1c449859c4dd562a6d936b6aa191293.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v2/order_options/recommand_review-f392b6f818b956467c417ce9c481da6e7736eb30c3e01487c95a08422393825d.css" />
-  <link rel="stylesheet" media="all" href="https://static.ohou.se/assets/v2/production_reviews/new-3241cd5d646a293988e69eea4d5235b77fae32204d7eee55bdf91e0beec37b98.css" />
-  <link rel="stylesheet" href="https://static.ohou.se/dist/css/18-edc534e5.chunk.css"/>
-  <link rel="stylesheet" href="https://static.ohou.se/dist/css/36-d4e921c1.chunk.css"/>
+  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/App-3e49e6d3.css" />
+  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/2-efe4945d.chunk.css" />
+  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/9-d91eb381.chunk.css" />
+  <link rel="stylesheet" media="screen" href="https://static.ohou.se/dist/css/templates-Order-OrderList-OrderList-0bcaebcd.chunk.css" />
 
 
 	<div class="layout">
@@ -110,12 +106,14 @@
 
 										<div class="status">일반택배배송</div>
 									</div>
-
+									
 									<div class="button_set">
 										<div class="fake"></div>
+										<c:if test="${detail.order_bd.rv_check eq 'N'}">
 										<div class="buttons">
-											<a class='button blue' href="javascript:reviewModalOpen();">리뷰작성</a>
+											<a class='button blue' href="javascript:reviewModalOpen(${orderDetail.orders.ocode },${detail.goods.gcode });">리뷰작성</a>
 										</div>
+										</c:if>
 									</div>
 								</div>
 							</c:forEach>
@@ -215,6 +213,7 @@
 			</div>
 		</div>
 		<div class="toast-message-root"></div>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<%@ include file="reviewModal.jsp"%>
 <!-- 		<script
 			src="https://static.ohou.se/assets/v3/application_react-39c024d42df4dc70afcdc802be03a3c9af0e4e38c629c9255ff5b66c1abd9aa0.js"></script>

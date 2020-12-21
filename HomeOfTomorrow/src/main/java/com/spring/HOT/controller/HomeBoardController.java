@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -44,6 +45,16 @@ public class HomeBoardController {
 		
 		return entity;
 		
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail(ModelAndView mnv)throws Exception{
+		
+		String url = "homeBoard/detail";
+		
+		mnv.setViewName(url);
+	
+		return mnv;
 	}
 	
 	

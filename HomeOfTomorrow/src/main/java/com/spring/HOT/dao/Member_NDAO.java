@@ -9,6 +9,7 @@ public interface Member_NDAO {
 	MemberNVO selectMemberNById(String id)throws SQLException;
 	
 	void regist(MemberNVO memberN) throws SQLException;
+	void update(MemberNVO memberN) throws SQLException;
 	
 	MemberNVO getMemberNByNickname(String nickname) throws SQLException;
 

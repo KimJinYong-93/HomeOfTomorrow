@@ -7,7 +7,14 @@ public class Order_bdVO {
 	private String gcode       ;
 	private int vol         ;
 	private String op_choose   ;
+	private String rv_check;
 	
+	public String getRv_check() {
+		return rv_check;
+	}
+	public void setRv_check(String rv_check) {
+		this.rv_check = rv_check;
+	}
 	public String getOcode() {
 		return ocode;
 	}
@@ -41,9 +48,9 @@ public class Order_bdVO {
 	@Override
 	public String toString() {
 		return "Order_bdVO [ocode=" + ocode + ", id=" + id + ", gcode=" + gcode + ", vol=" + vol + ", op_choose="
-				+ op_choose + "]";
+				+ op_choose + ", rv_check=" + rv_check + "]";
 	}
-	
+
 	
 	
 	

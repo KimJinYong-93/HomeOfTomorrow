@@ -23,6 +23,9 @@
 	<bean id="boardPicturePath" class="java.lang.String">
 		<constructor-arg value="${board.picture.upload}"></constructor-arg>
 	</bean>
+	<bean id="reviewPicturePath" class="java.lang.String">
+		<constructor-arg value="${review.picture.upload}"></constructor-arg>
+	</bean>
 
 	<!-- dao -->
 	<bean id="memberDAO"
@@ -63,6 +66,9 @@
 	<bean id="paymentDAO"
 		class="com.spring.HOT.dao.PaymentDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
+	<bean id="reviewDAO"
+		class="com.spring.HOT.dao.ReviewDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
 		
 		
 		
@@ -99,7 +105,7 @@
 	<bean id="ordersService"
 		class="com.spring.HOT.service.OrdersServiceImpl"
 		p:ordersDAO-ref="ordersDAO"
-		p:order_dbDAO-ref="order_bdDAO"
+		p:order_bdDAO-ref="order_bdDAO"
 		p:goodsDAO-ref="goodsDAO"/>
 	<bean id="categoryService"
 		class="com.spring.HOT.service.CategoryServiceImpl"
@@ -107,5 +113,10 @@
 	<bean id="paymentService"
 		class="com.spring.HOT.service.PaymentServiceImpl"
 		p:paymentDAO-ref="paymentDAO"/>
+	<bean id="reviewService"
+		class="com.spring.HOT.service.ReviewServiceImpl"
+		p:reviewDAO-ref="reviewDAO"
+		p:order_bdDAO-ref="order_bdDAO"
+		p:goodsDAO-ref="goodsDAO"/>
 
 </beans>

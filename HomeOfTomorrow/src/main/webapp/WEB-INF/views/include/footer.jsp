@@ -102,6 +102,7 @@
 </div>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/_dj/js/scroll-transition-fade.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 <script>
 	var cnt = 0;
 	$('#admin').on('click', function(){
@@ -109,9 +110,6 @@
 		alert(cnt);
 		
 	})
-</script>
-<script>
-	
 </script>
 <!-- CMC script --> <!-- CMC script -->
 <div id="tgg_common_bottom_script" style="display:none;">
