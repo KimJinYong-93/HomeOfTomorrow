@@ -81,9 +81,10 @@
 																		</span>
 																</div>
 															</div>
+															<input type="hidden" name="gcode" class="gcode" value="${goods.gcode }">
 															<a class="product-small-item product-small-item--clickable" href="<%=request.getContextPath() %>/goods/detail?gcode=${goods.gcode}">
 																<div class="product-small-item__image">
-																	<img alt="${goods.price }"
+																	<img alt=""
 																		src="<%=request.getContextPath() %>/goods/getPicture?picture=${goods.picture}"
 																		srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/160436684122354657.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;webp=1 3x">
 																</div>
@@ -101,10 +102,11 @@
 																		d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
 															</button>
 															<ul class="carted-product__option-list">
-																<li class="carted-product__option-list__item"><article
+																<li class="carted-product__option-list__item priceLi"><article
 																		class="selling-option-item">
+																		<input type="hidden" class="startPrice" value="${goods.price }">
 																		<!-- ////////////////////옵션벨류연결///////////////////// -->
-																		<h2 class="selling-option-item__name">${goods.op_choose }</h2>
+																		<h2 class="selling-option-item__name op_choose">${goods.op_choose }</h2>
 																		<button class="selling-option-item__delete" type="button" aria-label="삭제">
 																			<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" preserveAspectRatio="xMidYMid meet">
 																				<path fill-rule="nonzero" d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path>
@@ -181,7 +183,7 @@
 							<div class="commerce-cart__summary__row">
 								<dt>총 상품금액</dt>
 								<dd>
-									<span class="number totalPrice" id="totalPrice">${totalPrice }</span>원
+									<span class="number totalPrice" id="totalPrice"></span>원
 								</dd>
 							</div>
 							<div class="commerce-cart__summary__row">
@@ -193,15 +195,15 @@
 							<div class="commerce-cart__summary__row commerce-cart__summary__row--total">
 								<dt>결제금액</dt>
 								<dd>
-									<span class="number totalPrice" id="">${totalPrice }</span>원
+									<span class="number totalPrice" id=""></span>원
 								</dd>
 							</div>
 						</dl>
 						<div class="commerce-cart__side-bar__order">
 							<form action="<%=request.getContextPath() %>/payment/kakaoPay" method="post" role="form">
-							<button
-								class="button button--color-blue button--size-50 button--shape-4 commerce-cart__side-bar__order__btn"
-								type="button" onclick="kakaoPay()">결제하기<img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;"></button>
+								<button class="button button--color-blue button--size-50 button--shape-4 commerce-cart__side-bar__order__btn" type="button" onclick="kakaoPay()">
+									결제하기<img src="<%=request.getContextPath() %>/resources/_dj/img/payment_icon_yellow_small.png" style="height: 20px;">
+								</button>
 							</form>
 						</div>
 					</div>
@@ -220,8 +222,8 @@
 				<span class="count">1개 </span><span class="cost">198,000원</span>
 			</div>
 			<button
-				class="button button--color-blue button--size-45 button--shape-4 commerce-cart__footer__order"
-				type="button">바로구매</button>
+				class="button button--color-blue button--size-45 button--shape-4 commerce-cart__footer__order" type="button">바로구매
+			</button>
 		</div>
 	</div>
 </div>
@@ -229,17 +231,75 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
+var gcodes = $('.gcode');
+var gcode = "";
+for(var i = 0; i < gcodes.length; i++){
+	if(i == 0){
+		gcode += $(gcodes[i]).val();
+	}else{
+		gcode += "/" + $(gcodes[i]).val();
+	}
+}
+
+var volums = $('.optionCount');
+var vol = "";
+for(var i = 0; i < volums.length; i++){
+	if(i == 0){
+		vol += $(volums[i]).val();
+	}else{
+		vol += "/" + $(volums[i]).val();
+	}
+}
+
+var opDatas = $('.op_choose');
+var op_choose = "";
+for(var i = 0; i < opDatas.length; i++){
+	if(i == 0){
+		op_choose += $(opDatas[i]).text();
+	}else{
+		op_choose += "/" + $(opDatas[i]).text();
+	}
+}
+
+alert(op_choose)
+
+sum();
+
+function sum(){
+	var price = $('body').find('.option-price');
+	var priceSum = 0
+	for(var i = 0; i < price.length; i++){
+		priceSum += parseInt($(price[i]).text());
+	}
+	var total = $('.totalPrice')
+	$(total).text(priceSum);
+}
+
 $('._3UImz').on('change', function(){
 	var totalPrice = $('#totalPrice').text();
 	var price = ($(this).closest('li')).find($('.option-price'));
 	if($(this).is(":checked") == false){
-		totalPrice = parseInt(totalPrice) - parseInt(price.text());
+		totalPrice = parseInt(totalPrice) - parseInt($(price).text());
 		$('.totalPrice').html(totalPrice);
 	}else{
-		totalPrice = parseInt(totalPrice) + parseInt(price.text());
+		totalPrice = parseInt(totalPrice) + parseInt($(price).text());
 		$('.totalPrice').html(totalPrice);
 	}
 });
+
+$('.optionCount').on('change',function(){
+	var count = $(this).val();	// 선택된 수량
+	var parentLi = $(this).closest($('.priceLi')); // 선택된거의 부모 li 찾기
+	var startPrice = parentLi.find($('.startPrice'));
+	var startPrice = startPrice.val();
+	var child = parentLi.find('.option-price');	// 선택된거 부모에서 가격 들어가는 태그(자식)찾기
+	
+	var price = parseInt(count) * startPrice; /*198000이 들어간부분에 가격연결할 수 있나?*/
+
+	child.html(price);
+	sum();
+});
+
 function payment(){
 	$('form[role="form"]').submit();
 }
@@ -258,84 +318,79 @@ $(function(){
     });
 })
 
-	//수량*금액 
+//수량*금액 
 $(function(){
-	$('.optionCount').on('change',function(){
-		 
-		var count = $(this).val();	// 선택된 수량
-		var parentLi = $(this).closest("li"); // 선택된거의 부모 li 찾기
-		var parentImg = $(this).parents("img");
-		console.log(parentImg.attr('src'));
-		var child = parentLi.find('#option-price');	// 선택된거 부모에서 가격 들어가는 태그(자식)찾기
-		
-		var price = parseInt(count) * 1; /*198000이 들어간부분에 가격연결할 수 있나?*/
-				 
-		child.html(price);  
-	});
 
 });
 
-	
-
-	function kakaoPay(){
-	    var IMP = window.IMP; // 생략가능
-	    IMP.init('imp28544317'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-	    var msg;
-	    
-	    IMP.request_pay({
-	        pg : 'kakaopay',
-	        pay_method : 'card',
-	        merchant_uid : 'merchant_' + new Date().getTime(),
-	        name : $('.title').text(),
-	        amount : $('#totalPrice').text(),
-	        buyer_email : '${loginUserDetail.email}',
-	        buyer_name : '${loginUser.id}',
-	        buyer_tel : '${loginUserDetail.hp}',
-	        buyer_addr : '${loginUserDetail.address1}'+' ${loginUserDetail.address2}',
-	        buyer_postcode : '${loginUserDetail.zipcode}'
-	        //m_redirect_url : 'http://www.naver.com'
-	    }, function(rsp) {
-	        if ( rsp.success ) {
-	            //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
-	            jQuery.ajax({
-	                url: "<%=request.getContextPath()%>/payment/complete", //cross-domain error가 발생하지 않도록 주의해주세요
-	                type: 'POST',
-	                dataType: 'json',
-	                data: {
-	                	price : rsp.paid_amount,
-	                	gname : rsp.name
-	                }
-	                    //기타 필요한 데이터가 있으면 추가 전달
-	                
-	            }).done(function(data) {
-	            	
-	                //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-	                if ( everythings_fine ) {
-	                    msg = '결제가 완료되었습니다.';
-	                    msg += '\n고유ID : ' + rsp.imp_uid;
-	                    msg += '\n상점 거래ID : ' + rsp.merchant_uid;
-	                    msg += '\결제 금액 : ' + rsp.paid_amount;
-	                    msg += '카드 승인번호 : ' + rsp.apply_num;
-	                    
-	                    alert(msg);
-	                } else {
-	                    //[3] 아직 제대로 결제가 되지 않았습니다.
-	                    //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-	                }
-	            });
-	            //성공시 이동할 페이지
-	            location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
-	            <%-- location.href='<%=request.getContextPath()%>/payment/Success'; --%>
-	        } else {
-	            msg = '결제에 실패하였습니다.';
-	            msg += '에러내용 : ' + rsp.error_msg;
-	            //실패시 이동할 페이지
-	            location.href='<%=request.getContextPath()%>/order/cartList?id=${loginUser.id}';
-	            alert(msg);
-	        }
-	    });
-	    
-	};
+function kakaoPay(){
+    var IMP = window.IMP; // 생략가능
+    IMP.init('imp28544317'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+    var msg;
+    
+    IMP.request_pay({
+        pg : 'kakaopay',
+        pay_method : 'card',
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : $('.title').text(),
+        amount : $('#totalPrice').text(),
+        buyer_email : '${loginUserDetail.email}',
+        buyer_name : '${loginUser.id}',
+        buyer_tel : '${loginUserDetail.hp}',
+        buyer_addr : '${loginUserDetail.address1}'+' ${loginUserDetail.address2}',
+        buyer_postcode : '${loginUserDetail.zipcode}',
+        custom_data : {
+        	gcode : gcode,
+        	vol : vol,
+        	op_choose : op_choose
+        }
+        //m_redirect_url : 'http://www.naver.com'
+    }, function(rsp) {
+        if ( rsp.success ) {
+            //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
+            jQuery.ajax({
+                url: "<%=request.getContextPath()%>/payment/complete", //cross-domain error가 발생하지 않도록 주의해주세요
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                	price : rsp.paid_amount,
+                	gname : rsp.name,
+                	gcode : rsp.custom_data.gcode,
+                	payway : rsp.pay_method,
+                	vol : rsp.custom_data.vol,
+                	op_choose : rsp.custom_data.op_choose
+                }
+                    //기타 필요한 데이터가 있으면 추가 전달
+                
+            }).done(function(data) {
+            	
+                //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
+                if ( everythings_fine ) {
+                    msg = '결제가 완료되었습니다.';
+                    msg += '\n고유ID : ' + rsp.imp_uid;
+                    msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+                    msg += '\결제 금액 : ' + rsp.paid_amount;
+                    msg += '카드 승인번호 : ' + rsp.apply_num;
+                    
+                    alert(msg);
+                } else {
+                    //[3] 아직 제대로 결제가 되지 않았습니다.
+                    //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
+                }
+            });
+            //성공시 이동할 페이지
+            location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+            <%-- location.href='<%=request.getContextPath()%>/payment/Success'; --%>
+        } else {
+            msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+            //실패시 이동할 페이지
+            location.href='<%=request.getContextPath()%>/order/cartList?id=${loginUser.id}';
+            alert(msg);
+        }
+    });
+    
+};
 
 </script>
 

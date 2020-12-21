@@ -118,6 +118,11 @@ public class OrdersServiceImpl implements OrdersService {
 		
 		return orderDetail;
 	}
+
+	@Override
+	public void regist(OrdersVO orders) throws SQLException {
+		ordersDAO.regist(orders);
+	}
 	 
 	
 

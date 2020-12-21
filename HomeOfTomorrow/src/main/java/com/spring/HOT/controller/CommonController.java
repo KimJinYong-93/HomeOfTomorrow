@@ -70,7 +70,6 @@ public class CommonController {
 		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
 		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
 		List<HomeBoardVO> homeBoardTop3 = homeBoardService.homeBoardTop3();
-		System.out.println(goodsTop12);
 		MemberVO member = (MemberVO) session.getAttribute("loginUser");
 		if(member != null) {
 			int cartSize = cartService.getCartSizeById(member.getId());
@@ -217,7 +216,6 @@ public class CommonController {
 	  
 		return url; 
 	}
-	 
 	
 	@RequestMapping("/common/idCheck")
 	@ResponseBody
@@ -229,7 +227,6 @@ public class CommonController {
 		entity = new ResponseEntity<String>(member == null ? id : "", HttpStatus.OK);
 
 		return entity;
-		
 	}
 	
 	@RequestMapping(value = "/common/nickCheck")

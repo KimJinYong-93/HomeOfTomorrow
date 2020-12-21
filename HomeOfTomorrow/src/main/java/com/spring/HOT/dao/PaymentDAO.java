@@ -7,5 +7,7 @@ import com.spring.HOT.dto.PaymentVO;
 public interface PaymentDAO {
 	
 	PaymentVO selectPayment(String ocode)throws SQLException;
+	
+	void regist(PaymentVO pay) throws SQLException;
 
 }

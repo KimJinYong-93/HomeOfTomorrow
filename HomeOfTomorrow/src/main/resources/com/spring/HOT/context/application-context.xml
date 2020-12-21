@@ -110,6 +110,9 @@
 		p:ordersDAO-ref="ordersDAO"
 		p:order_bdDAO-ref="order_bdDAO"
 		p:goodsDAO-ref="goodsDAO"/>
+	<bean id="order_bdService"
+		class="com.spring.HOT.service.Order_bdServiceImpl"
+		p:order_bdDAO-ref="order_bdDAO"/>
 	<bean id="categoryService"
 		class="com.spring.HOT.service.CategoryServiceImpl"
 		p:categoryDAO-ref="categoryDAO"/>

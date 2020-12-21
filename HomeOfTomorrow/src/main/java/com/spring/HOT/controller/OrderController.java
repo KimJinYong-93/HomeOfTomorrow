@@ -174,7 +174,6 @@ public class OrderController {
 	
 	@RequestMapping("/paySuccess")
 	public String paySuccess(String msg) {
-		System.out.println(msg);
 		String url="/order/paySuccess";
 		return url;
 	}

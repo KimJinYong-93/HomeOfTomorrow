@@ -22,5 +22,10 @@
 	FROM orders
 	WHERE id = #{id}
 	</select>
+	
+	<update id="registOrders" parameterType="orders">
+		INSERT INTO orders(ocode, id, reg_dt, ostatus) 
+		VALUES(#{ocode}, #{id}, SYSDATE, #{ostatus})
+	</update>
 
 </mapper>

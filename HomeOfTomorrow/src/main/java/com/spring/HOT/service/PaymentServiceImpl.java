@@ -18,6 +18,13 @@ public class PaymentServiceImpl implements PaymentService{
 		PaymentVO payment =  paymentDAO.selectPayment(ocode);
 		return payment;
 	}
+
+
+	@Override
+	public void regist(PaymentVO pay) throws SQLException {
+		paymentDAO.regist(pay);
+		
+	}
 	
 	
 

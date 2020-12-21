@@ -36,6 +36,10 @@ public class OrdersDAOImpl implements OrdersDAO{
 		
 		return count;
 	}
+	@Override
+	public void regist(OrdersVO orders) throws SQLException {
+		sqlSession.update("Orders-Mapper.registOrders", orders);
+	}
 	
 	
 

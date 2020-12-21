@@ -13,5 +13,7 @@ public interface OrdersDAO {
 	
 	int selectOrdersCount(String id)throws SQLException;
 	
+	void regist(OrdersVO orders) throws SQLException;
+	
 
 }

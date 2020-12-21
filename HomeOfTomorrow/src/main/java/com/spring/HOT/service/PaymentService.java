@@ -8,4 +8,6 @@ public interface PaymentService {
 	
 	PaymentVO getPayment(String ocode)throws SQLException;
 
+	void regist(PaymentVO pay) throws SQLException;
+
 }
