@@ -1,5 +1,6 @@
 package com.spring.HOT.controller;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -9,11 +10,9 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.HOT.command.PaymentRequestCommand;
@@ -55,11 +54,11 @@ public class PaymentController {
 	@RequestMapping("/payment/complete")
 	@ResponseBody
 	public ResponseEntity<GoodsVO> complete(PaymentRequestCommand prc, HttpSession session) throws Exception{
-		
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date time = new Date();
 		String date = format.format(time);
-		prc.setOcode(date + "_" + UUID.randomUUID().toString().replace("-", ""));
+		String payUUID = String.format("%040d", new BigInteger(UUID.randomUUID().toString().replace("-", ""), 16));
+		prc.setOcode(date + "_" + payUUID.substring(0, 8));
 	
 		MemberNVO memberN = new MemberNVO();
 		memberN = (MemberNVO) session.getAttribute("loginUserDetail");
@@ -74,16 +73,26 @@ public class PaymentController {
 		String vol = prc.getVol();
 		List<String> volums = Arrays.asList(vol.split("/"));
 		
-		//for문 돌려서 gcode랑 vol 각각 세팅
+		String op_choose = prc.getOp_choose();
+		List<String> op_chooses = Arrays.asList(op_choose.split(","));
+		
 		orders = prc.toParseOrdersVO(memberN.getId());
 		ordersService.regist(orders);
 		
-		order_bd = prc.toParseOrder_bdVO(memberN.getId());
-		order_bdService.regist(order_bd);
-
+		for(int i = 0; i < gcodes.size(); i++) {
+			prc.setGcode(gcodes.get(i));
+			prc.setVol(volums.get(i));
+			prc.setOp_choose(op_chooses.get(i));
+			cartService.remove(memberN.getId(), gcodes.get(i), op_chooses.get(i));
+			order_bd = prc.toParseOrder_bdVO(memberN.getId());
+			order_bdService.regist(order_bd);
+		}
+		
+		int cartSize = (int) session.getAttribute("cartSize") - gcodes.size();
+		session.setAttribute("cartSize", cartSize);
+		
 		pay = prc.toParsePaymentVO(memberN);
 		paymentService.regist(pay);
-		
 		
 		ResponseEntity<GoodsVO> entity = null;
 		

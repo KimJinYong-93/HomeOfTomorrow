@@ -13,5 +13,7 @@ public interface CartService {
 	List<CartVO> getCartListById(String id) throws SQLException;
 
 	void registBasket(CartVO cart) throws SQLException;
+
+	void remove(String id, String gcode, String op_choose) throws SQLException;
 	
 }

@@ -3,9 +3,12 @@ package com.spring.HOT.dao;
 import java.sql.SQLException;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
+import com.spring.HOT.command.SearchCriteria;
 import com.spring.HOT.dto.GoodsVO;
 
 public class GoodsDAOImpl implements GoodsDAO{
@@ -51,6 +54,29 @@ public class GoodsDAOImpl implements GoodsDAO{
 	public void increasViewcnt(String gcode) throws SQLException {
 		sqlSession.update("Goods-Mapper.increaseViewcnt", gcode);
 		
+	}
+
+	@Override
+	public Map<String, Object> getGoodsList(String cg_code, SearchCriteria cri) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<GoodsVO> selectGoodsListPage(String cg_code, SearchCriteria cri) throws SQLException {
+		int offset = cri.getPageStartRowNum();
+		int limit = cri.getPerPageNum() + 2;
+		RowBounds row = new RowBounds(offset, limit);
+		
+		List<GoodsVO> goodsList = sqlSession.selectList("Goods-Mapper.selectGoodsList", cg_code, row);
+		
+		return goodsList;
+	}
+
+	@Override
+	public int countGoods(String cg_code) throws SQLException {
+		int count = sqlSession.selectOne("Goods-Mapper.countGoods", cg_code);
+		return count;
 	}
 	
 

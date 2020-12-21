@@ -20,4 +20,9 @@
 		INSERT INTO cart VALUES(#{id}, #{gcode}, #{vol}, #{op_choose})
 	</update>
 	
+	<update id="removeBasket">
+		DELETE FROM cart 
+		WHERE id = #{id} AND gcode = #{gcode} AND op_choose = #{op_choose}
+	</update>
+	
 </mapper>

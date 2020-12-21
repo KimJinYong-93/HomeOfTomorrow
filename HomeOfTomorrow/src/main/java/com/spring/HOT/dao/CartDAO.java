@@ -14,4 +14,6 @@ public interface CartDAO {
 	
 	void registBasket(CartVO cart) throws SQLException;
 	
+	void remove(String id, String gcode, String op_choose) throws SQLException;
+	
 }

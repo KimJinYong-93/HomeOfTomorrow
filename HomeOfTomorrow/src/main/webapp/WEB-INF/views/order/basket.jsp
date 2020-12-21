@@ -257,11 +257,21 @@ for(var i = 0; i < opDatas.length; i++){
 	if(i == 0){
 		op_choose += $(opDatas[i]).text();
 	}else{
-		op_choose += "/" + $(opDatas[i]).text();
+		op_choose += "," + $(opDatas[i]).text();
 	}
 }
 
-alert(op_choose)
+var titles = $('.title');
+var title = "";
+for(var i = 0; i < titles.length; i++){
+	if(i == 0){
+		title += $(titles[i]).text();
+	}else if(i == titles.length - 1){
+		title += "외 " + (titles.length - 1) + "건";
+	}
+}
+
+//alert(title)
 
 sum();
 
@@ -332,7 +342,7 @@ function kakaoPay(){
         pg : 'kakaopay',
         pay_method : 'card',
         merchant_uid : 'merchant_' + new Date().getTime(),
-        name : $('.title').text(),
+        name : title,
         amount : $('#totalPrice').text(),
         buyer_email : '${loginUserDetail.email}',
         buyer_name : '${loginUser.id}',

@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.HOT.command.SearchCriteria;
 import com.spring.HOT.dto.CategoryVO;
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.MemberCVO;
@@ -187,14 +188,20 @@ public class GoodsController {
 	
 	@RequestMapping("/goodsListByCategory")
 	@ResponseBody
-	public ResponseEntity<List<GoodsVO>> goodsListByCategory(@RequestParam(defaultValue = "") String cg_code) throws Exception {
-		ResponseEntity<List<GoodsVO>> entity = null;
+	public ResponseEntity<Map<String, Object>> goodsListByCategory(@RequestParam(defaultValue = "") String cg_code, int goodsPage) throws Exception {
+		
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(goodsPage);
+		
+		ResponseEntity<Map<String, Object>> entity = null;
 		
 		if(cg_code.equals("")) {
 			cg_code = "HOTG";
 		}
-		List<GoodsVO> goodsList = goodsService.getGoodsAllList(cg_code);
-		entity = new ResponseEntity<List<GoodsVO>>(goodsList, HttpStatus.OK);
+		Map<String, Object> dataMap = goodsService.getGoodsList(cg_code, cri); 
+//		List<GoodsVO> goodsList = goodsService.getGoodsAllList(cg_code);
+//		entity = new ResponseEntity<List<GoodsVO>>(goodsList, HttpStatus.OK);
+		entity = new ResponseEntity<Map<String, Object>>(dataMap, HttpStatus.OK);
 		
 		return entity;
 	}

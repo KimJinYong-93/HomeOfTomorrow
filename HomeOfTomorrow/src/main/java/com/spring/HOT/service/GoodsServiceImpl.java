@@ -1,9 +1,12 @@
 package com.spring.HOT.service;
 
 import java.sql.SQLException;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.spring.HOT.command.PageMaker;
+import com.spring.HOT.command.SearchCriteria;
 import com.spring.HOT.dao.GoodsDAO;
 import com.spring.HOT.dto.GoodsVO;
 
@@ -39,6 +42,22 @@ public class GoodsServiceImpl implements GoodsService {
 		GoodsVO goods = goodsDAO.selectGoods(gcode);
 		goodsDAO.increasViewcnt(gcode);
 		return goods;
+	}
+	@Override
+	public Map<String, Object> getGoodsList(String cg_code, SearchCriteria cri) throws SQLException {
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		
+		List<GoodsVO> goodsList = goodsDAO.selectGoodsListPage(cg_code, cri);
+		int totalCount = goodsDAO.countGoods(cg_code);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(totalCount);
+		
+		dataMap.put("goodsList", goodsList);
+		dataMap.put("pageMaker", pageMaker);
+		
+		return dataMap;
 	}
 	
 	

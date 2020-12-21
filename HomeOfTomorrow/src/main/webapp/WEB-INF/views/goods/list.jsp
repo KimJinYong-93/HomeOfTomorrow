@@ -33,9 +33,10 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/store2.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/store3.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/store4.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.css">
 <script src="<%=request.getContextPath()%>/resources/_dj/js/slick/slick.js"></script>
 
@@ -339,6 +340,33 @@
 				<div class="virtualized-list row" id="list" style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px)">
 
 				</div>
+				<ul id="pagination" class="pagination justify-content-center m-0">
+				
+				</ul>
+				<div id="keyword" class="row" style="margin-right: 1%">
+					<div class="input-group" >	
+						<select class="perPage" name="perPageNum" id="perPageNum" style="margin-right: 4px"  >
+					 		<option value="10">정렬개수</option>
+					 		<option value="5" ${cri.perPageNum == 5 ? 'selected' : '' }>5개씩</option>
+					 		<option value="10" ${cri.perPageNum == 10 ? 'selected' : '' }>10개씩</option>
+					 		<option value="20" ${cri.perPageNum == 20 ? 'selected' : '' }>20개씩</option>
+						</select>
+						<select class="" name="searchType" id="searchType" style="margin-right: 4px">
+							<option value="tcw"  ${pageMaker.cri.searchType eq 'tcw' ? 'selected':'' }>전 체</option>
+							<option value="t" ${pageMaker.cri.searchType eq 't' ? 'selected':'' }>제 목</option>
+							<option value="w" ${pageMaker.cri.searchType eq 'w' ? 'selected':'' }>작성자</option>
+							<option value="c" ${pageMaker.cri.searchType eq 'c' ? 'selected':'' }>내 용</option>
+							<option value="tc" ${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }>제목+내용</option>
+							<option value="cw" ${pageMaker.cri.searchType eq 'cw' ? 'selected':'' }>작성자+내용</option>							
+						</select>					
+					<input  type="text" name="keyword" placeholder="검색어를 입력하세요." value="${cri.keyword }" style="width:350px;"/>
+						<span class="searchBtn">
+							<button class="btn btn-primary" type="button" onclick="searchList_go(1);" data-card-widget="search">
+								<i class="fa fa-fw fa-search"></i>
+							</button>
+						</span>
+					</div>
+				</div>
 			</section>
 		</div>
 		<div class="toast-message-root"></div>
@@ -378,6 +406,7 @@
 	</div>
 {{/each}}	
 </script>
+
 <script>
 	$('.main').slick({
 		slidesToScroll : 1,
@@ -386,7 +415,10 @@
 	});
 	
 	var cg_code = "";
-	var data = {cg_code : cg_code};
+// 	var data = {cg_code : cg_code};
+	var data = {cg_code : cg_code,
+				goodsPage : 1			
+	};
 	
 	$('.category').on('click', function(){
 		data.cg_code = $(this).attr('id');
@@ -396,22 +428,35 @@
 	getList(data);
 	
 	function getList(data){
+// 		$.ajax({
+<%-- 			url : "<%=request.getContextPath()%>/goods/goodsListByCategory", --%>
+// 			type : "post",
+// 			data : data,	
+// 			success:function(result){
+// 				printData(result, $('#list'), $('#goods-list-template'))
+// 				printPaging(result.pageMaker, $('.pagination'));
+// 			},
+// 			error:function(error){
+// 				alert('알 수 없는 오류로 실패했습니다.');	
+// 			}
+// 		});
 		$.ajax({
 			url : "<%=request.getContextPath()%>/goods/goodsListByCategory",
 			type : "post",
 			data : data,	
 			success:function(result){
-				printData(result, $('#list'), $('#goods-list-template'))
+				printData(result.goodsList, $('#list'), $('#goods-list-template'))
+				printPaging(result.pageMaker, $('.pagination'));
 			},
 			error:function(error){
 				alert('알 수 없는 오류로 실패했습니다.');	
 			}
 		});
 		
-		/* $.getJSON(pageInfo,function(data){	
-			printData(data.replyList, $('#repliesDiv'), $('#goods-list-template'));
-			//printPaging(data.pageMaker, $('.pagination'));	
-		}); */
+// 		$.getJSON(pageInfo,function(data){	
+// 			printData(data.replyList, $('#repliesDiv'), $('#goods-list-template'));
+// 			printPaging(data.pageMaker, $('.pagination'));	
+// 		});
 	}
 	
 	var printData = function(goodsList, target, templateObject){
@@ -419,6 +464,29 @@
 		var html = template(goodsList);	
 		$('.goodsByCgcode').remove();
 		target.append(html);
+	}
+	
+	var printPaging=function(pageMaker,target){
+		
+		var str="";
+		
+		if(pageMaker.prev){
+			str+="<li class='page-item'><a class='page-link' href='"+(pageMaker.startPage-1)
+					+"'> <i class='fas fa-angle-left'/> </a></li>";			
+		}
+		for(var i=pageMaker.startPage;i<=pageMaker.endPage;i++){
+			var strClass = pageMaker.cri.page == i ? 'active' : '';
+			str+="<li class='page-item "+strClass+"'><a class='page-link' href='"+i+"'>"+
+			i+"</a></li>";
+		}
+		if(pageMaker.next){
+			str+="<li class='page-item'><a class='page-link' href='"+(pageMaker.endPage+1)
+				+"'> <i class='fas fa-angle-right'/> </a></li>";
+		}
+		
+		target.html(str);
+		
+		
 	}
 	
 	Handlebars.registerHelper({

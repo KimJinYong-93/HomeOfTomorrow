@@ -134,6 +134,7 @@ public class PaymentRequestCommand {
 		order_bd.setId(id);
 		order_bd.setOcode(this.ocode);
 		order_bd.setGcode(this.gcode);
+		order_bd.setOp_choose(this.op_choose);
 		order_bd.setVol(Integer.parseInt(this.vol));
 		
 		return order_bd;
@@ -154,5 +155,14 @@ public class PaymentRequestCommand {
 		
 		return pay;
 	}
+	@Override
+	public String toString() {
+		return "PaymentRequestCommand [id=" + id + ", gcode=" + gcode + ", vol=" + vol + ", op_choose=" + op_choose
+				+ ", price=" + price + ", ocode=" + ocode + ", rv_check=" + rv_check + ", ostatus=" + ostatus
+				+ ", zipcode=" + zipcode + ", address1=" + address1 + ", address2=" + address2 + ", dv_memo=" + dv_memo
+				+ ", recipient=" + recipient + ", rcp_hp=" + rcp_hp + ", payway=" + payway + "]";
+	}
+	
+	
 	
 }
