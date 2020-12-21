@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/plugins/bootstrap/plugins/fontawesome-free/css/all.min.css">
 <style>
 	.wrap{
-		margin: 5%;
+		margin: 5% 15%;
 	}
 	.title, .content{
 		display: flex;
@@ -22,6 +22,25 @@
 	.content{
 		margin-top: 5%;
 	}
+	input[type=text]{
+	    height: 28px;
+	    width: 50%;
+	    line-height: 24px;
+	    padding: 2px 4px;
+	    border: 1px solid #d5d5d5;
+	    color: #111111;
+	    font-size: 12px;
+	    margin-bottom: 20px;
+	}
+	.title{
+		font-size: 20px;
+		float:left;
+		margin-right: 10px;
+	}
+	.note-editable p{
+		font-size: 18px;
+	}
+
 </style>
 <div class="wrap">
 	<div class="row">
@@ -31,7 +50,7 @@
 	<form action="regist" role="noticeRegistForm" method="post">
 		<input type="hidden" name="cg_code" value="${cg_code }">
 		<input class="form-control" type="hidden" name="id" value="${loginUser.id }">
-		제목 <input type="text" name="title" id="title">
+		<p class="title">제목 : </p> <input type="text" name="title" id="title">
 		<textarea name="content" class="form-control" id="content"></textarea>
 		<div class="row" style="margin-top: 5%;">
 		</div>
