@@ -75,7 +75,7 @@
 <c:set var="cri" value="${pageMaker.cri }" />
 <div class="wrap">
 	<div class="title" >
-        <h1><font color="#7399c9">QnA</font></h1>
+        <h1><font color="#7399c9">Q&A</font></h1>
     </div>
 	
 	

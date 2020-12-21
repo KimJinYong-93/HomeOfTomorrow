@@ -28,6 +28,39 @@ public class HomeBoardDAOImpl implements HomeBoardDAO{
 		selectMyhome = sqlSession.selectList("HomeBoard-Mapper.selectMyhomeBoard", id);
 		return selectMyhome;
 	}
+
+	@Override
+	public int insertHomeBoard(HomeBoardVO homeBoard) throws SQLException {
+		
+		int hno = sqlSession.selectOne("HomeBoard-Mapper.selectNextsq");
+		homeBoard.setHno(hno);
+		
+		sqlSession.update("HomeBoard-Mapper.insertHomeBoard", homeBoard);
+		
+		
+		return hno;
+	}
+
+	@Override
+	public HomeBoardVO selectHomeBoard(int hno) throws SQLException {
+		
+		HomeBoardVO homeBoard = sqlSession.selectOne("HomeBoard-Mapper.selectHomeBoard", hno);
+		return homeBoard;
+	}
+
+	@Override
+	public List<HomeBoardVO> selectHomeBoardList() throws SQLException {
+		
+		List<HomeBoardVO> homeBoardList = sqlSession.selectList("HomeBoard-Mapper.selectHomeBoardList");
+		
+		return homeBoardList;
+	}
+
+	@Override
+	public void deleteHomeBoard(int hno) throws SQLException {
+		sqlSession.delete("HomeBoard-Mapper.delete", hno);
+		
+	}
 	
 	
 

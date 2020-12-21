@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.dto.ReviewVO;
 import com.spring.HOT.request.OrderDetailRequest;
@@ -57,6 +58,23 @@ public class ReviewController {
 		out.println(output);
 		out.close();
 		
+	}
+	
+	@RequestMapping(value="/modifyForm", method=RequestMethod.GET)
+	public ResponseEntity<ReviewRequest> modifyForm(String ocode, String gcode, HttpSession session){
+		ResponseEntity<ReviewRequest> entity =null;
+		
+		MemberNVO member = (MemberNVO)session.getAttribute("loginUserDetail");
+		
+		try {
+			ReviewRequest reviewRequest = reviewService.getReviewRequest(ocode, gcode, member.getId());
+			entity = new ResponseEntity<ReviewRequest>(reviewRequest, HttpStatus.OK);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<ReviewRequest>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return entity;
 	}
 	
 	
@@ -98,6 +116,17 @@ public class ReviewController {
 		ResponseEntity<String> entity = null;
 		
 		reviewService.registReview(review);
+		
+		entity = new ResponseEntity<>(HttpStatus.OK);
+		
+		return entity;
+	}
+	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public ResponseEntity<String> modify(ReviewVO review)throws SQLException,IOException{
+		ResponseEntity<String> entity = null;
+		
+		reviewService.modifyReview(review);
 		
 		entity = new ResponseEntity<>(HttpStatus.OK);
 		

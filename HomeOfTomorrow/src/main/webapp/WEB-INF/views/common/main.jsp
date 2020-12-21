@@ -75,10 +75,10 @@
 	padding: 20px;
 	color: #fff;
 	font-weight: 800;
-	background-image: linear-gradient(to top, rgba(130, 123, 109, 0.5) 30%,
+ 	background-image: linear-gradient(to top, rgba(130, 123, 109, 0.5) 30%,
 		transparent);
+	
 }
-
 .slick-dots {
 	width: 850px;
 }
@@ -121,12 +121,18 @@
 
 
 <div class="best-item">
-	<div class="slick-items" style="width: 75%">
+	<div class="slick-items" style="width: 75%" >
 		<c:forEach items="${homeBoardTop3 }" var="homeBoard">
-			<li class="scroll-fade motion4"><a
-				href="/product/tired-skull-black-diamond/20/category/1/display/2/"><img
+			<li class="scroll-fade motion4" ><a
+				href="/product/tired-skull-black-diamond/20/category/1/display/2/" > <img
 					src="<%=request.getContextPath()%>/homeBoard/getPicture?picture=${homeBoard.picture}"
-					alt="집들이베스트"></a>
+					alt="집들이베스트">
+<!-- 					<div class="story-entry__image-wrap">
+						<img class="story-entry__image" alt=""
+							src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/160472690060564827.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;webp=1"
+							srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/160472690060564827.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/160472690060564827.jpg?gif=1&amp;w=1700&amp;h=1134&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/160472690060564827.jpg?gif=1&amp;w=2560&amp;h=1707&amp;c=c&amp;webp=1 3x">
+					</div> -->
+			</a>
 				<div class="slider_back"></div>
 				<div class="slider_info">
 					<span id="slide_title">${homeBoard.title }</span><br> <a
@@ -327,6 +333,7 @@
 			slidesToShow : 1,
 			slidesToScroll : 1,
 			fade : false
+			
 		});
 	});
 </script>

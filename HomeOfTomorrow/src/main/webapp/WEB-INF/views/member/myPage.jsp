@@ -165,13 +165,13 @@
 								<c:if test="${fn:length(myhomeBoardList) <= 0 }">
 								<h5 class="post__title"> 내가 쓴 글 <strong>${homeCount }</strong></h5>
 								<a class="post__upload post--cards__upload"
-									href="/contents/card_collections/new"><span
+									href="<%=request.getContextPath()%>/homeBoard/upload"><span
 									class="icon--page-mypage"
 									style="margin-right: 5px; background-position-x: -0px; background-position-y: -200px; width: 12px; height: 12px"></span>첫
 									번째 글을 올려보세요</a>
 								</c:if>
 								<c:if test="${fn:length(myhomeBoardList) > 0  }">
-								<h5 class="post__title"> 내가 쓴 글 <strong>${homeCount }</strong><a class="post__title__show-all" href="/users/1452680/cards">전체보기</a></h5>
+								<h5 class="post__title"> 내가 쓴 글 <strong>${homeCount }</strong><a class="post__title__show-all" href="<%=request.getContextPath()%>/homeBoard/list">전체보기</a></h5>
 											<div class="row post--cards__list">
 									<c:forEach begin="0" end="3" varStatus="status">
 												<c:if test="${myhomeBoardList[status.index] ne null }">
@@ -189,7 +189,7 @@
 												</c:if>
 									</c:forEach>
 											</div>
-											<a class="btn btn-simple btn-sm btn-md-md post__btn-new" href="/contents/card_collections/new"><span class="icon--page-mypage" style="margin-right:5px;background-position-x:-0px;background-position-y:-200px;width:12px;height:12px"></span>집들이 게시글 올리기</a>
+											<a class="btn btn-simple btn-sm btn-md-md post__btn-new" href="<%=request.getContextPath()%>/homeBoard/upload"><span class="icon--page-mypage" style="margin-right:5px;background-position-x:-0px;background-position-y:-200px;width:12px;height:12px"></span>집들이 게시글 올리기</a>
 								</c:if>
 							</section>
 							<c:if test="${fn:length(myQnAList) <= 0 }">
@@ -203,7 +203,7 @@
 							</c:if>
 							<c:if test="${fn:length(myQnAList) > 0 }">
 							<section class="post post--projects">
-								<h5 class="post__title"> 내 질문 <strong>${QnACount }</strong><a class="post__title__show-all" href="/users/1452680/cards">전체보기</a></h5>
+								<h5 class="post__title"> 내 질문 <strong>${QnACount }</strong><a class="post__title__show-all" href="<%=request.getContextPath()%>/board/list?cg_code=HOTB00Q">전체보기</a></h5>
 								<c:if test="${myQnAList[0] ne null }">
 								<a class="questions-item__link"
 									href="/questions/59367?affect_id=0&amp;affect_type=QuestionIndex&amp;query=">

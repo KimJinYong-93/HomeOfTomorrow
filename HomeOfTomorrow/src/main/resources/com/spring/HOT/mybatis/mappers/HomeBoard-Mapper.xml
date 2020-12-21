@@ -17,5 +17,30 @@
 	WHERE id = #{id}
 	ORDER BY reg_dt DESC
 	</select>
+	
+	<select id="selectNextsq" resultType="int">
+	select HOMEBOARD_SQ.nextval as hno from dual
+	</select>
+	
+	<update id="insertHomeBoard" parameterType="homeBoard">
+	INSERT INTO home_board(hno, id, writer, picture, title, content)
+	VALUES(#{hno}, #{id}, #{writer}, #{picture}, #{title}, #{content})
+	</update>
+	
+	<select id="selectHomeBoard" resultType="homeBoard">
+	SELECT *
+	FROM home_board
+	WHERE hno=#{hno}
+	
+	</select>
+	
+	<select id="selectHomeBoardList" resultType="homeBoard">
+	SELECT *
+	FROM home_board
+	</select>
+	
+	<delete id="delete" parameterType="int">
+	DELETE home_board WHERE hno=#{hno}
+	</delete>
 
 </mapper>

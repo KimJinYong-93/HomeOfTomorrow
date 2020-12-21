@@ -23,14 +23,14 @@
 				<h1 class="seller-layout__header__title">집들이</h1>
 				<span style="font-size: 16px">나만의 개성있는 집을 다른 회원들에게 소개시켜주세요💖 </span>
 	</div>
-			<div class="row justify-center seller-layout__divider">
+		<div class="row justify-center seller-layout__divider">
 				<hr class="col-10 seller-layout__hr" />
 			</div>
 		</div>
 		<div class="container seller-layout__body">
 			<form id="sales-form--application"
 				class="sales-form sales-form--application"
-				action="regist" method="post" accept-charset="UTF-8" role="goodsRegistForm">
+				action="<%=request.getContextPath() %>/homeBoard/regist" method="post" accept-charset="UTF-8" role="homeBoardRegistForm">
 				<input type="hidden" name="authenticity_token"
 					value="MmsuVeAekNbl7xd7j8Bjv+Y0b/FlzZPM/CxswIE7t4WBKCNcCFjlqCG54llzGARFJTF6jUmqjQsYye+Nq2ljKQ==" />
 				<div class="sales-form__section">
@@ -42,25 +42,8 @@
 						</div>
 						<div class="col-8">
 							<div class="sales-form__form-control-wrap">
-								<input type="text" id="bname" name="bname" class="form-control"
+								<input type="text" id="title" name="title" class="form-control"
 									placeholder="우리집이 최고야 늘 짜릿해..!" value="" />
-							</div>
-						</div>
-					</div>
-					
-					<div class="row sales-form__form-group">
-						<div class="offset-1 col-2">
-							<label for="sales_application__product_categories"
-								class="form-label sales-form__form-label">카테고리<span
-								class="sales-form__form-group__required">*</span></label>
-						</div>
-						<div class="col-8">
-							<div class="form__form-control-wrap"  style="width: 20%;">
-								<select class="goodsform-control" name="cg_code" id="cg_code">
-									<c:forEach items="${categoryList }" var="category">
-										<option value="${category.cg_code }">${category.name }</option>
-									</c:forEach>	
-								</select>
 							</div>
 						</div>
 					</div>
@@ -88,9 +71,9 @@
 								업로드</label>&nbsp;&nbsp;
 							<span id="inputFileName">선택된 파일이 없습니다.</span>
 							<p class="sales-form__file__caption">
-								※ 상품 대표 이미지를 10MB 용량 이하의 JPG,JEPG 파일 형태로 첨부해주세요.
+								※ 집들이 대표 이미지를 10MB 용량 이하의 JPG,JEPG 파일 형태로 첨부해주세요.
 							</p>
-							<div id="pictureView" style="height: 200px; width: 140px; margin: 10px auto; float:left;"></div>
+							<div id="pictureView" style="height: 200px; width: 300px; margin: 10px auto; float:left;"></div>
 						</div>
 						<div class="col-12">
 							<button id="thumUpload" type="button" onclick="upload_go()">대표이미지 등록</button>
@@ -101,10 +84,11 @@
 					<hr class="col-10 seller-layout__hr" />
 				</div>
 				<div class="sales-form__btn-apply">
-					<button class="btn btn-lg btn-priority" type="button" onclick="goodsSubmit_go()">등록</button>
+					<button class="btn btn-lg btn-priority" type="button" onclick="homeBoardSubmit_go()">등록</button>
 				</div>
 				<input type="hidden" name="picture">
 				<input type="hidden" name="id" value="${loginUser.id }">
+				<input type="hidden" name="writer" value="${loginUserDetail.nickname }">
 			</form>
 		</div>
 	</div>
@@ -118,6 +102,29 @@
 <script src="<%=request.getContextPath() %>/resources/plugins/summernote/lang/summernote-ko-KR.js"></script>
 
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/plugins/summernote/summernote-lite.min.css"/>
+<script>
+function homeBoardSubmit_go(){
+	var form = $('form[role="homeBoardRegistForm"]');
+	var uploadCheck = $('input[name="checkUpload"]').val();
+	if($('input[name ="title"]').val() == ""){
+		 alert("제목은 필수 입니다.");
+		 return;
+	 }
+	
+	if($('#content').val() == ""){
+		 alert("내용은 필수 입니다.");
+		 return;
+	 }
+	
+	if(!(uploadCheck > 0)){
+		 alert("이미지 업로드는 필수입니다.")
+		 //$('input[name="pictureFile"]').click();
+		 return;
+	 }
+	
+	form.submit();
+}
+</script>
 
 <%@ include file="/WEB-INF/views/common/common_js.jsp" %>
 <%@ include file="picture_js.jsp" %>

@@ -31,7 +31,7 @@ function imageChange_go(){
 		
 		//서버로 보냄
 		$.ajax({
-			url : "<%=request.getContextPath()%>/goods/picture.do",
+			url : "<%=request.getContextPath()%>/homeBoard/picture.do",
 			data : form,
 			type : 'post',
 			processData : false,
@@ -42,7 +42,7 @@ function imageChange_go(){
 				
 				//지정된 파일명 저장
 				$('input#oldFile').val(data); //이미지 변경시 이것과 비교해서 다르다면 삭제될 파일명(전 파일)
-				$('input[name="picture"]').val(data);
+				$('form[role="homeBoardRegistForm"] input[name="picture"]').val(data);
 				
 				alert("이미지가 업로드 되었습니다.");
 			},

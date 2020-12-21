@@ -166,7 +166,7 @@
 				</div>
 			</div>
 		</div>
-	<form method="post" name="reviewForm" action="<%=request.getContextPath()%>/review/regist">
+	<form method="post" name="modifyForm" action="<%=request.getContextPath()%>/review/modify">
 		<input type="hidden" name="gcode">
 		<input type="hidden" name="ocode">
 		<input type="hidden" name="score">
@@ -177,29 +177,48 @@
 	</form>
 
 <script>
-	function reviewModifyModalOpen(review, orderDetail){
+	function reviewModifyModalOpen(gcode, ocode){
 		var modify = document.getElementById("reviewModal");
 		modify.style.display = "block";
 		
-		console.log(review[2]);
-		console.log(orderDetail);
- 		/* $('#gcode').val(review.gcode);
-		$('#ocode').val(review.ocode);
-		$('.review-modal__form__product__contents__brand').text(orderDetail.goods.bname);
-		$('.review-modal__form__product__contents__name').text(orderDetail.goods.gname);
-		$('.review-modal__form__product__contents__options').text(orderDetail.order_bd.op_choose);
- 		$('.review-modal__form__product__image').attr('src','/HOT/goods/getPicture?picture='+orderDetail.goods.picture)
- 		if(review.picture != null){
-			$("div#pictureView").attr('background-image','url("/HOT/review/getPicture?picture='+review.picture+'")'); 
-			$('.select-picture').css('display','block');
-		}
-		
-		$('textarea').val(review.content); */
-		
-		
-		
+		$.ajax({
+			url : '<%=request.getContextPath()%>/review/modifyForm',
+			type : "get",
+			data : {"gcode" : gcode, "ocode" : ocode},
+			success:function(result){
+				
+				$('#gcode').val(result.review.gcode);
+				$('#ocode').val(result.review.ocode);
+				$('.review-modal__form__product__contents__brand').text(result.orderDetail.goods.bname);
+				$('.review-modal__form__product__contents__name').text(result.orderDetail.goods.gname);
+				$('.review-modal__form__product__contents__options').text(result.orderDetail.order_bd.op_choose);
+		 		$('.review-modal__form__product__image').attr('src','/HOT/goods/getPicture?picture='+result.orderDetail.goods.picture)
+		 		if(result.review.picture != null){
+					$("div#pictureView").css({'background-image' : 'url("/HOT/review/getPicture?picture='+result.review.picture+'")',
+												'background-position':'center',
+						  						'background-size':'contain',
+						  						'background-repeat':'no-repeat'}); 
+					$('.select-picture').css('display','block');
+				}
+				
+				$('textarea').val(result.review.content);
+				var star = $('input[name="star"]');
+				for(var i = 0; i < star.length; i++){
+					if($(star[i]).val() == result.review.score){
+						$(star[i]).next('svg').click();
+					}
+				}
+					
+			},error : function(){
+				alert('에러났어요!')
+			}
+			
+			
+		});
 		
 	}
+	
+
 	
 	function reviewModalClose(){
 		if(confirm('작성하고 있던 내용이 모두 유실됩니다. 정말 다른 페이지로 이동하시겠어요?')){
@@ -256,16 +275,16 @@
     	$(".select-picture").css('display','none');
     }
     
-    function reviewRegist(){
+    function reviewModify(){
         $('input[name="gcode"]').val($('#gcode').val());
     	$('input[name="ocode"]').val($('#ocode').val());
     	$('input[name="score"]').val($('input:radio[name="star"]:checked').val());
     	$('input[name="content"]').val($('textarea').val());
     	
-    	var form = $('form[name="reviewForm"]');
+    	var form = $('form[name="modifyForm"]');
     	
     	$.ajax({
-    		url : "<%=request.getContextPath()%>/review/regist",
+    		url : "<%=request.getContextPath()%>/review/modify",
     		data : form.serialize(),
     		type : "POST",
     		success : function(){
@@ -306,7 +325,7 @@
     		return;
     	}
     	if($("#uploadFile").val() == ""){
-    		reviewRegist();
+    		reviewModify();
     	}else{
     	//form 태그 양식을 객체화	
     	var form = new FormData($('form[role="imageForm"]')[0]);
@@ -320,7 +339,7 @@
     		success:function(data){    			
     			//저장된 파일명 저장.
     			$('input[name="picture"]').val(data);
-    			reviewRegist();
+    			reviewModify();
     		},
     		error:function(error){
     			alert("현재 사진 업로드가 불가합니다.\n 관리자에게 연락바랍니다.");

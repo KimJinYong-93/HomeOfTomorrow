@@ -19,4 +19,15 @@
 	<update id="delete">
 	DELETE review WHERE id=#{id} AND gcode=#{gcode} AND ocode=#{ocode}
 	</update>
+	
+	<select id="selectReview" resultType="review">
+	SELECT *
+	FROM review
+	WHERE id = #{id} AND gcode=#{gcode} AND ocode=#{ocode}
+	</select>
+		
+	<update id="update" parameterType="review">
+	UPDATE review SET score=#{score}, content=#{content}, picture=#{picture} WHERE gcode=#{gcode} AND ocode=#{ocode} AND id=#{id}
+	</update>
+	
 </mapper>

@@ -87,7 +87,7 @@
 								<div class="my-review-list__list__item__product__content">${list.review.content }</div>
 							</div>
 							<div style="width: 70px;">
-								<div class="my-review-list__list__item__insert" onclick="reviewModifyModalOpen('${list.review}', '${list.orderDetail }')" style="font-size: 15px; display: inline-block;">수정</div>
+								<div class="my-review-list__list__item__insert" onclick="reviewModifyModalOpen(${list.review.gcode},${list.review.ocode })" style="font-size: 15px; display: inline-block;">수정</div>
 								<div class="my-review-list__list__item__insert" style="font-size: 15px;display: inline-block; position: relative; left: 30px;" onclick="deleteReview(${list.review.gcode},${list.review.ocode });">삭제</div>
 								<c:if test="${list.review.picture ne null}">
 								<img class="my-review-list__list__item__image"

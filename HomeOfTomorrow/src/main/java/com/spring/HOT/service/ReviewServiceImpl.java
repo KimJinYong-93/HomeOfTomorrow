@@ -70,6 +70,35 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDAO.deleteReview(id, gcode, ocode);
 		
 	}
+
+
+
+	@Override
+	public ReviewRequest getReviewRequest(String ocode, String gcode, String id) throws SQLException {
+		
+		ReviewRequest reviewRequest = new ReviewRequest();
+		
+		ReviewVO review = reviewDAO.selectReview(id, ocode, gcode);
+		OrderDetailRequest orderDetail = new OrderDetailRequest();
+		Order_bdVO order_bd = order_bdDAO.selectOrder_bdByRV(ocode, gcode);
+		GoodsVO goods = goodsDAO.selectGoods(gcode);
+		orderDetail.setOrder_bd(order_bd);
+		orderDetail.setGoods(goods);
+		
+		reviewRequest.setReview(review);
+		reviewRequest.setOrderDetail(orderDetail);
+		
+		return reviewRequest;
+	}
+
+
+
+	@Override
+	public void modifyReview(ReviewVO review) throws SQLException {
+		
+		reviewDAO.updateReview(review);
+		
+	}
 	
 	
 

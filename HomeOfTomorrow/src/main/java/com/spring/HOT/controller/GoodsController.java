@@ -61,7 +61,7 @@ public class GoodsController {
 		HttpStatus status = null;
 		
 		if((result = savePicture(oldPicture, multi)) == null) {
-			result = "�뾽濡쒕뱶瑜� �떎�뙣�뻽�뒿�땲�떎!";
+			result = "현재 업로드가 불가합니다. 관리자에게 문의하세요.!";
 			status = HttpStatus.BAD_REQUEST;
 		} else {
 			status = HttpStatus.OK;
@@ -200,22 +200,7 @@ public class GoodsController {
 	}
 	
 	
-	@RequestMapping("/jip")
-	public String jip() {
-		String url="/goods/jip";
-		return url;
-	}
-	
-	@RequestMapping(value = "/jipupload", method = RequestMethod.GET)
-	public ModelAndView jipupload(ModelAndView mnv) throws Exception {
-		String url="goods/jipupload";
-		
-		List<CategoryVO> categoryList = categoryService.getCategoryList("HOTG");
-		mnv.addObject("categoryList", categoryList);
-		mnv.setViewName(url);
-		
-		return mnv;
-	}
+
 	
 	
 }

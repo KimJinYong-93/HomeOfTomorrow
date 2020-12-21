@@ -47,6 +47,25 @@ public class ReviewDAOImpl implements ReviewDAO {
 		sqlSession.update("Order_bd-Mapper.deleteRv_Check", data);
 		
 	}
+	@Override
+	public ReviewVO selectReview(String id, String ocode, String gcode) throws SQLException {
+		
+		Map<String, String> data = new HashMap<String, String>();
+		
+		ReviewVO review = new ReviewVO();
+		
+		data.put("id", id);
+		data.put("gcode", gcode);
+		data.put("ocode", ocode);
+		
+		review = sqlSession.selectOne("Review-Mapper.selectReview", data);
+		
+		return review;
+	}
+	@Override
+	public void updateReview(ReviewVO review) throws SQLException {
+		sqlSession.update("Review-Mapper.update", review);
+	}
 	
 	
 

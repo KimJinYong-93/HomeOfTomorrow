@@ -29,4 +29,29 @@ public class HomeBoardServiceImpl  implements HomeBoardService{
 		return getMyhomeBoard;
 	}
 
+	@Override
+	public int regist(HomeBoardVO homeBoard) throws SQLException {
+		int hno = homeBoardDAO.insertHomeBoard(homeBoard);
+		return hno;
+	}
+
+	@Override
+	public HomeBoardVO getHomeBoard(int hno) throws SQLException {
+		
+		HomeBoardVO homeBoard = homeBoardDAO.selectHomeBoard(hno);
+		return homeBoard;
+	}
+
+	@Override
+	public List<HomeBoardVO> getHomeBoardList() throws SQLException {
+		List<HomeBoardVO> homeBoardList = homeBoardDAO.selectHomeBoardList();
+		return homeBoardList;
+	}
+
+	@Override
+	public void deleteHomeBoard(int hno) throws SQLException {
+		homeBoardDAO.deleteHomeBoard(hno);
+		
+	}
+
 }
