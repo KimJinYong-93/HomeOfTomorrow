@@ -210,12 +210,12 @@ public class MemberController {
 	public ModelAndView userModifyForm(HttpSession session, ModelAndView mnv)throws Exception{
 		String url = "member/userModify";
 		
-	MemberNVO member = (MemberNVO)session.getAttribute("loginUserDetail");
-	String hp = member.getHp();
-	String[] splitHp = hp.split("-");
-	
-	mnv.addObject("splitHp", splitHp);
-	mnv.setViewName(url);
+		MemberNVO member = (MemberNVO)session.getAttribute("loginUserDetail");
+		String hp = member.getHp();
+		String[] splitHp = hp.split("-");
+		
+		mnv.addObject("splitHp", splitHp);
+		mnv.setViewName(url);
 		
 		return mnv;
 	}

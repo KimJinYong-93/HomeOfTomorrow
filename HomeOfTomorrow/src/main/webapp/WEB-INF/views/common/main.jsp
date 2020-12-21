@@ -130,7 +130,8 @@
 				<div class="slider_back"></div>
 				<div class="slider_info">
 					<span id="slide_title">${homeBoard.title }</span><br> <a
-						href="#"></a> <img id="slider_profile" alt="프로필이미지"
+						href="#"></a> 
+						<img id="slider_profile" alt="프로필이미지"
 						src="<%=request.getContextPath()%>/member/getPicture?id=${homeBoard.id}">
 					<span
 						style="font-size: 15px; font-weight: 700; color: #fff; padding-top: 0px; display: inline-block;">${homeBoard.writer }</span>

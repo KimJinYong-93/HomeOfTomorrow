@@ -25,8 +25,6 @@
 		<intercept-url pattern="/**/stop*" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/**/remove*" access="hasRole('ROLE_ADMIN')"/>
 		
-		<intercept-url pattern="/common/main*" access="isAuthenticated()"/>
-		<intercept-url pattern="/member/**" access="isAuthenticated()"/>
 		<intercept-url pattern="/payment/**" access="isAuthenticated()"/>
 		<intercept-url pattern="/review/**" access="isAuthenticated()"/>
 		<intercept-url pattern="/order/**" access="isAuthenticated()"/>
@@ -60,7 +58,7 @@
 	
 	<beans:bean id="loginSuccessHandler"
 				class="com.spring.HOT.security.LoginSuccessHandler"
-				p:defaultTargetUrl="/index.do"/>
+				p:defaultTargetUrl="/common/main.do"/>
 
 	<beans:bean id="loginFailureHandler"
 				class="com.spring.HOT.security.LoginFailureHandler" />

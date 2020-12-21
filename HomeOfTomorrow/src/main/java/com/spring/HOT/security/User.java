@@ -1,6 +1,7 @@
 package com.spring.HOT.security;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -56,8 +57,7 @@ public class User implements UserDetails{
 	}
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 }

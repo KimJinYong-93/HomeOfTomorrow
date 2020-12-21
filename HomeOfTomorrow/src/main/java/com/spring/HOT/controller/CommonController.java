@@ -2,6 +2,7 @@
 package com.spring.HOT.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -104,7 +105,7 @@ public class CommonController {
 		return url;
 	}
 	
-	 @RequestMapping("/common/loginTimeOut") 
+	 /*@RequestMapping("/common/loginTimeOut") 
 	 public void loginTimeOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		 
 		 response.setContentType("text/html;charset=utf-8"); 
@@ -131,7 +132,7 @@ public class CommonController {
 	public String joinForm() {
 		String url="/common/join";
 		return url;
-	}
+	}*/
 	
 	@RequestMapping(value = "/common/join", method=RequestMethod.GET)
 	public ModelAndView joinForm(String gb, ModelAndView mnv) {
@@ -192,23 +193,31 @@ public class CommonController {
 	}
 	
 	
-	/*
-	 * @RequestMapping("/common/login") public String loginForm(String id, String
-	 * pwd, HttpSession session) throws SQLException{ String url = "redirect:main";
-	 * 
-	 * try { memberService.login(id, pwd, session); } catch (NotFoundIDException |
-	 * invalidPasswordException e) { url = "redirect:loginForm";
-	 * session.setAttribute("msg", e.getMessage()); } return url; }
-	 * 
-	 * @RequestMapping("/common/logout") public String logout(HttpSession session)
-	 * throws SQLException {
-	 * 
-	 * String url = "redirect:main";
-	 * 
-	 * session.invalidate();
-	 * 
-	 * return url; }
-	 */
+	
+	@RequestMapping("/common/login") 
+	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{ 
+		String url = "redirect:main";	
+	 
+		try { 
+			memberService.login(id, pwd, session); 
+		} catch (NotFoundIDException | invalidPasswordException e) {
+			url = "redirect:loginForm";
+			session.setAttribute("msg", e.getMessage()); 
+		} 
+		
+		return url; 
+	}
+	  
+	@RequestMapping("/common/logout") 
+	public String logout(HttpSession session) throws SQLException {
+	 
+		String url = "redirect:main";
+	  
+		session.invalidate();
+	  
+		return url; 
+	}
+	 
 	
 	@RequestMapping("/common/idCheck")
 	@ResponseBody

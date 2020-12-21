@@ -57,7 +57,7 @@
 								<span class="xans-element- xans-layout xans-layout-orderbasketcount cart_no ">${cartSize }</span>
 							</a>
 						</li>
-						<li><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUserDetail.id}">MY PAGE</a></li>
+						<li><a href="<%=request.getContextPath() %>/member/myPage?id=${loginUser.id}">MY PAGE</a></li>
 					</c:if>
 				</ul>
 			</div>

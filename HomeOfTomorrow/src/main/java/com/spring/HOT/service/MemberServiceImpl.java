@@ -21,6 +21,7 @@ import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.exception.NotFoundIDException;
 import com.spring.HOT.exception.invalidPasswordException;
+import com.spring.HOT.security.User;
 
 
 public class MemberServiceImpl implements MemberService{
@@ -51,17 +52,20 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void login(String id, String pwd, HttpSession session) throws SQLException, NotFoundIDException, invalidPasswordException {
 		MemberVO member = memberDAO.selectMemberById(id);
+		User user = new User(member);
+		String securityId = user.getUsername();
 		if(member == null) throw new NotFoundIDException();
 		if(!pwd.equals(member.getPwd())) throw new invalidPasswordException();
 		
 		if(member.getAuthority().equals("ROLE_USER")) {
-			MemberNVO memberN = memberNDAO.selectMemberNById(id);
+			MemberNVO memberN = memberNDAO.selectMemberNById(securityId);
+			System.out.println(memberN);
 			session.setAttribute("loginUserDetail", memberN);
 		}else if(member.getAuthority().equals("ROLE_COMPANY")) {
-			MemberCVO memberC = memberCDAO.selectMemberCById(id);
+			MemberCVO memberC = memberCDAO.selectMemberCById(securityId);
 			session.setAttribute("loginUserDetail", memberC);
 		}else {
-			MemberAVO memberA = memberADAO.selectMemberAById(id);
+			MemberAVO memberA = memberADAO.selectMemberAById(securityId);
 			session.setAttribute("loginUserDetail", memberA);
 		}
 		
