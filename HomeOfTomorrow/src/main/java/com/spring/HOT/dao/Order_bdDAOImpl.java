@@ -36,5 +36,9 @@ public class Order_bdDAOImpl implements Order_bdDAO{
 		
 		return order_bd;
 	}
+	@Override
+	public void regist(Order_bdVO order_bd) throws SQLException {
+		sqlSession.update("Order_bd-Mapper.registOrder_bd", order_bd);
+	}
 
 }

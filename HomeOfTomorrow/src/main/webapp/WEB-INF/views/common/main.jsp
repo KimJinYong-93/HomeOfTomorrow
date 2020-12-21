@@ -253,7 +253,7 @@
 										class=""> <span style="font-size: 12px; color: #555555;">${goods.gname }</span></a></strong>
 									<ul class="spec">
 										<li class="summary_line "></li>
-										<li class="summary ">${goods.cname }</li>
+										<li class="summary ">${goods.bname }</li>
 										<li class="price_all"><span class="custom ">55,000원</span>
 											<span class="price  displaynone"><span class="strike">${goods.price }원</span>
 												<span class="pri"><fmt:formatNumber type="number">${goods.price }</fmt:formatNumber>원</span></span>

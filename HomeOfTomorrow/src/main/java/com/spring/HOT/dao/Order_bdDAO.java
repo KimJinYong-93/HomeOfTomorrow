@@ -10,5 +10,7 @@ public interface Order_bdDAO {
 	List<Order_bdVO> selectOrder_bd(String ocode)throws SQLException;
 	
 	Order_bdVO selectOrder_bdByRV(String ocode, String gcode)throws SQLException;
+	
+	void regist(Order_bdVO order_bd) throws SQLException;
 
 }

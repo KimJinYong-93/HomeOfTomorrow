@@ -24,5 +24,10 @@
 		UPDATE order_bd SET rv_check = 'N' WHERE ocode=#{ocode} AND gcode = #{gcode} AND id=#{id}
 	</update>
 	
+	<update id="registOrder_bd" parameterType="order_bd">
+		INSERT INTO order_bd (ocode, id, gcode, vol)
+		VALUES (#{ocode}, #{id}, #{gcode}, #{vol})
+	</update>
+	
 	
 </mapper>

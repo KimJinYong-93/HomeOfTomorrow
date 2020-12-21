@@ -17,4 +17,9 @@ public class PaymentDAOImpl implements PaymentDAO{
 		PaymentVO payment = sqlSession.selectOne("Payment-Mapper.selectPayment", ocode);
 		return payment;
 	}
+	@Override
+	public void regist(PaymentVO pay) throws SQLException {
+		sqlSession.update("Payment-Mapper.registPayment", pay);
+		
+	}
 }

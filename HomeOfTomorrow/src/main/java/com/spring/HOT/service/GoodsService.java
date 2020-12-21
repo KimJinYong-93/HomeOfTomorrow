@@ -3,7 +3,9 @@ package com.spring.HOT.service;
 import java.sql.SQLException;
 
 import java.util.List;
+import java.util.Map;
 
+import com.spring.HOT.command.SearchCriteria;
 import com.spring.HOT.dto.GoodsVO;
 
 public interface GoodsService {
@@ -17,5 +19,7 @@ public interface GoodsService {
 	List<GoodsVO> getGoodsListByCategory(String cg_code) throws SQLException;
 
 	GoodsVO selectGoods(String gcode) throws SQLException;
+
+	Map<String, Object> getGoodsList(String cg_code, SearchCriteria cri) throws SQLException;
 
 }

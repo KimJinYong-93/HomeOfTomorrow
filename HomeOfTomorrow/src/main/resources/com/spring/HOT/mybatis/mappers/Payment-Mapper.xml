@@ -9,5 +9,10 @@
 		from payment
 		where ocode = #{ocode}
 	</select>
+	
+	<update id="registPayment" parameterType="payment">
+		INSERT INTO payment (ocode, id, recipient, rcp_hp, payway, pay, reg_dt, zipcode, address1, address2, dv_memo)
+		VALUES(#{ocode}, #{id}, #{recipient}, #{rcp_hp}, #{payway}, #{pay}, SYSDATE, #{zipcode}, #{address1}, #{address2}, #{dv_memo})
+	</update>
 
 </mapper>

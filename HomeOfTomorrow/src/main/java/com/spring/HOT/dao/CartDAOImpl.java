@@ -1,8 +1,9 @@
 package com.spring.HOT.dao;
 
 import java.sql.SQLException;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -27,6 +28,17 @@ public class CartDAOImpl implements CartDAO{
 	@Override
 	public void registBasket(CartVO cart) throws SQLException {
 		sqlSession.update("Cart-Mapper.registBasket", cart);
+	}
+	@Override
+	public void remove(String id, String gcode, String op_choose) throws SQLException {
+		Map<String, String> datas = new HashMap<String, String>();
+		
+		datas.put("id", id);
+		datas.put("gcode", gcode);
+		datas.put("op_choose", op_choose);
+		
+		sqlSession.update("Cart-Mapper.removeBasket", datas);
+		
 	}
 
 }

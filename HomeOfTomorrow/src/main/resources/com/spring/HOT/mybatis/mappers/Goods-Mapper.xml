@@ -39,4 +39,18 @@
 		UPDATE goods SET viewcnt = viewcnt + 1
 		WHERE gcode = #{gcode}
 	</update>
+	
+	<select id="selectGoodsList" resultType="goods">
+		SELECT *
+		FROM goods
+		WHERE cg_code LIKE '%'||#{cg_code}||'%'
+		ORDER BY reg_dt desc
+	</select>
+	
+	<select id="countGoods" resultType="int">
+		SELECT COUNT(*)
+		FROM goods
+		WHERE cg_code LIKE '%'||#{cg_code}||'%'
+	</select>
+	
 </mapper>

@@ -27,5 +27,9 @@ public class CartServiceImpl implements CartService{
 	public void registBasket(CartVO cart) throws SQLException {
 		cartDAO.registBasket(cart);
 	}
+	@Override
+	public void remove(String id, String gcode, String op_choose) throws SQLException {
+		cartDAO.remove(id, gcode, op_choose);
+	}
 
 }

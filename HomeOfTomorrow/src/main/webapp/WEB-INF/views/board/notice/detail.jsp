@@ -20,7 +20,12 @@
 		text-align: center;
 	}
 	.content{
-		margin-top: 5%;
+	    margin-top: 5%;
+	    font-size: 15px;
+	    text-align: center;
+	    margin-left: 15%;
+	    margin-right: 15%;
+	    line-height: 2.2;
 	}
 </style>
 <div class="wrap">
