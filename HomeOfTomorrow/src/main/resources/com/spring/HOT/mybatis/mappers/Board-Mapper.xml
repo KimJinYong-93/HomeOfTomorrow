@@ -57,7 +57,7 @@
 		*
 		from
 		board
-		where bno is not null  			  	
+		where bno is not null and cg_code = #{cg_code} 			  	
 		<include refid="search" />
 		order by reg_dt desc
 	</select>
@@ -85,6 +85,21 @@
 		set 
 		viewcnt=viewcnt+1 
 		where bno=#{bno}
+	</update>
+	
+	<update id="registBoard" parameterType="board">
+		INSERT INTO board (bno, id, title, content, reg_dt, cg_code)
+		VALUES(board_seq.nextval, #{id}, #{title}, #{content}, SYSDATE, #{cg_code})
+	</update>
+	
+	<update id="updateBoard" parameterType="board">
+		UPDATE board SET title = #{title}, content = #{content}, reg_dt = SYSDATE
+		WHERE bno = #{bno} 
+	</update>
+	
+	<update id="removeBoard" parameterType="int">
+		DELETE FROM board
+		WHERE bno = #{bno}
 	</update>
 
 </mapper>

@@ -23,4 +23,10 @@ public interface BoardDAO {
 	BoardVO selectBoardByBno(int bno) throws SQLException;
 
 	void increaseViewCnt(int bno) throws SQLException;
+	
+	void regist(BoardVO board) throws SQLException;
+	
+	void modify(BoardVO board) throws SQLException;
+	
+	void remove(int bno) throws SQLException;
 }

@@ -53,8 +53,9 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int selectBoardCriteriaTotalCount(SearchCriteria cri, String cg_code) throws SQLException {
 		
-		Map<String, Object> datas = new HashMap<String, Object>();
-		datas.put("cri", cri);
+		Map<String, String> datas = new HashMap<String, String>();
+		datas.put("searchType", cri.getSearchType());
+		datas.put("keyword", cri.getKeyword());
 		datas.put("cg_code", cg_code);
 		
 		int count = sqlSession.selectOne("Board-Mapper.selectSearchBoardListCount", datas);
@@ -70,8 +71,8 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public BoardVO getBoard(int bno) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		BoardVO board = sqlSession.selectOne("Board-Mapper.selectBoardByBno", bno);
+		return board;
 	}
 
 	@Override
@@ -83,6 +84,22 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void increaseViewCnt(int bno) throws SQLException {
 		sqlSession.update("Board-Mapper.increaseViewCnt",bno);
+		
+	}
+
+	@Override
+	public void regist(BoardVO board) throws SQLException {
+		sqlSession.update("Board-Mapper.registBoard", board);
+	}
+
+	@Override
+	public void modify(BoardVO board) throws SQLException {
+		sqlSession.update("Board-Mapper.updateBoard", board);
+	}
+
+	@Override
+	public void remove(int bno) throws SQLException {
+		sqlSession.update("Board-Mapper.removeBoard", bno);
 		
 	}
 	

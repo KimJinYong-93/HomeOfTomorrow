@@ -16,4 +16,10 @@
 		VALUES(#{id}, #{name}, #{cno}, #{manager}, #{email}, #{hp}, #{address1}, #{address2}, #{zipcode})
 	</update>
 	
+	<select id="getMemberCByCid" parameterType="str" resultType="memberC">
+		SELECT *
+		FROM member_c
+		WHERE id = #{cid}
+	</select>
+	
 </mapper>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.HOT.command.MemberJoinCommand;
+import com.spring.HOT.dto.CartVO;
 import com.spring.HOT.dto.GoodsVO;
 import com.spring.HOT.dto.HomeBoardVO;
 import com.spring.HOT.dto.MemberAVO;
@@ -29,6 +32,7 @@ import com.spring.HOT.dto.MemberCVO;
 import com.spring.HOT.dto.MemberNVO;
 import com.spring.HOT.dto.MemberVO;
 import com.spring.HOT.dto.MenuVO;
+import com.spring.HOT.service.CartService;
 import com.spring.HOT.service.GoodsService;
 import com.spring.HOT.service.HomeBoardService;
 import com.spring.HOT.exception.NotFoundIDException;
@@ -54,6 +58,8 @@ public class CommonController {
 	private GoodsService goodsService;
 	@Autowired
 	private HomeBoardService homeBoardService;
+	@Autowired
+	private CartService cartService;
 	
 	
 	@RequestMapping(value = "/common/main", method = RequestMethod.GET)
@@ -63,6 +69,12 @@ public class CommonController {
 		List<MenuVO> subMenu = menuService.subMenuByMcode(mCode);
 		List<GoodsVO> goodsTop12 = goodsService.goodsListTop12();
 		List<HomeBoardVO> homeBoardTop3 = homeBoardService.homeBoardTop3();
+		System.out.println(goodsTop12);
+		MemberVO member = (MemberVO) session.getAttribute("loginUser");
+		if(member != null) {
+			int cartSize = cartService.getCartSizeById(member.getId());
+			session.setAttribute("cartSize", cartSize);
+		}
 		mnv.addObject("mainMenuList",mainMenu);
 		mnv.addObject("subMenuList",subMenu);
 		mnv.addObject("goodsTop12",goodsTop12);
@@ -73,10 +85,47 @@ public class CommonController {
 	}
 
 	@RequestMapping("/common/loginForm")
-	public String loginForm() {
+	public String loginForm(@RequestParam(defaultValue = "0") String error, HttpServletResponse response) throws Exception {
 		String url="/common/login";
+		
+		if(error.equals("1")) {
+			response.setStatus(302);
+		}
+		
 		return url;
 	}
+	
+	@RequestMapping("/security/accessDenied")
+	public String accessDenied(HttpServletResponse response) throws Exception {
+		String url = "security/accessDenied.open";
+		
+		response.setStatus(302);
+		
+		return url;
+	}
+	
+	 @RequestMapping("/common/loginTimeOut") 
+	 public void loginTimeOut(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		 
+		 response.setContentType("text/html;charset=utf-8"); 
+		 PrintWriter out = response.getWriter();
+	  
+		 out.println("<script>"); out.println("alert('세션이 만료되었습니다.\\n다시 로그인하세요.');");
+		 out.println("location.href='" + request.getContextPath() + "';");
+		 out.println("</script>"); out.close(); 
+	 }
+	  
+	 @RequestMapping("/common/loginExpired") 
+	 public void loginExpired(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		 
+		 response.setContentType("text/html;charset=utf-8"); 
+		 PrintWriter out = response.getWriter();
+	  
+		 out.println("<script>"); out.println("alert('여기는 뭐지?');");
+		 out.println("location.href='" + request.getContextPath() + "';");
+		 out.println("</script>"); out.close(); 
+	 }
+		 
 	
 	@RequestMapping("/common/joinForm")
 	public String joinForm() {
@@ -142,30 +191,24 @@ public class CommonController {
 		}
 	}
 	
-	@RequestMapping("/common/login")
-	public String loginForm(String id, String pwd, HttpSession session) throws SQLException{
-		String url = "redirect:main";
-		
-		try {
-			memberService.login(id, pwd, session);
-			
-		} catch (NotFoundIDException | invalidPasswordException e) {
-			url = "redirect:loginForm";
-			session.setAttribute("msg", e.getMessage());
-		}
-		
-		return url;
-	}
 	
-	@RequestMapping("/common/logout")
-	public String logout(HttpSession session) throws SQLException {
-		
-		String url = "redirect:main";
-		
-		session.invalidate();
-		
-		return url;
-	}
+	/*
+	 * @RequestMapping("/common/login") public String loginForm(String id, String
+	 * pwd, HttpSession session) throws SQLException{ String url = "redirect:main";
+	 * 
+	 * try { memberService.login(id, pwd, session); } catch (NotFoundIDException |
+	 * invalidPasswordException e) { url = "redirect:loginForm";
+	 * session.setAttribute("msg", e.getMessage()); } return url; }
+	 * 
+	 * @RequestMapping("/common/logout") public String logout(HttpSession session)
+	 * throws SQLException {
+	 * 
+	 * String url = "redirect:main";
+	 * 
+	 * session.invalidate();
+	 * 
+	 * return url; }
+	 */
 	
 	@RequestMapping("/common/idCheck")
 	@ResponseBody

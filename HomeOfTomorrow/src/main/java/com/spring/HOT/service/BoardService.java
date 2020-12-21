@@ -17,4 +17,10 @@ public interface BoardService {
 
 	BoardVO getBoard(int bno) throws SQLException;
 
+	void regist(BoardVO board) throws SQLException;
+
+	void modify(BoardVO board) throws SQLException;
+
+	void remove(int bno) throws SQLException;
+
 }

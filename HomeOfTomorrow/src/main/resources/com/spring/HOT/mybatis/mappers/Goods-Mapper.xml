@@ -5,10 +5,11 @@
 <mapper namespace="Goods-Mapper">
 
 	<select id="selectTop12" resultType="goods">
-		select *
-		from goods
-		where rownum between 0 and 12
-		order by viewcnt desc
+		SELECT a.*
+		FROM(SELECT *
+		     FROM goods
+		     order by viewcnt desc) a
+		WHERE ROWNUM between 0 and 12
 	</select>
 	
 	<select id="selectGoods" resultType="goods">
@@ -20,5 +21,22 @@
 	<update id="registGoods" parameterType="goods">
 		INSERT INTO goods (gcode, cid, cname, gname, picture, op_name, op_val, content, cg_code, bname)
 		VALUES(#{gcode}, #{cid}, #{cname}, #{gname}, #{picture}, #{op_name}, #{op_val}, #{content}, #{cg_code}, #{bname})
+	</update>
+	
+	<select id="getGoodsAllList" resultType="goods">
+		SELECT *
+		FROM goods
+		WHERE cg_code LIKE '%'||#{cg_code}||'%'
+	</select>
+	
+	<select id="getGoodsListByCategory" parameterType="str" resultType="goods">
+		SELECT *
+		FROM goods
+		WHERE cg_code = #{cg_code}
+	</select>
+	
+	<update id="increaseViewcnt" parameterType="str">
+		UPDATE goods SET viewcnt = viewcnt + 1
+		WHERE gcode = #{gcode}
 	</update>
 </mapper>

@@ -4748,7 +4748,6 @@ div.block {
 }
 
 .dj-product .description .name span {
-	font-family:'NanumSquare', sans-serif;
 	color: #222 !important;
 	font-size: 18px !important;
 	letter-spacing: -0.03em;
@@ -8215,11 +8214,11 @@ div.ec-base-help ul li {
 
 .ec-base-table thead th {
 	padding: 15px 0 15px;
-	font-size: 15px;
+	font-size: 16px;
 	border-bottom: 1px solid #dfdfdf;
-	color: #353535;
+	color: #638cbf;
 	vertical-align: middle;
-	font-weight: 300;
+	font-weight: bold;
 	background: #fff;
 }
 

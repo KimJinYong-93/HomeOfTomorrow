@@ -52,6 +52,9 @@
 	<bean id="boardDAO"
 		class="com.spring.HOT.dao.BoardDAOImpl"
 		p:sqlSession-ref="sqlSession"/>
+	<bean id="cartDAO"
+		class="com.spring.HOT.dao.CartDAOImpl"
+		p:sqlSession-ref="sqlSession"/>
 		
 	<bean id="ordersDAO"
 		class="com.spring.HOT.dao.OrdersDAOImpl"
@@ -118,5 +121,9 @@
 		p:reviewDAO-ref="reviewDAO"
 		p:order_bdDAO-ref="order_bdDAO"
 		p:goodsDAO-ref="goodsDAO"/>
+
+	<bean id="cartService"
+		class="com.spring.HOT.service.CartServiceImpl"
+		p:cartDAO-ref="cartDAO"/>
 
 </beans>
